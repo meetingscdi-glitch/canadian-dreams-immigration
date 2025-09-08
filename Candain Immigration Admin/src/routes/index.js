@@ -27,6 +27,7 @@ const Dashboard = React.lazy(() => import('../pages/bmg/dashboard/Dashboard'));
 const Faq = React.lazy(() => import('../pages/bmg/faq/Faq'));
 const Teams = React.lazy(() => import('../pages/bmg/teams/Teams'));
 const Services = React.lazy(() => import('../pages/bmg/services/Services'));
+const SubServices = React.lazy(() => import('../pages/bmg/subServices/SubServices'));
 const Blogs = React.lazy(() => import('../pages/bmg/blogs/Blogs'));
 const LatestNews = React.lazy(() => import('../pages/bmg/latestNews/LatestNews'));
 const Enquiry = React.lazy(() => import('../pages/bmg/enquiry/Enquiry'));
@@ -132,6 +133,10 @@ const AllRoutes = () => {
                         {
                             path: 'services',
                             element: <LoadComponent component={Services} />,
+                        },
+                        {
+                            path: 'sub-services',
+                            element: <LoadComponent component={SubServices} />,
                         },
                         {
                             path: 'blogs',
