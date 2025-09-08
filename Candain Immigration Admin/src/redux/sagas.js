@@ -10,6 +10,7 @@ import notificationSaga from './notification/saga';
 import teamsSaga from './teams/saga';
 import blogsSaga from './blogs/saga';
 import latestNewsSaga from './latestNews/saga';
+import servicesSaga from './services/saga';
 
 export default function* rootSaga(): any {
     yield all([
@@ -22,5 +23,6 @@ export default function* rootSaga(): any {
         teamsSaga(),
         blogsSaga(),
         latestNewsSaga(),
+        servicesSaga(),
     ]);
 }

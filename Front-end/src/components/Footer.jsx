@@ -22,7 +22,7 @@ const Footer = () => {
                 </div>
                 <Link to='/contact-us'>
                     <button className="bg-white text-[#006AAB] md:px-10 px-2 lg:text-2xl sm:text-xl rounded-lg whitespace-nowrap text-sm my-2 md:my-0">
-                    Let’s Get Started
+                        Let’s Get Started
                     </button>
                 </Link>
             </div>
@@ -41,7 +41,7 @@ const Footer = () => {
                     {/* Logo & Social */}
                     <div className="flex flex-col md:gap-6 gap-3 xl:w-[22rem] px-5">
                         <Link to={'/'}>
-                        <img className="md:w-64 w-44" src={Logo} alt="Logo" />
+                            <img className="md:w-64 w-44" src={Logo} alt="Logo" />
                         </Link>
                         <h5 className="poppins-regular md:text-lg text-md md:leading-8">
                             Looking for expert immigration and visa consultation?
@@ -85,11 +85,22 @@ const Footer = () => {
                         </h5>
                         <h5 className="poppins-regular md:text-lg text-sm mt-5 flex items-start gap-3">
                             <MdEmail className="xl:text-3xl text-2xl shrink-0" />
-                            info@canadian.com
+                            <a
+                                href="mailto:info@canadian.com"
+                                className="transition-colors hover:font-bold"
+                            >
+                                info@canadian.com
+                            </a>
                         </h5>
+
                         <h5 className="poppins-regular md:text-md text-sm flex mt-5 items-start gap-3">
                             <IoCall className="xl:text-3xl text-2xl shrink-0" />
-                            +1 (416) 434-3155
+                            <a
+                                href="tel:+14164343155"
+                                className="transition-colors hover:font-bold"
+                            >
+                                +1 (416) 434-3155
+                            </a>
                         </h5>
                     </div>
                 </div>
