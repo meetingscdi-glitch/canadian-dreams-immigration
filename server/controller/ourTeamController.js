@@ -63,11 +63,12 @@ async function createTeamMember(req, res) {
   }
 };
 
+
+ 
  async function updateTeamMember(req, res) {
   try {
     const { name, designation, _id } = req.body;
-    const updateData = { name, designation };
-
+ 
      const existingTeamMember = await ourTeam.findById(_id);
     if (!existingTeamMember) {
       return res.status(404).json({ status: 404, message: "Team member not found" });
@@ -75,8 +76,8 @@ async function createTeamMember(req, res) {
 
      const updatedTeamMember = await ourTeam.findByIdAndUpdate(
       _id,
-      updateData,
-      { new: true, runValidators: true }
+     { name, designation, ...(req.file && { image: `http://localhost:3500/uploads/${req.file.filename}` })},
+      { new: true }
     );
 
     res.status(200).json({
