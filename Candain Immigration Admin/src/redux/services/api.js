@@ -4,53 +4,59 @@ const api = new APICore();
 
 // Service APIs
 const addService = (data) => {
-    const baseUrl = '/service/add';
+    const baseUrl = '/api/service/add';
     return api.create(baseUrl, data);
 };
 
 const getAllServices = () => {
-    const baseUrl = '/service/getAllServices';
+    const baseUrl = '/api/service/getAllServices';
     return api.get(baseUrl);
 };
 
 const getServiceById = (id) => {
-    const baseUrl = `/service/getServicesById/${id}`;
+    const baseUrl = `/api/service/getServicesById/${id}`;
     return api.get(baseUrl);
 };
 
 const editService = (data) => {
-    const baseUrl = '/service/edit';
+    const baseUrl = '/api/service/edit';
     return api.update(baseUrl, data);
 };
 
 const deleteService = (data) => {
-    const baseUrl = '/service/delete';
+    const baseUrl = '/api/service/delete';
     return api.delete(baseUrl, data);
 };
 
 // Sub-service APIs
 const addSubService = (data) => {
-    const baseUrl = '/subService/add';
+    const baseUrl = '/api/subService/add';
+    if (data instanceof FormData) {
+        return api.createWithFile(baseUrl, data);
+    }
     return api.create(baseUrl, data);
 };
 
 const getAllSubServices = () => {
-    const baseUrl = '/subService/getAllSubServices';
+    const baseUrl = '/api/subService/getAllSubServices';
     return api.get(baseUrl);
 };
 
 const getSubServiceById = (id) => {
-    const baseUrl = `/subService/getSubServicesById/${id}`;
+    const baseUrl = `/api/subService/getSubServicesById/${id}`;
     return api.get(baseUrl);
 };
 
 const editSubService = (data) => {
-    const baseUrl = '/subService/edit';
+    const baseUrl = '/api/subService/edit';
+    if (data instanceof FormData) {
+        return api.updatePutWithFile(baseUrl, data);
+    }
     return api.update(baseUrl, data);
 };
 
 const deleteSubService = (data) => {
-    const baseUrl = '/subService/delete';
+    const baseUrl = '/api/subService/delete';
     return api.delete(baseUrl, data);
 };
 

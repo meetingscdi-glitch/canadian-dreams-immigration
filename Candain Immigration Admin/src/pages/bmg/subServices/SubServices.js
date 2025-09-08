@@ -10,7 +10,7 @@ import { getSubServicesActions, getServicesActions } from '../../../redux/servic
 
 const SubServices = () => {
     const dispatch = useDispatch();
-    const { subServicesData, servicesData, loading } = useSelector(state => state.servicesData || {});
+    const { subServicesData, servicesData, loading } = useSelector(state => state.servicesDataReducer || {});
 
     const [totalRecords, setTotalRecords] = useState(0);
     const [search, setSearch] = useState('');
@@ -30,8 +30,8 @@ const SubServices = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        if (subServicesData?.subServices) {
-            setTotalRecords(subServicesData.subServices.length);
+        if (subServicesData?.serviceSubCategories) {
+            setTotalRecords(subServicesData.serviceSubCategories.length);
         }
     }, [subServicesData]);
 
@@ -43,7 +43,7 @@ const SubServices = () => {
         setSubServicesModal({ type, data, isVisible: true });
     };
 
-    const filteredData = subServicesData?.subServices?.filter(item =>
+    const filteredData = subServicesData?.serviceSubCategories?.filter(item =>
         item.name?.toLowerCase().includes(search.toLowerCase())
     ) || [];
 
@@ -204,7 +204,7 @@ const SubServices = () => {
                 show={subServicesModal.isVisible}
                 hide={() => setSubServicesModal({ ...subServicesModal, isVisible: false })}
                 subServicesData={subServicesModal}
-                servicesData={servicesData?.services || []}
+                servicesData={servicesData?.response || []}
             />
 
             <FloatingActionButton

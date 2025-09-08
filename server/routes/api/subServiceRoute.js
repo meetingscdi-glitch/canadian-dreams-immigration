@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const upload = require('../../middleware/multer');
 const {
     addSubService,
     getAllSubServices,
@@ -9,10 +10,10 @@ const {
 } = require('../../controller/subServiceController');
 
 // Sub-service routes
-router.post('/add', addSubService);
+router.post('/add', upload.single('image'), addSubService);
 router.get('/getAllSubServices', getAllSubServices);
 router.get('/getSubServicesById/:id', getSubServiceById);
-router.put('/edit', editSubService);
+router.put('/edit', upload.single('image'), editSubService);
 router.delete('/delete', deleteSubService);
 
 module.exports = router;
