@@ -8,5 +8,7 @@ router.use("/latestNews", require('./latestNewRoute'));
 router.use("/faq", require('./faqRoute'));
 router.use("/teamMember", require('./ourTeamRoute'));
 router.use("/contactUs", require('./contactUsRoute'));
+router.use("/service", require('./serviceRoute'));
+router.use("/subService", require('./subServiceRoute'));
 module.exports = router;
     
