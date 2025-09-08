@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form, Row, Col } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { addSubServicesActions, updateSubServicesActions, deleteSubServicesActions } from '../../../../redux/services/actions';
 
 const SubServicesModal = ({ show, hide, subServicesData, servicesData }) => {
     const dispatch = useDispatch();
+    const [imageInputType, setImageInputType] = useState('url');
+    const [selectedFile, setSelectedFile] = useState(null);
     const [formData, setFormData] = useState({
         serviceCategoryId: '',
         name: '',
@@ -89,16 +93,51 @@ const SubServicesModal = ({ show, hide, subServicesData, servicesData }) => {
         }));
     };
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setSelectedFile(file);
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                setFormData(prev => ({
+                    ...prev,
+                    image: e.target.result
+                }));
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         
         if (subServicesData.type === 'Add') {
-            dispatch(addSubServicesActions(formData));
+            const submitData = new FormData();
+            Object.keys(formData).forEach(key => {
+                if (key !== 'image') {
+                    submitData.append(key, formData[key]);
+                }
+            });
+            if (selectedFile) {
+                submitData.append('image', selectedFile);
+            } else if (formData.image && !formData.image.startsWith('data:')) {
+                submitData.append('imageUrl', formData.image);
+            }
+            dispatch(addSubServicesActions(submitData));
         } else if (subServicesData.type === 'Edit') {
-            dispatch(updateSubServicesActions({
-                _id: subServicesData.data._id,
-                ...formData
-            }));
+            const submitData = new FormData();
+            submitData.append('_id', subServicesData.data._id);
+            Object.keys(formData).forEach(key => {
+                if (key !== 'image') {
+                    submitData.append(key, formData[key]);
+                }
+            });
+            if (selectedFile) {
+                submitData.append('image', selectedFile);
+            } else if (formData.image && !formData.image.startsWith('data:')) {
+                submitData.append('imageUrl', formData.image);
+            }
+            dispatch(updateSubServicesActions(submitData));
         } else if (subServicesData.type === 'Delete') {
             dispatch(deleteSubServicesActions({ _id: subServicesData.data._id }));
         }
@@ -167,14 +206,55 @@ const SubServicesModal = ({ show, hide, subServicesData, servicesData }) => {
                             </Col>
                             <Col xs={12}>
                                 <Form.Group className="mb-3">
-                                    <Form.Label>Image URL</Form.Label>
-                                    <Form.Control
-                                        type="url"
-                                        name="image"
-                                        value={formData.image}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter image URL"
-                                    />
+                                    <Form.Label>Image</Form.Label>
+                                    <div className="mb-2">
+                                        <Form.Check
+                                            inline
+                                            type="radio"
+                                            name="imageType"
+                                            label="Upload File"
+                                            checked={imageInputType === 'file'}
+                                            onChange={() => setImageInputType('file')}
+                                        />
+                                        <Form.Check
+                                            inline
+                                            type="radio"
+                                            name="imageType"
+                                            label="Image URL"
+                                            checked={imageInputType === 'url'}
+                                            onChange={() => setImageInputType('url')}
+                                        />
+                                    </div>
+                                    {imageInputType === 'file' ? (
+                                        <Form.Control
+                                            type="file"
+                                            accept="image/*"
+                                            onChange={handleFileChange}
+                                        />
+                                    ) : (
+                                        <Form.Control
+                                            type="url"
+                                            name="image"
+                                            value={formData.image}
+                                            onChange={handleInputChange}
+                                            placeholder="Enter image URL"
+                                        />
+                                    )}
+                                    {formData.image && (
+                                        <div className="mt-3">
+                                            <img 
+                                                src={formData.image} 
+                                                alt="Preview" 
+                                                style={{ 
+                                                    width: '200px', 
+                                                    height: '150px', 
+                                                    objectFit: 'cover', 
+                                                    borderRadius: '8px',
+                                                    border: '1px solid #ddd'
+                                                }} 
+                                            />
+                                        </div>
+                                    )}
                                 </Form.Group>
                             </Col>
                             <Col md={6}>
@@ -204,13 +284,13 @@ const SubServicesModal = ({ show, hide, subServicesData, servicesData }) => {
                             <Col xs={12}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Paragraph One</Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name="paragraphOne"
-                                        value={formData.paragraphOne}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter paragraph one"
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={formData.paragraphOne}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            setFormData(prev => ({ ...prev, paragraphOne: data }));
+                                        }}
                                     />
                                 </Form.Group>
                             </Col>
@@ -241,13 +321,13 @@ const SubServicesModal = ({ show, hide, subServicesData, servicesData }) => {
                             <Col xs={12}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Paragraph Two</Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name="paragraphTwo"
-                                        value={formData.paragraphTwo}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter paragraph two"
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={formData.paragraphTwo}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            setFormData(prev => ({ ...prev, paragraphTwo: data }));
+                                        }}
                                     />
                                 </Form.Group>
                             </Col>
@@ -278,13 +358,13 @@ const SubServicesModal = ({ show, hide, subServicesData, servicesData }) => {
                             <Col xs={12}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Paragraph Three</Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name="paragraphThree"
-                                        value={formData.paragraphThree}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter paragraph three"
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={formData.paragraphThree}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            setFormData(prev => ({ ...prev, paragraphThree: data }));
+                                        }}
                                     />
                                 </Form.Group>
                             </Col>
@@ -315,13 +395,13 @@ const SubServicesModal = ({ show, hide, subServicesData, servicesData }) => {
                             <Col xs={12}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Paragraph Four</Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name="paragraphFour"
-                                        value={formData.paragraphFour}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter paragraph four"
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={formData.paragraphFour}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            setFormData(prev => ({ ...prev, paragraphFour: data }));
+                                        }}
                                     />
                                 </Form.Group>
                             </Col>
@@ -352,13 +432,13 @@ const SubServicesModal = ({ show, hide, subServicesData, servicesData }) => {
                             <Col xs={12}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Paragraph Five</Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name="paragraphFive"
-                                        value={formData.paragraphFive}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter paragraph five"
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={formData.paragraphFive}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            setFormData(prev => ({ ...prev, paragraphFive: data }));
+                                        }}
                                     />
                                 </Form.Group>
                             </Col>
@@ -389,13 +469,13 @@ const SubServicesModal = ({ show, hide, subServicesData, servicesData }) => {
                             <Col xs={12}>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Paragraph Six</Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={3}
-                                        name="paragraphSix"
-                                        value={formData.paragraphSix}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter paragraph six"
+                                    <CKEditor
+                                        editor={ClassicEditor}
+                                        data={formData.paragraphSix}
+                                        onChange={(event, editor) => {
+                                            const data = editor.getData();
+                                            setFormData(prev => ({ ...prev, paragraphSix: data }));
+                                        }}
                                     />
                                 </Form.Group>
                             </Col>

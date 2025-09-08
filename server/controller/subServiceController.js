@@ -3,7 +3,7 @@ const SubService = require('../models/subServiceModel');
 // Add new sub-service
 const addSubService = async (req, res) => {
     try {
-        const {
+        let {
             serviceCategoryId,
             name,
             image,
@@ -29,6 +29,13 @@ const addSubService = async (req, res) => {
         
         if (!serviceCategoryId || !name) {
             return res.status(400).json({ message: 'Service category ID and name are required' });
+        }
+
+        // Handle file upload or URL
+        if (req.file) {
+            image = `http://localhost:3500/uploads/${req.file.filename}`;
+        } else if (req.body.imageUrl) {
+            image = req.body.imageUrl;
         }
 
         const subService = new SubService({
@@ -97,10 +104,17 @@ const getSubServiceById = async (req, res) => {
 // Edit sub-service
 const editSubService = async (req, res) => {
     try {
-        const { _id, ...updateData } = req.body;
+        let { _id, ...updateData } = req.body;
         
         if (!_id) {
             return res.status(400).json({ message: 'Sub-service ID is required' });
+        }
+
+        // Handle file upload or URL
+        if (req.file) {
+            updateData.image = `http://localhost:3500/uploads/${req.file.filename}`;
+        } else if (req.body.imageUrl) {
+            updateData.image = req.body.imageUrl;
         }
 
         const subService = await SubService.findByIdAndUpdate(

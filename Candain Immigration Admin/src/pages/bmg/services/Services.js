@@ -10,9 +10,11 @@ import { getServicesActions } from '../../../redux/services/actions';
 
 const Services = () => {
     const dispatch = useDispatch();
-    const { servicesData, loading } = useSelector(state => state.servicesData || {});
+    const store = useSelector((state) => state);
+    const { servicesData, loading } = useSelector(state => state.servicesDataReducer || {});
 
     const [totalRecords, setTotalRecords] = useState(0);
+    console.log(store?.servicesDataReducer, 'servicesData');
 
     const [search, setSearch] = useState('');
     const [pageIndex, setPageIndex] = useState(1);
@@ -30,8 +32,8 @@ const Services = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        if (servicesData?.services) {
-            setTotalRecords(servicesData.services.length);
+        if (servicesData?.response) {
+            setTotalRecords(servicesData.response.length);
         }
     }, [servicesData]);
 
@@ -111,7 +113,7 @@ const Services = () => {
 
                             {loading ? (
                                 <Loading />
-                            ) : servicesData?.services?.length > 0 ? (
+                            ) : servicesData?.response?.length > 0 ? (
                                 <div className="table-responsive">
                                     <Table className="mb-0 modern-table">
                                         <thead>
@@ -126,7 +128,7 @@ const Services = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {servicesData?.services?.map((data, index) => (
+                                            {servicesData?.response?.map((data, index) => (
                                                 <tr key={data._id || index} className="stagger-item">
                                                     <td className="align-middle">
                                                         <span className="badge bg-light text-dark rounded-pill">{(pageIndex - 1) * pageSize + index + 1}</span>
@@ -137,9 +139,9 @@ const Services = () => {
                                                     <OverlayTrigger
                                                         placement="top"
                                                         overlay={
-                                                            <Tooltip id={`tooltip-${index}`}>{data?.title}</Tooltip>
+                                                            <Tooltip id={`tooltip-${index}`}>{data?.name}</Tooltip>
                                                         }>
-                                                        <td className="align-middle">{data?.title?.slice(0, 30) + '...' || 'N/A'}</td>
+                                                        <td className="align-middle">{data?.name?.slice(0, 30) + '...' || 'N/A'}</td>
                                                     </OverlayTrigger>
                                                     <OverlayTrigger
                                                         placement="top"
