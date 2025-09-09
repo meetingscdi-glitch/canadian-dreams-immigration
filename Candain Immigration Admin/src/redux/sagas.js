@@ -11,6 +11,7 @@ import teamsSaga from './teams/saga';
 import blogsSaga from './blogs/saga';
 import latestNewsSaga from './latestNews/saga';
 import servicesSaga from './services/saga';
+import jobsSaga from './jobs/saga';
 
 export default function* rootSaga(): any {
     yield all([
@@ -24,5 +25,6 @@ export default function* rootSaga(): any {
         blogsSaga(),
         latestNewsSaga(),
         servicesSaga(),
+        jobsSaga(),
     ]);
 }
