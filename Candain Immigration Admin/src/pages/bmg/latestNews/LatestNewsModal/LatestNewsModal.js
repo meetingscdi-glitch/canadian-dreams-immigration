@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Modal, Button, Form, Row, Col } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { addLatestNewsActions, editLatestNewsActions, deleteLatestNewsActions } from '../../../../redux/actions';
 
 const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
@@ -58,7 +60,7 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        if (formData.paragraph.length < 10) {
+        if (formData.paragraph.replace(/<[^>]*>/g, '').length < 10) {
             return;
         }
         
@@ -89,7 +91,7 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
 
     if (type === 'Delete') {
         return (
-            <Modal show={isVisible} onHide={handleClose} centered>
+            <Modal show={isVisible} onHide={handleClose} centered className="modal-animate">
                 <Modal.Header className="border-0 pb-0" style={{ background: 'linear-gradient(135deg, #dc3545 0%, #c82333 100%)', borderRadius: '15px 15px 0 0' }}>
                     <Modal.Title className="text-white fw-bold">
                         <i className="mdi mdi-delete-alert me-2"></i>Delete News
@@ -109,8 +111,8 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
                             This action cannot be undone.
                         </p>
                         <div className="d-flex gap-3 justify-content-center">
-                            <Button variant="outline-secondary" onClick={handleClose} className="px-4">
-                                Cancel
+                            <Button variant="outline-secondary" onClick={handleClose} className="px-4 btn-cancel">
+                                <i className="mdi mdi-close"></i>Cancel
                             </Button>
                             <Button variant="danger" onClick={handleDelete} className="px-4">
                                 <i className="mdi mdi-delete me-2"></i>Delete
@@ -123,7 +125,7 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
     }
 
     return (
-        <Modal show={isVisible} onHide={handleClose} size="lg" centered>
+        <Modal show={isVisible} onHide={handleClose} size="lg" centered className="modal-animate">
             <Modal.Header className="border-0 pb-0" style={{ background: 'linear-gradient(135deg, #006AAB 0%, #004d7a 100%)', borderRadius: '15px 15px 0 0' }}>
                 <Modal.Title className="text-white fw-bold">
                     <i className={`mdi ${type === 'Add' ? 'mdi-plus-circle' : 'mdi-pencil'} me-2`}></i>
@@ -134,7 +136,7 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
                 </Button>
             </Modal.Header>
             <Modal.Body className="p-0">
-                <div className="bg-white p-4" style={{ borderRadius: '0 0 15px 15px' }}>
+                <div className="bg-white p-4 animate-slide-left" style={{ borderRadius: '0 0 15px 15px' }}>
                     <Form onSubmit={handleSubmit}>
                         <Row>
                             <Col md={12}>
@@ -159,18 +161,28 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
                                     <Form.Label className="fw-semibold text-dark mb-2">
                                         <i className="mdi mdi-text me-2 text-primary"></i>Paragraph
                                     </Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={4}
-                                        name="paragraph"
-                                        value={formData.paragraph}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter news content (minimum 10 characters)"
-                                        required
-                                        minLength={10}
-                                        style={{ borderRadius: '10px', border: '2px solid #e9ecef' }}
-                                    />
-                                    {formData.paragraph.length > 0 && formData.paragraph.length < 10 && (
+                                    <div className="border rounded" style={{ borderRadius: '10px', border: '2px solid #e9ecef' }}>
+                                        <CKEditor
+                                            editor={ClassicEditor}
+                                            data={formData.paragraph}
+                                            onChange={(event, editor) => {
+                                                const data = editor.getData();
+                                                setFormData(prev => ({ ...prev, paragraph: data }));
+                                            }}
+                                            config={{
+                                                placeholder: 'Enter news content (minimum 10 characters)...',
+                                                toolbar: [
+                                                    'heading', '|',
+                                                    'bold', 'italic', 'link', '|',
+                                                    'bulletedList', 'numberedList', '|',
+                                                    'outdent', 'indent', '|',
+                                                    'blockQuote', '|',
+                                                    'undo', 'redo'
+                                                ]
+                                            }}
+                                        />
+                                    </div>
+                                    {formData.paragraph.length > 0 && formData.paragraph.replace(/<[^>]*>/g, '').length < 10 && (
                                         <Form.Text className="text-danger">
                                             Paragraph must be at least 10 characters long
                                         </Form.Text>
@@ -203,12 +215,12 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
                             </Col>
                         </Row>
                         <div className="d-flex justify-content-end gap-3 pt-3 border-top">
-                            <Button variant="outline-secondary" onClick={handleClose} className="px-4">
-                                Cancel
+                            <Button variant="outline-secondary" onClick={handleClose} className="px-4 btn-cancel">
+                                <i className="mdi mdi-close"></i>Cancel
                             </Button>
                             <Button
                                 type="submit"
-                                className="px-4"
+                                className="px-4 btn-animated hover-glow"
                                 style={{ backgroundColor: '#006AAB', borderColor: '#006AAB' }}
                             >
                                 <i className={`mdi ${type === 'Add' ? 'mdi-plus' : 'mdi-check'} me-2`}></i>

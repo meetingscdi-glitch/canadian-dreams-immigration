@@ -137,8 +137,8 @@ const Topbar = ({ hideLogo, navCssClasses, openLeftMenuCallBack, topbarDark }: T
                             <ProfileDropdown
                                 profilePic={BmgLogo}
                                 menuItems={ProfileMenus}
-                                username={'BMG Admin'}
-                                userTitle={'Founder'}
+                                username={'🍁 Canadian Admin'}
+                                userTitle={'Immigration Officer'}
                             />
                         </li>
                     </ul>

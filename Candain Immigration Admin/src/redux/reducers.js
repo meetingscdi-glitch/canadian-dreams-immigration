@@ -18,6 +18,7 @@ import teamsDataReducer from './teams/reducer';
 import servicesDataReducer from './services/reducers';
 import blogsDataReducer from './blogs/reducers';
 import latestNewsDataReducer from './latestNews/reducer';
+import jobsDataReducer from './jobs/reducers';
 export default combineReducers({
     Auth,
     Layout,
@@ -35,4 +36,5 @@ export default combineReducers({
     servicesDataReducer,
     blogsDataReducer,
     latestNewsDataReducer,
+    jobsDataReducer,
 });
