@@ -151,10 +151,18 @@ const Home = () => {
             </div>
 
             {/* Remaining Sections */}
-            <FadeInOnScroll><WhyChooseUs /></FadeInOnScroll>
-            <FadeInOnScroll><Testimonial /></FadeInOnScroll>
-            <FadeInOnScroll><LatestNews /></FadeInOnScroll>
-            <FadeInOnScroll><Faq /></FadeInOnScroll>
+            <FadeInOnScroll>
+                <WhyChooseUs />
+            </FadeInOnScroll>
+            <FadeInOnScroll>
+                <Testimonial />
+            </FadeInOnScroll>
+            <FadeInOnScroll>
+                <LatestNews />
+            </FadeInOnScroll>
+            <FadeInOnScroll>
+                <Faq />
+            </FadeInOnScroll>
             <Footer />
         </div >
     )

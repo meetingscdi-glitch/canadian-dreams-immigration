@@ -93,7 +93,7 @@ const Navbar = () => {
                     <div
                         ref={navItemsRef}
                         className={`overflow-hidden transition-all duration-500 ease-in-out ${hide ? 'max-h-0 lg:max-h-[500px]' : 'max-h-[500px] py-6'
-                            } flex flex-col lg:mr-4 xl:mr-0 lg:flex-row lgf:items-center gap-4 xl:gap-5 poppins-regular text-lg md:static absolute right-0 bg-white z-10 w-full md:w-auto px-5 md:px-0 navbaritems centerClas`}
+                            } flex flex-col lg:mr-4 xl:mr-0 lg:flex-row lgf:items-center gap-4 xl:gap-5 poppins-regular text-lg md:static absolute right-0 bg-white lg:bg-transparent z-10 w-full md:w-auto px-5 md:px-0 navbaritems centerClas`}
                     >
                         <NavLink
                             to="/"
