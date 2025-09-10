@@ -72,8 +72,8 @@ const BannerCarousel = () => {
             <Slider {...settings}>
                 {bannerData.map((banner, index) => (
                     <div key={index}>
-                        <div className='w-full relative headreimg'>
-                            <div className='xl:h-[47rem] h-[22rem] w-full overflow-hidden'>
+                        <div className='w-full relative'>
+                            <div className='xl:h-[47rem] h-[50vh] w-full overflow-hidden'>
                                 <div className='absolute top-0 left-0 bg-gradient-to-r from-[#000000DE] to-transparent w-full h-full z-10'></div>
                                 <img
                                     className={`w-full h-full object-cover transition-transform duration-1000 ${currentSlide === index ? 'scale-110' : 'scale-100'
