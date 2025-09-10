@@ -6,6 +6,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import staticText from '../content/staticData';
 gsap.registerPlugin(ScrollTrigger);
 
 const CanadianDreams = () => {
@@ -57,9 +59,6 @@ const CanadianDreams = () => {
 
     // })
 
-
-
-
     return (
         <div className='grid lg:grid-cols-2 gap-3 md:gap-0 lg:py-20 py-8  px-5 md:px-10 lg:px-0 container mx-auto '>
             <div className='xl:pl-20 xl:pr-12 lg:ml-8 xl:ml-0 overflow-hidden' >
@@ -71,8 +70,10 @@ const CanadianDreams = () => {
                 <h1 className="lg:text-5xl text-3xl md:text-4xl font-bold lg:w-3/4 lg:leading-tight lg:mt-1.5">
                     Immigration <span>& Worldwide Services Ltd.</span>
                 </h1>
-                <p className='xl:w-5/6 lg:mb-6  mt-3 text-base sm:text-xl xl:mr-12 mr-8'>is a federally incorporated and CICC-licensed Canadian immigration consultancy firm headquartered in Brampton, Ontario. Founded with the vision of delivering ethical, transparent, and result-oriented immigration services, we take pride in being a trusted partner for individuals, families, and businesses navigating Canada’s complex immigration landscape.</p>
-                <button id='buttonStyle' className='lg:py-2 md:py-3 px-4 py-2 lg:px-4 md:px-8 rounded text-white lg:mt-3 sm:text-xl mt-5'>Contact Us</button>
+                <p className='xl:w-5/6 lg:mb-6  mt-3 text-base sm:text-xl xl:mr-12 mr-8'>Is a federally incorporated and CICC-licensed Canadian immigration consultancy firm headquartered in Brampton, Ontario. Founded with the vision of delivering ethical, transparent, and result-oriented immigration services, we take pride in being a trusted partner for individuals, families, and businesses navigating Canada’s complex immigration landscape.</p>
+                <Link to='/contact-us'>
+                    <button id='buttonStyle' className='lg:py-2 md:py-3 px-4 py-2 lg:px-4 md:px-8 rounded text-white lg:mt-3 sm:text-xl mt-5'>{staticText.ctaTexts[2]}</button>
+                </Link>
             </div>
         </div>
     )

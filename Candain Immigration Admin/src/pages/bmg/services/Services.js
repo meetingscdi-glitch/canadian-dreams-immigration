@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Row, Col, Card, OverlayTrigger, Tooltip, Button, Table } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import PageTitle from '../../../helpers/PageTitle';
 import { Loading } from '../../../helpers/loader/Loading';
 import Pagination from '../../../helpers/Pagination';
 import ServicesModal from './ServicesModal/ServicesModal';
+import FloatingActionButton from '../../../components/FloatingActionButton';
+import { getServicesActions } from '../../../redux/services/actions';
 
 const Services = () => {
+    const dispatch = useDispatch();
+    const store = useSelector((state) => state);
+    const { servicesData, loading } = useSelector(state => state.servicesDataReducer || {});
 
-    const [servicesData, setServicesData] = useState([]);
     const [totalRecords, setTotalRecords] = useState(0);
-    const [loading, setLoading] = useState(false);
+    console.log(store?.servicesDataReducer, 'servicesData');
 
     const [search, setSearch] = useState('');
     const [pageIndex, setPageIndex] = useState(1);
@@ -23,13 +28,18 @@ const Services = () => {
     });
 
     useEffect(() => {
-        setTotalPages(Math.ceil(totalRecords / pageSize));
-    }, [totalRecords, pageSize]);
+        dispatch(getServicesActions());
+    }, [dispatch]);
 
     useEffect(() => {
-        // Fetch services data
-        console.log('Fetching services:', { search, limit: pageSize, page: pageIndex });
-    }, [search, pageIndex, pageSize]);
+        if (servicesData?.response) {
+            setTotalRecords(servicesData.response.length);
+        }
+    }, [servicesData]);
+
+    useEffect(() => {
+        setTotalPages(Math.ceil(totalRecords / pageSize));
+    }, [totalRecords, pageSize]);
 
     const handleServicesModal = (type, data = null) => {
         setServicesModal({ type, data, isVisible: true });
@@ -41,8 +51,8 @@ const Services = () => {
 
             <Row>
                 <Col xs={12}>
-                    <Card className="border-0 shadow-lg" style={{ borderRadius: '15px' }}>
-                        <Card.Header className="bg-gradient border-0 py-4" style={{ background: 'linear-gradient(135deg, #006AAB 0%, #004d7a 100%)', borderRadius: '15px 15px 0 0' }}>
+                    <Card className="border-0 shadow-lg animate-fade-in hover-lift" style={{ borderRadius: '15px' }}>
+                        <Card.Header className="bg-gradient border-0 gradient-animate" style={{ borderRadius: '15px 15px 0 0' }}>
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="d-flex align-items-center">
                                     <div className="bg-white bg-opacity-20 rounded-circle p-3 me-3">
@@ -61,7 +71,7 @@ const Services = () => {
                                 </div>
                             </div>
                         </Card.Header>
-                        <Card.Body className="p-4">
+                        <Card.Body className="py-0">
                             <div className="d-flex justify-content-between align-items-center mb-4">
                                 <div className="d-flex align-items-center gap-3">
                                     <div className="position-relative">
@@ -88,7 +98,7 @@ const Services = () => {
                                     )}
                                 </div>
                                 <Button
-                                    className="px-4 py-2 fw-semibold"
+                                    className="px-4 py-2 fw-semibold btn-animated hover-glow"
                                     style={{
                                         backgroundColor: '#006AAB',
                                         borderColor: '#006AAB',
@@ -103,35 +113,35 @@ const Services = () => {
 
                             {loading ? (
                                 <Loading />
-                            ) : servicesData.length > 0 ? (
+                            ) : servicesData?.response?.length > 0 ? (
                                 <div className="table-responsive">
-                                    <Table bordered hover className="bg-white text-center">
-                                        <thead className="text-start">
-                                            <tr className="text-nowrap text-secondary">
-                                                <th>
-                                                    <i className="mdi mdi-merge"></i>
-                                                </th>
-                                                <th>Icon</th>
-                                                <th>Title</th>
-                                                <th>Description</th>
-                                                <th>Price</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                    <Table className="mb-0 modern-table">
+                                        <thead>
+                                            <tr>
+                                                <th className="border-0 py-3 text-muted fw-semibold">#</th>
+                                                <th className="border-0 py-3 text-muted fw-semibold">Icon</th>
+                                                <th className="border-0 py-3 text-muted fw-semibold">Title</th>
+                                                <th className="border-0 py-3 text-muted fw-semibold">Description</th>
+                                                <th className="border-0 py-3 text-muted fw-semibold">Price</th>
+                                                <th className="border-0 py-3 text-muted fw-semibold">Status</th>
+                                                <th className="border-0 py-3 text-muted fw-semibold text-center">Actions</th>
                                             </tr>
                                         </thead>
-                                        <tbody className="text-stat">
-                                            {servicesData.map((data, index) => (
-                                                <tr key={data._id || index}>
-                                                    <td>{(pageIndex - 1) * pageSize + index + 1}</td>
-                                                    <td>
+                                        <tbody>
+                                            {servicesData?.response?.map((data, index) => (
+                                                <tr key={data._id || index} className="stagger-item">
+                                                    <td className="align-middle">
+                                                        <span className="badge bg-light text-dark rounded-pill">{(pageIndex - 1) * pageSize + index + 1}</span>
+                                                    </td>
+                                                    <td className="align-middle">
                                                         <i className={`${data?.icon || 'mdi mdi-briefcase'} fs-3 text-primary`}></i>
                                                     </td>
                                                     <OverlayTrigger
                                                         placement="top"
                                                         overlay={
-                                                            <Tooltip id={`tooltip-${index}`}>{data?.title}</Tooltip>
+                                                            <Tooltip id={`tooltip-${index}`}>{data?.name}</Tooltip>
                                                         }>
-                                                        <td>{data?.title?.slice(0, 30) + '...' || 'N/A'}</td>
+                                                        <td className="align-middle">{data?.name?.slice(0, 30) + '...' || 'N/A'}</td>
                                                     </OverlayTrigger>
                                                     <OverlayTrigger
                                                         placement="top"
@@ -144,7 +154,7 @@ const Services = () => {
                                                                 />
                                                             </Tooltip>
                                                         }>
-                                                        <td>
+                                                        <td className="align-middle">
                                                             <span
                                                                 dangerouslySetInnerHTML={{
                                                                     __html: data?.description?.slice(0, 50) + '...' || 'N/A',
@@ -152,23 +162,30 @@ const Services = () => {
                                                             />
                                                         </td>
                                                     </OverlayTrigger>
-                                                    <td>{data?.price ? `$${data.price}` : 'Contact Us'}</td>
-                                                    <td>
-                                                        <span
-                                                            className={`badge ${data?.status ? 'bg-success' : 'bg-danger'
-                                                                } px-2 py-1`}>
-                                                            {data?.status ? '✅ Active' : '❌ Inactive'}
+                                                    <td className="align-middle">{data?.price ? `$${data.price}` : 'Contact Us'}</td>
+                                                    <td className="align-middle">
+                                                        <span className={`modern-badge ${data?.status ? 'status-active' : 'status-inactive'}`}>
+                                                            <i className={`mdi ${data?.status ? 'mdi-check-circle' : 'mdi-pause-circle'} me-1`}></i>
+                                                            {data?.status ? 'Active' : 'Inactive'}
                                                         </span>
                                                     </td>
-                                                    <td>
-                                                        <i
-                                                            className="mdi mdi-square-edit-outline fs-4 text-primary me-2"
-                                                            style={{ cursor: 'pointer' }}
-                                                            onClick={() => handleServicesModal('Edit', data)}></i>
-                                                        <i
-                                                            className="mdi mdi-delete-outline fs-4 text-danger"
-                                                            style={{ cursor: 'pointer' }}
-                                                            onClick={() => handleServicesModal('Delete', data)}></i>
+                                                    <td className="align-middle text-center">
+                                                        <div className="action-btn-group">
+                                                            <button
+                                                                className="action-btn edit-btn"
+                                                                onClick={() => handleServicesModal('Edit', data)}
+                                                                title="Edit Service"
+                                                            >
+                                                                <i className="mdi mdi-pencil"></i>
+                                                            </button>
+                                                            <button
+                                                                className="action-btn delete-btn"
+                                                                onClick={() => handleServicesModal('Delete', data)}
+                                                                title="Delete Service"
+                                                            >
+                                                                <i className="mdi mdi-delete"></i>
+                                                            </button>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             ))}
@@ -208,6 +225,12 @@ const Services = () => {
                 show={servicesModal.isVisible}
                 hide={() => setServicesModal({ ...servicesModal, isVisible: false })}
                 servicesData={servicesModal}
+            />
+
+            <FloatingActionButton
+                onClick={() => handleServicesModal('Add')}
+                icon="mdi-briefcase-plus"
+                tooltip="Add New Service"
             />
         </>
     );
