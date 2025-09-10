@@ -7,6 +7,7 @@ import { TiSocialYoutube } from "react-icons/ti";
 import { IoLogoTiktok, IoLocationSharp, IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import staticText from '../content/staticData';
 
 const Footer = () => {
     return (
@@ -44,7 +45,7 @@ const Footer = () => {
                             <img className="md:w-64 w-44" src={Logo} alt="Logo" />
                         </Link>
                         <h5 className="poppins-regular md:text-lg text-md md:leading-8">
-                            Looking for expert immigration and visa consultation?
+                            {staticText.footerText}
                         </h5>
                         <div>
                             <h5 className="poppins-regular md:mb-0 text-xl">Follow Us</h5>
@@ -81,25 +82,25 @@ const Footer = () => {
                         <h5 className="poppins-500 text-xl mb-5 mt-2 xl:mt-0">Contact Us</h5>
                         <h5 className="poppins-regular md:text-md text-sm flex items-start  gap-2">
                             <IoLocationSharp className="xl:text-3xl text-2xl shrink-0" />
-                            Dummy address canadian 313 Canada, 33322
+                            {staticText.contactDetails.address}
                         </h5>
                         <h5 className="poppins-regular md:text-lg text-sm mt-5 flex items-start gap-3">
                             <MdEmail className="xl:text-3xl text-2xl shrink-0" />
                             <a
-                                href="mailto:info@canadian.com"
+                                href={`mailto:${staticText.contactDetails.email}`}
                                 className="transition-colors hover:font-bold"
                             >
-                                info@canadian.com
+                                {staticText.contactDetails.email}
                             </a>
                         </h5>
 
                         <h5 className="poppins-regular md:text-md text-sm flex mt-5 items-start gap-3">
                             <IoCall className="xl:text-3xl text-2xl shrink-0" />
                             <a
-                                href="tel:+14164343155"
+                                href={`tel:${staticText.contactDetails.phone}`}
                                 className="transition-colors hover:font-bold"
                             >
-                                +1 (416) 434-3155
+                                {staticText.contactDetails.phone}
                             </a>
                         </h5>
                     </div>
