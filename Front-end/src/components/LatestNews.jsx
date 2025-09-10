@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Lady from '../assets/smallimages/Lady.png'
 import Passport from '../assets/smallimages/Passport.png'
 import Communication from '../assets/smallimages/Communication.png'
@@ -7,30 +7,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { newsAPI } from '../services/api';
 
 const LatestNews = () => {
-  const Cardata = [
-    {
-      img: Lady,
-      heading: 'Major Restructuring of Australia’s Skilled Visa...',
-      parah: 'On 7th December 2024, the Department of Home Affairs introduced the most...'
-    },
-    {
-      img: Passport,
-      heading: 'The Most Powerful Passports in 2025 and...',
-      parah: 'A passport is more than just a travel document — it represents access...'
-    },
-    {
-      img: Communication,
-      heading: 'Visa Processing Times: What to Expect in 2025',
-      parah: 'Underfunding and existing backlogs have significantly impacted visa processing...'
-    },
-    {
-      img: Communication,
-      heading: 'Visa Processing Times: What to Expect in 2025',
-      parah: 'Underfunding and existing backlogs have significantly impacted visa processing...'
-    }
-  ];
+
+  const [news, setNews] = useState([]);
+
   const PrevArrow = ({ onClick }) => (
     <div
       onClick={onClick}
@@ -73,6 +56,19 @@ const LatestNews = () => {
       },
     ],
   };
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await newsAPI.getAllLatestNews();
+        setNews(response.data.response);
+      } catch (error) {
+        console.error('Error fetching news:', error);
+      }
+    };
+    fetchNews();
+  }, []);
+
   return (
     <div className='bg-[#F4FBFF] pb-14 mb-12 md:py-14'>
       <div className='container mx-auto'>
@@ -80,16 +76,25 @@ const LatestNews = () => {
         {/* Cart Main Div */}
         <div className='sm:w-3/4 lg:w-4/5 xl:px-4 sm:mx-auto xl:w-full'>
           <Slider {...settings}>
-            {Cardata.map((items) => {
-              return(
-              <div className='bg-white  shadow md:w-1/3'>
-                <img className='w-full md:h-64 h-54' src={items.img} alt="" />
-                <div className='px-4 py-6'>
-                  <h3 className='md:text-2xl text-xl mb-2 md:mb-4'>{items.heading}</h3>
-                  <h4 className='mb-4 md:text-lg'>{items.parah}</h4>
-                  <h6 className='poppins-600 text-[#006AAB] flex items-center gap-1'>Read More <GoArrowUpRight /></h6>
+            {news.map((items) => {
+              return (
+                <div className='bg-white shadow md:w-1/3' key={items.id}>
+                  <img
+                    className='w-full md:h-64 h-54'
+                    src={items.image}
+                    alt=""
+                  />
+                  <div className='px-4 py-6'>
+                    <h3 className='md:text-2xl text-xl mb-2 md:mb-4'>{items.heading}</h3>
+                    <h4 className='mb-4 md:text-lg'>
+                      {items.paragraph}
+                    </h4>
+                    <Link to='/blog' className='poppins-600 text-[#006AAB] flex items-center gap-1 hover:underline'>
+                      Read More <GoArrowUpRight />
+                    </Link>
+                  </div>
                 </div>
-              </div>)
+              )
             })}
           </Slider>
         </div>

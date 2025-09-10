@@ -11,7 +11,7 @@ const latestNewsSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    type: String, // Path or URL to the image
+    type: String,  
     required: true,
   },
 },{timestamps:true});
