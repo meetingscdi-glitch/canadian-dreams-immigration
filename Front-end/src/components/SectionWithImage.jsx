@@ -35,7 +35,8 @@ const SectionWithImage = () => {
         '/terms-and-condition': {
             image: Micgirl,
             heading: 'Terms and Condition'
-        }
+        },
+       
 
     };
     const {image,heading} = ImageRoutes[currentpath];
