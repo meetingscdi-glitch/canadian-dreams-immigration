@@ -30,8 +30,8 @@ const OurServices = () => {
       try {
         console.log('Fetching services and subServices...');
         const [servicesRes, subServicesRes] = await Promise.all([
-          axios.get('http://localhost:3500/api/service/getAllServices'),
-          axios.get('http://localhost:3500/api/subService/getAllSubServices')
+          axios.get('http://54.175.213.53/api/service/getAllServices'),
+          axios.get('http://54.175.213.53/api/subService/getAllSubServices')
         ]);
 
         console.log('Services response:', servicesRes.data);
@@ -51,7 +51,7 @@ const OurServices = () => {
             const subService = subServicesRes.data?.serviceSubCategories?.find(sub => sub.name === firstSubCategory.name);
             if (subService?._id) {
               try {
-                const response = await axios.get(`http://localhost:3500/api/subService/getSubServicesById/${subService._id}`);
+                const response = await axios.get(`http://54.175.213.53/api/subService/getSubServicesById/${subService._id}`);
                 if (response.data?.serviceSubCategoryData) {
                   setSelectedSubCategory(response.data.serviceSubCategoryData);
                 }
@@ -81,7 +81,7 @@ const OurServices = () => {
   // Fetch service by ID
   const fetchServiceById = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3500/api/service/getServicesById/${id}`);
+      const response = await axios.get(`http://54.175.213.53/api/service/getServicesById/${id}`);
       if (response.data && response.data.response) {
         setSelectedService(response.data.response);
       }
@@ -106,7 +106,7 @@ const OurServices = () => {
     if (subService && subService._id) {
       try {
         console.log('Making API call with ID:', subService._id);
-        const response = await axios.get(`http://localhost:3500/api/subService/getSubServicesById/${subService._id}`);
+        const response = await axios.get(`http://54.175.213.53/api/subService/getSubServicesById/${subService._id}`);
         console.log('API Response:', response.data);
         if (response.data && response.data.serviceSubCategoryData) {
           setSelectedSubCategory(response.data.serviceSubCategoryData);
