@@ -84,13 +84,13 @@ const BannerCarousel = () => {
                             </div>
                             <div className='container mx-auto absolute top-0 left-0 right-0 z-20'>
                                 <img className='xl:w-64 lg:w-50 w-42 absolute right-3 top-3' src={CiccLogo} alt="CICC IMAGE" />
-                                <div className={`absolute xl:top-[16rem] top-[6rem] text-[#FFFFFF] px-5 md:pl-10 lg:ml-5 lg:pl-0 ${currentSlide === index ? `animate-${banner.animation}` : 'opacity-0'
+                                <div className={`absolute xl:top-[16rem] top-[6rem] text-[#FFFFFF] px-3.5 md:pl-10 lg:ml-5 lg:pl-0 ${currentSlide === index ? `animate-${banner.animation}` : 'opacity-0'
                                     }`}>
-                                    <h1 className='xl:text-[5rem] text-4xl md:text-6xl md:mb-0 leading-14' ref={index === currentSlide ? headingRef : null}>
+                                    <h1 className='xl:text-[5rem] text-4xl md:text-6xl md:mb-0 leading-12' ref={index === currentSlide ? headingRef : null}>
                                         {banner.heading}
                                     </h1>
                                     <h2
-                                        className='lg:text-2xl lg:w-2/3 lg:leading-8 xl:text-3xl md:text-xl text-base tracking-wider xl:w-3/4 xl:leading-12 leading-6 md:leading-5 md:mb-3 pb-2 xl:mt-6 md:mt-6 lg:mt-4'
+                                        className='lg:text-2xl lg:w-2/3 lg:leading-8 xl:text-3xl md:text-xl text-base tracking-wider xl:w-3/4 xl:leading-12 leading-6 md:leading-5 md:mb-3 pb-2 xl:mt-6 md:mt-6 lg:mt-20 pt-4'
                                         ref={index === currentSlide ? subheadingRef : null}
                                     >
                                         {banner.subheading}
