@@ -419,3 +419,13 @@ span {
 .centerClas {
     align-items: center !important;
 }
+
+
+/* Home Crousel Space adjust*/
+/* Remove padding/margin from inner divs if needed */
+.banner-carousel .slick-slide > div {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
