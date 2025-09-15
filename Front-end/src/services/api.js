@@ -9,7 +9,6 @@ const api = axios.create({
   },
 });
 
-
 export const contactAPI = {
   sendMail: (contactData) => {
     return api.post('/contactUs/sendMail', contactData);

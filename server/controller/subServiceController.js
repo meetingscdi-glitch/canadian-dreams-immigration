@@ -26,7 +26,7 @@ const addSubService = async (req, res) => {
             SubHeaderSeven,
             paragraphSix
         } = req.body;
-        
+
         if (!serviceCategoryId || !name) {
             return res.status(400).json({ message: 'Service category ID and name are required' });
         }
@@ -90,7 +90,7 @@ const getSubServiceById = async (req, res) => {
     try {
         const { id } = req.params;
         const subService = await SubService.findById(id).populate('serviceCategoryId', 'name');
-        
+
         if (!subService) {
             return res.status(404).json({ message: 'Sub-service not found' });
         }
@@ -105,7 +105,7 @@ const getSubServiceById = async (req, res) => {
 const editSubService = async (req, res) => {
     try {
         let { _id, ...updateData } = req.body;
-        
+
         if (!_id) {
             return res.status(400).json({ message: 'Sub-service ID is required' });
         }
@@ -140,7 +140,7 @@ const editSubService = async (req, res) => {
 const deleteSubService = async (req, res) => {
     try {
         const { _id } = req.body;
-        
+
         if (!_id) {
             return res.status(400).json({ message: 'Sub-service ID is required' });
         }
