@@ -1,16 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Row, Col, Card, OverlayTrigger, Tooltip, Button, Table } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import PageTitle from '../../../helpers/PageTitle';
 import { Loading } from '../../../helpers/loader/Loading';
 import Pagination from '../../../helpers/Pagination';
 import ServicesModal from './ServicesModal/ServicesModal';
 import FloatingActionButton from '../../../components/FloatingActionButton';
+import { getServicesActions } from '../../../redux/services/actions';
 
 const Services = () => {
+    const dispatch = useDispatch();
+    const store = useSelector((state) => state);
+    const { servicesData, loading } = useSelector(state => state.servicesDataReducer || {});
 
-    const [servicesData, setServicesData] = useState([]);
     const [totalRecords, setTotalRecords] = useState(0);
-    const [loading, setLoading] = useState(false);
+    console.log(store?.servicesDataReducer, 'servicesData');
 
     const [search, setSearch] = useState('');
     const [pageIndex, setPageIndex] = useState(1);
@@ -24,12 +28,18 @@ const Services = () => {
     });
 
     useEffect(() => {
-        setTotalPages(Math.ceil(totalRecords / pageSize));
-    }, [totalRecords, pageSize]);
+        dispatch(getServicesActions());
+    }, [dispatch]);
 
     useEffect(() => {
-        // Fetch services data
-    }, [search, pageIndex, pageSize]);
+        if (servicesData?.response) {
+            setTotalRecords(servicesData.response.length);
+        }
+    }, [servicesData]);
+
+    useEffect(() => {
+        setTotalPages(Math.ceil(totalRecords / pageSize));
+    }, [totalRecords, pageSize]);
 
     const handleServicesModal = (type, data = null) => {
         setServicesModal({ type, data, isVisible: true });
@@ -103,7 +113,7 @@ const Services = () => {
 
                             {loading ? (
                                 <Loading />
-                            ) : servicesData.length > 0 ? (
+                            ) : servicesData?.response?.length > 0 ? (
                                 <div className="table-responsive">
                                     <Table className="mb-0 modern-table">
                                         <thead>
@@ -118,7 +128,7 @@ const Services = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {servicesData.map((data, index) => (
+                                            {servicesData?.response?.map((data, index) => (
                                                 <tr key={data._id || index} className="stagger-item">
                                                     <td className="align-middle">
                                                         <span className="badge bg-light text-dark rounded-pill">{(pageIndex - 1) * pageSize + index + 1}</span>
@@ -129,9 +139,9 @@ const Services = () => {
                                                     <OverlayTrigger
                                                         placement="top"
                                                         overlay={
-                                                            <Tooltip id={`tooltip-${index}`}>{data?.title}</Tooltip>
+                                                            <Tooltip id={`tooltip-${index}`}>{data?.name}</Tooltip>
                                                         }>
-                                                        <td className="align-middle">{data?.title?.slice(0, 30) + '...' || 'N/A'}</td>
+                                                        <td className="align-middle">{data?.name?.slice(0, 30) + '...' || 'N/A'}</td>
                                                     </OverlayTrigger>
                                                     <OverlayTrigger
                                                         placement="top"

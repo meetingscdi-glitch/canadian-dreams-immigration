@@ -26,12 +26,12 @@ const Dashboard = () => {
     }, [dispatch, page, limit]);
 
     const dashboardItems = [
-        { title: 'Total Users', value: dashboardData?.totalUser || 0, icon: <FaUsers />, color: 'primary-subtle', redirect: '/bmg/users' },
-        { title: 'Total Categories', value: dashboardData?.totalCategory || 0, icon: <FaLayerGroup />, color: 'success-subtle', redirect: '/bmg/categories' },
-        { title: 'Total Sub-Categories', value: dashboardData?.totalSubCategory || 0, icon: <FaTags />, color: 'info-subtle', redirect: '/bmg/subcategories' },
-        { title: 'Total Admins', value: dashboardData?.totalAdmin || 0, icon: <FaUserShield />, color: 'warning-subtle', redirect: '/bmg/admins' },
-        { title: 'Auction', value: dashboardData?.totalLiveAuction || 0, icon: <FaGavel />, color: 'danger-subtle', redirect: '/bmg/auctions' },
-        { title: 'Sales', value: dashboardData?.totalUpComingAuction || 0, icon: <AiOutlineLineChart />, color: 'secondary-subtle', redirect: '/bmg/sales' },
+        { title: '🍁 Immigration Clients', value: dashboardData?.totalUser || 0, icon: <FaUsers />, color: 'primary-subtle', redirect: '/admin/enquiry' },
+        { title: '🇨🇦 Services Offered', value: dashboardData?.totalCategory || 8, icon: <FaLayerGroup />, color: 'success-subtle', redirect: '/admin/services' },
+        { title: '💼 Job Postings', value: dashboardData?.totalSubCategory || 12, icon: <FaTags />, color: 'info-subtle', redirect: '/admin/jobs' },
+        { title: '👥 Team Members', value: dashboardData?.totalAdmin || 5, icon: <FaUserShield />, color: 'warning-subtle', redirect: '/admin/teams' },
+        { title: '📰 News Articles', value: dashboardData?.totalLiveAuction || 15, icon: <FaGavel />, color: 'danger-subtle', redirect: '/admin/latest-news' },
+        { title: '📝 Blog Posts', value: dashboardData?.totalUpComingAuction || 25, icon: <AiOutlineLineChart />, color: 'secondary-subtle', redirect: '/admin/blogs' },
     ];
 
     return (
@@ -142,10 +142,10 @@ const Dashboard = () => {
 
             <PageTitle
                 breadCrumbItems={[
-                    { label: 'Admin Dashboard', path: '/admin/dashboard' },
+                    { label: '🍁 Canadian Immigration Admin', path: '/admin/dashboard' },
                     { label: 'Dashboard', path: '/admin/dashboard', active: true },
                 ]}
-                title={'Dashboard'}
+                title={'🇨🇦 Canadian Dream Immigration - Admin Dashboard'}
             />
 
             {dashboardLoading ? (

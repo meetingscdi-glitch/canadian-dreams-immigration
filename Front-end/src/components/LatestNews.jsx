@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { GoArrowUpRight } from "react-icons/go";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import { newsAPI } from '../services/api';
 
 const LatestNews = () => {
@@ -88,9 +89,9 @@ const LatestNews = () => {
                     <h4 className='mb-4 md:text-lg'>
                       {items.paragraph}
                     </h4>
-                    <h6 className='poppins-600 text-[#006AAB] flex items-center gap-1'>
+                    <Link to='/blog' className='poppins-600 text-[#006AAB] flex items-center gap-1 hover:underline'>
                       Read More <GoArrowUpRight />
-                    </h6>
+                    </Link>
                   </div>
                 </div>
               )

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Modal, Button, Form, Row, Col } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { addLatestNewsActions, editLatestNewsActions, deleteLatestNewsActions } from '../../../../redux/actions';
 
 const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
@@ -58,7 +60,7 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        if (formData.paragraph.length < 10) {
+        if (formData.paragraph.replace(/<[^>]*>/g, '').length < 10) {
             return;
         }
         
@@ -159,18 +161,28 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
                                     <Form.Label className="fw-semibold text-dark mb-2">
                                         <i className="mdi mdi-text me-2 text-primary"></i>Paragraph
                                     </Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={4}
-                                        name="paragraph"
-                                        value={formData.paragraph}
-                                        onChange={handleInputChange}
-                                        placeholder="Enter news content (minimum 10 characters)"
-                                        required
-                                        minLength={10}
-                                        style={{ borderRadius: '10px', border: '2px solid #e9ecef' }}
-                                    />
-                                    {formData.paragraph.length > 0 && formData.paragraph.length < 10 && (
+                                    <div className="border rounded" style={{ borderRadius: '10px', border: '2px solid #e9ecef' }}>
+                                        <CKEditor
+                                            editor={ClassicEditor}
+                                            data={formData.paragraph}
+                                            onChange={(event, editor) => {
+                                                const data = editor.getData();
+                                                setFormData(prev => ({ ...prev, paragraph: data }));
+                                            }}
+                                            config={{
+                                                placeholder: 'Enter news content (minimum 10 characters)...',
+                                                toolbar: [
+                                                    'heading', '|',
+                                                    'bold', 'italic', 'link', '|',
+                                                    'bulletedList', 'numberedList', '|',
+                                                    'outdent', 'indent', '|',
+                                                    'blockQuote', '|',
+                                                    'undo', 'redo'
+                                                ]
+                                            }}
+                                        />
+                                    </div>
+                                    {formData.paragraph.length > 0 && formData.paragraph.replace(/<[^>]*>/g, '').length < 10 && (
                                         <Form.Text className="text-danger">
                                             Paragraph must be at least 10 characters long
                                         </Form.Text>

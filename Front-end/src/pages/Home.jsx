@@ -1,8 +1,7 @@
 // src/pages/Home.jsx
 import React, { useRef } from 'react'
 import Navbar from '../components/Navbar'
-import HeaderImg from '../assets/images/Headerimg.png'
-import CiccLogo from '../assets/images/Cicclogo.png'
+import BannerCarousel from '../components/BannerCarousel'
 import CanadianDreams from '../components/CanadianDreams'
 import WhyUs from '../components/WhyUs'
 import ImmiGrationNeeds from '../components/ImmiGrationNeeds'
@@ -54,37 +53,8 @@ const Home = () => {
         <div>
             {/* Navbar */}
             <Navbar />
-            {/* Hero Section */}
-            <header>
-                <div>
-                    <div className='w-full relative headreimg'>
-                        <div className='xl:h-[47rem] h-[22rem] w-full'>
-                            <div className='absolute top-0 left-0 bg-linear-to-r/srgb from-[#000000DE] to w-full h-full'></div>
-                            <img className='bg-cover w-full h-full shrink-0' src={HeaderImg} alt="" />
-                        </div>
-                        <div className='container mx-auto absolute top-0 left-0 right-0'>
-                            <img className='xl:w-64 lg:w-50 w-42 absolute right-3  top-3' src={CiccLogo} alt="CICC IMAGE" />
-                            <div className='absolute xl:top-[16rem] top-[6rem] text-[#FFFFFF] px-5 md:pl-10 lg:ml-5 lg:pl-0'>
-                                <h1 className='xl:text-[5rem] text-4xl md:text-6xl md:mb-0 leading-14' ref={headingRef}>
-                                    CICC REGISTERED
-                                </h1>
-                                <h2
-                                    className='lg:text-2xl lg:w-2/3 lg:leading-8 xl:text-3xl md:text-xl text-base tracking-wider xl:w-3/4 xl:leading-12 leading-6 md:leading-5 md:mb-3 pb-2 xl:mt-6 md:mt-6 lg:mt-4'
-                                    ref={subheadingRef}
-                                >
-                                    All your immigration needs, expertly managed under one roof.
-                                </h2>
-                                <p
-                                    className='text-base md:text-xl lg:leading-8 md:leading-8 xl:leading-8 md:w-3/5'
-                                    ref={paragraphRef}
-                                >
-                                    Thinking of moving to Canada? Enjoy better careers, top education, and a great quality of life in a welcoming country!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            {/* Hero Carousel */}
+            <BannerCarousel />
 
             {/* Sections with Fade-in Scroll Animations */}
             <FadeInOnScroll><CanadianDreams /></FadeInOnScroll>
@@ -181,10 +151,18 @@ const Home = () => {
             </div>
 
             {/* Remaining Sections */}
-            <FadeInOnScroll><WhyChooseUs /></FadeInOnScroll>
-            <FadeInOnScroll><Testimonial /></FadeInOnScroll>
-            <FadeInOnScroll><LatestNews /></FadeInOnScroll>
-            <FadeInOnScroll><Faq /></FadeInOnScroll>
+            <FadeInOnScroll>
+                <WhyChooseUs />
+            </FadeInOnScroll>
+            <FadeInOnScroll>
+                <Testimonial />
+            </FadeInOnScroll>
+            <FadeInOnScroll>
+                <LatestNews />
+            </FadeInOnScroll>
+            <FadeInOnScroll>
+                <Faq />
+            </FadeInOnScroll>
             <Footer />
         </div >
     )
