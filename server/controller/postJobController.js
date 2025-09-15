@@ -7,8 +7,8 @@ const Joi = require('joi');
       return res.status(400).json({ status: 400, message: 'Image is required' });
     }
 
-    const image = `http://localhost:3500/uploads/${req.file.filename}`;
-    const postJobData = { ...req.body, image };
+ const Result = await upload(req.file);
+image = Result.Location;    const postJobData = { ...req.body, image };
 
     const schema = Joi.object({
       job: Joi.string().trim().min(2).max(100).required(),

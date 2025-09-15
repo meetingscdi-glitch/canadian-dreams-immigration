@@ -4,7 +4,6 @@ const { connectDb } = require('./config/db');
 const routes = require('./routes/index');
 dotenv.config();
 const app = express();
-const path = require('path');
 var cors = require('cors')
 
 // Middleware
@@ -17,7 +16,7 @@ app.use(cors({
 
 // Database Connection
 connectDb();
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Serve static images
+
 
 // Routes
 app.use(routes);

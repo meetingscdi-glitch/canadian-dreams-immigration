@@ -29,15 +29,15 @@ async function  createServiceSubCategory  (req, res) {
 
     if (!req.file) {
       return res.status(400).json({ status: 400, message: "Image is required" });
-    }
-    const imageUrl = `http://localhost:3500/uploads/${req.file.filename}`;
-    if (!serviceCategoryId || !name) {
+    };
+          const Result = await upload(req.file);
+      let imageUrl = Result.Location;
+    
+     if (!serviceCategoryId || !name) {
       return res.status(400).json({status:400, message: 'Service category ID and name are required' });
     }
     const categoryExists = await serviceCategory.findById({_id:serviceCategoryId});
-    console.log("here")
-     console.log(categoryExists,"categoryExists")
-    if (!categoryExists) {
+     if (!categoryExists) {
       return res.status(400).json({status:400, message: 'Invalid service category ID' });
     }
 
@@ -126,6 +126,12 @@ async function  getServiceSubCategoryById  (req, res) {
       if (!categoryExists) {
         return res.status(400).json({status:400, message: 'Invalid service category ID' });
       }
+    };
+
+     let imageUrl;
+    if(req.file){
+       const Result = await upload(req.file);
+       imageUrl = Result.Location;
     }
     const serviceSubCategoryData = await serviceSubCategory.findByIdAndUpdate(
       {_id:_id},
@@ -152,7 +158,7 @@ async function  getServiceSubCategoryById  (req, res) {
         headerSeven,
         SubHeaderSeven,
         paragraphSix
-      },
+      , ...(req.file && { image: imageUrl })},
       { new: true }
     );
 

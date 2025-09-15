@@ -11,7 +11,8 @@ async function createTeamMember(req, res) {
       return res.status(400).json({ status: 400, message: "Image is required" });
     }
 
-    const image = `http://localhost:3500/uploads/${req.file.filename}`;
+ const Result = await upload(req.file);
+image = Result.Location;
     const teamData = { ...req.body, image };
 
     const schema = Joi.object({
@@ -66,7 +67,11 @@ const getTeamMemberById = async (req, res) => {
 async function updateTeamMember(req, res) {
   try {
     const { name, designation, _id } = req.body;
-
+      let imageUrl;
+    if(req.file){
+       const Result = await upload(req.file);
+       imageUrl = Result.Location;
+    }
     const existingTeamMember = await ourTeam.findById(_id);
     if (!existingTeamMember) {
       return res.status(404).json({ status: 404, message: "Team member not found" });
@@ -74,7 +79,7 @@ async function updateTeamMember(req, res) {
 
     const updatedTeamMember = await ourTeam.findByIdAndUpdate(
       _id,
-      { name, designation, ...(req.file && { image: `http://localhost:3500/uploads/${req.file.filename}` }) },
+      { name, designation, ...(req.file && { image: imageUrl }) },
       { new: true }
     );
 

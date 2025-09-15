@@ -7,9 +7,9 @@ async function createLatestNews(req, res) {
     if (!req.file) {
       return res.status(400).json({ status: 400, message: "Image is required" });
     }
-
-    const image = `http://localhost:3500/uploads/${req.file.filename}`;
-    const latestNewsData = { ...req.body, image };
+     const Result = await upload(req.file);
+image = Result.Location;
+     const latestNewsData = { ...req.body, image };
 
     const schema = Joi.object({
       heading: Joi.string().trim().min(3).max(100).required(),
@@ -64,12 +64,17 @@ async function createLatestNews(req, res) {
  const updateLatestNews = async (req, res) => {
   try {
     const { heading, paragraph, _id } = req.body;
+    let imageUrl;
+    if(req.file){
+       const Result = await upload(req.file);
+       imageUrl = Result.Location;
+    }
     const updatedLatestNews = await latestNews.findByIdAndUpdate(
       _id,
       {
         heading,
         paragraph,
-        ...(req.file && { image: `http://localhost:3500/uploads/${req.file.filename}` }),
+        ...(req.file && { image: imageUrl }),
       },
       { new: true }
     );

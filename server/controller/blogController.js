@@ -1,14 +1,15 @@
 // controllers/blogController.js
 const blog = require('../models/blogModel');
 const Joi = require('joi');
- 
- async function createBlog(req, res) {
+const { upload } = require('../utils/s3Upload');
+
+  async function createBlog(req, res) {
   try {
     if (!req.file) {
       return res.status(400).json({ status: 400, message: "Image is required" });
     }
-
-    const image = `http://localhost:3500/uploads/${req.file.filename}`;
+  const Result = await upload(req.file);
+  image = Result.Location;
     const blogData = { ...req.body, image };
 
     const schema = Joi.object({
@@ -31,6 +32,7 @@ const Joi = require('joi');
       response: newBlog,
     });
   } catch (error) {
+    console.error("Error creating blog:", error);
     res.status(500).json({
       status: 500,
       message: "Error creating blog",
@@ -66,12 +68,17 @@ const Joi = require('joi');
  const updateBlog = async (req, res) => {
   try {
     const { heading, paragraph ,_id} = req.body;
+    let imageUrl;
+    if(req.file){
+       const Result = await upload(req.file);
+       imageUrl = Result.Location;
+    }
     const updatedBlog = await blog.findByIdAndUpdate(
       _id,
       {
         heading,
         paragraph,
-        ...(req.file && { image: `http://localhost:3500/uploads/${req.file.filename}` }),
+        ...(req.file && { image: imageUrl }),
       },
       { new: true, runValidators: true }
     );

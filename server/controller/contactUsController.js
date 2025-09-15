@@ -12,14 +12,20 @@ const submitContact = async (req, res) => {
      const newContact = new contactUs({ firstName, lastName, email, phoneNumber, role, message });
     await newContact.save();
 
-     await sendEmail({
+     const emailData = {
       firstName,
       lastName,
       email,
       phoneNumber,
       role,
       message,
-    });
+    };
+
+    // Send confirmation email to user first
+    await sendEmail(emailData, 'user');
+    
+    // Send notification email to owner
+    await sendEmail(emailData, 'owner');
 
     res.status(200).json({status:200, message: 'Message sent successfully' });
   } catch (error) {
