@@ -171,7 +171,6 @@ async function  getServiceSubCategoryById  (req, res) {
   }
 };
 
-// Delete a service subcategory
 async function  deleteServiceSubCategory  (req, res) {
   try {
     const serviceSubCategoryData = await serviceSubCategory.findByIdAndDelete(req.body._id);

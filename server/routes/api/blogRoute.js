@@ -1,13 +1,6 @@
-// routes/blogRoutes.js
 const express = require('express');
 const upload = require('../../middleware/multer');
-const {
-  createBlog,
-  getAllBlogs,
-  getBlogById,
-  updateBlog,
-  deleteBlog,
-} = require('../../controller/blogController');
+const {  createBlog, getAllBlogs, getBlogById, updateBlog, deleteBlog} = require('../../controller/blogController');
 const { verifyToken } = require('../../middleware/authMiddleware');
 
 

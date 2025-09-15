@@ -1,4 +1,3 @@
-// controllers/blogController.js
 const blog = require('../models/blogModel');
 const Joi = require('joi');
 const { upload } = require('../utils/s3Upload');
@@ -9,7 +8,7 @@ const { upload } = require('../utils/s3Upload');
       return res.status(400).json({ status: 400, message: "Image is required" });
     }
   const Result = await upload(req.file);
-  image = Result.Location;
+  let image = Result.Location;
     const blogData = { ...req.body, image };
 
     const schema = Joi.object({

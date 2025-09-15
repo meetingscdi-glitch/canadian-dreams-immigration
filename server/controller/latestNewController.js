@@ -1,4 +1,3 @@
-// controllers/latestNewsController.js
 const latestNews = require('../models/latestNewModel');
 const Joi = require('joi');
 
@@ -8,7 +7,7 @@ async function createLatestNews(req, res) {
       return res.status(400).json({ status: 400, message: "Image is required" });
     }
      const Result = await upload(req.file);
-image = Result.Location;
+let image = Result.Location;
      const latestNewsData = { ...req.body, image };
 
     const schema = Joi.object({

@@ -3,7 +3,6 @@ const multer = require('multer');
 const multerS3 = require('multer-s3');
 require('dotenv').config();
 
-// Configure AWS
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
@@ -36,7 +35,6 @@ const upload = async (file) => {
 };
 
  
-// Upload single file to S3
 const uploadDocument = async (file) => {
   const params = {
     Bucket: process.env.S3_BUCKET_NAME,
@@ -55,7 +53,6 @@ const uploadDocument = async (file) => {
   }
 };
 
-// Delete file from S3
 const deleteFromS3 = async (fileKey) => {
   const params = {
     Bucket: process.env.S3_BUCKET_NAME,

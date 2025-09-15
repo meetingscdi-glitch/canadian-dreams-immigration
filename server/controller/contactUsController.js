@@ -8,8 +8,7 @@ const submitContact = async (req, res) => {
      if (!firstName || !lastName || !email || !phoneNumber || !role || !message) {
       return res.status(400).json({ status: 400, message: 'All fields are required' });
     }
-
-     const newContact = new contactUs({ firstName, lastName, email, phoneNumber, role, message });
+    const newContact = new contactUs({ firstName, lastName, email, phoneNumber, role, message });
     await newContact.save();
 
      const emailData = {
@@ -20,17 +19,11 @@ const submitContact = async (req, res) => {
       role,
       message,
     };
-
-    // Send confirmation email to user first
     await sendEmail(emailData, 'user');
-    
-    // Send notification email to owner
     await sendEmail(emailData, 'owner');
-
     res.status(200).json({status:200, message: 'Message sent successfully' });
   } catch (error) {
-    console.error('Error submitting contact:', error);
-    res.status(500).json({status:500, message: 'Server error' });
+     res.status(500).json({status:500, message: 'Server error' });
   }
 };
 

@@ -1,4 +1,3 @@
-// models/latestNewsModel.js
 const mongoose = require('mongoose');
 
 const latestNewsSchema = new mongoose.Schema({

@@ -1,4 +1,3 @@
-// controllers/teamController.js
 const ourTeam = require('../models/ourTeamModel');
 const Joi = require('joi');
 
@@ -12,7 +11,7 @@ async function createTeamMember(req, res) {
     }
 
  const Result = await upload(req.file);
-image = Result.Location;
+let image = Result.Location;
     const teamData = { ...req.body, image };
 
     const schema = Joi.object({

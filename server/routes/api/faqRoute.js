@@ -1,4 +1,3 @@
-// routes/faqRoutes.js
 const express = require('express');
 const { createFAQ, getAllFAQs, getFAQById, updateFAQ, deleteFAQ } = require('../../controller/faqController');
 const { verifyToken } = require('../../middleware/authMiddleware');

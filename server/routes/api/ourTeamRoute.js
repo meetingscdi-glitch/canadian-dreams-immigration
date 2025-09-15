@@ -1,4 +1,3 @@
-// routes/teamRoutes.js
 const express = require('express');
 const { createTeamMember, getAllTeamMembers, getTeamMemberById, updateTeamMember, deleteTeamMember } = require('../../controller/ourTeamController');
 const { verifyToken } = require('../../middleware/authMiddleware');

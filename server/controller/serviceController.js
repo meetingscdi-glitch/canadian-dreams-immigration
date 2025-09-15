@@ -1,6 +1,5 @@
 const Service = require('../models/serviceModel');
 
-// Add new service
 const addService = async (req, res) => {
     try {
         const { name } = req.body;
@@ -21,7 +20,6 @@ const addService = async (req, res) => {
     }
 };
 
-// Get all services
 const getAllServices = async (req, res) => {
     try {
         const services = await Service.find().sort({ createdAt: -1 });
@@ -31,7 +29,7 @@ const getAllServices = async (req, res) => {
     }
 };
 
-// Get service by ID
+
 const getServiceById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -47,8 +45,7 @@ const getServiceById = async (req, res) => {
     }
 };
 
-// Edit service
-const editService = async (req, res) => {
+ const editService = async (req, res) => {
     try {
         const { _id, name } = req.body;
         
@@ -75,8 +72,7 @@ const editService = async (req, res) => {
     }
 };
 
-// Delete service
-const deleteService = async (req, res) => {
+ const deleteService = async (req, res) => {
     try {
         const { _id } = req.body;
         

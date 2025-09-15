@@ -1,4 +1,3 @@
-// controllers/faqController.js
 const faq = require('../models/faqModel');
 const Joi = require('joi');
 

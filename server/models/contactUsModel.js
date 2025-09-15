@@ -1,4 +1,3 @@
-// models/Contact.js - Mongoose model for contact inquiries
 const mongoose = require('mongoose');
 
 const contactSchema = new mongoose.Schema({

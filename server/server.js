@@ -6,7 +6,6 @@ dotenv.config();
 const app = express();
 var cors = require('cors')
 
-// Middleware
 app.use(express.json());
 app.use(cors({
   origin: "*",
@@ -14,14 +13,9 @@ app.use(cors({
   credentials: true
 }));
 
-// Database Connection
 connectDb();
-
-
-// Routes
 app.use(routes);
 
-// Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: 'Something went wrong!' });

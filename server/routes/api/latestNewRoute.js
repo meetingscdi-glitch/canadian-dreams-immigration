@@ -1,7 +1,5 @@
-// routes/latestNewsRoutes.js
 const express = require('express');
-const { createLatestNews, getAllLatestNews, getLatestNewsById, updateLatestNews, deleteLatestNews,
-} = require('../../controller/latestNewController');
+const { createLatestNews, getAllLatestNews, getLatestNewsById, updateLatestNews, deleteLatestNews} = require('../../controller/latestNewController');
 const upload = require('../../middleware/multer');
 const { verifyToken } = require('../../middleware/authMiddleware');
 
