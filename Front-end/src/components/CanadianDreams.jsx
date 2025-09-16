@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import CanadianDreamImg from '../assets/images/Canadian Dreams.png'
+import CanadianDreamImg from '../assets/images/Building.webp'
 import AboutCanadianImg from '../assets/images/AboutCanadian.png'
 import { TfiLayoutLineSolid } from "react-icons/tfi";
 import gsap from 'gsap';

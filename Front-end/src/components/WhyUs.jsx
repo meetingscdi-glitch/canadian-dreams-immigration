@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-import WhyusImg from '../assets/images/WhyusImg.png'
-import AboutWhyUs from '../assets/images/AboutWhyus.png'
+import WhyusImg from '../assets/images/WhyUS.webp'
+import AboutWhyUs from '../assets/images/NewImg.webp'
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { TfiLayoutLineSolid } from "react-icons/tfi";
 import gsap from 'gsap';
