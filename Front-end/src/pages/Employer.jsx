@@ -16,7 +16,7 @@ const Employer = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await axios.get('http://54.175.213.53/api/postJob/getAllPostJob');
+      const response = await axios.get('http://localhost:3500/api/postJob/getAllPostJob');
       setJobs(response.data.response || []);
     } catch (error) {
       console.error('Error fetching jobs:', error);

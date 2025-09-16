@@ -1,9 +1,8 @@
-// models/teamModel.js
 const mongoose = require('mongoose');
 
 const ourTeamSchema = new mongoose.Schema({
   image: {
-    type: String, // Path or URL to the image
+    type: String, 
     required: true,
   },
   name: {
@@ -15,29 +14,7 @@ const ourTeamSchema = new mongoose.Schema({
     required: true,
   },
 
-}, { timestamps: true });
-
-const ourTeam = mongoose.model('ourTeam', ourTeamSchema);
-
-module.exports = ourTeam;
-// models/teamModel.js
-const mongoose = require('mongoose');
-
-const ourTeamSchema = new mongoose.Schema({
-  image: {
-    type: String, // Path or URL to the image
-    required: true,
-  },
-  name: {
-    type: String,
-    required: true,
-  },
-  designation: {
-    type: String,
-    required: true,
-  },
-
-}, { timestamps: true });
+},{ timestamps: true});
 
 const ourTeam = mongoose.model('ourTeam', ourTeamSchema);
 

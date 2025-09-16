@@ -1,4 +1,3 @@
-// models/latestNewsModel.js
 const mongoose = require('mongoose');
 
 const latestNewsSchema = new mongoose.Schema({
@@ -11,31 +10,10 @@ const latestNewsSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    type: String,
+    type: String,  
     required: true,
   },
-}, { timestamps: true });
-
-const latestNews = mongoose.model('latestNews', latestNewsSchema);
-
-module.exports = latestNews;
-// models/latestNewsModel.js
-const mongoose = require('mongoose');
-
-const latestNewsSchema = new mongoose.Schema({
-  heading: {
-    type: String,
-    required: true,
-  },
-  paragraph: {
-    type: String,
-    required: true,
-  },
-  image: {
-    type: String,
-    required: true,
-  },
-}, { timestamps: true });
+},{timestamps:true});
 
 const latestNews = mongoose.model('latestNews', latestNewsSchema);
 

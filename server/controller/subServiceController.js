@@ -1,7 +1,6 @@
 const SubService = require('../models/subServiceModel');
 
-// Add new sub-service
-const addSubService = async (req, res) => {
+ const addSubService = async (req, res) => {
     try {
         let {
             serviceCategoryId,
@@ -26,13 +25,12 @@ const addSubService = async (req, res) => {
             SubHeaderSeven,
             paragraphSix
         } = req.body;
-
+        
         if (!serviceCategoryId || !name) {
             return res.status(400).json({ message: 'Service category ID and name are required' });
         }
 
-        // Handle file upload or URL
-        if (req.file) {
+         if (req.file) {
             image = `http://localhost:3500/uploads/${req.file.filename}`;
         } else if (req.body.imageUrl) {
             image = req.body.imageUrl;
@@ -73,8 +71,7 @@ const addSubService = async (req, res) => {
     }
 };
 
-// Get all sub-services
-const getAllSubServices = async (req, res) => {
+ const getAllSubServices = async (req, res) => {
     try {
         const subServices = await SubService.find()
             .populate('serviceCategoryId', 'name')
@@ -85,12 +82,11 @@ const getAllSubServices = async (req, res) => {
     }
 };
 
-// Get sub-service by ID
-const getSubServiceById = async (req, res) => {
+ const getSubServiceById = async (req, res) => {
     try {
         const { id } = req.params;
         const subService = await SubService.findById(id).populate('serviceCategoryId', 'name');
-
+        
         if (!subService) {
             return res.status(404).json({ message: 'Sub-service not found' });
         }
@@ -101,17 +97,15 @@ const getSubServiceById = async (req, res) => {
     }
 };
 
-// Edit sub-service
-const editSubService = async (req, res) => {
+ const editSubService = async (req, res) => {
     try {
         let { _id, ...updateData } = req.body;
-
+        
         if (!_id) {
             return res.status(400).json({ message: 'Sub-service ID is required' });
         }
 
-        // Handle file upload or URL
-        if (req.file) {
+         if (req.file) {
             updateData.image = `http://localhost:3500/uploads/${req.file.filename}`;
         } else if (req.body.imageUrl) {
             updateData.image = req.body.imageUrl;
@@ -136,11 +130,10 @@ const editSubService = async (req, res) => {
     }
 };
 
-// Delete sub-service
-const deleteSubService = async (req, res) => {
+ const deleteSubService = async (req, res) => {
     try {
         const { _id } = req.body;
-
+        
         if (!_id) {
             return res.status(400).json({ message: 'Sub-service ID is required' });
         }
