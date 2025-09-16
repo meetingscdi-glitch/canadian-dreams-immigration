@@ -1,5 +1,6 @@
 const latestNews = require('../models/latestNewModel');
 const Joi = require('joi');
+const { upload } = require('../utils/s3Upload');
 
 async function createLatestNews(req, res) {
   try {
