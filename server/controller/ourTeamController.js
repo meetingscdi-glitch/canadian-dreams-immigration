@@ -1,5 +1,6 @@
 const ourTeam = require('../models/ourTeamModel');
 const Joi = require('joi');
+const { upload } = require('../utils/s3Upload');
 
 
 

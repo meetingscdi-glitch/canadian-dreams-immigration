@@ -1,6 +1,7 @@
 const serviceSubCategory = require('../models/serviceSubCategoryModel');
 const serviceCategory = require('../models/serviceCategoryModel');
- 
+const { upload } = require('../utils/s3Upload');
+
 async function  createServiceSubCategory  (req, res) {
   try {
     const {
