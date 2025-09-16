@@ -28,39 +28,41 @@ const Employer = () => {
   return (
     <div>
       <Navbar />
-      <SectionWithImage />
-      <div className="container mx-auto pt-12 p-6 text-gray-800">
-        <h2 className="md:text-2xl text-lg font-bold mb-4">
-          At Canada Immigration, we specialize in providing transparent immigration services to Canadian businesses in the hospitality, retail, and healthcare industries.
-        </h2>
-        <h2 className="md:text-2xl text-lg font-bold mb-4 text-[#006AAB]">
-          Our mission is to bridge the demand-supply gap by connecting employers with talented foreign workers who can contribute to the growth and success of their businesses.
-        </h2>
-        <h2 className="md:text-2xl text-lg font-bold mb-4">
-          With years of experience and a team of licensed professionals, Career Canada Immigration understands the specific needs and challenges faced by employers in these industries. We offer tailored solutions to ensure a seamless recruitment and immigration process.
-        </h2>
+      <FadeInOnScroll>
+        <SectionWithImage />
+        <div className="container mx-auto pt-12 p-6 text-gray-800">
+          <h2 className="md:text-2xl text-lg font-bold mb-4">
+            At Canada Immigration, we specialize in providing transparent immigration services to Canadian businesses in the hospitality, retail, and healthcare industries.
+          </h2>
+          <h2 className="md:text-2xl text-lg font-bold mb-4 text-[#006AAB]">
+            Our mission is to bridge the demand-supply gap by connecting employers with talented foreign workers who can contribute to the growth and success of their businesses.
+          </h2>
+          <h2 className="md:text-2xl text-lg font-bold mb-4">
+            With years of experience and a team of licensed professionals, Career Canada Immigration understands the specific needs and challenges faced by employers in these industries. We offer tailored solutions to ensure a seamless recruitment and immigration process.
+          </h2>
 
-        <h3 className="md:text-3xl text-xl font-bold mt-8 md:mt-12 md:mb-6 mb-2 text-[#006AAB]">
-          Our Selection Criteria
-        </h3>
-        <h3 className="mb-6 md:text-xl ">
-          We follow a <span className='text-[#006AAB] font-[100px]'>rigorous selection process </span> to ensure that the foreign workers we recommend to employers are not only a right fit according to your job description but also a great cultural fit.
-        </h3>
-        <ul className='flex flex-col gap-6'>
-          <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>A) Qualifications and Experience: </span>
-            We carefully assess candidates' educational background, certifications, and relevant work experience to ensure they possess the necessary skills for the specific job roles.
-          </li>
-          <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>B) Language Proficiency: </span>Strong communication skills are essential for effective integration into the Canadian workplace. We evaluate candidates' language proficiency in English or any other language, depending on the requirements.
-          </li>
-          <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>C) Cultural Fit: </span>C We consider the cultural compatibility of candidates with Canadian work environments, emphasizing adaptability, teamwork, and a positive work ethic.
-          </li>
-          <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>D) References and Background Checks: </span> We conduct thorough reference checks and background verifications to validate candidates' credentials and ensure their reliability and trustworthiness.
-          </li>
-        </ul>
-        <h3 className="md:my-8 my-6 md:text-xl">
-          We follow a <span className='text-[#006AAB] font-[100px]'>rigorous selection process </span> to ensure that the foreign workers we recommend to employers are not only a right fit according to your job description but also a great cultural fit.
-        </h3>
-      </div>
+          <h3 className="md:text-3xl text-xl font-bold mt-8 md:mt-12 md:mb-6 mb-2 text-[#006AAB]">
+            Our Selection Criteria
+          </h3>
+          <h3 className="mb-6 md:text-xl ">
+            We follow a <span className='text-[#006AAB] font-[100px]'>rigorous selection process </span> to ensure that the foreign workers we recommend to employers are not only a right fit according to your job description but also a great cultural fit.
+          </h3>
+          <ul className='flex flex-col gap-6'>
+            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>A) Qualifications and Experience: </span>
+              We carefully assess candidates' educational background, certifications, and relevant work experience to ensure they possess the necessary skills for the specific job roles.
+            </li>
+            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>B) Language Proficiency: </span>Strong communication skills are essential for effective integration into the Canadian workplace. We evaluate candidates' language proficiency in English or any other language, depending on the requirements.
+            </li>
+            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>C) Cultural Fit: </span>C We consider the cultural compatibility of candidates with Canadian work environments, emphasizing adaptability, teamwork, and a positive work ethic.
+            </li>
+            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>D) References and Background Checks: </span> We conduct thorough reference checks and background verifications to validate candidates' credentials and ensure their reliability and trustworthiness.
+            </li>
+          </ul>
+          <h3 className="md:my-8 my-6 md:text-xl">
+            We follow a <span className='text-[#006AAB] font-[100px]'>rigorous selection process </span> to ensure that the foreign workers we recommend to employers are not only a right fit according to your job description but also a great cultural fit.
+          </h3>
+        </div>
+      </FadeInOnScroll>
 
       <Footer />
       {/* <div className="container py-5">
