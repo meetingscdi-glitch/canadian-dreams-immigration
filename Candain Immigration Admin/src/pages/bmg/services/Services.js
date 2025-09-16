@@ -14,7 +14,6 @@ const Services = () => {
     const { servicesData, loading } = useSelector(state => state.servicesDataReducer || {});
 
     const [totalRecords, setTotalRecords] = useState(0);
-    console.log(store?.servicesDataReducer, 'servicesData');
 
     const [search, setSearch] = useState('');
     const [pageIndex, setPageIndex] = useState(1);
