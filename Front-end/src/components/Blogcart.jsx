@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { GoArrowUpRight } from "react-icons/go";
 import { blogAPI } from '../services/api';
 import BlogOffcanvas from './BlogOffcanvas';
+import { FiRotateCw } from "react-icons/fi";
 
 const Blogcart = () => {
     const [allBlogs, setAllBlogs] = useState([]);
@@ -65,7 +66,7 @@ const Blogcart = () => {
                                 <h4 className='mb-4 md:text-lg text-base'>{items.parah}</h4>
                                 <button
                                     onClick={() => handleReadMore(items)}
-                                    className='poppins-600 text-[#006AAB] flex items-center gap-1 hover:text-[#004d7a] transition-colors cursor-pointer'
+                                    className='hover:underline poppins-600 text-[#006AAB] flex items-center gap-1 hover:text-[#004d7a] transition-colors cursor-pointer'
                                 >
                                     Read More <GoArrowUpRight />
                                 </button>
@@ -76,13 +77,21 @@ const Blogcart = () => {
             </div>
             {visibleCount < allBlogs.length && (
                 <div className='md:mb-44 mb-24 w-full flex items-center justify-center'>
-                    <button
-                        onClick={loadMore}
-                        className='lg:py-2 md:py-3 px-4 py-2 lg:px-4 md:px-8 rounded text-white lg:mt-3 sm:text-xl mt-5'
-                        id='buttonStyle'
+                    <div
+                    onClick={loadMore}
+                        className="flex items-center justify-center relative w-fit group"
                     >
-                        Load More
-                    </button>
+                        <button
+                            
+                            id="buttonStyle"
+                            className="py-2  px-4 pr-8  rounded-l-full rounded-r-4xl text-white lg:mt-3 sm:text-xl mt-5 group-hover:bg-[#1085ce] transition-all duration-100"
+                        >
+                            Load More
+                        </button>
+                        <div className="bg-[#006AAB] absolute lg:mt-3 mt-5 border-2 border-white rounded-full -right-5 group-hover:bg-[#1085ce] transition-all duration-100">
+                            <FiRotateCw size={44} className="text-white transition-all duration-200 group-hover:rotate-360 p-2 cursor-pointer" />
+                        </div>
+                    </div>
                 </div>
             )}
 

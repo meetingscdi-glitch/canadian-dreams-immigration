@@ -428,4 +428,9 @@ span {
   padding: 0 !important;
 }
 
+.offcanvas-panel {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+}
 

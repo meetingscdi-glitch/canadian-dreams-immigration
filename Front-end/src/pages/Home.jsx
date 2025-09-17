@@ -19,6 +19,8 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Link } from 'react-router-dom';
 import FadeInOnScroll from './FadeInOnScroll'
+import { IoIosArrowRoundForward } from "react-icons/io";
+
 
 const Home = () => {
     const headingRef = useRef();
@@ -67,7 +69,7 @@ const Home = () => {
                     <h1 className='absolute lg:-top-2 -top-4 bg-[#006AAB] md:px-5 px-4 py-2 md:py-4 lg:-right-2 -right-1 text-white rounded-xl md:text-xl'>01</h1>
                     <h1 className='md:text-2xl text-xl leading-6 mb-3'>EXPRESS ENTRY DRAW #342</h1>
                     <p className='mb-2'>In the latest Provincial Nominee Program (PNP) specific draw, 825 candidates were invited with a minimum CRS score of 764.</p>
-                    <Link to='/blog' className='text-[#006AAB] text-md absolute bottom-1.5 flex items-center gap-1 hover:text-[#004d7a] transition-colors'>
+                    <Link to='/blog' className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'>
                         Read More <GoArrowUpRight />
                     </Link>
                 </div>
@@ -75,7 +77,7 @@ const Home = () => {
                     <h1 className='absolute lg:-top-2 -top-4 bg-[#006AAB] md:px-5 px-4 py-2 md:py-4 lg:-right-2 -right-1 text-white rounded-xl md:text-xl'>02</h1>
                     <h1 className='md:text-2xl text-xl leading-6 mb-3'>B.C. PNP NOTICE #April 14, 2025</h1>
                     <p className='mb-2'>British Columbia will accept only 1,100 new PNP applications this year, with a strict focus on high-demand roles like doctors,</p>
-                    <Link to='/blog' className='text-[#006AAB] text-md absolute bottom-1.5 flex items-center gap-1 hover:text-[#004d7a] transition-colors'>
+                    <Link to='/blog' className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'>
                         Read More <GoArrowUpRight />
                     </Link>
                 </div>
@@ -83,7 +85,7 @@ const Home = () => {
                     <h1 className='absolute lg:-top-2 -top-4 bg-[#006AAB] md:px-5 px-4 py-2 md:py-4 lg:-right-2 -right-1 text-white rounded-xl md:text-xl'>03</h1>
                     <h1 className='md:text-2xl text-xl leading-6 mb-2'>Join 500K + Strong Community!!!</h1>
                     <p className='mb-2'>A strong community of over half a million aspiring immigrants across various social media groups…..</p>
-                    <Link to='/contact-us' className='text-[#006AAB] text-md absolute bottom-1.5 flex items-center gap-1 hover:text-[#004d7a] transition-colors'>
+                    <Link to='/contact-us' className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'>
                         Read More <GoArrowUpRight />
                     </Link>
                 </div>
@@ -100,7 +102,7 @@ const Home = () => {
                         <h5 className='md:text-3xl text-2xl md:mb-3 '>Student Visa</h5>
                     </div>
                     <h4 className='md:text-lg mb-6'>Planning to study in Canada? We assist international students in obtaining the right study permits...</h4>
-                    <span className='flex items-center gap-2'>Read More <GoArrowUpRight /></span>
+                    <span className='flex items-center gap-2 hover:underline'>Read More <GoArrowUpRight /></span>
                 </Link>
                 <Link to='/our-services' className='border-1 border-[#006AAB] rounded-2xl lg:p-8 lg:py-12 p-6 bg-[#F4FBFF] relative hover:bg-[#006AAB] hover:text-white group transition duration-400 cursor-pointer block scale-in stagger-2 hover-lift'>
                     <div className='flex gap-2 md:flex-col'>
@@ -108,7 +110,7 @@ const Home = () => {
                         <h5 className='md:text-3xl text-2xl mb-3'>Express Entry</h5>
                     </div>
                     <h4 className='md:text-lg mb-6'>The application process for skilled immigrants seeking permanent residency in Canada...</h4>
-                    <span className='flex items-center gap-2'>Read More <GoArrowUpRight /></span>
+                    <span className='flex items-center gap-2 hover:underline'>Read More <GoArrowUpRight /></span>
                 </Link>
                 <Link to='/our-services' className='border-1 border-[#006AAB] rounded-2xl lg:p-8 lg:py-12 p-6 bg-[#F4FBFF] relative hover:bg-[#006AAB] hover:text-white group transition duration-400 cursor-pointer block scale-in stagger-3 hover-lift'>
                     <div className='flex gap-2 md:flex-col'>
@@ -116,7 +118,7 @@ const Home = () => {
                         <h5 className='tmd:text-3xl text-2xl mb-3'>Family Sponsorship</h5>
                     </div>
                     <h4 className='md:text-lg mb-6'>Your relatives can live, study, and work in Canada once they become permanent residents.</h4>
-                    <span className='flex items-center gap-2'>Read More <GoArrowUpRight /></span>
+                    <span className='flex items-center gap-2 hover:underline'>Read More <GoArrowUpRight /></span>
                 </Link>
             </div>
 
@@ -131,8 +133,19 @@ const Home = () => {
                         <p className='lg:text-xl md:text-lg lg:mb-5 md:mb-3'>
                             Partner with Ask Kubeir Immigration Services to simplify Canadian Immigration for your global workforce with expert, end to end support.
                         </p>
-                        <Link to='/employer'>
-                            <button id='buttonStyle' className='py-2 px-4 rounded text-white lg:text-xl absolute bottom-12'>Discover More</button>
+                        <Link
+                            to="/employer"
+                            className="flex items-center justify-center w-fit group absolute bottom-12"
+                        >
+                            <button
+                                id="buttonStyle"
+                                className="py-2  px-4 pr-8  rounded-l-full rounded-r-4xl text-white lg:mt-3 sm:text-xl mt-5 group-hover:bg-[#1085ce] transition-all duration-100 "
+                            >
+                                Discover More
+                            </button>
+                            <div className="bg-[#006AAB] absolute lg:mt-3 mt-5 border-2 border-white rounded-full -right-5 group-hover:-right-7 group-hover:bg-[#1085ce] transition-all duration-100">
+                                <IoIosArrowRoundForward size={42} className="text-white transition-all duration-100 group-hover:-rotate-32" />
+                            </div>
                         </Link>
                     </div>
                     <div className='bg-white lg:px-12 py-10 relative px-5 pb-28 slide-in-right hover-lift'>
@@ -143,8 +156,19 @@ const Home = () => {
                         <p className='lg:text-xl md:text-lg lg:mb-5 md:mb-3'>
                             Ask Kubeir offers sharp, custom-fit advice to zip through immigration routes and plant your roots here. With proven expertise, we’ll pave your way to Canada—one breezy step at a time.
                         </p>
-                        <Link to='/contact-us'>
-                            <button id='buttonStyle' className='py-2 px-4 rounded text-white lg:text-xl absolute bottom-12'>Start Your Journey</button>
+                        <Link
+                            to="/contact-us"
+                            className="flex items-center justify-center  w-fit group absolute bottom-12"
+                        >
+                            <button
+                                id="buttonStyle"
+                                className="py-2  px-4 pr-8  rounded-l-full rounded-r-4xl text-white lg:mt-3 sm:text-xl mt-5 group-hover:bg-[#1085ce] transition-all duration-100 "
+                            >
+                                Start Your Journey
+                            </button>
+                            <div className="bg-[#006AAB] absolute lg:mt-3 mt-5 border-2 border-white rounded-full -right-5 group-hover:-right-7 group-hover:bg-[#1085ce] transition-all duration-100">
+                                <IoIosArrowRoundForward size={42} className="text-white transition-all duration-100 group-hover:-rotate-32" />
+                            </div>
                         </Link>
                     </div>
                 </div>

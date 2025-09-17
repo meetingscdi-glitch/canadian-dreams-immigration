@@ -4,6 +4,7 @@ import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import { useGSAP } from '@gsap/react'
 import { fadeInUp, staggerAnimation, buttonHover } from '../utils/animations'
+import { IoIosArrowRoundForward } from "react-icons/io";
 
 const Form = () => {
     const formRef = useRef(null);
@@ -87,7 +88,7 @@ const Form = () => {
         if (Object.keys(validationErrors).length === 0) {
             setIsSubmitting(true);
             setSubmitMessage('');
-            
+
             try {
                 const response = await contactAPI.sendMail({
                     firstName: formdata.firstname,
@@ -97,7 +98,7 @@ const Form = () => {
                     role: formdata.role,
                     message: formdata.message
                 });
-                
+
                 setSubmitMessage('Message sent successfully!');
                 setFormData({
                     firstname: '',
@@ -107,7 +108,7 @@ const Form = () => {
                     role: 'Employer',
                     message: ''
                 });
-                setErrors({ 
+                setErrors({
                     firstnameerror: '',
                     lastnameerror: '',
                     emailiderror: '',
@@ -115,7 +116,7 @@ const Form = () => {
                     roleerror: '',
                     messageerror: ''
                 });
-                
+
                 // Clear success message after 5 seconds
                 setTimeout(() => {
                     setSubmitMessage('');
@@ -124,7 +125,7 @@ const Form = () => {
                 console.error('Error sending message:', error);
                 const errorMessage = error.response?.data?.message || 'Failed to send message. Please try again.';
                 setSubmitMessage(errorMessage);
-                
+
                 // Clear error message after 5 seconds
                 setTimeout(() => {
                     setSubmitMessage('');
@@ -178,7 +179,7 @@ const Form = () => {
                     <PhoneInput
                         placeholder="Enter phone number"
                         value={formdata.phone}
-                        onChange={(value) => setFormData({...formdata, phone: value})}
+                        onChange={(value) => setFormData({ ...formdata, phone: value })}
                         defaultCountry="CA"
                         className='px-3 border-1 py-3 rounded border-[#D4D4D4] focus:outline-none transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                     />
@@ -223,18 +224,29 @@ const Form = () => {
                     {submitMessage}
                 </div>
             )}
-            
-            <button 
-                ref={submitBtnRef}
-                onClick={submithandler} 
-                disabled={isSubmitting}
-                className={`sm:text-2xl text-lg px-4 py-2 mt-6 sm:mt-9 text-white rounded transition-all duration-300 transform ${
-                    isSubmitting ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#006AAB] hover:bg-[#1085ce] hover:shadow-lg active:scale-95'
-                }`} 
-                id='buttonStyle'
-            >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-            </button>
+
+            <div className="relative w-fit group flex">
+                <button
+                    ref={submitBtnRef}
+                    onClick={submithandler}
+                    disabled={isSubmitting}
+                    className={`sm:text-2xl text-lg px-4 py-2 mt-6 sm:mt-9 text-white rounded-xl transition-all duration-300 transform ${isSubmitting
+                            ? 'bg-gray-400 cursor-not-allowed'
+                            : 'bg-[#006AAB] hover:bg-[#1085ce] hover:shadow-lg active:scale-95'
+                        } group-hover:bg-[#1085ce]`}
+                    id="buttonStyle"
+                >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+
+                <div className="bg-[#006AAB] absolute top-1/2 -translate-y-1/2 -right-4 border-2 border-white rounded-full group-hover:bg-[#1085ce] transition-all duration-300">
+                    <IoIosArrowRoundForward
+                        size={32}
+                        className="text-white transition-all duration-300 group-hover:-rotate-45"
+                    />
+                </div>
+            </div>
+
         </form>
     )
 }
