@@ -1,13 +1,16 @@
 import React, { useRef, useState } from 'react';
 import Slider from "react-slick";
-import HeaderImg from '../assets/images/Headerimg.png';
-import Vancouver from '../assets/images/Vancouver.jpg';
-import Vancouver1 from '../assets/images/Vancouver1.jpg';
+import HeaderImg from '../assets/images/Header.jpg';
+import Vancouver from '../assets/images/Vancouver1.jpg'
+import Vancouver2 from '../assets/images/Vancouver2.jpg'
 import CiccLogo from '../assets/images/Cicclogo.png';
+import { IoIosArrowRoundForward } from "react-icons/io";
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { Link } from 'react-router-dom';
 
 const BannerCarousel = () => {
+    
     const [currentSlide, setCurrentSlide] = useState(0);
     const headingRef = useRef();
     const subheadingRef = useRef();
@@ -39,7 +42,7 @@ const BannerCarousel = () => {
             heading: "STUDY IN CANADA",
             subheading: "Transform your future with world-class Canadian education.",
             paragraph: "Access top universities, gain valuable work experience, and build your path to permanent residency through our expert student visa services.",
-            image: Vancouver1,
+            image: Vancouver2,
             animation: "fadeInUp"
         },
         {
@@ -83,14 +86,14 @@ const BannerCarousel = () => {
                                 />
                             </div>
                             <div className='container mx-auto absolute top-0 left-0 right-0 z-20'>
-                                <img className='xl:w-64 lg:w-50 w-42 absolute right-3 top-3' src={CiccLogo} alt="CICC IMAGE" />
+                                <img className='xl:w-64 lg:w-50 w-42 absolute right-3 lg:right-8 xl:-right-2 top-3' src={CiccLogo} alt="CICC IMAGE" />
                                 <div className={`absolute xl:top-[16rem] top-[6rem] text-[#FFFFFF] px-3.5 md:pl-10 lg:ml-5 lg:pl-0 ${currentSlide === index ? `animate-${banner.animation}` : 'opacity-0'
                                     }`}>
                                     <h1 className='xl:text-[5rem] text-4xl md:text-6xl md:mb-0 leading-12' ref={index === currentSlide ? headingRef : null}>
                                         {banner.heading}
                                     </h1>
                                     <h2
-                                        className='lg:text-2xl lg:w-2/3 lg:leading-8 xl:text-3xl md:text-xl text-base tracking-wider xl:w-3/4 xl:leading-12 leading-6 md:leading-5 md:mb-3 pb-2 xl:mt-6 md:mt-6 lg:mt-20 pt-4'
+                                        className='lg:text-2xl lg:w-2/3 lg:leading-8 xl:text-3xl md:text-xl text-base tracking-wider xl:w-3/4 xl:leading-12 leading-6 md:leading-5 md:mb-3 pb-2 md:mt-6 mt-3'
                                         ref={index === currentSlide ? subheadingRef : null}
                                     >
                                         {banner.subheading}
@@ -101,6 +104,20 @@ const BannerCarousel = () => {
                                     >
                                         {banner.paragraph}
                                     </p>
+                                    <Link
+                                        to="/contact-us"
+                                        className="flex items-center justify-center relative w-fit group md:mt-8 mt-3"
+                                    >
+                                        <button
+                                            id="buttonStyle"
+                                            className="py-2  px-4 pr-8  rounded-l-full rounded-r-4xl text-white lg:mt-3 sm:text-xl mt-5 group-hover:bg-[#1085ce] transition-all duration-100"
+                                        >
+                                            Start Your New Journey
+                                        </button>
+                                        <div className="bg-[#006AAB] absolute lg:mt-3 mt-5 border-2 border-white rounded-full -right-5 group-hover:-right-7 group-hover:bg-[#1085ce] transition-all duration-100">
+                                            <IoIosArrowRoundForward size={42} className="text-white transition-all duration-100 group-hover:-rotate-32" />
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

@@ -49,9 +49,9 @@ const Navbar = () => {
     return (
         <div >
             <div className='bg-[#006AAB] hidden md:block py-4 px-4'>
-                <div className='container mx-auto flex justify-between items-center text-white px-4'>
+                <div className='container mx-auto flex justify-between items-center text-white md:px-3.5 lg:px-0 lg:pl-5'>
                     <div className='flex items-center gap-20'>
-                        <div className='flex items-center gap-3'>
+                        <div className='flex items-center gap-3 lg:-ml-1'>
                             <MdEmail size={28} />
                             <a
                                 href="mailto:canadiandreams@gmail.com"

@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import CanadaPassportImg from '../assets/images/CanadaPassportImg.png'
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { TfiLayoutLineSolid } from "react-icons/tfi";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -85,7 +87,20 @@ const WhyChooseUs = () => {
                         </span>
                         Expert Support Panel
                     </h5>
-                    <button id='buttonStyle' className='py-2 px-4 md:text-xl md:px-8 md:py-3 rounded text-white mt-3'>Read More</button>
+                     <Link
+                    to="/terms-and-condition"
+                    className="flex items-center justify-center relative w-fit group"
+                >
+                    <button
+                        id="buttonStyle"
+                        className="py-2  px-4 pr-8  rounded-l-full rounded-r-4xl text-white lg:mt-3 sm:text-xl mt-5 group-hover:bg-[#1085ce] transition-all duration-100"
+                    >
+                        Read More
+                    </button>
+                    <div className="bg-[#006AAB] absolute lg:mt-3 mt-5 border-2 border-white rounded-full -right-5 group-hover:-right-7 group-hover:bg-[#1085ce] transition-all duration-100">
+                        <IoIosArrowRoundForward size={42} className="text-white transition-all duration-100 group-hover:-rotate-32" />
+                    </div>
+                </Link>
                     </div>
                 </div>
                 <div className='overflow-hidden xl:pl-8 xl:pr-14 px-5 lg:ml-12 lg:px-0' >
