@@ -434,3 +434,19 @@ span {
   height: 100vh !important;
 }
 
+.bgcontainer::-webkit-scrollbar {
+  width: 8px; /* vertical scrollbar width */
+}
+
+.bgcontainer::-webkit-scrollbar-track {
+  background: #f1f1f1; /* track color */
+}
+
+.bgcontainer::-webkit-scrollbar-thumb {
+  background: #006AAB; /* thumb color */
+  border-radius: 6px; /* rounded corners */
+}
+
+
+
+

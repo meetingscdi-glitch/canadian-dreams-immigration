@@ -31,11 +31,11 @@ const BlogOffcanvas = ({ isOpen, onClose, blog, allBlogs, onBlogSelect }) => {
             )}
 
             {/* Offcanvas */}
-            <div className={` offcanvas-panel fixed top-0 right-0 h-full w-full bg-white shadow-xl z-[9999] transform transition-all duration-500 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full' 
+            <div className={` offcanvas-panel fixed top-0 right-0 h-full w-full  shadow-xl z-[9999] transform transition-all duration-500 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full' 
         
                 }`}>
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-[#006AAB]">
+                <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-[#006AAB] container mx-auto">
                     <h2 className="text-xl font-semibold text-white">Blog Details</h2>
                     <button
                         onClick={onClose}
@@ -48,7 +48,7 @@ const BlogOffcanvas = ({ isOpen, onClose, blog, allBlogs, onBlogSelect }) => {
                 </div>
 
                 {/* Content */}
-                <div className="h-full overflow-y-auto pb-20">
+                <div className="h-full overflow-y-auto pb-20 container mx-auto bgcontainer bg-white">
                     {/* Blog Image */}
                     <FadeInOnScroll>
                         <div className="w-full  lg:h-[44rem]">
@@ -118,11 +118,11 @@ const BlogOffcanvas = ({ isOpen, onClose, blog, allBlogs, onBlogSelect }) => {
                         <FadeInOnScroll>
                             <div className="mt-8 pt-6 border-t border-gray-200">
                                 <h3 className="text-lg font-semibold mb-4">Related Blogs</h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     {allBlogs?.filter(b => b._id !== blog._id).slice(0, 4).map((relatedBlog) => (
                                         <div
                                             key={relatedBlog._id}
-                                            className="bg-gray-100 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition-colors"
+                                            className="bg-gray-100 rounded-lg p-6  cursor-pointer hover:bg-gray-100 transition-colors"
                                             onClick={() => onBlogSelect(relatedBlog)}
                                         >
                                             <img

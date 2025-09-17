@@ -24,7 +24,7 @@ const Faq = () => {
   }, []);
 
   return (
-    <div className='container mx-auto md:px-20 py-8 px-5'>
+    <div className='container mx-auto md:px-20 py-8  px-5'>
       <h5 className='md:text-4xl text-2xl text-center w-full mb-8'>Frequently Asked Questions</h5>
       <div>
         {faqs.map((data, index) => (

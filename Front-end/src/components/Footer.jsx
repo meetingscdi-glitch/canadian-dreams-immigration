@@ -22,7 +22,7 @@ const Footer = () => {
                     </h5>
                 </div>
                 <Link to='/contact-us'>
-                    <button className="bg-white text-[#006AAB] md:px-10 px-2 lg:text-2xl sm:text-xl rounded-lg whitespace-nowrap text-sm my-2 md:my-0 py-2.5">
+                    <button className="bg-white cursor-pointer hover:scale-104 transition-all duration-200 text-[#006AAB] md:px-10 px-2 lg:text-2xl sm:text-xl rounded-xl whitespace-nowrap text-sm my-2 md:my-0 py-2.5">
                         Let’s Get Started
                     </button>
                 </Link>

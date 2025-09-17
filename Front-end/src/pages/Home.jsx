@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Navbar from '../components/Navbar'
 import BannerCarousel from '../components/BannerCarousel'
 import CanadianDreams from '../components/CanadianDreams'
@@ -20,12 +20,26 @@ import gsap from 'gsap';
 import { Link } from 'react-router-dom';
 import FadeInOnScroll from './FadeInOnScroll'
 import { IoIosArrowRoundForward } from "react-icons/io";
+import Email from '../assets/images/Email.jpg'
+import { RxCross2 } from "react-icons/rx";
+
 
 
 const Home = () => {
     const headingRef = useRef();
     const subheadingRef = useRef();
     const paragraphRef = useRef();
+    const [Hide, setHide] = useState(false)
+    const hideController = () => {
+        setHide(false)
+    }
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setHide(true)
+        }, 6000)
+
+        return () => clearTimeout(timer);
+    }, [])
 
     // Hero animation
     useGSAP(() => {
@@ -57,6 +71,35 @@ const Home = () => {
             <Navbar />
             {/* Hero Carousel */}
             <BannerCarousel />
+
+            
+                {Hide ? <div className='fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center' onClick={hideController}>
+                <div className="h-[550px] w-full max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl">
+                    {/* Image Section */}
+                    <div className="h-84">
+                        <img className="w-full h-full object-cover" src={Email} alt="Email Banner" />
+                    </div>
+
+                    {/* Form Section */}
+                    <div className="p-6 flex mt-12  items-center justify-center gap-4">
+
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#006AAB] text-gray-800"
+                        />
+                        <button
+                            className="bg-[#006AAB] hover:bg-[#1085ce] text-white px-6 py-2 rounded-full transition-all duration-300"
+                        >
+                            Send
+                        </button>
+                    </div>
+                    <div className='flex items-center justify-center mt-4'>
+                        <RxCross2 className='text-[#006AAB] cursor-pointer' size={32} />
+                    </div>
+                </div>
+            </div> : null}
+
 
             {/* Sections with Fade-in Scroll Animations */}
             <FadeInOnScroll><CanadianDreams /></FadeInOnScroll>

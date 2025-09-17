@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import Slider from "react-slick";
 import HeaderImg from '../assets/images/Header.jpg';
 import Vancouver from '../assets/images/Vancouver1.jpg'
-import Vancouver2 from '../assets/images/Vancouver2.jpg'
+import Vancouver2 from '../assets/images/Vancouver12.webp'
 import CiccLogo from '../assets/images/Cicclogo.png';
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useGSAP } from '@gsap/react';
