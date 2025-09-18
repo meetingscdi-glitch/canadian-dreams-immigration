@@ -10,7 +10,6 @@ const Blogcart = () => {
     const [selectedBlog, setSelectedBlog] = useState(null);
     const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
     const [loading, setLoading] = useState(true);
-    console.log(selectedBlog, 'selectedBlog');
 
     useEffect(() => {
         const fetchBlogs = async () => {
