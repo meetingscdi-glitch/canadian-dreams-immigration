@@ -1,4 +1,3 @@
-// models/Contact.js - Mongoose model for contact inquiries
 const mongoose = require('mongoose');
 
 const contactSchema = new mongoose.Schema({
@@ -22,14 +21,14 @@ const contactSchema = new mongoose.Schema({
   role: {
     type: String,
     required: true,
-    enum: ['Employer', 'Aspirant'], 
+    enum: ['Employer', 'Aspirant'],
   },
   message: {
     type: String,
     required: true,
   },
 
-},{timestamps:true});
+}, { timestamps: true });
 
 const contact = mongoose.model('contact', contactSchema);
 

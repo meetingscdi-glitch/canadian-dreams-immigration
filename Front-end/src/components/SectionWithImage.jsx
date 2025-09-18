@@ -1,5 +1,6 @@
 import React from 'react'
 import AboutImg from '../assets/images/AboutUs.png'
+import EmployerImg from '../assets/images/Employer.webp'
 import ServicesImg from '../assets/images/StudyApplication.png'
 import Micgirl from '../assets/smallimages/MicGirl.png'
 import { useLocation } from 'react-router-dom'
@@ -35,10 +36,11 @@ const SectionWithImage = () => {
         '/terms-and-condition': {
             image: Micgirl,
             heading: 'Terms and Condition'
-        }
+        },
+
 
     };
-    const {image,heading} = ImageRoutes[currentpath];
+    const { image, heading } = ImageRoutes[currentpath];
 
     return (
         <div className='relative w-full h-full'>

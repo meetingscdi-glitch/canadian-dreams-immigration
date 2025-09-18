@@ -10,12 +10,14 @@ import Contact from './pages/Contact'
 import Policy from './pages/Policy'
 import TermsAndCondition from './pages/TermsAndCondition'
 import ScrollToTop from './components/ScrollToTop'
+// import Testimonial1 from './components/Testimonial1'
 const App = () => {
   return (
     <Router>
       <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home />} />
+        {/* <Route path='/slider' element={<Testimonial1 />} /> */}
         <Route path='/about-us' element={<About />} />
         <Route path='/our-services' element={<OurServices />} />
         <Route path='/blog' element={<Blog />} />

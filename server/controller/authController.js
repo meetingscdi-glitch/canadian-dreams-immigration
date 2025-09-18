@@ -1,62 +1,59 @@
-const express = require('express');
 const jwt = require('jsonwebtoken');
-const User = require('../models/userModel');
-const { verifyToken } = require('../middleware/authMiddleware');
+const user = require('../models/userModel');
 
-const router = express.Router();
-
- async function registerUser(req,res) {
-     try {
+async function registerUser(req, res) {
+  try {
     const { name, email, password, phoneNumber } = req.body;
 
-     const existingUser = await User.findOne({ email });
+    const existingUser = await user.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'Email already exists' });
     }
 
-     const user = new User({
+    const newUser = new user({
       name,
       email,
       password,
       phoneNumber,
     });
 
-    await user.save();
+    await newUser.save();
 
-     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: newUser._id }, process.env.JWT_SECRET, {
       expiresIn: '1d',
     });
 
-    res.status(201).json({
+    res.status(200).json({
+      status: 200,
       message: 'User registered successfully',
       token,
       user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        phoneNumber: user.phoneNumber,
+        id: newUser._id,
+        name: newUser.name,
+        email: newUser.email,
+        phoneNumber: newUser.phoneNumber,
       },
     });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ status: 500, message: error.message });
   }
-}  
+}
 
- async function loginUser(req,res) {
-      try {
+async function loginUser(req, res) {
+  try {
     const { email, password } = req.body;
 
-     const user = await User.findOne({ email });
-    if (!user) {
+    const existingUser = await user.findOne({ email });
+    if (!existingUser) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-     const isMatch = await user.comparePassword(password);
+    const isMatch = await existingUser.comparePassword(password);
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: existingUser._id }, process.env.JWT_SECRET, {
       expiresIn: '1d',
     });
 
@@ -64,28 +61,28 @@ const router = express.Router();
       message: 'Login successful',
       token,
       user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        phoneNumber: user.phoneNumber,
+        id: existingUser._id,
+        name: existingUser.name,
+        email: existingUser.email,
+        phoneNumber: existingUser.phoneNumber,
       },
     });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ status: 500, message: error.message });
   }
 }
 
- async function getUserProfile(req,res) {
-   try {
-    const user = await User.findById(req.user.userId).select('-password');
-    res.json(user);
+async function getUserProfile(req, res) {
+  try {
+    const user = await user.findById(req.user.userId).select('-password');
+    res.status(200).json({ status: 200, message: 'User profile fetched successfully', response: user });
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ status: 500, message: error.message });
   }
 }
 
 module.exports = {
-   registerUser,
+  registerUser,
   loginUser,
   getUserProfile
 };

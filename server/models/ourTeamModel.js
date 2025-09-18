@@ -1,9 +1,8 @@
-// models/teamModel.js
 const mongoose = require('mongoose');
 
 const ourTeamSchema = new mongoose.Schema({
   image: {
-    type: String, // Path or URL to the image
+    type: String,
     required: true,
   },
   name: {
@@ -14,11 +13,8 @@ const ourTeamSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+
+}, { timestamps: true });
 
 const ourTeam = mongoose.model('ourTeam', ourTeamSchema);
 

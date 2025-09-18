@@ -8,3 +8,4 @@ export * from './teams/actions';
 export * from './services/actions';
 export * from './blogs/actions';
 export * from './latestNews/actions';
+export * from './jobs/actions';

@@ -169,8 +169,10 @@ const MENU_ITEMS = [
             { key: 'faq', label: 'FAQ Management', url: '/admin/faq', parentKey: 'Content Management' },
             { key: 'teams', label: 'Team Management', url: '/admin/teams', parentKey: 'Content Management' },
             { key: 'services', label: 'Services Management', url: '/admin/services', parentKey: 'Content Management' },
+            { key: 'sub-services', label: 'Sub Services Management', url: '/admin/sub-services', parentKey: 'Content Management' },
             { key: 'blogs', label: 'Blog Management', url: '/admin/blogs', parentKey: 'Content Management' },
             { key: 'latest-news', label: 'Latest News', url: '/admin/latest-news', parentKey: 'Content Management' },
+            { key: 'jobs', label: 'Job Management', url: '/admin/jobs', parentKey: 'Content Management' },
         ],
     },
 

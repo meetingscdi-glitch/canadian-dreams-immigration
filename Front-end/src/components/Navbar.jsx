@@ -15,7 +15,7 @@ import gsap from 'gsap';
 
 
 const Navbar = () => {
-    
+
     const navItemsRef = useRef();
     const location = useLocation();
     const [hasAnimated, setHasAnimated] = useState(false);
@@ -33,38 +33,50 @@ const Navbar = () => {
     const ShowHideSubheadingd = () => {
         setSubHeadings(prev => !prev)
     }
-    
-        // useGSAP(() => {
-        //     const tl = gsap.timeline();
-        //     tl.from(navItemsRef.current.children, {
-        //         x: -300,
-        //         opacity: 0,
-        //         duration: 1,
-        //         ease: 'power3.out',
-        //         stagger: 0.1, // delay between each item
-        //     });
 
-        // }, []);
+    // useGSAP(() => {
+    //     const tl = gsap.timeline();
+    //     tl.from(navItemsRef.current.children, {
+    //         x: -300,
+    //         opacity: 0,
+    //         duration: 1,
+    //         ease: 'power3.out',
+    //         stagger: 0.1, // delay between each item
+    //     });
+
+    // }, []);
 
     return (
         <div >
             <div className='bg-[#006AAB] hidden md:block py-4 px-4'>
-                <div className='container mx-auto flex justify-between items-center text-white px-4'>
+                <div className='container mx-auto flex justify-between items-center text-white md:px-3.5 lg:px-0 lg:pl-5'>
                     <div className='flex items-center gap-20'>
-                        <div className='flex items-center gap-3'>
+                        <div className='flex items-center gap-3 lg:-ml-1'>
                             <MdEmail size={28} />
-                            <h5 className='text-lg poppins-regular'>canadiandreams@gmail.com</h5>
+                            <a
+                                href="mailto:canadiandreams@gmail.com"
+                                className="text-lg poppins-regular transition-colors hover:text-blue-100"
+                            >
+                                canadiandreams@gmail.com
+                            </a>
                         </div>
+
                         <div className='flex items-center gap-3'>
                             <IoCall size={28} />
-                            <h5 className='text-lg poppins-regular'>4491203245</h5>
+                            <a
+                                href="tel:+914491203245"
+                                className="text-lg poppins-regular transition-colors hover:text-blue-100"
+                            >
+                                +91 4491203245
+                            </a>
                         </div>
+
                     </div>
                     <div className='flex items-center gap-3'>
-                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#03045e]'><TiSocialFacebook size={28} /></div>
-                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#03045e]'><AiFillInstagram size={28} /></div>
-                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#03045e]'><IoLogoTiktok size={28} /></div>
-                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#03045e]'><IoLocationSharp size={28} /></div>
+                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><TiSocialFacebook size={28} /></div>
+                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><AiFillInstagram size={28} /></div>
+                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><IoLogoTiktok size={28} /></div>
+                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><IoLocationSharp size={28} /></div>
                     </div>
                 </div>
             </div>
@@ -81,7 +93,7 @@ const Navbar = () => {
                     <div
                         ref={navItemsRef}
                         className={`overflow-hidden transition-all duration-500 ease-in-out ${hide ? 'max-h-0 lg:max-h-[500px]' : 'max-h-[500px] py-6'
-                            } flex flex-col lg:mr-4 xl:mr-0 lg:flex-row lgf:items-center gap-4 xl:gap-5 poppins-regular text-lg md:static absolute right-0 bg-white z-10 w-full md:w-auto px-5 md:px-0 navbaritems`}
+                            } flex flex-col lg:mr-4 xl:mr-0 lg:flex-row lgf:items-center gap-4 xl:gap-5 poppins-regular text-lg md:static absolute right-0 bg-white lg:bg-transparent z-10 w-full md:w-auto px-5 md:px-0 navbaritems centerClas`}
                     >
                         <NavLink
                             to="/"
@@ -146,10 +158,12 @@ const Navbar = () => {
                                 `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`
                             }
                         >
-                            Contact-us
+                            Contact Us
                         </NavLink>
                         <div>
-                            <button className='bg-[#F22941] hover:bg-[#da2f42] md:px-2 md:py-2  text-white rounded xl:text-xl text-base xl:py-2 xl:px-4 whitespace-nowrap cursor-pointer'>Book a consultation</button>
+                            <Link to='/contact-us'>
+                                <button className='bg-[#F22941] hover:bg-[#da2f42] md:px-2 md:py-2  text-white rounded xl:text-xl text-base xl:py-2 xl:px-4 whitespace-nowrap cursor-pointer'>Book a consultation</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

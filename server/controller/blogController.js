@@ -1,14 +1,14 @@
-// controllers/blogController.js
 const blog = require('../models/blogModel');
 const Joi = require('joi');
- 
- async function createBlog(req, res) {
+const { upload } = require('../utils/s3Upload');
+
+async function createBlog(req, res) {
   try {
     if (!req.file) {
       return res.status(400).json({ status: 400, message: "Image is required" });
     }
-
-    const image = `http://localhost:3500/uploads/${req.file.filename}`;
+    const Result = await upload(req.file);
+    let image = Result.Location;
     const blogData = { ...req.body, image };
 
     const schema = Joi.object({
@@ -31,6 +31,7 @@ const Joi = require('joi');
       response: newBlog,
     });
   } catch (error) {
+    console.error("Error creating blog:", error);
     res.status(500).json({
       status: 500,
       message: "Error creating blog",
@@ -41,7 +42,7 @@ const Joi = require('joi');
 
 
 
- const getAllBlogs = async (req, res) => {
+const getAllBlogs = async (req, res) => {
   try {
     const blogs = await blog.find().sort({ createdAt: -1 });
     res.status(200).json({ status: 200, message: "Blogs fetched successfully", response: blogs });
@@ -50,44 +51,49 @@ const Joi = require('joi');
   }
 };
 
- const getBlogById = async (req, res) => {
+const getBlogById = async (req, res) => {
   try {
-    const singleBlog = await blog.findById(req.params.id); 
+    const singleBlog = await blog.findById(req.params.id);
     if (!singleBlog) {
-      return res.status(404).json({status:404, message: "Blog not found" });
+      return res.status(404).json({ status: 404, message: "Blog not found" });
     }
-    res.status(200).json({status:200,message:"Blog fetched successfully",response:singleBlog});
+    res.status(200).json({ status: 200, message: "Blog fetched successfully", response: singleBlog });
   } catch (error) {
-    res.status(500).json({ status:500,message: "Error fetching blog", error: error.message });
+    res.status(500).json({ status: 500, message: "Error fetching blog", error: error.message });
   }
 };
 
 
- const updateBlog = async (req, res) => {
+const updateBlog = async (req, res) => {
   try {
-    const { heading, paragraph ,_id} = req.body;
+    const { heading, paragraph, _id } = req.body;
+    let imageUrl;
+    if (req.file) {
+      const Result = await upload(req.file);
+      imageUrl = Result.Location;
+    }
     const updatedBlog = await blog.findByIdAndUpdate(
       _id,
       {
         heading,
         paragraph,
-        ...(req.file && { image: `http://localhost:3500/uploads/${req.file.filename}` }),
+        ...(req.file && { image: imageUrl }),
       },
       { new: true, runValidators: true }
     );
 
     if (!updatedBlog) {
-      return res.status(404).json({ status:404, message: "Blog not found" });
+      return res.status(404).json({ status: 404, message: "Blog not found" });
     }
 
     res.status(200).json({
-     status:200,
+      status: 200,
       message: "Blog updated successfully",
       response: updatedBlog,
     });
   } catch (error) {
     res.status(500).json({
-      status:500,
+      status: 500,
       message: "Error updating blog",
       error: error.message,
     });
@@ -95,16 +101,16 @@ const Joi = require('joi');
 };
 
 
- const deleteBlog = async (req, res) => {
+const deleteBlog = async (req, res) => {
   try {
-    const {_id}=req.body;
+    const { _id } = req.body;
     const deletedBlog = await blog.findByIdAndDelete(_id);
     if (!deletedBlog) {
-      return res.status(404).json({status:404, message: 'Blog not found' });
+      return res.status(404).json({ status: 404, message: 'Blog not found' });
     }
-    res.status(200).json({status:200, message: 'Blog deleted successfully' });
+    res.status(200).json({ status: 200, message: 'Blog deleted successfully' });
   } catch (error) {
-    res.status(500).json({ status:500,message: 'Error deleting blog', error });
+    res.status(500).json({ status: 500, message: 'Error deleting blog', error });
   }
 };
 

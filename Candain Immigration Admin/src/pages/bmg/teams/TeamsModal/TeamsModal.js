@@ -43,11 +43,11 @@ const TeamsModal = ({ show, hide, teamsData }) => {
 
     const handleInputChange = (e) => {
         const { name, value, type, checked, files } = e.target;
-        
+
         if (type === 'file' && files[0]) {
             const file = files[0];
             setFormData(prev => ({ ...prev, [name]: file }));
-            
+
             const reader = new FileReader();
             reader.onload = (e) => {
                 setSelectedImagePreview(e.target.result);
@@ -59,7 +59,7 @@ const TeamsModal = ({ show, hide, teamsData }) => {
                 [name]: type === 'checkbox' ? checked : value
             }));
         }
-        
+
         if (errors[name]) {
             setErrors(prev => ({ ...prev, [name]: '' }));
         }
@@ -79,7 +79,7 @@ const TeamsModal = ({ show, hide, teamsData }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newErrors = validateForm();
-        
+
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
@@ -89,11 +89,11 @@ const TeamsModal = ({ show, hide, teamsData }) => {
             name: formData.name,
             designation: formData.designation
         };
-        
+
         if (formData.image) {
             submitData.image = formData.image;
         }
-        
+
         if (teamsData.type === 'Edit') {
             submitData._id = teamsData.data._id;
         }
@@ -121,7 +121,7 @@ const TeamsModal = ({ show, hide, teamsData }) => {
     };
 
     return (
-        <Modal show={show} onHide={hide} size={teamsData.type === 'Delete' ? 'sm' : 'lg'} centered backdrop="static">
+        <Modal show={show} onHide={hide} size={teamsData.type === 'Delete' ? 'sm' : 'lg'} centered className="modal-animate">
             {teamsData.type === 'Delete' ? (
                 <>
                     <Modal.Header closeButton>
@@ -134,7 +134,9 @@ const TeamsModal = ({ show, hide, teamsData }) => {
                         <small className="text-muted">This cannot be undone.</small>
                     </Modal.Body>
                     <Modal.Footer className="py-2">
-                        <Button variant="secondary" size="sm" onClick={hide}>Cancel</Button>
+                        <Button variant="secondary" size="sm" className="btn-cancel" onClick={hide}>
+                            <i className="mdi mdi-close"></i>Cancel
+                        </Button>
                         <Button variant="danger" size="sm" onClick={handleDelete}>Delete</Button>
                     </Modal.Footer>
                 </>
@@ -144,7 +146,7 @@ const TeamsModal = ({ show, hide, teamsData }) => {
                         <Modal.Title>{getModalTitle()}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className="bg-white p-4 rounded shadow-sm">
+                        <div className="bg-white p-4 rounded shadow-sm animate-slide-left">
                             <Form>
                                 <Form.Group className="mb-4">
                                     <Form.Label className="fw-semibold mb-2">
@@ -193,7 +195,7 @@ const TeamsModal = ({ show, hide, teamsData }) => {
                                         <i className="mdi mdi-image me-2 text-primary"></i>
                                         Profile Image
                                     </Form.Label>
-                                    
+
                                     {(existingImage || selectedImagePreview) && (
                                         <div className="mb-3 p-3 bg-light rounded border">
                                             <small className="text-muted d-block mb-2">Image Preview:</small>
@@ -244,7 +246,7 @@ const TeamsModal = ({ show, hide, teamsData }) => {
                                             </div>
                                         </div>
                                     )}
-                                    
+
                                     <Form.Control
                                         type="file"
                                         name="image"
@@ -262,8 +264,11 @@ const TeamsModal = ({ show, hide, teamsData }) => {
                         </div>
                     </Modal.Body>
                     <Modal.Footer className="px-2 py-1">
-                        <Button variant="danger" onClick={hide}>Cancel</Button>
-                        <Button style={{ backgroundColor: '#006AAB' }} onClick={handleSubmit}>
+                        <Button variant="danger" className="btn-cancel" onClick={hide}>
+                            <i className="mdi mdi-close"></i>Cancel
+                        </Button>
+                        <Button className="btn-animated hover-glow" style={{ backgroundColor: '#006AAB' }} onClick={handleSubmit}>
+                            <i className={`mdi ${teamsData.type === 'Add' ? 'mdi-plus' : 'mdi-content-save'} me-1`}></i>
                             {teamsData.type === 'Add' ? 'Add Team Member' : 'Update Team Member'}
                         </Button>
                     </Modal.Footer>

@@ -3,6 +3,7 @@ import * as types from './constants';
 const initialState = {
     loading: false,
     servicesData: null,
+    subServicesData: null,
     error: null,
 };
 
@@ -12,6 +13,10 @@ const servicesDataReducer = (state = initialState, action) => {
         case types.ADD_SERVICES_REQUEST:
         case types.UPDATE_SERVICES_REQUEST:
         case types.DELETE_SERVICES_REQUEST:
+        case types.GET_SUB_SERVICES_REQUEST:
+        case types.ADD_SUB_SERVICES_REQUEST:
+        case types.UPDATE_SUB_SERVICES_REQUEST:
+        case types.DELETE_SUB_SERVICES_REQUEST:
             return {
                 ...state,
                 loading: true,
@@ -26,9 +31,20 @@ const servicesDataReducer = (state = initialState, action) => {
                 error: null,
             };
 
+        case types.GET_SUB_SERVICES_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                subServicesData: action.payload,
+                error: null,
+            };
+
         case types.ADD_SERVICES_SUCCESS:
         case types.UPDATE_SERVICES_SUCCESS:
         case types.DELETE_SERVICES_SUCCESS:
+        case types.ADD_SUB_SERVICES_SUCCESS:
+        case types.UPDATE_SUB_SERVICES_SUCCESS:
+        case types.DELETE_SUB_SERVICES_SUCCESS:
             return {
                 ...state,
                 loading: false,
@@ -39,6 +55,10 @@ const servicesDataReducer = (state = initialState, action) => {
         case types.ADD_SERVICES_FAILURE:
         case types.UPDATE_SERVICES_FAILURE:
         case types.DELETE_SERVICES_FAILURE:
+        case types.GET_SUB_SERVICES_FAILURE:
+        case types.ADD_SUB_SERVICES_FAILURE:
+        case types.UPDATE_SUB_SERVICES_FAILURE:
+        case types.DELETE_SUB_SERVICES_FAILURE:
             return {
                 ...state,
                 loading: false,

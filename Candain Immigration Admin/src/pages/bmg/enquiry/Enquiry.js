@@ -9,19 +9,36 @@ const Enquiry = () => {
     const store = useSelector((state) => state);
     const dispatch = useDispatch();
     const [search, setSearch] = useState('');
-    const EnquiryData = store?.enquiryDataReducer?.enquiryData?.contacts;
+    const allEnquiryData = store?.enquiryDataReducer?.enquiryData?.response || [];
     const EnquiryLoading = store?.enquiryDataReducer?.loading;
-    const TotalRecords = store?.enquiryDataReducer?.enquiryData?.totalRecords;
     const [pageIndex, setPageIndex] = useState(1);
     const [pageSize, setPageSize] = useState(20);
-    const [totalPages, setTotalPages] = useState(Math.ceil(TotalRecords / pageSize));
+
+    // Client-side filtering
+    const filteredData = allEnquiryData.filter(item => {
+        if (!search) return true;
+        const searchLower = search.toLowerCase();
+        return (
+            (item.firstName?.toLowerCase().includes(searchLower)) ||
+            (item.lastName?.toLowerCase().includes(searchLower)) ||
+            (item.email?.toLowerCase().includes(searchLower)) ||
+            (item.message?.toLowerCase().includes(searchLower))
+        );
+    });
+
+    // Client-side pagination
+    const TotalRecords = filteredData.length;
+    const totalPages = Math.ceil(TotalRecords / pageSize);
+    const startIndex = (pageIndex - 1) * pageSize;
+    const EnquiryData = filteredData.slice(startIndex, startIndex + pageSize);
 
     useEffect(() => {
-        setTotalPages(Math.ceil(TotalRecords / pageSize));
-    }, [TotalRecords, pageSize]);
+        dispatch(getEnquiryActions({}));
+    }, [dispatch]);
+
     useEffect(() => {
-        dispatch(getEnquiryActions({ search: search, limit: pageSize, page: pageIndex }));
-    }, [dispatch, pageIndex, pageSize, search]);
+        setPageIndex(1); // Reset to first page when search changes
+    }, [search]);
 
     return (
         <>
@@ -37,8 +54,8 @@ const Enquiry = () => {
             />
             <Row>
                 <Col xs={12}>
-                    <Card className="border-0 shadow-lg" style={{ borderRadius: '15px' }}>
-                        <Card.Header className="bg-gradient border-0 py-4" style={{ background: 'linear-gradient(135deg, #006AAB 0%, #004d7a 100%)', borderRadius: '15px 15px 0 0' }}>
+                    <Card className="border-0 shadow-lg animate-fade-in hover-lift" style={{ borderRadius: '15px' }}>
+                        <Card.Header className="bg-gradient border-0 gradient-animate" style={{ borderRadius: '15px 15px 0 0' }}>
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="d-flex align-items-center">
                                     <div className="bg-white bg-opacity-20 rounded-circle p-3 me-3">
@@ -57,7 +74,7 @@ const Enquiry = () => {
                                 </div>
                             </div>
                         </Card.Header>
-                        <Card.Body className="p-4">
+                        <Card.Body className="py-0">
                             <div className="d-flex justify-content-start align-items-center mb-4">
                                 <div className="position-relative">
                                     <input
@@ -92,8 +109,8 @@ const Enquiry = () => {
                                     {EnquiryData && EnquiryData?.length > 0 ? (
                                         <>
                                             <div className="table-responsive">
-                                                <table className="table mb-0 table-hover" style={{ borderRadius: '10px', overflow: 'hidden' }}>
-                                                    <thead style={{ backgroundColor: '#f8f9fa' }}>
+                                                <table className="table mb-0 modern-table">
+                                                    <thead>
                                                         <tr>
                                                             <th className="border-0 py-3 text-muted fw-semibold">#</th>
                                                             <th className="border-0 py-3 text-muted fw-semibold">Full Name</th>
@@ -104,7 +121,7 @@ const Enquiry = () => {
                                                     </thead>
                                                     <tbody>
                                                         {EnquiryData?.map((data, index) => (
-                                                            <tr key={index} className="border-bottom">
+                                                            <tr key={index} className="stagger-item">
                                                                 <td className="py-3 align-middle">
                                                                     <span className="badge bg-light text-dark rounded-pill">{(pageIndex - 1) * pageSize + index + 1}</span>
                                                                 </td>
@@ -114,7 +131,7 @@ const Enquiry = () => {
                                                                             <i className="mdi mdi-account text-muted"></i>
                                                                         </div>
                                                                         <div>
-                                                                            <div className="fw-bold text-dark">{data?.fullName || 'N/A'}</div>
+                                                                            <div className="fw-bold text-dark">{`${data?.firstName || ''} ${data?.lastName || ''}`.trim() || 'N/A'}</div>
                                                                             <small className="text-muted">Customer</small>
                                                                         </div>
                                                                     </div>

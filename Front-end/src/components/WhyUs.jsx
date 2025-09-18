@@ -1,12 +1,13 @@
 import React, { useRef } from 'react'
-import WhyusImg from '../assets/images/WhyusImg.png'
-import AboutWhyUs from '../assets/images/AboutWhyus.png'
+import WhyusImg from '../assets/images/WhyUS.webp'
+import AboutWhyUs from '../assets/images/NewImg.webp'
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { TfiLayoutLineSolid } from "react-icons/tfi";
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useLocation } from 'react-router-dom';
+import staticText from '../content/staticData';
 gsap.registerPlugin(ScrollTrigger);
 
 const WhyUs = () => {
@@ -69,22 +70,12 @@ const WhyUs = () => {
                         <p className='md:mb-6 md:text-xl text-lg md:mt-6'>
                             What sets us apart is our unwavering commitment to:
                         </p>
-                        <h5 className='poppins-regular flex items-center mb-4 md:text-lg text-base mt-4'>
-                            <IoMdCheckmarkCircleOutline size={30} color='#006AAB' className='mr-2' />
-                            Integrity and Accountability in Process Handling
-                        </h5>
-                        <h5 className='poppins-regular flex items-center mb-4 md:text-lg text-base'>
-                            <IoMdCheckmarkCircleOutline size={30} color='#006AAB' className='mr-2' />
-                            Timely and Transparent Communication
-                        </h5>
-                        <h5 className='poppins-regular flex items-center mb-4 md:text-lg text-base'>
-                            <IoMdCheckmarkCircleOutline size={30} color='#006AAB' className='mr-2' />
-                            End-to-End Support from Consultation to Final Decision
-                        </h5>
-                        <h5 className='poppins-regular flex items-center mb-4 md:text-lg text-base'>
-                            <IoMdCheckmarkCircleOutline size={30} color='#006AAB' className='mr-2' />
-                            High Approval Rates and Proven Track Record
-                        </h5>
+                        {staticText.whyChoosePoints.slice(0, 4).map((point, index) => (
+                            <h5 key={index} className='poppins-regular flex items-center mb-4 md:text-lg text-base mt-4'>
+                                <IoMdCheckmarkCircleOutline size={30} color='#006AAB' className='mr-2' />
+                                {point}
+                            </h5>
+                        ))}
                         <p className='md:text-lg text-base'>We are proud to have successfully assisted hundreds of clients from around the globe in achieving their Canadian dream</p>
                     </div>
                 </div>

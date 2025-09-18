@@ -1,14 +1,14 @@
-// controllers/latestNewsController.js
 const latestNews = require('../models/latestNewModel');
 const Joi = require('joi');
+const { upload } = require('../utils/s3Upload');
 
 async function createLatestNews(req, res) {
   try {
     if (!req.file) {
       return res.status(400).json({ status: 400, message: "Image is required" });
     }
-
-    const image = `http://localhost:3500/uploads/${req.file.filename}`;
+    const Result = await upload(req.file);
+    let image = Result.Location;
     const latestNewsData = { ...req.body, image };
 
     const schema = Joi.object({
@@ -39,7 +39,7 @@ async function createLatestNews(req, res) {
   }
 }
 
- const getAllLatestNews = async (req, res) => {
+const getAllLatestNews = async (req, res) => {
   try {
     const latestNewss = await latestNews.find().sort({ createdAt: -1 });
     res.status(200).json({ status: 200, message: "Latest news fetched successfully", response: latestNewss });
@@ -49,7 +49,7 @@ async function createLatestNews(req, res) {
   }
 };
 
- const getLatestNewsById = async (req, res) => {
+const getLatestNewsById = async (req, res) => {
   try {
     const singleLatestNews = await latestNews.findById(req.params.id);
     if (!singleLatestNews) {
@@ -61,15 +61,20 @@ async function createLatestNews(req, res) {
   }
 };
 
- const updateLatestNews = async (req, res) => {
+const updateLatestNews = async (req, res) => {
   try {
     const { heading, paragraph, _id } = req.body;
+    let imageUrl;
+    if (req.file) {
+      const Result = await upload(req.file);
+      imageUrl = Result.Location;
+    }
     const updatedLatestNews = await latestNews.findByIdAndUpdate(
       _id,
       {
         heading,
         paragraph,
-        ...(req.file && { image: `http://localhost:3500/uploads/${req.file.filename}` }),
+        ...(req.file && { image: imageUrl }),
       },
       { new: true }
     );
@@ -92,7 +97,7 @@ async function createLatestNews(req, res) {
   }
 };
 
- const deleteLatestNews = async (req, res) => {
+const deleteLatestNews = async (req, res) => {
   try {
     const { _id } = req.body;
     const deletedLatestNews = await latestNews.findByIdAndDelete(_id);

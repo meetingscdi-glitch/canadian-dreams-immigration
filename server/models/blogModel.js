@@ -1,4 +1,3 @@
-// models/blogModel.js
 const mongoose = require('mongoose');
 
 const blogSchema = new mongoose.Schema({
@@ -11,10 +10,10 @@ const blogSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    type: String, // Path to the image
+    type: String,
     required: true,
   },
-},{timestamps:true});
+}, { timestamps: true });
 
 const blog = mongoose.model('blog', blogSchema);
 
