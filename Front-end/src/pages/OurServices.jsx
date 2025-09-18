@@ -29,9 +29,12 @@ const OurServices = () => {
     const fetchData = async () => {
       try {
         console.log('Fetching services and subServices...');
+
+        const baseURL = process.env.REACT_APP_API_URL;
+
         const [servicesRes, subServicesRes] = await Promise.all([
-          axios.get('http://localhost:3500/api/service/getAllServices'),
-          axios.get('http://localhost:3500/api/subService/getAllSubServices')
+          axios.get(`${baseURL}/service/getAllServices`),
+          axios.get(`${baseURL}/subService/getAllSubServices`)
         ]);
 
         console.log('Services response:', servicesRes.data);
@@ -39,6 +42,7 @@ const OurServices = () => {
 
         if (servicesRes.data && servicesRes.data.response) {
           setServices(servicesRes.data.response);
+
           const tempResidence = servicesRes.data.response.find(service =>
             service.name && service.name.toLowerCase().includes('temporary residence')
           );
@@ -48,10 +52,13 @@ const OurServices = () => {
           // Auto-select first subcategory if available
           if (defaultService?.subCategories?.length > 0) {
             const firstSubCategory = defaultService.subCategories[0];
-            const subService = subServicesRes.data?.serviceSubCategories?.find(sub => sub.name === firstSubCategory.name);
+            const subService = subServicesRes.data?.serviceSubCategories?.find(
+              sub => sub.name === firstSubCategory.name
+            );
+
             if (subService?._id) {
               try {
-                const response = await axios.get(`http://localhost:3500/api/subService/getSubServicesById/${subService._id}`);
+                const response = await axios.get(`${baseURL}/subService/getSubServicesById/${subService._id}`);
                 if (response.data?.serviceSubCategoryData) {
                   setSelectedSubCategory(response.data.serviceSubCategoryData);
                 }
@@ -81,7 +88,10 @@ const OurServices = () => {
   // Fetch service by ID
   const fetchServiceById = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3500/api/service/getServicesById/${id}`);
+      const baseURL = process.env.REACT_APP_API_URL;
+
+      const response = await axios.get(`${baseURL}/service/getServicesById/${id}`);
+
       if (response.data && response.data.response) {
         setSelectedService(response.data.response);
       }
@@ -105,8 +115,11 @@ const OurServices = () => {
 
     if (subService && subService._id) {
       try {
+        const baseURL = process.env.REACT_APP_API_URL;
+
         console.log('Making API call with ID:', subService._id);
-        const response = await axios.get(`http://localhost:3500/api/subService/getSubServicesById/${subService._id}`);
+        const response = await axios.get(`${baseURL}/subService/getSubServicesById/${subService._id}`);
+
         console.log('API Response:', response.data);
         if (response.data && response.data.serviceSubCategoryData) {
           setSelectedSubCategory(response.data.serviceSubCategoryData);
@@ -120,6 +133,7 @@ const OurServices = () => {
       setSelectedSubCategory(subCategory);
     }
   };
+
 
   if (loading) {
     return (
