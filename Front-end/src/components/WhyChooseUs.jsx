@@ -44,8 +44,8 @@ const WhyChooseUs = () => {
     
     //     })
     return (
-        <div className='bg-[#F4FBFF] my-10'>
-            <div className='flex flex-col-reverse lg:grid lg:grid-cols-2  xl:py-20  py-10 md:px-8 container mx-auto md:mt-20'>
+        <div className='bg-[#F4FBFF]'>
+            <div className='flex flex-col-reverse lg:grid lg:grid-cols-2  xl:py-20  py-10 md:px-8 container mx-auto'>
                 <div className='xl:pl-20 xl:pr-12  px-5 lg:px-0 overflow-hidden' >
                     <div className='overflow-hidden' ref={whyChooseText}>
                         <h6 className='text-[#006AAB] text-lg mb-2 mt-6 flex items-center'><TfiLayoutLineSolid size={28} />Why Choose Us</h6>

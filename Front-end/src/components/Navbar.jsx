@@ -55,7 +55,7 @@ const Navbar = () => {
                             <MdEmail size={28} />
                             <a
                                 href="mailto:canadiandreams@gmail.com"
-                                className="text-lg poppins-regular transition-colors hover:font-bold"
+                                className="text-lg poppins-regular transition-colors hover:text-blue-100"
                             >
                                 canadiandreams@gmail.com
                             </a>
@@ -65,7 +65,7 @@ const Navbar = () => {
                             <IoCall size={28} />
                             <a
                                 href="tel:+914491203245"
-                                className="text-lg poppins-regular transition-colors hover:font-bold"
+                                className="text-lg poppins-regular transition-colors hover:text-blue-100"
                             >
                                 +91 4491203245
                             </a>
@@ -73,10 +73,10 @@ const Navbar = () => {
 
                     </div>
                     <div className='flex items-center gap-3'>
-                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#03045e]'><TiSocialFacebook size={28} /></div>
-                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#03045e]'><AiFillInstagram size={28} /></div>
-                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#03045e]'><IoLogoTiktok size={28} /></div>
-                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#03045e]'><IoLocationSharp size={28} /></div>
+                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><TiSocialFacebook size={28} /></div>
+                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><AiFillInstagram size={28} /></div>
+                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><IoLogoTiktok size={28} /></div>
+                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><IoLocationSharp size={28} /></div>
                     </div>
                 </div>
             </div>

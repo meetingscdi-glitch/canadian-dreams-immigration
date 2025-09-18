@@ -89,10 +89,10 @@ const Testimonial = () => {
     };
     return (
 
-        <div className='xl:py-20 lg:py-10  w-full mb-16 md:mb-0'>
+        <div className=' lg:py-14 mt-10 md:mt-0 w-full  md:mb-0'>
             <h5 className='md:text-5xl text-3xl mx-auto w-full text-center md:mb-8'>Testimonial</h5>
             <div className='container h-full  sm:mx-auto pb-10   md:p-0'>
-                <div className='sm:w-3/4 lg:w-4/5   sm:mx-auto xl:w-full'>
+                <div className='sm:w-3/4 lg:w-4/5 px-4 sm:mx-auto xl:w-full'>
                     <div className='w-full'>
                         {/* <Slider {...settings}>
                             {CardData.map((data, idx) => {
@@ -114,8 +114,10 @@ const Testimonial = () => {
                             })}
                         </Slider> */}
                         {/* <!-- Elfsight Google Reviews | Untitled Google Reviews --> */}
-                        <script src="https://elfsightcdn.com/platform.js" async></script> <div class="elfsight-app-3bc327ab-f385-42e4-a6e3-b73e7e9fb17c" data-elfsight-app-lazy></div>
+                       <div className='mt-8'>
+                         <script src="https://elfsightcdn.com/platform.js" async></script> <div class="elfsight-app-3bc327ab-f385-42e4-a6e3-b73e7e9fb17c" data-elfsight-app-lazy></div>
 
+                       </div>
                     </div>
                 </div>
             </div>
