@@ -49,7 +49,7 @@ import { Link } from "react-router-dom";
 // ];
 
 const LatestNews = () => {
-  
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -109,16 +109,26 @@ const LatestNews = () => {
                   <div className="flex flex-col gap-3">
                     <img src={t.image} alt="NewsImage" className="h-64 object-cover" />
                     <div className="px-3 md:p-4 lg:p-6">
-                      <h1 className="text-2xl font-medium">{t.heading}</h1>
-                      <h3 className="text-lg mt-4 mb-6">{t.paragraph}</h3>
-                      <Link to='/blog' className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'>
-                    Read More <GoArrowUpRight />
-                  </Link>
+                      <h1
+                        className="text-2xl font-medium"
+                        dangerouslySetInnerHTML={{ __html: t.heading }}
+                      />
+                      <h3
+                        className="text-lg mt-4 mb-6"
+                        dangerouslySetInnerHTML={{ __html: t.paragraph }}
+                      />
+                      <Link
+                        to='/blog'
+                        className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'
+                      >
+                        Read More <GoArrowUpRight />
+                      </Link>
                     </div>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
+
           </Swiper>
         )}
 
