@@ -72,8 +72,8 @@ const Home = () => {
             {/* Hero Carousel */}
             <BannerCarousel />
 
-            
-                {Hide ? <div className='fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center' onClick={hideController}>
+
+            {Hide ? <div className='fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center' onClick={hideController}>
                 <div className="h-[550px] w-full max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl">
                     {/* Image Section */}
                     <div className="h-84">

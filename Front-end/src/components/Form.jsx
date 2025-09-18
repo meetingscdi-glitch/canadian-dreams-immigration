@@ -231,8 +231,8 @@ const Form = () => {
                     onClick={submithandler}
                     disabled={isSubmitting}
                     className={`sm:text-2xl text-lg px-4 py-2 mt-6 sm:mt-9 text-white rounded-xl transition-all duration-300 transform ${isSubmitting
-                            ? 'bg-gray-400 cursor-not-allowed'
-                            : 'bg-[#006AAB] hover:bg-[#1085ce] hover:shadow-lg active:scale-95'
+                        ? 'bg-gray-400 cursor-not-allowed'
+                        : 'bg-[#006AAB] hover:bg-[#1085ce] hover:shadow-lg active:scale-95'
                         } group-hover:bg-[#1085ce]`}
                     id="buttonStyle"
                 >

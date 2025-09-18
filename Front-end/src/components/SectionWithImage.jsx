@@ -37,10 +37,10 @@ const SectionWithImage = () => {
             image: Micgirl,
             heading: 'Terms and Condition'
         },
-       
+
 
     };
-    const {image,heading} = ImageRoutes[currentpath];
+    const { image, heading } = ImageRoutes[currentpath];
 
     return (
         <div className='relative w-full h-full'>

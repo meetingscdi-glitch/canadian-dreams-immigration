@@ -29,7 +29,7 @@ const ServicesModal = ({ show, hide, servicesData }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         if (servicesData.type === 'Add') {
             dispatch(addServicesActions(formData));
         } else if (servicesData.type === 'Edit') {
@@ -40,7 +40,7 @@ const ServicesModal = ({ show, hide, servicesData }) => {
         } else if (servicesData.type === 'Delete') {
             dispatch(deleteServicesActions({ _id: servicesData.data._id }));
         }
-        
+
         hide();
     };
 
@@ -58,7 +58,7 @@ const ServicesModal = ({ show, hide, servicesData }) => {
             <Modal.Header closeButton>
                 <Modal.Title>{getModalTitle()}</Modal.Title>
             </Modal.Header>
-            
+
             <Form onSubmit={handleSubmit}>
                 <Modal.Body>
                     {servicesData.type === 'Delete' ? (
@@ -66,7 +66,7 @@ const ServicesModal = ({ show, hide, servicesData }) => {
                             <i className="mdi mdi-alert-circle-outline text-danger" style={{ fontSize: '4rem' }}></i>
                             <h5 className="mt-3">Are you sure?</h5>
                             <p className="text-muted">
-                                Do you want to delete the service "{servicesData.data?.name}"? 
+                                Do you want to delete the service "{servicesData.data?.name}"?
                                 This action cannot be undone.
                             </p>
                         </div>
@@ -88,13 +88,13 @@ const ServicesModal = ({ show, hide, servicesData }) => {
                         </Row>
                     )}
                 </Modal.Body>
-                
+
                 <Modal.Footer>
                     <Button variant="secondary" onClick={hide}>
                         Cancel
                     </Button>
-                    <Button 
-                        type="submit" 
+                    <Button
+                        type="submit"
                         variant={servicesData.type === 'Delete' ? 'danger' : 'primary'}
                     >
                         {servicesData.type === 'Delete' ? 'Delete' : 'Save'}

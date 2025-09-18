@@ -10,10 +10,10 @@ const latestNewsSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    type: String,  
+    type: String,
     required: true,
   },
-},{timestamps:true});
+}, { timestamps: true });
 
 const latestNews = mongoose.model('latestNews', latestNewsSchema);
 

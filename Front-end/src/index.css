@@ -423,30 +423,30 @@ span {
 
 /* Home Crousel Space adjust*/
 /* Remove padding/margin from inner divs if needed */
-.banner-carousel .slick-slide > div {
-  margin: 0 !important;
-  padding: 0 !important;
+.banner-carousel .slick-slide>div {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .offcanvas-panel {
-  width: 100vw !important;
-  max-width: 100vw !important;
-  height: 100vh !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
 }
 
 .bgcontainer::-webkit-scrollbar {
-  width: 8px; /* vertical scrollbar width */
+    width: 8px;
+    /* vertical scrollbar width */
 }
 
 .bgcontainer::-webkit-scrollbar-track {
-  background: #f1f1f1; /* track color */
+    background: #f1f1f1;
+    /* track color */
 }
 
 .bgcontainer::-webkit-scrollbar-thumb {
-  background: #006AAB; /* thumb color */
-  border-radius: 6px; /* rounded corners */
+    background: #006AAB;
+    /* thumb color */
+    border-radius: 6px;
+    /* rounded corners */
 }
-
-
-
-

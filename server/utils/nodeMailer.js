@@ -1,18 +1,18 @@
 const nodemailer = require('nodemailer');
 const { ownerNotificationTemplate } = require('../templates/ownerNotification');
-const { userConfirmationTemplate } = require('../templates/userConfirmation');  
+const { userConfirmationTemplate } = require('../templates/userConfirmation');
 
-const sendEmail = async (data, emailType ) => {
+const sendEmail = async (data, emailType) => {
   const transporter = nodemailer.createTransport({
-    service: 'gmail', 
+    service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER, 
-      pass: process.env.EMAIL_PASS,  
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
     },
   });
 
   let htmlContent, subject, recipient;
-  
+
   if (emailType == 'user') {
     htmlContent = await userConfirmationTemplate(data);
     subject = 'Thank you for contacting CanadaDreamImmigration';
@@ -20,12 +20,12 @@ const sendEmail = async (data, emailType ) => {
   } else {
     htmlContent = await ownerNotificationTemplate(data);
     subject = 'New Contact Inquiry - CanadaDreamImmigration';
-    recipient =process.env.EMAIL_USER;
+    recipient = process.env.EMAIL_USER;
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER, 
-    to: recipient,  
+    from: process.env.EMAIL_USER,
+    to: recipient,
     subject: subject,
     html: htmlContent
   };

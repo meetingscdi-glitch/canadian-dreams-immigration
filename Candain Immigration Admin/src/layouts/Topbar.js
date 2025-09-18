@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
-import { Logo,BmgLogo } from '../helpers/image'
+import { Logo, BmgLogo } from '../helpers/image'
 // actions
 import { showRightSidebar, changeSidebarType } from '../redux/actions';
 

@@ -114,10 +114,10 @@ const Testimonial = () => {
                             })}
                         </Slider> */}
                         {/* <!-- Elfsight Google Reviews | Untitled Google Reviews --> */}
-                       <div className='mt-8'>
-                         <script src="https://elfsightcdn.com/platform.js" async></script> <div class="elfsight-app-3bc327ab-f385-42e4-a6e3-b73e7e9fb17c" data-elfsight-app-lazy></div>
+                        <div className='mt-8'>
+                            <script src="https://elfsightcdn.com/platform.js" async></script> <div class="elfsight-app-3bc327ab-f385-42e4-a6e3-b73e7e9fb17c" data-elfsight-app-lazy></div>
 
-                       </div>
+                        </div>
                     </div>
                 </div>
             </div>

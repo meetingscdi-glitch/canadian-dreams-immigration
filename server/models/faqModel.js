@@ -9,7 +9,7 @@ const faqSchema = new mongoose.Schema({
     type: String,
     required: true,
   }
-},{timestamps:true});
+}, { timestamps: true });
 
 const faq = mongoose.model('faq', faqSchema);
 

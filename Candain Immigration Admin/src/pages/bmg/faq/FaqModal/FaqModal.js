@@ -80,7 +80,7 @@ const FaqModal = ({ show, hide, faqData }) => {
         const createSuccess = store?.createFaqDataReducer?.faqData;
         const updateSuccess = store?.updateFaqDataReducer?.faqData;
         const deleteSuccess = store?.deleteFaqDataReducer?.faqData;
-        
+
         if (!loading && (createSuccess || updateSuccess || deleteSuccess)) {
             closeModal();
         }
@@ -177,16 +177,16 @@ const FaqModal = ({ show, hide, faqData }) => {
                                 />
                             </div>
                         </Form.Group>
-                        
+
                         {faqData?.data && (
                             <Form.Group className="mb-4">
                                 <Form.Label className="fw-semibold mb-2">
                                     <i className="mdi mdi-eye me-2 text-primary"></i>
                                     Status
                                 </Form.Label>
-                                <Form.Select 
-                                    name="status" 
-                                    value={faq.status} 
+                                <Form.Select
+                                    name="status"
+                                    value={faq.status}
                                     onChange={handleChange}
                                     className="form-select-lg"
                                     style={{ borderRadius: '8px' }}
@@ -203,10 +203,10 @@ const FaqModal = ({ show, hide, faqData }) => {
                 <Button variant="outline-secondary" onClick={closeModal} className="px-4 me-2 btn-cancel">
                     <i className="mdi mdi-close me-1"></i>Cancel
                 </Button>
-                <Button 
+                <Button
                     className="px-4 btn-animated hover-glow"
                     style={{ backgroundColor: '#006AAB', borderColor: '#006AAB' }}
-                    onClick={handleSubmit} 
+                    onClick={handleSubmit}
                     disabled={loading}
                 >
                     {loading ? (
