@@ -103,7 +103,7 @@ const LatestNews = () => {
             }}
             className="pb-12"
           >
-            {news.map((t, index) => (
+            {news?.map((t, index) => (
               <SwiperSlide key={index}>
                 <div className="mb-4 rounded-b-xl shadow overflow-hidden md:mb-10 h-full min-h-[29rem] md:min-h-[35rem] lg:min-h-[31rem] flex flex-col bg-white relative">
                   <div className="flex flex-col gap-3">

@@ -17,7 +17,6 @@ const OurServices = () => {
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
   const [subServices, setSubServices] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log(selectedSubCategory, 'selectedService');
 
   const hideShowHandler = (event) => {
     event.stopPropagation();
@@ -28,18 +27,12 @@ const OurServices = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log('Fetching services and subServices...');
-
         const baseURL = process.env.REACT_APP_API_URL;
 
         const [servicesRes, subServicesRes] = await Promise.all([
           axios.get(`${baseURL}/service/getAllServices`),
           axios.get(`${baseURL}/subService/getAllSubServices`)
         ]);
-
-        console.log('Services response:', servicesRes.data);
-        console.log('SubServices response:', subServicesRes.data);
-
         if (servicesRes.data && servicesRes.data.response) {
           setServices(servicesRes.data.response);
 
@@ -63,20 +56,16 @@ const OurServices = () => {
                   setSelectedSubCategory(response.data.serviceSubCategoryData);
                 }
               } catch (error) {
-                console.error('Error fetching default subcategory:', error);
               }
             }
           }
         }
 
         if (subServicesRes.data && subServicesRes.data.serviceSubCategories) {
-          console.log('Setting subServices:', subServicesRes.data.serviceSubCategories);
           setSubServices(subServicesRes.data.serviceSubCategories);
         } else {
-          console.log('No subServices data found');
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
       } finally {
         setLoading(false);
       }
@@ -96,7 +85,6 @@ const OurServices = () => {
         setSelectedService(response.data.response);
       }
     } catch (error) {
-      console.error('Error fetching service by ID:', error);
     }
   };
 
@@ -107,29 +95,22 @@ const OurServices = () => {
   };
 
   const handleSubCategoryClick = async (subCategory) => {
-    console.log('Clicked subCategory:', subCategory);
-    console.log('All subServices:', subServices);
 
     const subService = subServices.find(sub => sub.name === subCategory.name);
-    console.log('Found subService:', subService);
 
     if (subService && subService._id) {
       try {
         const baseURL = process.env.REACT_APP_API_URL;
 
-        console.log('Making API call with ID:', subService._id);
         const response = await axios.get(`${baseURL}/subService/getSubServicesById/${subService._id}`);
 
-        console.log('API Response:', response.data);
         if (response.data && response.data.serviceSubCategoryData) {
           setSelectedSubCategory(response.data.serviceSubCategoryData);
         }
       } catch (error) {
-        console.error('Error fetching subService by ID:', error);
         setSelectedSubCategory(subCategory);
       }
     } else {
-      console.log('No matching subService found in getAllSubServices response');
       setSelectedSubCategory(subCategory);
     }
   };
@@ -152,16 +133,16 @@ const OurServices = () => {
         {/* Links SideBar In Mobile View*/}
         <div className={`w-5/6  h-screen fixed top-0 left-0 bg-white shadow-xl overflow-y-auto py-10 px-3 z-20 transform transition-transform duration-300 ease-in-out ${togglePannel ? 'translate-x-0' : '-translate-x-full'} lg:hidden`}>
           <div className='lg:flex flex-col'>
-            {services.map((service, index) => (
+            {services?.map((service, index) => (
               <div
                 key={service._id || index}
                 className={`bg-[#006AAB] text-white px-4 py-5 transition-colors mb-2 ${selectedService?._id === service._id ? 'bg-[#005a94]' : ''
                   }`}
               >
                 <h1 className='text-2xl'>{service.name}</h1>
-                {service.subCategories?.length > 0 ? (
+                {service?.subCategories?.length > 0 ? (
                   <div className='mt-6'>
-                    {service.subCategories.map((subCat, subIndex) => (
+                    {service?.subCategories?.map((subCat, subIndex) => (
                       <h3 key={subIndex} className='flex items-center justify-between text-md mt-4 cursor-pointer hover:text-gray-200'
                         onClick={() => handleSubCategoryClick(subCat)}>
                         {subCat.name} <GoArrowUpRight size={20} />
@@ -187,13 +168,13 @@ const OurServices = () => {
         <div className='container mx-auto px-4 md:px-0 relative'>
           <div className='flex justify-between gap-16 md:px-8 xl:px-24 py-10 md:mt-10'>
             <div className='lg:flex flex-col gap-4 w-1/3 hidden'>
-              {services.map((service, index) => (
+              {services?.map((service, index) => (
                 <div key={service._id || index} className='mb-2'>
                   <div className={`bg-[#006AAB] text-white px-10 py-10 transition-colors ${selectedService?._id === service._id ? 'bg-[#005a94] ring-2 ring-white' : ''}`}>
                     <h1 className='text-xl'>{service.name}</h1>
                     {service.subCategories?.length > 0 ? (
                       <div className='mt-8'>
-                        {service.subCategories.map((subCat, subIndex) => (
+                        {service?.subCategories?.map((subCat, subIndex) => (
                           <h3 key={subIndex} className='flex items-center justify-between text-sm mt-4 cursor-pointer hover:text-gray-200'
                             onClick={() => handleSubCategoryClick(subCat)}>
                             {subCat.name} <GoArrowUpRight size={20} />

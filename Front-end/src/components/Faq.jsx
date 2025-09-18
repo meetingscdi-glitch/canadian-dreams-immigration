@@ -27,7 +27,7 @@ const Faq = () => {
     <div className='container mx-auto md:px-20 py-8  px-5'>
       <h5 className='md:text-4xl text-2xl text-center w-full mb-8'>Frequently Asked Questions</h5>
       <div>
-        {faqs.map((data, index) => (
+        {faqs?.map((data, index) => (
           <div
             key={data.id || index}
             className='border border-slate-200 md:mb-8 mb-6 rounded-xl overflow-hidden'

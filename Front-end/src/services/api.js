@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL;
+const API_BASE_URL = import.meta.env.VITE_API_URL;
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -9,34 +9,29 @@ const api = axios.create({
   },
 });
 
+// Contact API
 export const contactAPI = {
-  sendMail: (contactData) => {
-    return api.post('/contactUs/sendMail', contactData);
-  }
+  sendMail: (contactData) => api.post('/contactUs/sendMail', contactData),
 };
 
+// FAQ API
 export const faqAPI = {
-  getFAQs: () => {
-    return api.get('/faq/getAllFaqs');
-  }
+  getFAQs: () => api.get('/faq/getAllFaqs'),
 };
 
+// Blog API
 export const blogAPI = {
-  getAllBlogs: () => {
-    return api.get('/blog/getAllBlogs');
-  }
+  getAllBlogs: () => api.get('/blog/getAllBlogs'),
 };
 
+// News API
 export const newsAPI = {
-  getAllLatestNews: () => {
-    return api.get('/latestNews/getAllLatestNews');
-  }
+  getAllLatestNews: () => api.get('/latestNews/getAllLatestNews'),
 };
 
+// Team API
 export const teamAPI = {
-  getAllTeamMembers: () => {
-    return api.get('/teamMember/getAllTeamMembers');
-  }
+  getAllTeamMembers: () => api.get('/teamMember/getAllTeamMembers'),
 };
 
 export default api;
