@@ -27,8 +27,7 @@ const OurServices = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const baseURL = process.env.REACT_APP_API_URL;
-
+        const baseURL = process.env.VITE_API_URL;
         const [servicesRes, subServicesRes] = await Promise.all([
           axios.get(`${baseURL}/service/getAllServices`),
           axios.get(`${baseURL}/subService/getAllSubServices`)
@@ -77,7 +76,7 @@ const OurServices = () => {
   // Fetch service by ID
   const fetchServiceById = async (id) => {
     try {
-      const baseURL = process.env.REACT_APP_API_URL;
+      const baseURL = process.env.VITE_API_URL;
 
       const response = await axios.get(`${baseURL}/service/getServicesById/${id}`);
 
@@ -100,7 +99,7 @@ const OurServices = () => {
 
     if (subService && subService._id) {
       try {
-        const baseURL = process.env.REACT_APP_API_URL;
+        const baseURL = process.env.VITE_API_URL;
 
         const response = await axios.get(`${baseURL}/subService/getSubServicesById/${subService._id}`);
 

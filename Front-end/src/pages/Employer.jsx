@@ -17,7 +17,7 @@ const Employer = () => {
   const fetchJobs = async () => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/postJob/getAllPostJob`
+        `${process.env.VITE_API_URL}/postJob/getAllPostJob`
       );
       setJobs(response.data.response || []);
     } catch (error) {
