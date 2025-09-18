@@ -17,7 +17,7 @@ const Employer = () => {
   const fetchJobs = async () => {
     try {
       const response = await axios.get(
-        `${process.env.VITE_API_URL}/postJob/getAllPostJob`
+        `${import.meta.env.VITE_API_URLL}/postJob/getAllPostJob`
       );
       setJobs(response.data.response || []);
     } catch (error) {

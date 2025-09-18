@@ -27,10 +27,10 @@ const OurServices = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const baseURL = process.env.VITE_API_URL;
+        const baseURL = import.meta.env.VITE_API_URL;
         const [servicesRes, subServicesRes] = await Promise.all([
-          axios.get(`${baseURL}/service/getAllServices`),
-          axios.get(`${baseURL}/subService/getAllSubServices`)
+          axios.get(`${baseURL}service/getAllServices`),
+          axios.get(`${baseURL}subService/getAllSubServices`)
         ]);
         if (servicesRes.data && servicesRes.data.response) {
           setServices(servicesRes.data.response);
@@ -50,7 +50,7 @@ const OurServices = () => {
 
             if (subService?._id) {
               try {
-                const response = await axios.get(`${baseURL}/subService/getSubServicesById/${subService._id}`);
+                const response = await axios.get(`${baseURL}subService/getSubServicesById/${subService._id}`);
                 if (response.data?.serviceSubCategoryData) {
                   setSelectedSubCategory(response.data.serviceSubCategoryData);
                 }
@@ -78,7 +78,7 @@ const OurServices = () => {
     try {
       const baseURL = process.env.VITE_API_URL;
 
-      const response = await axios.get(`${baseURL}/service/getServicesById/${id}`);
+      const response = await axios.get(`${baseURL}service/getServicesById/${id}`);
 
       if (response.data && response.data.response) {
         setSelectedService(response.data.response);
@@ -101,7 +101,7 @@ const OurServices = () => {
       try {
         const baseURL = process.env.VITE_API_URL;
 
-        const response = await axios.get(`${baseURL}/subService/getSubServicesById/${subService._id}`);
+        const response = await axios.get(`${baseURL}subService/getSubServicesById/${subService._id}`);
 
         if (response.data && response.data.serviceSubCategoryData) {
           setSelectedSubCategory(response.data.serviceSubCategoryData);
