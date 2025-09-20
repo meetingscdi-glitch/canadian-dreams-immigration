@@ -11,8 +11,8 @@ async function createTeamMember(req, res) {
       return res.status(400).json({ status: 400, message: "Image is required" });
     }
 
- const Result = await upload(req.file);
-let image = Result.Location;
+    const Result = await upload(req.file);
+    let image = Result.Location;
     const teamData = { ...req.body, image };
 
     const schema = Joi.object({
@@ -67,10 +67,10 @@ const getTeamMemberById = async (req, res) => {
 async function updateTeamMember(req, res) {
   try {
     const { name, designation, _id } = req.body;
-      let imageUrl;
-    if(req.file){
-       const Result = await upload(req.file);
-       imageUrl = Result.Location;
+    let imageUrl;
+    if (req.file) {
+      const Result = await upload(req.file);
+      imageUrl = Result.Location;
     }
     const existingTeamMember = await ourTeam.findById(_id);
     if (!existingTeamMember) {

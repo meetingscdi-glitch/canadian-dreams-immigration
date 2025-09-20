@@ -10,7 +10,6 @@ const Blogcart = () => {
     const [selectedBlog, setSelectedBlog] = useState(null);
     const [isOffcanvasOpen, setIsOffcanvasOpen] = useState(false);
     const [loading, setLoading] = useState(true);
-    console.log(selectedBlog, 'selectedBlog');
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -41,7 +40,7 @@ const Blogcart = () => {
         setSelectedBlog(null);
     };
 
-    const visibleBlogs = allBlogs.slice(0, visibleCount);
+    const visibleBlogs = allBlogs?.slice(0, visibleCount);
 
     if (loading) {
         return (
@@ -57,7 +56,7 @@ const Blogcart = () => {
     return (
         <div className='container mx-auto mt-6'>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 xl:gap-x-12 gap-x-6 md:px-7 px-4 pb-9'>
-                {visibleBlogs.map((items) => {
+                {visibleBlogs?.map((items) => {
                     return (
                         <div className='bg-white shadow-md rounded mt-8 md:mt-14' key={items.id}>
                             <img className='w-full h-48 md:h-56 object-cover' src={items.image} alt="" />
@@ -78,11 +77,11 @@ const Blogcart = () => {
             {visibleCount < allBlogs.length && (
                 <div className='lg:mb-44 md:mb-32 mb-24 w-full flex items-center justify-center lg:mt-14'>
                     <div
-                    onClick={loadMore}
+                        onClick={loadMore}
                         className="flex items-center justify-center relative w-fit group"
                     >
                         <button
-                            
+
                             id="buttonStyle"
                             className="py-2  px-4 pr-8  rounded-l-full rounded-r-4xl text-white lg:mt-3 sm:text-xl mt-5 group-hover:bg-[#1085ce] transition-all duration-100"
                         >

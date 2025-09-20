@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const ourTeamSchema = new mongoose.Schema({
   image: {
-    type: String, 
+    type: String,
     required: true,
   },
   name: {
@@ -14,7 +14,7 @@ const ourTeamSchema = new mongoose.Schema({
     required: true,
   },
 
-},{ timestamps: true});
+}, { timestamps: true });
 
 const ourTeam = mongoose.model('ourTeam', ourTeamSchema);
 

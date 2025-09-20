@@ -103,19 +103,24 @@ const LatestNews = () => {
             }}
             className="pb-12"
           >
-            {news.map((t, index) => (
+            {news?.map((t, index) => (
               <SwiperSlide key={index}>
                 <div className="mb-4 rounded-b-xl shadow overflow-hidden md:mb-10 h-full min-h-[29rem] md:min-h-[30rem] flex flex-col bg-white relative">
                   <div className="flex flex-col">
                     <img src={t.image} alt="NewsImage" className="h-64 object-cover" />
                     <div className="px-3 md:p-4 lg:p-6">
-                      <h1 className="text-2xl font-medium mt-4 ">{t.heading}</h1>
-                      <div
-                        className="text-lg mt-4 mb-4"
+                      <h1
+                        className="text-2xl font-medium"
+                        dangerouslySetInnerHTML={{ __html: t.heading }}
+                      />
+                      <h3
+                        className="text-lg mt-4 mb-6"
                         dangerouslySetInnerHTML={{ __html: t.paragraph }}
                       />
-
-                      <Link to='/blog' className='text-[#006AAB] text-md  flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'>
+                      <Link
+                        to='/blog'
+                        className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'
+                      >
                         Read More <GoArrowUpRight />
                       </Link>
                     </div>
@@ -123,6 +128,7 @@ const LatestNews = () => {
                 </div>
               </SwiperSlide>
             ))}
+
           </Swiper>
         )}
 

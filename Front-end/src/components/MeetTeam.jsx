@@ -21,7 +21,7 @@ const MeetTeam = () => {
         <div className='container mx-auto relative pb-20  lg:px-20'>
             <h1 className='md:text-5xl text-3xl text-center mb-8'>Meet Our Team</h1>
             <div className='flex flex-col gap-12 lg:gap-0 lg:flex-row'>
-                {team.map((data) => {
+                {team?.map((data) => {
                     return (
                         <div className='flex xl:items-center justify-center md:w-5/6 lg:w-auto mx-auto' key={data.id}>
                             <div className='lg:w-5/6 flex items-center justify-center flex-col lg:shadow-md shadow-lg rounded mx-10 lg:mx-0'>

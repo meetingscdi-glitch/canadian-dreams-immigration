@@ -43,11 +43,11 @@ const TeamsModal = ({ show, hide, teamsData }) => {
 
     const handleInputChange = (e) => {
         const { name, value, type, checked, files } = e.target;
-        
+
         if (type === 'file' && files[0]) {
             const file = files[0];
             setFormData(prev => ({ ...prev, [name]: file }));
-            
+
             const reader = new FileReader();
             reader.onload = (e) => {
                 setSelectedImagePreview(e.target.result);
@@ -59,7 +59,7 @@ const TeamsModal = ({ show, hide, teamsData }) => {
                 [name]: type === 'checkbox' ? checked : value
             }));
         }
-        
+
         if (errors[name]) {
             setErrors(prev => ({ ...prev, [name]: '' }));
         }
@@ -79,7 +79,7 @@ const TeamsModal = ({ show, hide, teamsData }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newErrors = validateForm();
-        
+
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
@@ -89,11 +89,11 @@ const TeamsModal = ({ show, hide, teamsData }) => {
             name: formData.name,
             designation: formData.designation
         };
-        
+
         if (formData.image) {
             submitData.image = formData.image;
         }
-        
+
         if (teamsData.type === 'Edit') {
             submitData._id = teamsData.data._id;
         }
@@ -195,7 +195,7 @@ const TeamsModal = ({ show, hide, teamsData }) => {
                                         <i className="mdi mdi-image me-2 text-primary"></i>
                                         Profile Image
                                     </Form.Label>
-                                    
+
                                     {(existingImage || selectedImagePreview) && (
                                         <div className="mb-3 p-3 bg-light rounded border">
                                             <small className="text-muted d-block mb-2">Image Preview:</small>
@@ -246,7 +246,7 @@ const TeamsModal = ({ show, hide, teamsData }) => {
                                             </div>
                                         </div>
                                     )}
-                                    
+
                                     <Form.Control
                                         type="file"
                                         name="image"
