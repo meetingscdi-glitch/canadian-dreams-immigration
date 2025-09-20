@@ -132,11 +132,10 @@ const OurServices = () => {
 
   return (
     <div>
-      <Navbar />
-      <FadeInOnScroll>
+      
 
         {/* Links SideBar In Mobile View*/}
-        <div className={`w-5/6  h-screen fixed top-0 left-0 bg-white shadow-xl overflow-y-auto py-10 px-3 z-20 transform transition-transform duration-300 ease-in-out ${togglePannel ? 'translate-x-0' : '-translate-x-full'} lg:hidden`}>
+        <div className={`w-5/6  h-screen fixed top-0 left-0 bg-white z-[999] shadow-xl overflow-y-auto py-10 px-3  transform transition-transform duration-300 ease-in-out ${togglePannel ? 'translate-x-0' : '-translate-x-full'} lg:hidden`}>
           <div className='lg:flex flex-col'>
             {services.map((service, index) => (
               <div
@@ -165,7 +164,9 @@ const OurServices = () => {
             ))}
           </div>
         </div>
-      </FadeInOnScroll>
+      
+      <Navbar />
+      
       <FadeInOnScroll>
         <SectionWithImage />
       </FadeInOnScroll>
@@ -206,18 +207,17 @@ const OurServices = () => {
 
 
 
-            <div className='lg:w-2/3 flex flex-col gap-y-0 mt-0 relative ' onClick={() => { setTogglePannel(false) }}>
+            <div className='lg:w-2/3 flex flex-col gap-y-12 lg:gap-y-0 md:gap-y-6 mt-0 relative ' onClick={() => { setTogglePannel(false) }}>
               {/* Mobile View Burger */}
               <div>
-                <div className='absolute -top-8  right-0'>
+                <div className='absolute -top-8 md:-top-12  right-0'>
                   <RiMenu4Line className='text-3xl text-[#006AAB] lg:hidden' onClick={hideShowHandler} />
                 </div>
-                {/* <img className='w-full' src={StudySectionImg} alt="" /> */}
               </div>
 
               <div>
                 {selectedSubCategory ? (
-                  <div className='md:mt-8 flex flex-col gap-6'>
+                  <div className='md:mt-4 lg:mt-8 flex flex-col gap-6'>
                     {selectedSubCategory.image && (
                       <img src={selectedSubCategory.image} alt={selectedSubCategory.name} className='w-full rounded-lg' style={{ marginTop: '-32px' }} />
                     )}
@@ -325,13 +325,10 @@ const OurServices = () => {
         </div>
       </FadeInOnScroll>
 
-      <div className='md:mt-20'>
-        <div className='lg:-mt-8 pt-12 lg:pt-0 mb-20 md:mb-0'>
+      <div className='lg:mt-20'>
           <FadeInOnScroll>
             <Testimonial />
           </FadeInOnScroll>
-
-        </div>
       </div>
       <Footer />
     </div>

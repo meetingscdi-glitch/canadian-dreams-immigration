@@ -89,10 +89,10 @@ const Testimonial = () => {
     };
     return (
 
-        <div className=' lg:py-14 mt-10 md:mt-0 w-full  md:mb-0'>
+        <div className=' md:py-14 mt-10 md:mt-0 w-full  md:mb-0'>
             <h5 className='md:text-5xl text-3xl mx-auto w-full text-center md:mb-8'>Testimonial</h5>
             <div className='container h-full  sm:mx-auto pb-10   md:p-0'>
-                <div className='sm:w-3/4 lg:w-4/5 px-4 sm:mx-auto xl:w-full'>
+                <div className='w-full md:px-10 px-4'>
                     <div className='w-full'>
                         {/* <Slider {...settings}>
                             {CardData.map((data, idx) => {

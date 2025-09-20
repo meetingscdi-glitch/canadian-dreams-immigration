@@ -49,7 +49,7 @@ import { Link } from "react-router-dom";
 // ];
 
 const LatestNews = () => {
-  
+
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -105,15 +105,19 @@ const LatestNews = () => {
           >
             {news.map((t, index) => (
               <SwiperSlide key={index}>
-                <div className="mb-4 rounded-b-xl shadow overflow-hidden md:mb-10 h-full min-h-[29rem] md:min-h-[35rem] lg:min-h-[31rem] flex flex-col bg-white relative">
-                  <div className="flex flex-col gap-3">
+                <div className="mb-4 rounded-b-xl shadow overflow-hidden md:mb-10 h-full min-h-[29rem] md:min-h-[30rem] flex flex-col bg-white relative">
+                  <div className="flex flex-col">
                     <img src={t.image} alt="NewsImage" className="h-64 object-cover" />
                     <div className="px-3 md:p-4 lg:p-6">
-                      <h1 className="text-2xl font-medium">{t.heading}</h1>
-                      <h3 className="text-lg mt-4 mb-6">{t.paragraph}</h3>
-                      <Link to='/blog' className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'>
-                    Read More <GoArrowUpRight />
-                  </Link>
+                      <h1 className="text-2xl font-medium mt-4 ">{t.heading}</h1>
+                      <div
+                        className="text-lg mt-4 mb-4"
+                        dangerouslySetInnerHTML={{ __html: t.paragraph }}
+                      />
+
+                      <Link to='/blog' className='text-[#006AAB] text-md  flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'>
+                        Read More <GoArrowUpRight />
+                      </Link>
                     </div>
                   </div>
                 </div>

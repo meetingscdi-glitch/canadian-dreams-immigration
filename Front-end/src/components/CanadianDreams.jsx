@@ -22,12 +22,12 @@ const CanadianDreams = () => {
     const { image } = ImageRoutes[currentpath];
 
     return (
-        <div className='grid lg:grid-cols-2 gap-3 md:gap-0 lg:py-20 py-8  px-5 md:px-10 lg:px-0 container mx-auto '>
+        <div className='grid lg:grid-cols-2 gap-2 md:gap-0 lg:py-20 py-8  px-5 md:px-10 lg:px-0 container mx-auto '>
             <div className='xl:pl-20 xl:pr-12 lg:ml-8 xl:ml-0 overflow-hidden' >
                 <img className='md:rounded-3xl rounded-xl w-full h-full object-cover' src={image} alt="BuildingImg" />
             </div>
             <div className='lg:ml-8 xl:ml-0 overflow-hidden'>
-                <h6 className='text-[#006AAB] md:text-lg mt-6 lg:mt-0 flex items-center text-base'><TfiLayoutLineSolid size={28} />About Us</h6>
+                <h6 className='text-[#006AAB] md:text-lg mt-4 md:mt-6 lg:mt-0 flex items-center text-base'><TfiLayoutLineSolid size={28} />About Us</h6>
                 <h1 className='lg:text-5xl text-3xl md:text-4xl lg:mt-1.5 sm:mt-2'>Canadian Dreams</h1>
                 <h1 className="lg:text-5xl text-3xl md:text-4xl font-bold lg:w-3/4 lg:leading-tight lg:mt-1.5">
                     Immigration <span>& Worldwide Services Ltd.</span>
