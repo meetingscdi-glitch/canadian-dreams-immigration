@@ -33,13 +33,18 @@ const Home = () => {
     const hideController = () => {
         setHide(false)
     }
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setHide(true)
-        }, 6000)
+  useEffect(() => {
+  const hasSeenModal = localStorage.getItem('hasSeenEmailModal')
 
-        return () => clearTimeout(timer);
-    }, [])
+  if (!hasSeenModal) {
+    const timer = setTimeout(() => {
+      setHide(true)
+      localStorage.setItem('hasSeenEmailModal', 'true')
+    }, 3000)
+
+    return () => clearTimeout(timer)
+  }
+}, [])
 
     // Hero animation
     useGSAP(() => {
@@ -76,12 +81,12 @@ const Home = () => {
             {Hide ? <div className='fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center' onClick={hideController}>
                 <div className="h-[550px] w-full max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl">
                     {/* Image Section */}
-                    <div className="h-84">
+                    <div className="md:h-84 bg-purple-400">
                         <img className="w-full h-full object-cover" src={Email} alt="Email Banner" />
                     </div>
 
                     {/* Form Section */}
-                    <div className="p-6 flex mt-12  items-center justify-center gap-4">
+                    <div className="p-6 flex flex-col md:flex-row md:mt-12  items-center justify-center gap-4">
 
                         <input
                             type="email"
@@ -89,12 +94,12 @@ const Home = () => {
                             className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#006AAB] text-gray-800"
                         />
                         <button
-                            className="bg-[#006AAB] hover:bg-[#1085ce] text-white px-6 py-2 rounded-full transition-all duration-300"
+                            className="bg-[#006AAB] w-full md:w-auto hover:bg-[#1085ce] text-white px-6 py-2 rounded-full transition-all duration-300"
                         >
                             Send
                         </button>
                     </div>
-                    <div className='flex items-center justify-center mt-4'>
+                    <div className='flex items-center justify-center md:mt-4'>
                         <RxCross2 className='text-[#006AAB] cursor-pointer' size={32} />
                     </div>
                 </div>
@@ -140,7 +145,7 @@ const Home = () => {
             {/* Student Visa Cards */}
             <div className='grid lg:grid-cols-3 gap-6 lg:px-8 xl:px-20 md:px-32 pt-4 xl:pb-20 pb-18 lg:py-8 container mx-auto px-5'>
                 <Link to='/our-services' className='border-1 border-[#006AAB] rounded-2xl lg:p-8 lg:py-12 p-6 bg-[#F4FBFF] relative hover:bg-[#006AAB] hover:text-white group transition duration-400 cursor-pointer block scale-in stagger-1 hover-lift'>
-                    <div className='flex gap-2 md:flex-col'>
+                    <div className='flex gap-2 lg:flex-col'>
                         <img className='md:w-9 w-6 object-cover mb-3 group-hover:brightness-0 group-hover:invert' src={Aeroplane} alt="" />
                         <h5 className='md:text-3xl text-2xl md:mb-3 '>Student Visa</h5>
                     </div>
@@ -148,7 +153,7 @@ const Home = () => {
                     <span className='flex items-center gap-2 hover:underline'>Read More <GoArrowUpRight /></span>
                 </Link>
                 <Link to='/our-services' className='border-1 border-[#006AAB] rounded-2xl lg:p-8 lg:py-12 p-6 bg-[#F4FBFF] relative hover:bg-[#006AAB] hover:text-white group transition duration-400 cursor-pointer block scale-in stagger-2 hover-lift'>
-                    <div className='flex gap-2 md:flex-col'>
+                    <div className='flex gap-2 lg:flex-col'>
                         <PiNotebook className='text-[#006AAB] mb-2 text-3xl md:text-5xl group-hover:brightness-0 group-hover:invert' />
                         <h5 className='md:text-3xl text-2xl mb-3'>Express Entry</h5>
                     </div>
@@ -156,7 +161,7 @@ const Home = () => {
                     <span className='flex items-center gap-2 hover:underline'>Read More <GoArrowUpRight /></span>
                 </Link>
                 <Link to='/our-services' className='border-1 border-[#006AAB] rounded-2xl lg:p-8 lg:py-12 p-6 bg-[#F4FBFF] relative hover:bg-[#006AAB] hover:text-white group transition duration-400 cursor-pointer block scale-in stagger-3 hover-lift'>
-                    <div className='flex gap-2 md:flex-col'>
+                    <div className='flex gap-2 lg:flex-col'>
                         <img className='md:w-9 w-6 object-cover mb-3 group-hover:brightness-0 group-hover:invert' src={HandShake} alt="" />
                         <h5 className='tmd:text-3xl text-2xl mb-3'>Family Sponsorship</h5>
                     </div>
@@ -167,8 +172,8 @@ const Home = () => {
 
             {/* Employer Section */}
             <div className='bg-[#006AAB]'>
-                <div className='grid lg:grid-cols-2 px-5 lg:px-8 xl:px-20 md:px-32 xl:py-16 py-12 gap-16 container mx-auto'>
-                    <div className='bg-white lg:px-12 py-10 px-5 relative pb-28 slide-in-left hover-lift'>
+                <div className='grid lg:grid-cols-2 px-5 lg:px-8 xl:px-20 md:px-32 xl:py-16 py-12 lg:gap-16 gap-12 container mx-auto'>
+                    <div className='bg-white lg:px-12 py-10 px-5 relative pb-28 slide-in-left hover-lift rounded-xl lg:rounded-none'>
                         <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold leading-tight lg:mb-5 md:mb-3 mb-2">
                             <span>I AM AN</span> EMPLOYER
                         </h1>
@@ -191,7 +196,7 @@ const Home = () => {
                             </div>
                         </Link>
                     </div>
-                    <div className='bg-white lg:px-12 py-10 relative px-5 pb-28 slide-in-right hover-lift'>
+                    <div className='bg-white lg:px-12 py-10 relative px-5 pb-28 slide-in-right hover-lift rounded-xl lg:rounded-none'>
                         <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold leading-tight lg:mb-5 md:mb-3 mb-2">
                             <span>I AM AN</span> ASPIRANT
                         </h1>

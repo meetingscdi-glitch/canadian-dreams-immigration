@@ -59,7 +59,7 @@ const Blogcart = () => {
                 {visibleBlogs?.map((items) => {
                     return (
                         <div className='bg-white shadow-md rounded mt-8 md:mt-14' key={items.id}>
-                            <img className='w-full h-64 object-cover' src={items.image} alt="" />
+                            <img className='w-full h-48 md:h-56 object-cover' src={items.image} alt="" />
                             <div className='px-4 py-6'>
                                 <h3 className='md:text-2xl text-xl mb-4'>{items.heading}</h3>
                                 <h4 className='mb-4 md:text-lg text-base'>{items.parah}</h4>
@@ -75,7 +75,7 @@ const Blogcart = () => {
                 })}
             </div>
             {visibleCount < allBlogs.length && (
-                <div className='md:mb-44 mb-24 w-full flex items-center justify-center'>
+                <div className='lg:mb-44 md:mb-32 mb-24 w-full flex items-center justify-center lg:mt-14'>
                     <div
                         onClick={loadMore}
                         className="flex items-center justify-center relative w-fit group"
