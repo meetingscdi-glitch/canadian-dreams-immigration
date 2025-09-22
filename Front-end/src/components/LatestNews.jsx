@@ -105,8 +105,8 @@ const LatestNews = () => {
           >
             {news?.map((t, index) => (
               <SwiperSlide key={index}>
-                <div className="mb-4 rounded-b-xl shadow overflow-hidden md:mb-10 h-full min-h-[29rem] md:min-h-[35rem] lg:min-h-[31rem] flex flex-col bg-white relative">
-                  <div className="flex flex-col gap-3">
+                <div className="mb-4 rounded-b-xl shadow overflow-hidden md:mb-10 h-full min-h-[29rem] md:min-h-[30rem] flex flex-col bg-white relative">
+                  <div className="flex flex-col">
                     <img src={t.image} alt="NewsImage" className="h-64 object-cover" />
                     <div className="px-3 md:p-4 lg:p-6">
                       <h1
