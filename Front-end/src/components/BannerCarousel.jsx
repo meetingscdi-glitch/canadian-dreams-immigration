@@ -10,7 +10,7 @@ import gsap from 'gsap';
 import { Link } from 'react-router-dom';
 
 const BannerCarousel = () => {
-    
+
     const [currentSlide, setCurrentSlide] = useState(0);
     const headingRef = useRef();
     const subheadingRef = useRef();

@@ -22,23 +22,23 @@ const WhoWeAre = () => {
                     <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold lg:w-2/3 leading-tight lg:mt-1.5">
                         and Visa Consultation.
                     </h1>
-                    <p className='lg:w-5/6 mb-6 mt-3 md:text-lg lg:mr-12'>Looking for expert immigration and visa consultation? We provide professional guidance on visas, permanent residency, work permits, and study permits to help you achieve your dream of moving abroad. Let’s make your journey smooth and stress-free!</p>
+                    <p className='lg:w-5/6 mb-6 mt-3 md:text-lg lg:mr-12'>Dreaming of a fresh start in Canada? The paperwork and processes can feel overwhelming, but you don't have to figure it out alone. We're here to be your trusted partner. Whether you're seeking a work permit, study permit, permanent residency, or a family visa, we provide clear, professional guidance tailored to your goals.</p>
                     <h5 className='poppins-regular flex items-center md:text-lg lg:mb-6 mb-4'>
                         <IoMdCheckmarkCircleOutline size={25} color='#006AAB' className='mr-2' />
-                        Expert guidance on visas & PR
+                        Expert guidance on visas & PR: Cut through the confusion with a clear, step-by-step plan.
                     </h5>
                     <h5 className='poppins-regular flex items-center md:text-lg lg:mb-6 mb-4'>
                         <IoMdCheckmarkCircleOutline size={25} color='#006AAB' className='mr-2' />
-                        Work & study permit assistance
+                        Work & study permit assistance: Get tailored support for your career or educational ambitions.
                     </h5>
                     <h5 className='poppins-regular flex items-center md:text-lg lg:mb-6 mb-4'>
                         <IoMdCheckmarkCircleOutline size={25} color='#006AAB' className='mr-2' />
-                        Hassle-free application process
+                        Hassle-free application process: We handle the complex details, so you can focus on your future.
                     </h5>
-                    <h5 className='poppins-regular flex items-center md:text-lg lg:mb-6 mb-4'>
+                    {/* <h5 className='poppins-regular flex items-center md:text-lg lg:mb-6 mb-4'>
                         <IoMdCheckmarkCircleOutline size={25} color='#006AAB' className='mr-2' />
-                        Personalized immigration solutions
-                    </h5>
+                        Personalized immigration solutions: Your journey is unique, and our approach is too.
+                    </h5> */}
 
                     <Link
                         to="/privacy-policy"

@@ -33,18 +33,18 @@ const Home = () => {
     const hideController = () => {
         setHide(false)
     }
-  useEffect(() => {
-  const hasSeenModal = localStorage.getItem('hasSeenEmailModal')
+    useEffect(() => {
+        const hasSeenModal = localStorage.getItem('hasSeenEmailModal')
 
-  if (!hasSeenModal) {
-    const timer = setTimeout(() => {
-      setHide(true)
-      localStorage.setItem('hasSeenEmailModal', 'true')
-    }, 3000)
+        if (!hasSeenModal) {
+            const timer = setTimeout(() => {
+                setHide(true)
+                localStorage.setItem('hasSeenEmailModal', 'true')
+            }, 3000)
 
-    return () => clearTimeout(timer)
-  }
-}, [])
+            return () => clearTimeout(timer)
+        }
+    }, [])
 
     // Hero animation
     useGSAP(() => {
@@ -115,24 +115,24 @@ const Home = () => {
             <div className='grid lg:grid-cols-3 xl:gap-20 lg:gap-8 md:gap-12 gap-6 lg:py-8 lg:px-8 md:px-32 xl:px-19 mb-10 py-12 container mx-auto px-5'>
                 <div className='bg-[#F4FBFF] lg:py-12 xl:px-14 px-7 md:py-14 py-7 rounded-2xl relative slide-up stagger-1 hover-lift'>
                     <h1 className='absolute lg:-top-2 -top-4 bg-[#006AAB] md:px-5 px-4 py-2 md:py-4 lg:-right-2 -right-1 text-white rounded-xl md:text-xl'>01</h1>
-                    <h1 className='md:text-2xl text-xl leading-6 mb-3'>EXPRESS ENTRY DRAW #342</h1>
-                    <p className='mb-2'>In the latest Provincial Nominee Program (PNP) specific draw, 825 candidates were invited with a minimum CRS score of 764.</p>
+                    <h1 className='md:text-2xl text-xl leading-6 mb-3'>EXPRESS ENTRY DRAW #342 – Here's What Happened</h1>
+                    <p className='mb-2'>In the latest draw focusing on the Provincial Nominee Program (PNP), 825 candidates received invitations to apply for permanent residency. The minimum CRS score was 764.</p>
                     <Link to='/blog' className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'>
                         Read More <GoArrowUpRight />
                     </Link>
                 </div>
                 <div className='bg-[#F4FBFF] md:py-12 py-7 xl:px-14 px-7 rounded-2xl relative slide-up stagger-2 hover-lift'>
                     <h1 className='absolute lg:-top-2 -top-4 bg-[#006AAB] md:px-5 px-4 py-2 md:py-4 lg:-right-2 -right-1 text-white rounded-xl md:text-xl'>02</h1>
-                    <h1 className='md:text-2xl text-xl leading-6 mb-3'>B.C. PNP NOTICE #April 14, 2025</h1>
-                    <p className='mb-2'>British Columbia will accept only 1,100 new PNP applications this year, with a strict focus on high-demand roles like doctors,</p>
+                    <h1 className='md:text-2xl text-xl leading-6 mb-3'>B.C. PNP Update: Important Changes for 2025</h1>
+                    <p className='mb-2'>British Columbia will accept only 1,100 new PNP applications this year, with a strict focus on high-demand roles like doctors.</p>
                     <Link to='/blog' className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'>
                         Read More <GoArrowUpRight />
                     </Link>
                 </div>
                 <div className='bg-[#F4FBFF] md:py-12 py-7 xl:px-14 px-7 rounded-2xl relative slide-up stagger-3 hover-lift'>
                     <h1 className='absolute lg:-top-2 -top-4 bg-[#006AAB] md:px-5 px-4 py-2 md:py-4 lg:-right-2 -right-1 text-white rounded-xl md:text-xl'>03</h1>
-                    <h1 className='md:text-2xl text-xl leading-6 mb-2'>Join 500K + Strong Community!!!</h1>
-                    <p className='mb-2'>A strong community of over half a million aspiring immigrants across various social media groups…..</p>
+                    <h1 className='md:text-2xl text-xl leading-6 mb-2'>You're Not Alone on This Journey Join Our 500K+ Strong Community!!!</h1>
+                    <p className='mb-2'>Connect with over half a million people who are also pursuing their Canadian dreams in our active social media groups.</p>
                     <Link to='/contact-us' className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'>
                         Read More <GoArrowUpRight />
                     </Link>
@@ -140,7 +140,13 @@ const Home = () => {
             </div>
 
             <FadeInOnScroll><WhoWeAre /></FadeInOnScroll>
-            <FadeInOnScroll><ImmiGrationNeeds /></FadeInOnScroll>
+            <FadeInOnScroll><div className='p-3 mb-3 container mx-auto'>
+                <h1 className="lg:text-5xl md:text-4xl text-2xl font-bold leading-tight text-center mb-3">
+                    <span>Your Canadian Dream, </span>Supported Every Step of the Way.
+                </h1>
+                <h6 className='text-center w-auto lg:w-[60rem] leading-6 md:text-xl text-base mx-auto px-5'>Thinking about moving to Canada can bring up a mix of excitement and questions. We get it. Our mission is to be your trusted partner, offering clear guidance and strong support to help you confidently navigate the immigration process. Let's work together to make your dream a reality.
+                </h6>
+            </div></FadeInOnScroll>
 
             {/* Student Visa Cards */}
             <div className='grid lg:grid-cols-3 gap-6 lg:px-8 xl:px-20 md:px-32 pt-4 xl:pb-20 pb-18 lg:py-8 container mx-auto px-5'>
@@ -149,7 +155,7 @@ const Home = () => {
                         <img className='md:w-9 w-6 object-cover mb-3 group-hover:brightness-0 group-hover:invert' src={Aeroplane} alt="" />
                         <h5 className='md:text-3xl text-2xl md:mb-3 '>Student Visa</h5>
                     </div>
-                    <h4 className='md:text-lg mb-6'>Planning to study in Canada? We assist international students in obtaining the right study permits...</h4>
+                    <h4 className='md:text-lg mb-6'>Imagine starting your studies in Canada focused on your classes and new experiences, not stressed about paperwork. We help international students like you secure the right study permits, making sure your educational journey begins smoothly.</h4>
                     <span className='flex items-center gap-2 hover:underline'>Read More <GoArrowUpRight /></span>
                 </Link>
                 <Link to='/our-services' className='border-1 border-[#006AAB] rounded-2xl lg:p-8 lg:py-12 p-6 bg-[#F4FBFF] relative hover:bg-[#006AAB] hover:text-white group transition duration-400 cursor-pointer block scale-in stagger-2 hover-lift'>
@@ -157,7 +163,7 @@ const Home = () => {
                         <PiNotebook className='text-[#006AAB] mb-2 text-3xl md:text-5xl group-hover:brightness-0 group-hover:invert' />
                         <h5 className='md:text-3xl text-2xl mb-3'>Express Entry</h5>
                     </div>
-                    <h4 className='md:text-lg mb-6'>The application process for skilled immigrants seeking permanent residency in Canada...</h4>
+                    <h4 className='md:text-lg mb-6'>The Express Entry system is Canada's main pathway for skilled professionals like you. It can seem competitive, but a well-prepared application makes all the difference. We help you build a strong profile and navigate each step with clarity.</h4>
                     <span className='flex items-center gap-2 hover:underline'>Read More <GoArrowUpRight /></span>
                 </Link>
                 <Link to='/our-services' className='border-1 border-[#006AAB] rounded-2xl lg:p-8 lg:py-12 p-6 bg-[#F4FBFF] relative hover:bg-[#006AAB] hover:text-white group transition duration-400 cursor-pointer block scale-in stagger-3 hover-lift'>
@@ -165,7 +171,7 @@ const Home = () => {
                         <img className='md:w-9 w-6 object-cover mb-3 group-hover:brightness-0 group-hover:invert' src={HandShake} alt="" />
                         <h5 className='tmd:text-3xl text-2xl mb-3'>Family Sponsorship</h5>
                     </div>
-                    <h4 className='md:text-lg mb-6'>Your relatives can live, study, and work in Canada once they become permanent residents.</h4>
+                    <h4 className='md:text-lg mb-6'>There's nothing more important than having your loved ones close by. The Family Sponsorship program allows you to bring your relatives to Canada to live, study, and work. We help you understand the process and reunite your family.</h4>
                     <span className='flex items-center gap-2 hover:underline'>Read More <GoArrowUpRight /></span>
                 </Link>
             </div>
@@ -175,11 +181,11 @@ const Home = () => {
                 <div className='grid lg:grid-cols-2 px-5 lg:px-8 xl:px-20 md:px-32 xl:py-16 py-12 lg:gap-16 gap-12 container mx-auto'>
                     <div className='bg-white lg:px-12 py-10 px-5 relative pb-28 slide-in-left hover-lift rounded-xl lg:rounded-none'>
                         <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold leading-tight lg:mb-5 md:mb-3 mb-2">
-                            <span>I AM AN</span> EMPLOYER
+                            <span>I'm an</span> Employer
                         </h1>
-                        <span className='lg:text-3xl md:text-2xl text-xl lg:mb-5 md:mb-3 mb-2 block'>Global Talent, Canadian Ease.</span>
+                        <span className='lg:text-3xl md:text-2xl text-xl lg:mb-5 md:mb-3 mb-2 block'>Your Bridge to Global Talent</span>
                         <p className='lg:text-xl md:text-lg lg:mb-5 md:mb-3'>
-                            Partner with Ask Kubeir Immigration Services to simplify Canadian Immigration for your global workforce with expert, end to end support.
+                            You've found the perfect candidate overseas. Now, how do you get them here without getting lost in paperwork? We make it simple. Partner with us for end-to-end immigration support that lets you focus on what you do best—running your business. We handle the complexities of Canadian immigration, making the process smooth for you and your new hire.
                         </p>
                         <Link
                             to="/employer"
@@ -200,9 +206,9 @@ const Home = () => {
                         <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold leading-tight lg:mb-5 md:mb-3 mb-2">
                             <span>I AM AN</span> ASPIRANT
                         </h1>
-                        <span className='lg:text-3xl md:text-2xl text-xl lg:mb-5 md:mb-3 mb-2 block'>Canada on your Mind?</span>
+                        <span className='lg:text-3xl md:text-2xl text-xl lg:mb-5 md:mb-3 mb-2 block'>Is Canada On Your Mind? Let's Make It Happen.?</span>
                         <p className='lg:text-xl md:text-lg lg:mb-5 md:mb-3'>
-                            Ask Kubeir offers sharp, custom-fit advice to zip through immigration routes and plant your roots here. With proven expertise, we’ll pave your way to Canada—one breezy step at a time.
+                            Dreaming of a life in Canada but unsure where to start? You're not alone. The immigration system can feel like a maze. That's where we come in. We provide clear, personalized advice that cuts through the noise. With our proven expertise, we'll help you find the fastest route and guide you through each step, making your journey to Canada feel surprisingly straightforward.
                         </p>
                         <Link
                             to="/contact-us"
