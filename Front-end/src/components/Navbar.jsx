@@ -54,27 +54,43 @@ const Navbar = () => {
                         <div className='flex items-center gap-3 lg:-ml-1'>
                             <MdEmail size={28} />
                             <a
-                                href="mailto:canadiandreams@gmail.com"
+                                href="mailto:Canadiandreamsimmigration@gmail.com"
                                 className="text-lg poppins-regular transition-colors hover:text-blue-100"
                             >
-                                canadiandreams@gmail.com
+                                Canadiandreamsimmigration@gmail.com
                             </a>
                         </div>
 
                         <div className='flex items-center gap-3'>
                             <IoCall size={28} />
                             <a
-                                href="tel:+914491203245"
+                                href="tel:+1 (416) 434-3155"
                                 className="text-lg poppins-regular transition-colors hover:text-blue-100"
                             >
-                                +91 4491203245
+                                +1 (416) 434-3155
                             </a>
                         </div>
 
                     </div>
                     <div className='flex items-center gap-3'>
-                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><TiSocialFacebook size={28} /></div>
-                        <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><AiFillInstagram size={28} /></div>
+                        <a
+                            href="https://www.facebook.com/share/1B4kbs2Xd9/?mibextid=wwXIfr"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]"
+                        >
+                            <TiSocialFacebook size={28} />
+                        </a>
+
+                        <a
+                            href="https://www.instagram.com/canadian.dreams.immigration?igsh=MWl1eDJ1NHN3bGpoeg=="
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]"
+                        >
+                            <AiFillInstagram size={28} />
+                        </a>
+
                         <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><IoLogoTiktok size={28} /></div>
                         <div className='hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]'><IoLocationSharp size={28} /></div>
                     </div>

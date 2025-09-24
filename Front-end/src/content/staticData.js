@@ -65,7 +65,7 @@ export const staticText = {
   contactDetails: {
     address: "Dummy address canadian 313 Canada, 33322",
     phone: "+1 (416) 434-3155",
-    email: "info@canadian.com",
+    email: "Canadiandreamsimmigration@gmail.com",
     hours: "Monday - Friday: 9:00 AM - 6:00 PM EST"
   },
 

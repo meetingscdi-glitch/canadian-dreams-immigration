@@ -37,7 +37,7 @@ const Contact = () => {
             <div className='rounded-2xl p-5 py-8 border-1 min-h-[8rem] border-[#006AAB] flex items-center gap-2 justify-center flex-col hover:bg-[#006AAB] hover:text-white group transition duration-300 ease-in-out cursor-pointer'>
               <h1 className='md:text-5xl text-4xl text-[#006AAB]'><MdEmail className='group-hover:text-white' /></h1>
               <h3 className='text-2xl'>Email</h3>
-              <h4 className='text-center text-lg'>info@canadian.com</h4>
+              <h4 className='text-center text-lg'>Canadiandreamsimmigration@gmail.com</h4>
             </div>
             <div className='rounded-2xl p-5 py-8 border-1 min-h-[8rem] border-[#006AAB] flex items-center gap-2 justify-center flex-col hover:bg-[#006AAB] hover:text-white group transition duration-300 ease-in-out cursor-pointer'>
               <h1 className='md:text-5xl text-4xl text-[#006AAB]'><BsStopwatchFill className='group-hover:text-white' /></h1>
