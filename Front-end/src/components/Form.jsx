@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react'
 import { fadeInUp, staggerAnimation, buttonHover } from '../utils/animations'
 import { IoIosArrowRoundForward } from "react-icons/io";
 
-const Form = () => {
+const Form = ({ onSuccess }) => {
     const formRef = useRef(null);
     const fieldsRef = useRef([]);
     const submitBtnRef = useRef(null);
@@ -100,6 +100,9 @@ const Form = () => {
                 });
 
                 setSubmitMessage('Message sent successfully!');
+                if (onSuccess) {
+                    onSuccess();
+                }
                 setFormData({
                     firstname: '',
                     lastname: '',

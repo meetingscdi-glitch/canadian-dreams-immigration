@@ -18,15 +18,34 @@ const Navbar = () => {
 
     const navItemsRef = useRef();
     const location = useLocation();
-    const [hasAnimated, setHasAnimated] = useState(false);
+    const [activeLinkIndex, setActiveLinkIndex] = useState(null);
     const [hide, setHide] = useState(true);
     const [Subheading, setSubHeadings] = useState(true);
     const links = [
-        { id: '#temporary-residence', label: 'Temporary Residence' },
-        { id: '#permanent-resident', label: 'Permanent Resident' },
-        { id: '#citizenship', label: 'Citizenship' },
-        { id: '#other-services', label: 'Other Services' }
+        {
+            id: '#temporary-residence',
+            label: 'Temporary Residence',
+            subheadings: [
+                'Study Application',
+                'Visitor Visa',
+                'Super Visa',
+                'Work Permit'
+            ]
+        },
+        {
+            id: '#permanent-resident',
+            label: 'Permanent Resident'
+        },
+        {
+            id: '#citizenship',
+            label: 'Citizenship'
+        },
+        {
+            id: '#other-services',
+            label: 'Other Services'
+        }
     ];
+
     const toggleButton = () => {
         setHide(prev => !prev)
     }
@@ -142,27 +161,76 @@ const Navbar = () => {
                             About Us
                         </NavLink>
                         <div className="w-fit">
-                            <NavLink to="/our-services"
-                                className={({ isActive }) =>
-                                    `hover:text-[#006AAB] flex items-center gap-2 ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`
-                                }>
-                                Our Services <IoIosArrowDown onClick={ShowHideSubheadingd} className='hidden lg:block' />
-                            </NavLink>
+                            <div className="flex items-center gap-2 group">
+                                <NavLink
+                                    to="/our-services"
+                                    className={({ isActive }) =>
+                                        `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`
+                                    }
+                                >
+                                    Our Services
+                                </NavLink>
 
-                            <div className={`absolute ${Subheading ? 'hidden' : ''} top-14 bg-white rounded shadow-lg flex flex-col p-2 min-w-[150px]`}>
-                                {links.map((link) => (
-                                    <a
-                                        onClick={() => {
-                                            setSubHeadings(true)
-                                        }}
-                                        key={link.id}
-                                        href={link.id}
-                                        className="text-sm text-gray-700 hover:text-blue-600 py-1 px-2"
-                                    >
-                                        {link.label}
-                                    </a>
-                                ))}
+                                <IoIosArrowDown
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        ShowHideSubheadingd();
+                                    }}
+                                    className="hidden lg:block cursor-pointer"
+                                />
                             </div>
+
+
+                            <div className='flex bg-red-500 w-full'>
+                                <div className={`absolute ${Subheading ? 'hidden' : ''} top-14 bg-white rounded shadow-lg flex flex-col p-2 min-w-[150px]`}>
+                                    {links.map((link, index) => (
+                                        <a
+                                            onClick={() => {
+                                                setSubHeadings(true);
+                                            }}
+                                            key={link.id}
+                                            href={link.id}
+                                            className="text-sm text-gray-700 hover:text-blue-600 py-1 px-2 flex items-center justify-between"
+                                        >
+                                            {link.label}
+                                            {(index === 0 || index === 1 || index === 3) && (
+                                                <IoIosArrowDown className="ml-2" />
+                                            )}
+                                        </a>
+                                    ))}
+                                    <div className='ml-2 absolute bg-white rounded text-gray-700 p-4 -right-35 shadow'>
+                                        {links[0].subheadings?.map((sub, i) => (
+                                            <a
+                                                key={i}
+                                                href={`#sub-${i}`}
+                                                className="text-sm text-gray-700 hover:text-blue-600 flex items-center justify-between mb-2"
+                                            >
+                                                {sub}
+                                            </a>
+                                        ))}
+                                    </div>
+
+                                </div>
+                                {/* New Links */}
+                                {/* <div className='absolute left-1/2 bg-yellow-300 rounded p-4'>
+                                    {links.map((link, index) => (
+                                        <a
+                                            onClick={() => {
+                                                setSubHeadings(true);
+                                            }}
+                                            key={link.id}
+                                            href={link.id}
+                                            className="text-sm text-gray-700 hover:text-blue-600 py-1 px-2 flex items-center justify-between"
+                                        >
+                                            {link.label}
+                                            {(index === 0 || index === 1 || index === 3) && (
+                                                <IoIosArrowDown className="ml-2" />
+                                            )}
+                                        </a>
+                                    ))}
+                                </div> */}
+                            </div>
+
                         </div>
 
                         <NavLink

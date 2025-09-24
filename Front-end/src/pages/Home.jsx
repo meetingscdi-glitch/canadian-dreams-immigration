@@ -31,7 +31,7 @@ const Home = () => {
     const headingRef = useRef();
     const subheadingRef = useRef();
     const paragraphRef = useRef();
-    const [Hide, setHide] = useState(true)
+    const [Hide, setHide] = useState(false)
     const hideController = () => {
         setHide(false)
     }
@@ -89,8 +89,8 @@ const Home = () => {
                         className="flex gap-6 justify-center p-6 w-full h-[40rem] max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="h-full w-1/2">
-                            <img className="w-full h-full bg-cover" src={ContactImg} alt="Email Banner" />
+                        <div className="h-full w-1/2 rounded">
+                            <img className="w-full h-full object-cover rounded" src={ContactImg} alt="Email Banner" />
                         </div>
 
                         <div className='px-2 w-1/2 relative'>
@@ -102,7 +102,7 @@ const Home = () => {
                                 />
                             </div>
                             <div>
-                                <Form />
+                                <Form onSuccess={()=> setHide(false)}/>
                             </div>
                         </div>
                     </div>
