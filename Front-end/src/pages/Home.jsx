@@ -14,6 +14,8 @@ import WhyChooseUs from '../components/WhyChooseUs'
 import Testimonial from '../components/Testimonial'
 import LatestNews from '../components/LatestNews'
 import Faq from '../components/Faq'
+import Form from '../components/Form'
+import ContactImg from '../assets/images/ContactImg.png'
 import Footer from '../components/Footer'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -79,28 +81,20 @@ const Home = () => {
 
 
             {Hide ? <div className='fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center' onClick={hideController}>
-                <div className="h-[550px] w-full max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl">
+                <div className="flex  gap-6 justify-center p-6 w-full h-[54%] max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl">
                     {/* Image Section */}
-                    <div className="md:h-84 bg-purple-400">
-                        <img className="w-full h-full object-cover" src={Email} alt="Email Banner" />
+                    <div className="h-full w-1/2">
+                        <img className=" w-full h-full bg-cover" src={ContactImg} alt="Email Banner" />
                     </div>
 
                     {/* Form Section */}
-                    <div className="p-6 flex flex-col md:flex-row md:mt-12  items-center justify-center gap-4">
-
-                        <input
-                            type="email"
-                            placeholder="Enter your email"
-                            className="w-full max-w-md px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#006AAB] text-gray-800"
-                        />
-                        <button
-                            className="bg-[#006AAB] w-full md:w-auto hover:bg-[#1085ce] text-white px-6 py-2 rounded-full transition-all duration-300"
-                        >
-                            Send
-                        </button>
-                    </div>
-                    <div className='flex items-center justify-center md:mt-4'>
-                        <RxCross2 className='text-[#006AAB] cursor-pointer' size={32} />
+                    <div className='px-2 w-1/2 relative'>
+                    <div className='flex items-center justify-center md:mt-4 absolute -right-4 -top-8'>
+                            <RxCross2 className='text-[#006AAB] cursor-pointer' size={32} />
+                        </div>
+                        <div>
+                            <Form />
+                        </div>
                     </div>
                 </div>
             </div> : null}

@@ -48,9 +48,9 @@ const Navbar = () => {
 
     return (
         <div >
-            <div className='bg-[#006AAB] hidden md:block py-4 px-4'>
+            <div className='bg-[#006AAB] hidden lg:block py-4 px-4'>
                 <div className='container mx-auto flex justify-between items-center text-white md:px-3.5 lg:px-0 lg:pl-5'>
-                    <div className='flex items-center gap-20'>
+                    <div className='flex items-center xl:gap-20 lg:gap-10'>
                         <div className='flex items-center gap-3 lg:-ml-1'>
                             <MdEmail size={28} />
                             <a
@@ -58,16 +58,29 @@ const Navbar = () => {
                                 className="text-lg poppins-regular transition-colors hover:text-blue-100"
                             >
                                 Canadiandreamsimmigration@gmail.com
+
                             </a>
                         </div>
 
-                        <div className='flex items-center gap-3'>
+                        <div className='flex items-center xl:gap-3 gap-1.5 '>
                             <IoCall size={28} />
                             <a
                                 href="tel:+1 (416) 434-3155"
-                                className="text-lg poppins-regular transition-colors hover:text-blue-100"
+                                className="xl:text-lg lg:text-sm poppins-regular transition-colors hover:text-blue-100"
                             >
-                                +1 (416) 434-3155
+                                +1 (416) 434-3155,
+                            </a>
+                            <a
+                                href="tel:+1 (416) 434-3155"
+                                className="xl:text-lg lg:text-sm poppins-regular transition-colors hover:text-blue-100"
+                            >
+                                +1 (647) 510-9350,
+                            </a>
+                            <a
+                                href="tel:+1 (416) 434-3155"
+                                className="xl:text-lg lg:text-sm poppins-regular transition-colors hover:text-blue-100"
+                            >
+                                +1 (604) 360-7128
                             </a>
                         </div>
 
@@ -98,18 +111,18 @@ const Navbar = () => {
             </div>
             {/* NavBarItemsStarting */}
             <nav >
-                <div className='lg:flex justify-between px-8 xl:px-0 xl:gap-5 items-center  py-4 container mx-auto relative navbar'>
-                    <div className='flex items-center justify-between '>
+                <div className='lg:flex justify-between  xl:px-0 xl:gap-5 items-center  py-4 container mx-auto relative navbar'>
+                    <div className='flex items-center justify-between'>
                         <Link to={'/'}>
-                            <img className='md:w-64 w-46 lg:w-40 xl:w-64 lg:ml-4 xl:mr-0' src={Logo} alt="COMPANY LOGO" />
+                            <img className='md:w-56 w-46 lg:ml-8 xl:ml-4 lg:w-40 xl:w-64 md:ml-10' src={Logo} alt="COMPANY LOGO" />
                         </Link>
-                        {hide ? <RxHamburgerMenu onClick={toggleButton} size={32} className='text-[#006AAB] lg:hidden' /> : <RxCross1 onClick={toggleButton} size={24} className='text-[#006AAB] lg:hidden' />}
+                        {hide ? <RxHamburgerMenu onClick={toggleButton} size={32} className='text-[#006AAB] lg:hidden md:mr-6 ' /> : <RxCross1 onClick={toggleButton} size={24} className='text-[#006AAB] lg:hidden' />}
 
                     </div>
                     <div
                         ref={navItemsRef}
                         className={`overflow-hidden transition-all duration-500 ease-in-out ${hide ? 'max-h-0 lg:max-h-[500px]' : 'max-h-[500px] py-6'
-                            } flex flex-col lg:mr-4 xl:mr-0 lg:flex-row lgf:items-center gap-4 xl:gap-5 poppins-regular text-lg md:static absolute right-0 bg-white lg:bg-transparent z-10 w-full md:w-auto px-5 md:px-0 navbaritems centerClas`}
+                            } flex flex-col lg:mr-4 xl:mr-0 lg:flex-row lg:items-center gap-4 xl:gap-5 poppins-regular text-lg md:static absolute right-0 bg-white lg:bg-transparent z-10 w-full md:w-auto px-5 md:px-0 navbaritems centerClas `}
                     >
                         <NavLink
                             to="/"

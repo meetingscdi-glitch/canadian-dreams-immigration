@@ -103,11 +103,11 @@ const Footer = () => {
                             <IoLocationSharp className="xl:text-3xl text-2xl shrink-0" />
                             {staticText.contactDetails.address}
                         </h5>
-                        <h5 className="poppins-regular md:text-lg text-sm mt-5 flex items-start gap-3">
+                        <h5 className="poppins-regular md:text-lg text-sm mt-5 flex items-start justify-center gap-2">
                             <MdEmail className="xl:text-3xl text-2xl shrink-0" />
                             <a
                                 href={`mailto:${staticText.contactDetails.email}`}
-                                className="transition-colors hover:font-bold"
+                                className="transition-colors hover:font-bold text-sm"
                             >
                                 {staticText.contactDetails.email}
                             </a>
