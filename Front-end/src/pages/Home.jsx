@@ -31,7 +31,7 @@ const Home = () => {
     const headingRef = useRef();
     const subheadingRef = useRef();
     const paragraphRef = useRef();
-    const [Hide, setHide] = useState(false)
+    const [Hide, setHide] = useState(true)
     const hideController = () => {
         setHide(false)
     }
@@ -80,24 +80,35 @@ const Home = () => {
             <BannerCarousel />
 
 
-            {Hide ? <div className='fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center' onClick={hideController}>
-                <div className="flex  gap-6 justify-center p-6 w-full h-[54%] max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl">
-                    {/* Image Section */}
-                    <div className="h-full w-1/2">
-                        <img className=" w-full h-full bg-cover" src={ContactImg} alt="Email Banner" />
-                    </div>
-
-                    {/* Form Section */}
-                    <div className='px-2 w-1/2 relative'>
-                    <div className='flex items-center justify-center md:mt-4 absolute -right-4 -top-8'>
-                            <RxCross2 className='text-[#006AAB] cursor-pointer' size={32} />
+            {Hide ? (
+                <div
+                    className='fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center'
+                    onClick={hideController}
+                >
+                    <div
+                        className="flex gap-6 justify-center p-6 w-full h-[40rem] max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="h-full w-1/2">
+                            <img className="w-full h-full bg-cover" src={ContactImg} alt="Email Banner" />
                         </div>
-                        <div>
-                            <Form />
+
+                        <div className='px-2 w-1/2 relative'>
+                            <div className='flex items-center justify-center md:mt-4 absolute -right-2 -top-7'>
+                                <RxCross2
+                                    className='text-[#006AAB] cursor-pointer'
+                                    size={32}
+                                    onClick={hideController}
+                                />
+                            </div>
+                            <div>
+                                <Form />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div> : null}
+            ) : null}
+
 
 
             {/* Sections with Fade-in Scroll Animations */}
