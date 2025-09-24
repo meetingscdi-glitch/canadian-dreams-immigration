@@ -113,15 +113,24 @@ const Footer = () => {
                             </a>
                         </h5>
 
-                        <h5 className="poppins-regular md:text-md text-sm flex mt-5 items-start gap-3">
-                            <IoCall className="xl:text-3xl text-2xl shrink-0" />
-                            <a
-                                href={`tel:${staticText.contactDetails.phone}`}
-                                className="transition-colors hover:font-bold"
-                            >
-                                {staticText.contactDetails.phone}
-                            </a>
-                        </h5>
+                        <div className="poppins-regular md:text-md text-sm flex flex-col mt-5 items-start gap-3">
+                            <div className="flex items-center gap-3">
+                                <IoCall className="xl:text-3xl text-2xl shrink-0" />
+                                <span>Contact Numbers:</span>
+                            </div>
+                            <div className="flex flex-col ml-10 gap-0">
+                                {staticText.contactDetails.phone.map((number, index) => (
+                                    <a
+                                        key={index}
+                                        href={`tel:${number}`}
+                                        className="transition-colors hover:font-bold"
+                                    >
+                                        {number}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 {/* Bottom Bar - Full Width Border */}
