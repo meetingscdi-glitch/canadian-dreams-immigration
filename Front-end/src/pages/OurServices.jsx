@@ -18,6 +18,7 @@ const OurServices = () => {
   const [loading, setLoading] = useState(true);
 
   const baseURL = import.meta.env.VITE_API_URL;
+  console.log(subServices, 'subServices');
 
   const hideShowHandler = (event) => {
     event.stopPropagation();
@@ -119,6 +120,7 @@ const OurServices = () => {
       </div>
     );
   }
+  const numberToWord = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven'];
 
   return (
     <div>
@@ -230,22 +232,39 @@ const OurServices = () => {
                     <h1 className="md:text-3xl text-2xl border-b md:pb-6 pb-3 border-[#00000040] -mt-2">
                       {selectedSubCategory.name}
                     </h1>
-                    {['headerOne', 'headerThree', 'headerFour', 'headerFive', 'headerSix', 'headerSeven'].map((key, idx) => (
-                      selectedSubCategory[key] && (
-                        <div key={idx}>
-                          <h4 className="Roboto-500 md:text-2xl text-xl">{selectedSubCategory[key]}</h4>
-                          {selectedSubCategory[`SubHeader${key.slice(-3)}`] && (
-                            <h5 className="md:text-lg text-base mt-2">{selectedSubCategory[`SubHeader${key.slice(-3)}`]}</h5>
+                    {/* // put this above the map (inside the component, before return or before you use it) */}
+
+                    {/* // ...then in your JSX, replace the existing map with this: */}
+                    {[1, 2, 3, 4, 5, 6, 7].map((num) => {
+                      const word = numberToWord[num - 1];
+                      const headerKey = `header${word}`;
+                      const subHeaderKey = `SubHeader${word}`;
+                      const paragraphKey = `paragraph${word}`;
+
+                      const header = selectedSubCategory?.[headerKey];
+                      const subHeader = selectedSubCategory?.[subHeaderKey];
+                      const paragraph = selectedSubCategory?.[paragraphKey];
+
+                      if (!header) return null;
+
+                      return (
+                        <div key={num} className="mb-6">
+                          <h4 className="Roboto-500 md:text-2xl text-xl">{header}</h4>
+
+                          {subHeader && (
+                            <h5 className="md:text-lg text-base mt-2">{subHeader}</h5>
                           )}
-                          {selectedSubCategory[`paragraph${idx + 1}`] && (
+
+                          {paragraph && (
                             <div
                               className="md:text-base text-sm mt-2"
-                              dangerouslySetInnerHTML={{ __html: selectedSubCategory[`paragraph${idx + 1}`] }}
+                              dangerouslySetInnerHTML={{ __html: paragraph }}
                             />
                           )}
                         </div>
-                      )
-                    ))}
+                      );
+                    })}
+
                   </div>
                 ) : (
                   selectedService?.description && (

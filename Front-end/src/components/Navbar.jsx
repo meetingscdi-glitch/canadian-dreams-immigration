@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import Logo from '../assets/images/Logo.png'
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { IoIosArrowDown } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
@@ -10,15 +10,14 @@ import { AiFillInstagram } from "react-icons/ai";
 import { IoLogoTiktok } from "react-icons/io5";
 import { IoLocationSharp } from "react-icons/io5";
 import { RxCross1 } from "react-icons/rx";
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+
 
 
 const Navbar = () => {
 
     const navItemsRef = useRef();
-    const location = useLocation();
-    const [activeLinkIndex, setActiveLinkIndex] = useState(null);
+    const [activeHeading, setActiveHeading] = useState(null);
+    const [activeSubheading, setActiveSubheading] = useState(null);
     const [hide, setHide] = useState(true);
     const [Subheading, setSubHeadings] = useState(true);
     const links = [
@@ -26,15 +25,30 @@ const Navbar = () => {
             id: '#temporary-residence',
             label: 'Temporary Residence',
             subheadings: [
-                'Study Application',
-                'Visitor Visa',
-                'Super Visa',
-                'Work Permit'
+                { label: 'Study Application' },
+                { label: 'Visitor Visa' },
+                { label: 'Super Visa' },
+                {
+                    label: 'Work Permit',
+                    subheadings: [
+                        'Spouse Open Work Permit Application',
+                        'Post Graduate Work Permit',
+                        'Closed Work Permit Application',
+                        'Bridge Open Work Permit'
+                    ]
+                }
             ]
         },
         {
             id: '#permanent-resident',
-            label: 'Permanent Resident'
+            label: 'Permanent Resident',
+            subheadings: [
+                { label: 'Express Entry' },
+                { label: 'Provincial Nominee Program' },
+                { label: 'Spousal Sponsership Inland' },
+                { label: 'Dependent Child' },
+                { label: 'Parents And Grandparents Sponsorship Program' }
+            ]
         },
         {
             id: '#citizenship',
@@ -42,9 +56,21 @@ const Navbar = () => {
         },
         {
             id: '#other-services',
-            label: 'Other Services'
+            label: 'Other Services',
+            subheadings: [
+                { label: 'NOC Code Service' },
+                { label: 'Document Preview' },
+                { label: 'Procedural Fairness Letter' },
+                { label: 'Temporary Residence Permit' },
+                { label: 'H&C Applicant' },
+                { label: 'PR Card Renewal' },
+                { label: 'GCMS Notes Review' },
+                { label: 'LMIA Processing' },
+                { label: 'PRTD Application Service' }
+            ]
         }
     ];
+
 
     const toggleButton = () => {
         setHide(prev => !prev)
@@ -52,18 +78,6 @@ const Navbar = () => {
     const ShowHideSubheadingd = () => {
         setSubHeadings(prev => !prev)
     }
-
-    // useGSAP(() => {
-    //     const tl = gsap.timeline();
-    //     tl.from(navItemsRef.current.children, {
-    //         x: -300,
-    //         opacity: 0,
-    //         duration: 1,
-    //         ease: 'power3.out',
-    //         stagger: 0.1, // delay between each item
-    //     });
-
-    // }, []);
 
     return (
         <div >
@@ -135,7 +149,7 @@ const Navbar = () => {
                         <Link to={'/'}>
                             <img className='md:w-56 w-46 lg:ml-8 xl:ml-4 lg:w-40 xl:w-64 md:ml-10' src={Logo} alt="COMPANY LOGO" />
                         </Link>
-                        {hide ? <RxHamburgerMenu onClick={toggleButton} size={32} className='text-[#006AAB] lg:hidden md:mr-6 ' /> : <RxCross1 onClick={toggleButton} size={24} className='text-[#006AAB] lg:hidden' />}
+                        {hide ? <RxHamburgerMenu onClick={toggleButton} size={32} className='text-[#006AAB] lg:hidden md:mr-6 ' /> : <RxCross1 onClick={toggleButton} size={24} className='text-[#006AAB] lg:hidden md:mr-6' />}
 
                     </div>
                     <div
@@ -161,7 +175,7 @@ const Navbar = () => {
                             About Us
                         </NavLink>
                         <div className="w-fit">
-                            <div className="flex items-center gap-2 group">
+                            <div className="flex items-center justify-center gap-2 group">
                                 <NavLink
                                     to="/our-services"
                                     className={({ isActive }) =>
@@ -181,55 +195,60 @@ const Navbar = () => {
                             </div>
 
 
-                            <div className='flex bg-red-500 w-full'>
-                                <div className={`absolute ${Subheading ? 'hidden' : ''} top-14 bg-white rounded shadow-lg flex flex-col p-2 min-w-[150px]`}>
-                                    {links.map((link, index) => (
-                                        <a
-                                            onClick={() => {
-                                                setSubHeadings(true);
-                                            }}
-                                            key={link.id}
-                                            href={link.id}
-                                            className="text-sm text-gray-700 hover:text-blue-600 py-1 px-2 flex items-center justify-between"
-                                        >
-                                            {link.label}
-                                            {(index === 0 || index === 1 || index === 3) && (
-                                                <IoIosArrowDown className="ml-2" />
-                                            )}
-                                        </a>
-                                    ))}
-                                    <div className='ml-2 absolute bg-white rounded text-gray-700 p-4 -right-35 shadow'>
-                                        {links[0].subheadings?.map((sub, i) => (
-                                            <a
-                                                key={i}
-                                                href={`#sub-${i}`}
-                                                className="text-sm text-gray-700 hover:text-blue-600 flex items-center justify-between mb-2"
-                                            >
-                                                {sub}
-                                            </a>
+                            <div className='flex md:hidden lg:block'>
+                                {!Subheading && (
+                                    <div className="absolute top-14 bg-white rounded shadow-lg flex flex-col p-2 min-w-[200px]">
+                                        {links.map((link, index) => (
+                                            <div key={link.id} className="flex flex-col">
+                                                <a
+                                                    onClick={() =>
+                                                        setActiveHeading(activeHeading === index ? null : index)
+                                                    }
+                                                    href={link.id}
+                                                    className="text-sm text-gray-700 hover:text-blue-600 py-1 px-2 flex items-center justify-between"
+                                                >
+                                                    {link.label}
+                                                    {link.subheadings && <IoIosArrowDown className="ml-2" />}
+                                                </a>
+
+                                                {activeHeading === index && link.subheadings && (
+                                                    <div className="ml-4 bg-white rounded text-gray-700 p-2 shadow">
+                                                        {link.subheadings.map((sub, i) => (
+                                                            <div key={i} className="flex flex-col">
+                                                                <a
+                                                                    onClick={() =>
+                                                                        setActiveSubheading(activeSubheading === i ? null : i)
+                                                                    }
+                                                                    href={`#sub-${i}`}
+                                                                    className="text-sm text-gray-700 hover:text-blue-600 flex items-center justify-between mb-1"
+                                                                >
+                                                                    {sub.label}
+                                                                    {sub.subheadings && <IoIosArrowDown className="ml-2" />}
+                                                                </a>
+
+                                                                {activeSubheading === i && sub.subheadings && (
+                                                                    <div className="ml-4 bg-gray-50 rounded p-2">
+                                                                        {sub.subheadings.map((nested, j) => (
+                                                                            <a
+                                                                                key={j}
+                                                                                href={`#nested-${j}`}
+                                                                                className="text-sm text-gray-600 hover:text-blue-500 mb-1 block"
+                                                                            >
+                                                                                {nested}
+                                                                            </a>
+                                                                        ))}
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
                                         ))}
                                     </div>
-
-                                </div>
-                                {/* New Links */}
-                                {/* <div className='absolute left-1/2 bg-yellow-300 rounded p-4'>
-                                    {links.map((link, index) => (
-                                        <a
-                                            onClick={() => {
-                                                setSubHeadings(true);
-                                            }}
-                                            key={link.id}
-                                            href={link.id}
-                                            className="text-sm text-gray-700 hover:text-blue-600 py-1 px-2 flex items-center justify-between"
-                                        >
-                                            {link.label}
-                                            {(index === 0 || index === 1 || index === 3) && (
-                                                <IoIosArrowDown className="ml-2" />
-                                            )}
-                                        </a>
-                                    ))}
-                                </div> */}
+                                )}
                             </div>
+
 
                         </div>
 

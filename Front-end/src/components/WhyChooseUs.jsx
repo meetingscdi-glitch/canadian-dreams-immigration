@@ -74,12 +74,12 @@ const WhyChooseUs = () => {
                             </span>
                             Fastest Working Process: We're efficient without cutting corners, helping you reach Canada sooner.
                         </h5>
-                        <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
+                        {/* <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />
                             </span>
                             High Approval Rates and Proven Track Record: We're proud of our success in helping people like you achieve their immigration goals.
-                        </h5>
+                        </h5> */}
                         {/* <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />

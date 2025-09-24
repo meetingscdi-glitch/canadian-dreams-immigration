@@ -82,19 +82,19 @@ const Home = () => {
 
             {Hide ? (
                 <div
-                    className='fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center'
+                    className='fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center md:px-12 px-6'
                     onClick={hideController}
                 >
                     <div
-                        className="flex gap-6 justify-center p-6 w-full h-[40rem] max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl"
+                        className="flex md:gap-6 justify-center p-6 w-full md:h-[40rem] max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="h-full w-1/2 rounded">
+                        <div className="h-full w-1/2 rounded hidden md:block">
                             <img className="w-full h-full object-cover rounded" src={ContactImg} alt="Email Banner" />
                         </div>
 
-                        <div className='px-2 w-1/2 relative'>
-                            <div className='flex items-center justify-center md:mt-4 absolute -right-2 -top-7'>
+                        <div className='px-2 w-full md:w-1/2 relative'>
+                            <div className='flex items-center justify-center md:mt-4 absolute right-1 md:-right-2 md:-top-7 -top-3'>
                                 <RxCross2
                                     className='text-[#006AAB] cursor-pointer'
                                     size={32}

@@ -79,7 +79,7 @@ const Footer = () => {
 
                     {/* Quick Links */}
                     <div className="flex flex-col md:gap-3 mt-4 md:mt-0 px-5 lg:ml-12 xl:ml-0">
-                        <h5 className="poppins-500 text-xl mb-3 mt-5 md:mt-0 lg:mt-0">Quick Links</h5>
+                        <h5 className="poppins-500 text-xl mb-3 mt-5 md:mt-0 lg:mt-0 -ml-1">Quick Links</h5>
                         <Link to="/about-us"><h5 className="poppins-regular md:text-md text-sm mb-3">About Us</h5></Link>
                         <Link to="/our-services"><h5 className="poppins-regular md:text-md text-sm mb-3">Our Services</h5></Link>
                         <Link to="/blog"><h5 className="poppins-regular md:text-md text-sm mb-3">Blog</h5></Link>
@@ -90,32 +90,33 @@ const Footer = () => {
                     {/* Services */}
                     <div className="flex flex-col md:gap-3 mt-3 md:mt-6 lg:mt-0 px-5">
                         <h5 className="poppins-500 text-xl mb-2">Services</h5>
-                        <h5 className="poppins-regular md:text-md mb-3">Student Visa</h5>
-                        <h5 className="poppins-regular md:text-md text-sm mb-3">Express Entry</h5>
-                        <h5 className="poppins-regular md:text-md text-sm mb-3">Family Sponsorship</h5>
-                        <h5 className="poppins-regular md:text-md text-sm mb-3">Spouse Visa</h5>
+                        <h5 className="poppins-regular md:text-md mb-3 cursor-pointer">Temporary Residence</h5>
+                        <h5 className="poppins-regular md:text-md text-sm mb-3 cursor-pointer">Permanent Resident</h5>
+                        <h5 className="poppins-regular md:text-md text-sm mb-3 cursor-pointer">Citizenship</h5>
+                        <h5 className="poppins-regular md:text-md text-sm mb-3 cursor-pointer">Other Services</h5>
                     </div>
 
                     {/* Contact Info */}
                     <div className="flex flex-col mt-3  lg:mt-0 px-5">
                         <h5 className="poppins-500 text-xl mb-5 mt-2 xl:mt-0">Contact Us</h5>
-                        <h5 className="poppins-regular md:text-md text-sm flex items-start  gap-2">
+                        <h5 className="poppins-regular md:text-md text-sm flex items-start -ml-1.5 gap-2">
                             <IoLocationSharp className="xl:text-3xl text-2xl shrink-0" />
                             {staticText.contactDetails.address}
                         </h5>
-                        <h5 className="poppins-regular md:text-lg text-sm mt-5 flex items-start justify-center gap-2">
-                            <MdEmail className="xl:text-3xl text-2xl shrink-0" />
+                        <h5 className="poppins-regular md:text-lg text-sm mt-5 flex flex-wrap items-start gap-2">
+                            <MdEmail className="xl:text-3xl text-2xl  shrink-0" />
                             <a
                                 href={`mailto:${staticText.contactDetails.email}`}
-                                className="transition-colors hover:font-bold text-sm"
+                                className="transition-colors hover:font-bold text-sm break-words max-w-[200px] w-full"
                             >
                                 {staticText.contactDetails.email}
                             </a>
                         </h5>
 
-                        <div className="poppins-regular md:text-md text-sm flex flex-col mt-5 items-start gap-3">
+
+                        <div className="poppins-regular md:text-md text-sm flex flex-col mt-5 items-start gap-1.5">
                             <div className="flex items-center gap-3">
-                                <IoCall className="xl:text-3xl text-2xl shrink-0" />
+                                <IoCall className="xl:text-3xl text-2xl  shrink-0" />
                                 <span>Contact Numbers:</span>
                             </div>
                             <div className="flex flex-col ml-10 gap-0">
