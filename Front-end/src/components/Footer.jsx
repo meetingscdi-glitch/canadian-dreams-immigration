@@ -50,8 +50,27 @@ const Footer = () => {
                         <div>
                             <h5 className="poppins-regular md:mb-0 text-xl">Follow Us</h5>
                             <div className="flex gap-4 mt-2">
-                                <TiSocialFacebook className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
-                                <AiFillInstagram className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
+                                <a
+                                    href="https://www.facebook.com/share/1B4kbs2Xd9/?mibextid=wwXIfr"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <TiSocialFacebook
+                                        className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]"
+                                        size={32}
+                                    />
+                                </a>
+
+                                <a
+                                    href="https://www.instagram.com/canadian.dreams.immigration?igsh=MWl1eDJ1NHN3bGpoeg=="
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <AiFillInstagram
+                                        className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]"
+                                        size={32}
+                                    />
+                                </a>
                                 <TiSocialYoutube className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
                                 <IoLogoTiktok className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
                             </div>
@@ -84,25 +103,34 @@ const Footer = () => {
                             <IoLocationSharp className="xl:text-3xl text-2xl shrink-0" />
                             {staticText.contactDetails.address}
                         </h5>
-                        <h5 className="poppins-regular md:text-lg text-sm mt-5 flex items-start gap-3">
+                        <h5 className="poppins-regular md:text-lg text-sm mt-5 flex items-start justify-center gap-2">
                             <MdEmail className="xl:text-3xl text-2xl shrink-0" />
                             <a
                                 href={`mailto:${staticText.contactDetails.email}`}
-                                className="transition-colors hover:font-bold"
+                                className="transition-colors hover:font-bold text-sm"
                             >
                                 {staticText.contactDetails.email}
                             </a>
                         </h5>
 
-                        <h5 className="poppins-regular md:text-md text-sm flex mt-5 items-start gap-3">
-                            <IoCall className="xl:text-3xl text-2xl shrink-0" />
-                            <a
-                                href={`tel:${staticText.contactDetails.phone}`}
-                                className="transition-colors hover:font-bold"
-                            >
-                                {staticText.contactDetails.phone}
-                            </a>
-                        </h5>
+                        <div className="poppins-regular md:text-md text-sm flex flex-col mt-5 items-start gap-3">
+                            <div className="flex items-center gap-3">
+                                <IoCall className="xl:text-3xl text-2xl shrink-0" />
+                                <span>Contact Numbers:</span>
+                            </div>
+                            <div className="flex flex-col ml-10 gap-0">
+                                {staticText.contactDetails.phone.map((number, index) => (
+                                    <a
+                                        key={index}
+                                        href={`tel:${number}`}
+                                        className="transition-colors hover:font-bold"
+                                    >
+                                        {number}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 {/* Bottom Bar - Full Width Border */}

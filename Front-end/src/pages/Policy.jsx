@@ -114,7 +114,7 @@ const Policy = () => {
             <div>
               <h1 className='md:text-3xl text-2xl'>Contact Us</h1>
               <h4 className='text-base md:text-lg mt-3 text-[#2D2B2B]'>If you have any questions or concerns about this Privacy Policy, please contact us at:</h4>
-              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Email: info@canadian.com</h4>
+              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Email: Canadiandreamsimmigration@gmail.com</h4>
               <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Phone: +1 (416) 434-3155</h4>
               <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Address: Dummy address Canadian 313 Canada, 33322</h4>
             </div>

@@ -33,12 +33,12 @@ export const staticText = {
 
   // Why choose us points
   whyChoosePoints: [
-    "We handle your case with complete honesty and accountability",
-    "You'll always know what's happening - we keep you in the loop", 
-    "From your first consultation to your final approval, we're with you",
-    "Our track record speaks for itself - we get results",
-    "Your situation is unique, and so is our approach to helping you",
-    "We speak your language - literally and figuratively"
+    "Integrity & Accountability – Every case is handled with honesty and care.",
+    "Clear & Timely Communication – You’ll always know where your application stands.",
+    "Full Support, Start to Finish – From consultation to approval, we’re by your side.",
+    // "Proven Success – A track record of high approval rates and happy clients worldwide.",
+    // "We’ve proudly helped hundreds of people from across the globe achieve their Canadian dream—and we’d love to help you next.",
+    // "We speak your language - literally and figuratively"
   ],
 
   // FAQ questions and answers
@@ -64,15 +64,19 @@ export const staticText = {
   // Contact information
   contactDetails: {
     address: "Dummy address canadian 313 Canada, 33322",
-    phone: "+1 (416) 434-3155",
-    email: "info@canadian.com",
+    phone: [
+      "+1 (416) 434-3155",
+      "+1 (647) 510-9350",
+      "+1 (604) 360-7128"
+    ],
+    email: "Canadiandreamsimmigration@gmail.com",
     hours: "Monday - Friday: 9:00 AM - 6:00 PM EST"
   },
 
   // Call to action texts
   ctaTexts: [
     "Let's Get Started",
-    "Book Your Free Chat", 
+    "Book Your Free Chat",
     "Contact Us",
     "Get Real Answers",
     "Start Your Canadian Story"
