@@ -618,7 +618,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Logo from '../assets/images/Logo.png';
 import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { IoIosArrowDown } from 'react-icons/io';
 import { IoCall, IoLocationSharp, IoLogoTiktok } from 'react-icons/io5';
 import { MdEmail } from 'react-icons/md';
@@ -626,10 +626,8 @@ import { TiSocialFacebook } from 'react-icons/ti';
 import { AiFillInstagram } from 'react-icons/ai';
 import axios from 'axios';
 
-const Navbar = () => {
-    const baseURL = import.meta.env.VITE_API_URL;
-    const [services, setServices] = useState([]);
-    const [subServices, setSubServices] = useState([]);
+const Navbar = ({ services, subServices }) => {
+
     const [loading, setLoading] = useState(true);
     const [hide, setHide] = useState(true);
     const [showSubheadings, setShowSubheadings] = useState(false);
@@ -643,31 +641,31 @@ const Navbar = () => {
         console.log('Toggled showSubheadings:', !showSubheadings);
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const [servicesRes, subServicesRes] = await Promise.all([
-                    axios.get(`${baseURL}service/getAllServices`),
-                    axios.get(`${baseURL}subService/getAllSubServices`),
-                ]);
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             const [servicesRes, subServicesRes] = await Promise.all([
+    //                 axios.get(`${baseURL}service/getAllServices`),
+    //                 axios.get(`${baseURL}subService/getAllSubServices`),
+    //             ]);
 
-                if (servicesRes.data?.response) {
-                    setServices(servicesRes.data.response);
-                    console.log('Services fetched:', servicesRes.data.response);
-                }
-                if (subServicesRes.data?.serviceSubCategories) {
-                    setSubServices(subServicesRes.data.serviceSubCategories);
-                    console.log('SubServices fetched:', subServicesRes.data.serviceSubCategories);
-                }
-            } catch (error) {
-                console.error('Error fetching services:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
+    //             if (servicesRes.data?.response) {
+    //                 setServices(servicesRes.data.response);
+    //                 console.log('Services fetched:', servicesRes.data.response);
+    //             }
+    //             if (subServicesRes.data?.serviceSubCategories) {
+    //                 setSubServices(subServicesRes.data.serviceSubCategories);
+    //                 console.log('SubServices fetched:', subServicesRes.data.serviceSubCategories);
+    //             }
+    //         } catch (error) {
+    //             console.error('Error fetching services:', error);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
 
-        fetchData();
-    }, []);
+    //     fetchData();
+    // }, []);
 
     useEffect(() => {
         const handleOutsideClick = (event) => {
@@ -694,19 +692,29 @@ const Navbar = () => {
         setShowSubheadings(false);
         setActiveServiceIndex(null);
         console.log('Service clicked:', service.name, 'Index:', index);
-    };
+    }; const navigate = useNavigate();
 
     const handleSubServiceClick = (subCategory, service) => {
-        const serviceId = service.name.toLowerCase().replace(/\s+/g, '-');
-        window.dispatchEvent(
-            new CustomEvent('selectSubService', {
-                detail: { subCategory, service, serviceId },
-            })
+        console.log("subCategory passed:", subCategory);
+
+        // Find the full object with _id from subServices
+        const fullSubService = subServices.find(
+            (s) => s.name.trim().toLowerCase() === subCategory.name.trim().toLowerCase()
         );
+
+        console.log("Matched fullSubService:", fullSubService);
+
+        if (!fullSubService?._id) {
+            console.warn("No matching subService found with _id for:", subCategory.name);
+            return;
+        }
+
         setShowSubheadings(false);
         setActiveServiceIndex(null);
-        console.log('Subservice clicked:', subCategory.name, 'Service:', service.name);
+
+        navigate(`/services/${fullSubService._id}`);
     };
+
 
     return (
         <div>
