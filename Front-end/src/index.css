@@ -450,3 +450,29 @@ span {
     border-radius: 6px;
     /* rounded corners */
 }
+.bgcontainerservice {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #006AAB transparent; /* Firefox */
+}
+
+/* Chrome, Safari, Edge */
+.bgcontainerservice::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bgcontainerservice::-webkit-scrollbar-track {
+  background: transparent; /* Optional: track background */
+}
+
+.bgcontainerservice::-webkit-scrollbar-thumb {
+  background-color: #006AAB; /* Blue thumb */
+  border-radius: 6px;
+  border: 2px solid transparent; /* Optional: adds spacing */
+  background-clip: content-box;
+}
+.bgcontainerserviceRight::-webkit-scrollbar{
+    display: none;
+}
+
+
+
