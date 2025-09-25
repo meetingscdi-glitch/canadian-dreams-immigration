@@ -913,16 +913,32 @@ const Navbar = ({ services, subServices }) => {
                         </div>
                         <div className="flex items-center xl:gap-3 gap-1.5">
                             <IoCall size={28} />
-                            <a href="tel:+14164343155" className="xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                            <a
+                                href="https://wa.me/14164343155?text=Hello"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors"
+                            >
                                 +1 (416) 434-3155,
                             </a>
-                            <a href="tel:+16475109350" className="xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                            <a
+                                href="https://wa.me/16475109350?text=Hello"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors"
+                            >
                                 +1 (647) 510-9350,
                             </a>
-                            <a href="tel:+16043607128" className="xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                            <a
+                                href="https://wa.me/16043607128?text=Hello"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors"
+                            >
                                 +1 (604) 360-7128
                             </a>
                         </div>
+
                     </div>
                     <div className="flex items-center gap-3">
                         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">

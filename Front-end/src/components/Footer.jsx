@@ -172,12 +172,25 @@ const Footer = ({ services, subServices }) => {
                                 <span>Contact Numbers:</span>
                             </div>
                             <div className="flex flex-col ml-10 gap-0">
-                                {staticText.contactDetails.phone.map((number, index) => (
-                                    <a key={index} href={`tel:${number}`} className="transition-colors hover:font-bold">
-                                        {number}
-                                    </a>
-                                ))}
+                                {staticText.contactDetails.phone.map((number, index) => {
+                                    // Remove any non-digit characters for WhatsApp link
+                                    const cleanNumber = number.replace(/\D/g, '');
+                                    const waLink = `https://wa.me/${cleanNumber}?text=Hello`;
+
+                                    return (
+                                        <a
+                                            key={index}
+                                            href={waLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="transition-colors hover:font-bold"
+                                        >
+                                            {number}
+                                        </a>
+                                    );
+                                })}
                             </div>
+
                         </div>
                     </div>
                 </div>
