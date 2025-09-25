@@ -183,136 +183,137 @@ const OurServices = () => {
       </FadeInOnScroll>
 
       <FadeInOnScroll>
-        <div className="container mx-auto px-4 md:px-0 relative">
-          <div className="flex justify-between gap-16 md:px-8 xl:px-24 py-10 md:mt-10">
+        {/* <FaGripLines onClick={hideShowHandler} size={24} className='absolute right-6 top-2 text-[#006AAB] z-[1000]'/> */}
+        <div className="container mx-auto px-4 md:px-0 relative mt-8">
+          <div className="flex justify-between gap-16 md:px-8 py-4 md:mt-0">
             {/* Desktop Sidebar */}
-            <div className="lg:flex flex-col gap-4 w-1/3 hidden">
-              {services.map((service, index) => (
-                <div key={service._id || index} className="mb-2">
-                  <div
-                    className={`bg-[#006AAB] text-white px-10 py-10 transition-colors ${selectedService?._id === service._id ? 'bg-[#005a94] ring-2 ring-white' : ''
-                      }`}
-                  >
-                    <h1 className="text-xl">{service.name}</h1>
-                    {service.subCategories?.length > 0 ? (
-                      <div className="mt-8">
-                        {service.subCategories.map((subCat, subIndex) => (
-                          <h3
-                            key={subIndex}
-                            className="flex items-center justify-between text-sm mt-4 cursor-pointer hover:text-gray-200"
-                            onClick={() => handleSubCategoryClick(subCat)}
-                          >
-                            {subCat.name} <GoArrowUpRight size={20} />
-                          </h3>
-                        ))}
-                      </div>
-                    ) : (
-                      <div
-                        className="flex items-center justify-between text-sm mt-12 cursor-pointer hover:bg-[#005a94]"
-                        onClick={() => handleServiceClick(service)}
-                      >
-                        <span>View Details</span>
-                        <GoArrowUpRight size={26} />
-                      </div>
-                    )}
-                    {service.price && <div className="mt-4 text-sm opacity-90">Price: ${service.price}</div>}
+            <div className="flex gap-12 lg:h-[calc(100vh+22rem)]">
+              <div className="lg:flex flex-col gap-4  hidden overflow-y-auto h-full bgcontainerserviceRight">
+                {services.map((service, index) => (
+                  <div key={service._id || index} className="mb-2">
+                    <div
+                      className={`bg-[#006AAB] text-white px-10 py-10 transition-colors ${selectedService?._id === service._id ? 'bg-[#005a94] ring-2 ring-white' : ''
+                        }`}
+                    >
+                      <h1 className="text-xl">{service.name}</h1>
+                      {service.subCategories?.length > 0 ? (
+                        <div className="mt-8">
+                          {service.subCategories.map((subCat, subIndex) => (
+                            <h3
+                              key={subIndex}
+                              className="flex items-center justify-between text-sm mt-4 cursor-pointer hover:text-[#005a94]"
+                              onClick={() => handleSubCategoryClick(subCat)}
+                            >
+                              {subCat.name} <GoArrowUpRight size={20} />
+                            </h3>
+                          ))}
+                        </div>
+                      ) : (
+                        <div
+                          className="flex items-center justify-between text-sm mt-12 cursor-pointer hover:bg-[#005a94]"
+                          onClick={() => handleServiceClick(service)}
+                        >
+                          <span>View Details</span>
+                          <GoArrowUpRight size={26} />
+                        </div>
+                      )}
+                      {service.price && (
+                        <div className="mt-4 text-sm opacity-90">Price: ${service.price}</div>
+                      )}
+                    </div>
                   </div>
+                ))}
+              </div>
+
+              {/* Right Side Content Panel */}
+              <div
+                className="lg:w-2/3 flex flex-col gap-y-12 lg:gap-y-0 md:gap-y-6 mt-0 relative h-full"
+                onClick={() => setTogglePannel(false)}
+              >
+                <div className="overflow-y-auto h-full bgcontainerservice pr-4">
+                  {selectedSubCategory ? (
+                    <div className="mt-4 lg:mt-0  flex flex-col gap-6">
+                      {selectedSubCategory.image && (
+                        <img
+                          src={selectedSubCategory.image}
+                          alt={selectedSubCategory.name}
+                          className="w-full bg-cover rounded-lg"
+                        
+                        />
+                      )}
+                      <h1 className="md:text-3xl text-2xl border-b md:pb-6 pb-3 border-[#00000040] -mt-2">
+                        {selectedSubCategory.name}
+                      </h1>
+
+                      {[1, 2, 3, 4, 5, 6, 7].map((num) => {
+                        const word = numberToWord[num - 1];
+                        const headerKey = `header${word}`;
+                        const subHeaderKey = `SubHeader${word}`;
+                        const paragraphKey = `paragraph${word}`;
+
+                        const header = selectedSubCategory?.[headerKey];
+                        const subHeader = selectedSubCategory?.[subHeaderKey];
+                        const paragraph = selectedSubCategory?.[paragraphKey];
+
+                        if (!header) return null;
+
+                        return (
+                          <div key={num} className="mb-6">
+                            <h4 className="Roboto-500 md:text-2xl text-xl">{header}</h4>
+                            {subHeader && (
+                              <h5 className="md:text-lg text-base mt-2">{subHeader}</h5>
+                            )}
+                            {paragraph && (
+                              <div
+                                className="md:text-base text-sm mt-2"
+                                dangerouslySetInnerHTML={{ __html: paragraph }}
+                              />
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    selectedService?.description && (
+                      <div className="md:mt-8 mt-4">
+                        <h4 className="md:text-xl text-base">{selectedService.description}</h4>
+                      </div>
+                    )
+                  )}
+
+                  {selectedService?.price && (
+                    <div className="mt-12 flex flex-col gap-3">
+                      <h4 className="Roboto-500 md:text-2xl text-xl">What It Costs</h4>
+                      <h4 className="md:text-xl text-lg">Pricing That Fits</h4>
+                      <div className="flex items-start gap-2">
+                        <IoMdCheckmarkCircleOutline className="text-xl mt-1 shrink-0 text-[#006AAB]" />
+                        <h4 className="md:text-xl text-base leading-snug">
+                          Service Fee: ${selectedService.price}
+                          <br />
+                          Note: Prices may vary based on case complexity.
+                          <br />
+                          Contact us for detailed pricing information.
+                        </h4>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              ))}
+              </div>
             </div>
 
-            {/* Service Content */}
-            <div
-              className="lg:w-2/3 flex flex-col gap-y-12 lg:gap-y-0 md:gap-y-6 mt-0 relative"
-              onClick={() => setTogglePannel(false)}
-            >
-              {/* Mobile Burger */}
-              <div className="absolute -top-8 md:-top-12 right-0">
-                <RiMenu4Line className="text-3xl text-[#006AAB] lg:hidden" onClick={hideShowHandler} />
-              </div>
-
-              <div>
-                {selectedSubCategory ? (
-                  <div className="md:mt-4 lg:mt-8 flex flex-col gap-6">
-                    {selectedSubCategory.image && (
-                      <img
-                        src={selectedSubCategory.image}
-                        alt={selectedSubCategory.name}
-                        className="w-full rounded-lg"
-                        style={{ marginTop: '-32px' }}
-                      />
-                    )}
-                    <h1 className="md:text-3xl text-2xl border-b md:pb-6 pb-3 border-[#00000040] -mt-2">
-                      {selectedSubCategory.name}
-                    </h1>
-                    {/* // put this above the map (inside the component, before return or before you use it) */}
-
-                    {/* // ...then in your JSX, replace the existing map with this: */}
-                    {[1, 2, 3, 4, 5, 6, 7].map((num) => {
-                      const word = numberToWord[num - 1];
-                      const headerKey = `header${word}`;
-                      const subHeaderKey = `SubHeader${word}`;
-                      const paragraphKey = `paragraph${word}`;
-
-                      const header = selectedSubCategory?.[headerKey];
-                      const subHeader = selectedSubCategory?.[subHeaderKey];
-                      const paragraph = selectedSubCategory?.[paragraphKey];
-
-                      if (!header) return null;
-
-                      return (
-                        <div key={num} className="mb-6">
-                          <h4 className="Roboto-500 md:text-2xl text-xl">{header}</h4>
-
-                          {subHeader && (
-                            <h5 className="md:text-lg text-base mt-2">{subHeader}</h5>
-                          )}
-
-                          {paragraph && (
-                            <div
-                              className="md:text-base text-sm mt-2"
-                              dangerouslySetInnerHTML={{ __html: paragraph }}
-                            />
-                          )}
-                        </div>
-                      );
-                    })}
-
-                  </div>
-                ) : (
-                  selectedService?.description && (
-                    <div className="md:mt-8 mt-4">
-                      <h4 className="md:text-xl text-base">{selectedService.description}</h4>
-                    </div>
-                  )
-                )}
-
-                {selectedService?.price && (
-                  <div className="mt-12 flex flex-col gap-3">
-                    <h4 className="Roboto-500 md:text-2xl text-xl">What It Costs</h4>
-                    <h4 className="md:text-xl text-lg">Pricing That Fits</h4>
-                    <div className="flex items-start gap-2">
-                      <IoMdCheckmarkCircleOutline className="text-xl mt-1 shrink-0 text-[#006AAB]" />
-                      <h4 className="md:text-xl text-base leading-snug">
-                        Service Fee: ${selectedService.price}
-                        <br />
-                        Note: Prices may vary based on case complexity.
-                        <br />
-                        Contact us for detailed pricing information.
-                      </h4>
-                    </div>
-                  </div>
-                )}
-              </div>
+            {/* Mobile Burger */}
+            <div className="absolute -top-8 right-2 p-2">
+              <RiMenu4Line className="text-3xl text-[#006AAB] lg:hidden" onClick={hideShowHandler} />
             </div>
           </div>
         </div>
-      </FadeInOnScroll>
 
-      <div className="lg:mt-20">
+
+      </FadeInOnScroll>
+      <div className='mt-12'>
         <FadeInOnScroll>
-          <Testimonial />
-        </FadeInOnScroll>
+        <Testimonial />
+      </FadeInOnScroll>
       </div>
 
       {/* <Footer services={services} subServices={subServices} /> */}

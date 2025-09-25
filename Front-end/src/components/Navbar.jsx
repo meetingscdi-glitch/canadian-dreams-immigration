@@ -968,13 +968,13 @@ const Navbar = ({ services, subServices }) => {
                         </NavLink>
 
                         {/* Our Services Dropdown */}
-                        <div className="w-full lg:w-fit" ref={dropdownRef}>
+                        <div className="w-fit" ref={dropdownRef}>
                             <div
                                 className="flex items-center justify-between cursor-pointer py-2 px-2 lg:px-0"
-                                onClick={() => setShowSubheadings(prev => !prev)}
+
                             >
-                                <span className="text-black lg:text-black hover:text-[#006AAB] font-medium">Our Services</span>
-                                <IoIosArrowDown className={`ml-2 transform transition-transform duration-200 ${showSubheadings ? 'rotate-180' : ''} lg:hidden`} />
+                                <NavLink to={'/our-services'} className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>Our Services</NavLink>
+                                <IoIosArrowDown className={`ml-2 transform transition-transform duration-200 ${showSubheadings ? 'rotate-180' : ''}`} onClick={() => setShowSubheadings(prev => !prev)} />
                             </div>
 
                             {showSubheadings && (
@@ -985,7 +985,7 @@ const Navbar = ({ services, subServices }) => {
                                     {services.map((service, index) => (
                                         <div key={service._id || index} className="flex flex-col">
                                             <div
-                                                className="flex items-center justify-between text-gray-700 hover:text-blue-600 py-1 px-2 cursor-pointer"
+                                                className="flex items-center justify-between text-gray-700 hover:text-[#006AAB] py-1 px-2 cursor-pointer"
                                                 onClick={() =>
                                                     setActiveServiceIndex(prev => (prev === index ? null : index))
                                                 }
@@ -999,7 +999,7 @@ const Navbar = ({ services, subServices }) => {
                                                         <div
                                                             key={i}
                                                             onClick={() => handleSubServiceClick(sub, service)}
-                                                            className="text-sm text-gray-700 hover:text-blue-600 py-1 px-2 cursor-pointer"
+                                                            className="text-sm text-gray-700 hover:text-[#006AAB] py-1 px-2 cursor-pointer"
                                                         >
                                                             {sub.name}
                                                         </div>

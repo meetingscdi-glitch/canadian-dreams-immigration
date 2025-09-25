@@ -64,7 +64,7 @@ const ServiceDetail = () => {
                     <img
                         src={detail.image}
                         alt={detail.name}
-                        className="w-full max-h-[400px] object-cover rounded mb-6"
+                        className="w-full max-h-[40rem] object-cover rounded mb-6"
                     />
                 )}
                 <h1 className="text-3xl font-bold mb-4">{detail.name}</h1>
