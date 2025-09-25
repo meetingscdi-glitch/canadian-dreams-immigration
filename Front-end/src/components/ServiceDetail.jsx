@@ -59,17 +59,17 @@ const ServiceDetail = () => {
 
     return (
         <>
-            <div className="container mx-auto px-4 py-10">
+            <div className="py-5">
                 {detail.image && (
                     <img
                         src={detail.image}
                         alt={detail.name}
-                        className="w-full max-h-[40rem] object-cover rounded mb-6"
+                        className="w-full max-h-[40rem] object-cover mb-6"
                     />
                 )}
-                <h1 className="text-3xl font-bold mb-4">{detail.name}</h1>
-
-                {numberToWord.map((word, i) => {
+                <div className="container mx-auto">
+                    <h1 className="text-3xl font-bold mb-4">{detail.name}</h1>
+                    {numberToWord.map((word, i) => {
                     const header = detail[`header${word}`];
                     const subHeader = detail[`SubHeader${word}`];
                     const paragraph = detail[`paragraph${word}`];
@@ -89,6 +89,8 @@ const ServiceDetail = () => {
                         </div>
                     );
                 })}
+                </div>
+                
             </div>
         </>
     );

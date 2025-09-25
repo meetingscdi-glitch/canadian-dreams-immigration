@@ -201,11 +201,12 @@ const OurServices = () => {
                           {service.subCategories.map((subCat, subIndex) => (
                             <h3
                               key={subIndex}
-                              className="flex items-center justify-between text-sm mt-4 cursor-pointer hover:text-[#005a94]"
+                              className="flex items-center justify-between text-sm mt-4 cursor-pointer hover:text-gray-300 hover:font-extrabold"
                               onClick={() => handleSubCategoryClick(subCat)}
                             >
                               {subCat.name} <GoArrowUpRight size={20} />
                             </h3>
+
                           ))}
                         </div>
                       ) : (
@@ -238,7 +239,7 @@ const OurServices = () => {
                           src={selectedSubCategory.image}
                           alt={selectedSubCategory.name}
                           className="w-full bg-cover rounded-lg"
-                        
+
                         />
                       )}
                       <h1 className="md:text-3xl text-2xl border-b md:pb-6 pb-3 border-[#00000040] -mt-2">
@@ -312,8 +313,8 @@ const OurServices = () => {
       </FadeInOnScroll>
       <div className='mt-12'>
         <FadeInOnScroll>
-        <Testimonial />
-      </FadeInOnScroll>
+          <Testimonial />
+        </FadeInOnScroll>
       </div>
 
       {/* <Footer services={services} subServices={subServices} /> */}
