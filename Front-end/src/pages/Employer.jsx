@@ -29,7 +29,6 @@ const Employer = () => {
 
   return (
     <div>
-      <Navbar />
       <FadeInOnScroll>
         <SectionWithImage />
         <div className="container mx-auto pt-12 p-6 text-gray-800">
@@ -66,7 +65,6 @@ const Employer = () => {
         </div>
       </FadeInOnScroll>
 
-      <Footer />
       {/* <div className="container py-5">
         <div className="row">
           <div className="col-lg-4">

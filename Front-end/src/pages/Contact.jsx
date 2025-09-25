@@ -13,7 +13,6 @@ import FadeInOnScroll from './FadeInOnScroll';
 const Contact = () => {
   return (
     <div>
-      <Navbar />
       <FadeInOnScroll>
         <SectionWithImage />
       </FadeInOnScroll>
@@ -87,9 +86,6 @@ const Contact = () => {
         </div>
       </FadeInOnScroll>
 
-      <FadeInOnScroll>
-        <Footer />
-      </FadeInOnScroll>
     </div>
   )
 }

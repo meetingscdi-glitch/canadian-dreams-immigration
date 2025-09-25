@@ -8,17 +8,12 @@ import FadeInOnScroll from './FadeInOnScroll'
 const Blog = () => {
   return (
     <div>
-      <Navbar />
       <FadeInOnScroll>
         <SectionWithImage />
       </FadeInOnScroll>
 
       <FadeInOnScroll>
         <Blogcart />
-      </FadeInOnScroll>
-
-      <FadeInOnScroll>
-        <Footer />
       </FadeInOnScroll>
     </div>
   )

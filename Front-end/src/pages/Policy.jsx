@@ -7,7 +7,6 @@ import FadeInOnScroll from './FadeInOnScroll'
 const Policy = () => {
   return (
     <div>
-      <Navbar />
       <SectionWithImage />
       <div className='lg:container lg:mx-auto lg:py-20 py-10 px-5 sm:px-20 lg:px-40'>
         <div className='flex flex-col gap-12'>
@@ -123,9 +122,7 @@ const Policy = () => {
         </div>
       </div>
 
-      <div className='mt-20'>
-        <Footer />
-      </div>
+
     </div>
   )
 }
