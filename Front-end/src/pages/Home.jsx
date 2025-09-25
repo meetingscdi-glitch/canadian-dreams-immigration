@@ -75,7 +75,6 @@ const Home = () => {
     return (
         <div>
             {/* Navbar */}
-            <Navbar />
             {/* Hero Carousel */}
             <BannerCarousel />
 
@@ -102,7 +101,7 @@ const Home = () => {
                                 />
                             </div>
                             <div>
-                                <Form onSuccess={()=> setHide(false)}/>
+                                <Form onSuccess={() => setHide(false)} />
                             </div>
                         </div>
                     </div>
@@ -246,7 +245,6 @@ const Home = () => {
             <FadeInOnScroll>
                 <Faq />
             </FadeInOnScroll>
-            <Footer />
         </div >
     )
 }
