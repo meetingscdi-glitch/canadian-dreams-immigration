@@ -739,8 +739,19 @@ const Navbar = () => {
                         <a href="https://www.instagram.com/canadian.dreams.immigration?igsh=MWl1eDJ1NHN3bGpoeg==" target="_blank" rel="noopener noreferrer">
                             <AiFillInstagram size={28} className="hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
                         </a>
-                        <IoLogoTiktok size={28} className="hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
-                        <IoLocationSharp size={28} className="hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
+                        <a href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1" target="_blank" rel="noopener noreferrer">
+                            <IoLogoTiktok size={28} className="hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
+                        </a>
+                        <a
+                            href="https://share.google/NWvY7FJq2kavn1Yw1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <IoLocationSharp
+                                size={28}
+                                className="hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]"
+                            />
+                        </a>
                     </div>
                 </div>
             </div>

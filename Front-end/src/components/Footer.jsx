@@ -281,8 +281,20 @@ const Footer = ({ services, subServices }) => {
                                 <a href="https://www.instagram.com/canadian.dreams.immigration?igsh=MWl1eDJ1NHN3bGpoeg==" target="_blank" rel="noopener noreferrer">
                                     <AiFillInstagram className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
                                 </a>
-                                <TiSocialYoutube className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
-                                <IoLogoTiktok className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
+                                {/* <TiSocialYoutube className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} /> */}
+                                <a href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1" target="_blank" rel="noopener noreferrer">
+                                    <IoLogoTiktok className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
+                                </a>
+                                <a
+                                    href="https://share.google/NWvY7FJq2kavn1Yw1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <IoLocationSharp
+                                        size={28}
+                                        className="hover:cursor-pointer hover:drop-shadow-[1px_-8px_6px_#0F08F7]"
+                                    />
+                                </a>
                             </div>
                         </div>
                     </div>
