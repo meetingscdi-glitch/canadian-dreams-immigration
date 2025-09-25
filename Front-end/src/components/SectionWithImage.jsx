@@ -1,6 +1,7 @@
 import React from 'react'
 import AboutImg from '../assets/images/AboutUs.png'
 import EmployerImg from '../assets/images/Employer.webp'
+import ContactImg from '../assets/images/ContactImg.webp'
 import ServicesImg from '../assets/images/StudyApplication.png'
 import Micgirl from '../assets/smallimages/MicGirl.png'
 import { useLocation } from 'react-router-dom'
@@ -22,7 +23,7 @@ const SectionWithImage = () => {
             heading: 'Blog'
         },
         '/contact-us': {
-            image: Micgirl,
+            image: ContactImg,
             heading: 'Contact Us'
         },
         '/employer': {

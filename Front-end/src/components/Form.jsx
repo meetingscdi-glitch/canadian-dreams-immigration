@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react'
 import { fadeInUp, staggerAnimation, buttonHover } from '../utils/animations'
 import { IoIosArrowRoundForward } from "react-icons/io";
 
-const Form = () => {
+const Form = ({ onSuccess }) => {
     const formRef = useRef(null);
     const fieldsRef = useRef([]);
     const submitBtnRef = useRef(null);
@@ -21,16 +21,14 @@ const Form = () => {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState('');
-    const [errors, setErrors] = useState(
-        {
-            firstnameerror: '',
-            lastnameerror: '',
-            emailiderror: '',
-            phonenoerror: '',
-            roleerror: '',
-            messageerror: ''
-        }
-    );
+    const [errors, setErrors] = useState({
+        firstnameerror: '',
+        lastnameerror: '',
+        emailiderror: '',
+        phonenoerror: '',
+        roleerror: '',
+        messageerror: ''
+    });
 
     const errorhandler = () => {
         const error = {};
@@ -38,7 +36,7 @@ const Form = () => {
         if (!formdata.firstname.trim()) {
             error.firstnameerror = 'First name is required';
         } else if (Number(formdata.firstname)) {
-            error.firstnameerror = "Name can't be a number"
+            error.firstnameerror = "Name can't be a number";
         }
         if (!formdata.lastname.trim()) {
             error.lastnameerror = 'Last name is required';
@@ -46,7 +44,7 @@ const Form = () => {
         if (!formdata.emailid.trim()) {
             error.emailiderror = 'Email is required';
         } else if (!emailRegex.test(formdata.emailid)) {
-            error.emailiderror = "Enter a valid email"
+            error.emailiderror = "Enter a valid email";
         }
         if (!formdata.phone) {
             error.phonenoerror = 'Phone number is required';
@@ -59,7 +57,7 @@ const Form = () => {
         if (!formdata.message.trim()) {
             error.messageerror = 'Message is required';
         } else if (Number(formdata.message)) {
-            error.messageerror = "Enter a valid message"
+            error.messageerror = "Enter a valid message";
         }
 
         setErrors(error);
@@ -67,11 +65,9 @@ const Form = () => {
     };
 
     const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormData({ ...formdata, [name]: value })
-
-    }
-
+        const { name, value } = e.target;
+        setFormData({ ...formdata, [name]: value });
+    };
 
     useGSAP(() => {
         if (fieldsRef.current.length > 0) {
@@ -90,7 +86,7 @@ const Form = () => {
             setSubmitMessage('');
 
             try {
-                const response = await contactAPI.sendMail({
+                await contactAPI.sendMail({
                     firstName: formdata.firstname,
                     lastName: formdata.lastname,
                     email: formdata.emailid,
@@ -100,6 +96,7 @@ const Form = () => {
                 });
 
                 setSubmitMessage('Message sent successfully!');
+
                 setFormData({
                     firstname: '',
                     lastname: '',
@@ -117,13 +114,18 @@ const Form = () => {
                     messageerror: ''
                 });
 
-                // Clear success message after 5 seconds
+                // ✅ Close modal after 1.5 seconds
                 setTimeout(() => {
-                    setSubmitMessage('');
-                }, 5000);
+                    if (onSuccess) {
+                        onSuccess();
+                    }
+                }, 1500);
+
             } catch (error) {
                 console.error('Error sending message:', error);
-                const errorMessage = error.response?.data?.message || 'Failed to send message. Please try again.';
+                const errorMessage =
+                    error.response?.data?.message ||
+                    'Failed to send message. Please try again.';
                 setSubmitMessage(errorMessage);
 
                 // Clear error message after 5 seconds
@@ -134,7 +136,8 @@ const Form = () => {
                 setIsSubmitting(false);
             }
         }
-    }
+    };
+
     return (
         <form ref={formRef}>
             <div className='grid sm:grid-cols-2 gap-5 mt-4'>
@@ -148,7 +151,7 @@ const Form = () => {
                         placeholder="Enter First Name"
                         className='px-3 border-1 py-3 rounded border-[#D4D4D4] focus:outline-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                     />
-                    {errors.firstnameerror ? <h4 className='text-sm flex flex-nowrap items-center text-red-600'><span className='text-red-600'>*</span>{errors.firstnameerror}</h4> : ''}
+                    {errors.firstnameerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.firstnameerror}</h4>}
                 </div>
                 <div className='flex flex-col' ref={el => fieldsRef.current[1] = el}>
                     <label htmlFor="">Last Name <span className='text-red-600'>*</span></label>
@@ -160,7 +163,7 @@ const Form = () => {
                         placeholder="Enter Last Name"
                         className='px-3 border-1 py-3 rounded border-[#D4D4D4] focus:outline-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                     />
-                    {errors.lastnameerror ? <h4 className='text-sm flex flex-nowrap items-center text-red-600'><span className='text-red-600'>*</span>{errors.lastnameerror}</h4> : ''}
+                    {errors.lastnameerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.lastnameerror}</h4>}
                 </div>
                 <div className='flex flex-col' ref={el => fieldsRef.current[2] = el}>
                     <label htmlFor="">Email Id <span className='text-red-600'>*</span></label>
@@ -172,7 +175,7 @@ const Form = () => {
                         placeholder="Enter Email Id"
                         className='px-3 border-1 py-3 rounded border-[#D4D4D4] focus:outline-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                     />
-                    {errors.emailiderror ? <h4 className='text-sm flex flex-nowrap items-center text-red-600'><span className='text-red-600'>*</span>{errors.emailiderror}</h4> : ''}
+                    {errors.emailiderror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.emailiderror}</h4>}
                 </div>
                 <div className='flex flex-col' ref={el => fieldsRef.current[3] = el}>
                     <label htmlFor="">Phone No. <span className='text-red-600'>*</span></label>
@@ -183,13 +186,14 @@ const Form = () => {
                         defaultCountry="CA"
                         className='px-3 border-1 py-3 rounded border-[#D4D4D4] focus:outline-none transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                     />
-                    {errors.phonenoerror ? <h4 className='text-sm flex flex-nowrap items-center text-red-600'><span className='text-red-600'>*</span>{errors.phonenoerror}</h4> : ''}
+                    {errors.phonenoerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.phonenoerror}</h4>}
                 </div>
             </div>
 
             <div className='mt-4' ref={el => fieldsRef.current[4] = el}>
                 <label htmlFor="" className='-mb-3 block'>I am an <span className='text-red-600'>*</span></label>
-                <select name="role"
+                <select
+                    name="role"
                     onChange={handleChange}
                     value={formdata.role}
                     className='focus:outline-none w-full mt-4 py-4 px-2 border-[#D4D4D4] border rounded appearance-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
@@ -198,12 +202,13 @@ const Form = () => {
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "right 0.5rem center",
                         backgroundSize: "1.5rem"
-                    }}>
+                    }}
+                >
                     <option value="Employer">Employer</option>
                     <option value="Job Seeker">Job Seeker</option>
                     <option value="Other">Other</option>
                 </select>
-                {errors.roleerror ? <h4 className='text-sm flex flex-nowrap items-center text-red-600'><span className='text-red-600'>*</span>{errors.roleerror}</h4> : ''}
+                {errors.roleerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.roleerror}</h4>}
             </div>
 
             <div className='mt-4' ref={el => fieldsRef.current[5] = el}>
@@ -214,9 +219,8 @@ const Form = () => {
                     name="message"
                     placeholder="Type your message here"
                     className='w-full focus:outline-none border-[#D4D4D4] border py-4 px-2 resize-none rounded h-24 text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
-                >
-                </textarea>
-                {errors.messageerror ? <h4 className='text-sm flex flex-nowrap items-center text-red-600'><span className='text-red-600'>*</span>{errors.messageerror}</h4> : ''}
+                />
+                {errors.messageerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.messageerror}</h4>}
             </div>
 
             {submitMessage && (
@@ -246,7 +250,6 @@ const Form = () => {
                     />
                 </div>
             </div>
-
         </form>
     )
 }

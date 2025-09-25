@@ -48,45 +48,44 @@ const WhyChooseUs = () => {
             <div className='flex flex-col-reverse lg:grid lg:grid-cols-2  xl:py-20  py-10 md:px-8 container mx-auto'>
                 <div className='xl:pl-20 xl:pr-12  px-5 lg:px-0 overflow-hidden' >
                     <div className='overflow-hidden' ref={whyChooseText}>
-                        <h6 className='text-[#006AAB] text-lg mb-2 mt-6 flex items-center'><TfiLayoutLineSolid size={28} />Why Choose Us</h6>
-                        <h4 className='lg:text-5xl md:text-4xl text-3xl'>Fast & reliable visa and</h4>
+                        <h6 className='text-[#006AAB] text-lg mb-2 mt-6 flex items-center'><TfiLayoutLineSolid size={28} />Why Choose Us?</h6>
+                        <h4 className='lg:text-5xl md:text-4xl text-3xl'>We Make Your Canadian</h4>
                         <h5 className="lg:text-5xl md:text-4xl text-3xl font-bold  lg:leading-tight lg:mt-1.5">
-                            immigration services.
-                        </h5>
+                            Dream Achievable.                        </h5>
 
-                        <p className=' mb-3 mt-3 md:text-lg xl:w-[34rem]'>Get expert support for all your visa and immigration needs. We deliver fast, reliable, and hassle-free services to help you move forward with confidence.
+                        <p className=' mb-3 mt-3 md:text-lg xl:w-[34rem]'>GMoving to a new country is a big step—you need a partner you can trust to get things right. We provide fast, reliable immigration services that take the stress out of the process. With our expert support, you can move forward knowing every detail is handled carefully and correctly.
                         </p>
 
                         <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl  md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />
                             </span>
-                            Global Connection
+                            Global Connection: We understand both your home country's context and Canada's requirements, creating a smooth bridge for your transition.
                         </h5>
                         <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />
                             </span>
-                            Expertise visa Processign
+                            Expert Visa Processing: Our team knows the system inside and out—we help you avoid common mistakes that cause delays.
                         </h5>
                         <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />
                             </span>
-                            Fastest Working Process
+                            Fastest Working Process: We're efficient without cutting corners, helping you reach Canada sooner.
                         </h5>
-                        <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
+                        {/* <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />
                             </span>
-                            High Approval Rates and Proven Track Record
-                        </h5>
-                        <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
+                            High Approval Rates and Proven Track Record: We're proud of our success in helping people like you achieve their immigration goals.
+                        </h5> */}
+                        {/* <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />
                             </span>
                             Expert Support Panel
-                        </h5>
+                        </h5> */}
                         <Link
                             to="/terms-and-condition"
                             className="flex items-center justify-center relative w-fit group"
