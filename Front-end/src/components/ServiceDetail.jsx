@@ -59,7 +59,7 @@ const ServiceDetail = () => {
 
     return (
         <>
-            <div className="py-5">
+            <div className="py-1.5">
                 {detail.image && (
                     <img
                         src={detail.image}
@@ -67,7 +67,7 @@ const ServiceDetail = () => {
                         className="w-full max-h-[40rem] object-cover mb-6"
                     />
                 )}
-                <div className="container mx-auto">
+                <div className="container mx-auto px-3 mb-4">
                     <h1 className="text-3xl font-bold mb-4">{detail.name}</h1>
                     {numberToWord.map((word, i) => {
                     const header = detail[`header${word}`];
