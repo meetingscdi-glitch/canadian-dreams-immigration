@@ -16,7 +16,7 @@ const WhoWeAre = () => {
                         <img className=' w-full bg-cover h-full lg:rounded-3xl ' src={WhoWeImg} alt="Smile" />
                     </div>
                 </div>
-                <div className='lg:ml-10 xl:ml-0 overflow-hidden'>
+                <div className='lg:ml-8 xl:ml-0 overflow-hidden mr-4'>
                     <h6 className='text-[#006AAB] text-lg lg:mt-0 mt-6 flex items-center mb-2'><TfiLayoutLineSolid size={28} />Who we are</h6>
                     <span className='lg:text-5xl md:text-4xl text-3xl block md:mt-4 lg:mt-0'>Best Immigration</span>
                     <h1 className="lg:text-4xl md:text-4xl text-3xl font-bold lg:w-2/3 leading-tight lg:mt-1.5">
