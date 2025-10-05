@@ -32,8 +32,7 @@ const CanadianDreams = () => {
                 <h1 className="lg:text-5xl text-3xl md:text-4xl font-bold lg:w-3/4 lg:leading-tight lg:mt-1.5">
                     Immigration <span>& Worldwide Services Ltd.</span>
                 </h1>
-                <p className='xl:w-5/6 lg:mb-6  mt-3 text-base sm:text-xl xl:mr-12 mr-8'>We are a federally incorporated, CICC-licensed immigration consultancy headquartered in Brampton, Ontario. Our mission is simple—make your Canadian dream a reality.
-                    Guided by values of integrity, transparency, and professionalism, we provide clear, reliable, and result-driven immigration solutions. Whether you’re moving as a student, skilled professional, entrepreneur, or with your family, we take pride in being a trusted partner every step of the way.</p>
+                <p className='xl:w-5/6 lg:mb-6  mt-3 text-base sm:text-xl xl:mr-12 mr-8'>We are a federally incorporated, CICC-licensed immigration consultancy headquartered in Brampton, Ontario, with a branch office in Surrey, British Columbia. Our mission is simple—make your Canadian dream a reality. Guided by values of integrity, transparency, and professionalism, we provide clear, reliable, and result-driven immigration solutions. Whether you’re moving as a student, skilled professional, entrepreneur, or with your family, we take pride in being a trusted partner every step of the way.</p>
                 <Link
                     to="/contact-us"
                     className="flex items-center justify-center relative w-fit group"

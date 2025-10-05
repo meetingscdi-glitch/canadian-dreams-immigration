@@ -108,18 +108,18 @@ const LatestNews = () => {
                 <div className="mb-4 rounded-b-xl shadow overflow-hidden md:mb-10 h-full min-h-[29rem] md:min-h-[30rem] flex flex-col bg-white relative">
                   <div className="flex flex-col">
                     <img src={t.image} alt="NewsImage" className="h-64 object-cover" />
-                    <div className="px-3 md:p-4 lg:p-6">
+                    <div className="px-3 mt-5 md:p-4 lg:p-6">
                       <h1
                         className="text-2xl font-medium"
                         dangerouslySetInnerHTML={{ __html: t.heading }}
                       />
                       <h3
-                        className="text-lg mt-4 mb-6"
+                        className="text-lg mt-4 mb-3 lg:mb-6"
                         dangerouslySetInnerHTML={{ __html: t.paragraph }}
                       />
                       <Link
                         to='/blog'
-                        className='text-[#006AAB] text-md absolute bottom-4 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline'
+                        className='text-[#006AAB] text-md lg:absolute bottom-3 flex items-center gap-1 hover:text-[#004d7a] transition-colors hover:underline pb-5 md:pb-0'
                       >
                         Read More <GoArrowUpRight />
                       </Link>

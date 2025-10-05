@@ -33,34 +33,43 @@ const Employer = () => {
         <SectionWithImage />
         <div className="container mx-auto pt-12 p-6 text-gray-800">
           <h2 className="md:text-2xl text-lg font-bold mb-4">
-            At Canada Immigration, we specialize in providing transparent immigration services to Canadian businesses in the hospitality, retail, and healthcare industries.
+            Strategic Workforce Solutions for Canadian Employers
           </h2>
           <h2 className="md:text-2xl text-lg font-bold mb-4 text-[#006AAB]">
-            Our mission is to bridge the demand-supply gap by connecting employers with talented foreign workers who can contribute to the growth and success of their businesses.
+            At Canada Immigration, we specialize in delivering transparent and effective immigration solutions tailored for Canadian businesses in the high-demand hospitality, retail, and healthcare sectors. We understand that your growth depends on reliable talent, and we are here to ensure you find it.
           </h2>
           <h2 className="md:text-2xl text-lg font-bold mb-4">
-            With years of experience and a team of licensed professionals, Career Canada Immigration understands the specific needs and challenges faced by employers in these industries. We offer tailored solutions to ensure a seamless recruitment and immigration process.
+            Our Mission : Connecting Talent with Opportunity
           </h2>
+          <h2 className="md:text-2xl text-lg font-bold mb-4 text-[#006AAB]">
+            Our core mission is to bridge the critical demand-supply gap in the Canadian labor market. We connect forward-thinking employers with pre-vetted, talented foreign workers who are ready to contribute to your business's growth and success from day one.
+          </h2>
+          <h2 className="md:text-2xl text-lg font-bold mb-4">
+            Why Partner With Us? Your Strategic Advantage
+          </h2>
+          <h2 className="md:text-2xl text-lg font-bold mb-4 text-[#006AAB]">
+            With years of dedicated experience and a team of licensed professionals, we possess an in-depth understanding of the unique challenges and specific needs of your industry. We move beyond generic placements to offer tailored recruitment and immigration solutions, ensuring a seamless, efficient, and compliant process for your business.          </h2>
 
-          <h3 className="md:text-3xl text-xl font-bold mt-8 md:mt-12 md:mb-6 mb-2 text-[#006AAB]">
-            Our Selection Criteria
+          <h3 className="md:text-3xl text-xl font-bold mt-8 md:mt-12 md:mb-6 mb-2 ">
+            Our Rigorous Selection Criteria: Ensuring the Right Fit
           </h3>
           <h3 className="mb-6 md:text-xl ">
-            We follow a <span className='text-[#006AAB] font-[100px]'>rigorous selection process </span> to ensure that the foreign workers we recommend to employers are not only a right fit according to your job description but also a great cultural fit.
+            We believe a successful hire is more than just a match on paper <span className='text-[#006AAB] font-[100px]'><b>That’s why we employ a multi-faceted selection process to ensure the candidates </b></span> we recommend are not only qualified for the role but are also a great long-term cultural fit for your organization. The Four Pillars of Our Vetting Process
           </h3>
+
           <ul className='flex flex-col gap-6'>
-            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>A) Qualifications and Experience: </span>
-              We carefully assess candidates' educational background, certifications, and relevant work experience to ensure they possess the necessary skills for the specific job roles.
+            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>A) <b>Qualifications and Experience:</b> </span>
+              We meticulously verify candidates' educational backgrounds, professional certifications, and relevant work history to confirm they possess the precise skills and expertise required for your specific job roles.
             </li>
-            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>B) Language Proficiency: </span>Strong communication skills are essential for effective integration into the Canadian workplace. We evaluate candidates' language proficiency in English or any other language, depending on the requirements.
+            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>B) <b>Language Proficiency: </b></span>Effective communication is the cornerstone of workplace integration and safety. We rigorously evaluate candidates' proficiency in English, French, or other required languages to ensure they can thrive in your environment.
             </li>
-            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>C) Cultural Fit: </span>C We consider the cultural compatibility of candidates with Canadian work environments, emphasizing adaptability, teamwork, and a positive work ethic.
+            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>C) <b>Cultural Fit: </b></span>We go beyond the resume to assess cultural compatibility. We prioritize candidates who demonstrate strong adaptability, a collaborative team spirit, and a positive, professional work ethic aligned with Canadian workplace standards.
             </li>
-            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>D) References and Background Checks: </span> We conduct thorough reference checks and background verifications to validate candidates' credentials and ensure their reliability and trustworthiness.
+            <li className='md:text-xl border-2 border-slate-200 p-4 rounded-xl' ><span className='text-[#006AAB] font-bold'>D) <b>References and Background Checks: </b></span> To guarantee reliability and trustworthiness, we conduct thorough reference checks and comprehensive background verifications, giving you complete confidence in your new hire.
             </li>
           </ul>
           <h3 className="md:my-8 my-6 md:text-xl">
-            We follow a <span className='text-[#006AAB] font-[100px]'>rigorous selection process </span> to ensure that the foreign workers we recommend to employers are not only a right fit according to your job description but also a great cultural fit.
+            Stop struggling with <span className='text-[#006AAB] font-[100px]'><b>talent shortages. </b></span> Let us provide you with a streamlined, dependable pipeline of qualified and ready-to-work professionals.
           </h3>
         </div>
       </FadeInOnScroll>
