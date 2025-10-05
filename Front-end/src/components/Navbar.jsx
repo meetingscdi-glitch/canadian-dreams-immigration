@@ -904,20 +904,20 @@ const Navbar = ({ services, subServices }) => {
             {/* Top Bar */}
             {/* Moblile Bottom Blue Section */}
             <div className="flex items-center justify-between   bg-[#006AAB] py-3.5 text-white lg:hidden">
-               <div className='container mx-auto px-3 md:px-10'>
-                <div className="flex items-center xl:gap-3 gap-1.5">
-                    <IoCall className='text-[16px] sm:text-[28px]' />
-                    <a href="tel:+14164343155" className="text-sm sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
-                        +1 (416) 434-3155,
-                    </a>
-                    <a href="tel:+16475109350" className="text-sm sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
-                        +1 (647) 510-9350,
-                    </a>
-                    <a href="tel:+16043607128" className="text-sm sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                <div className='container mx-auto px-3 md:px-10'>
+                    <div className="flex items-center xl:gap-3 gap-1.5">
+                        <IoCall className='text-[16px] sm:text-[28px]' />
+                        <a href="tel:+14164343155" className="text-sm sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                            +1 (416) 434-3155,
+                        </a>
+                        <a href="tel:+16475109350" className="text-sm sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                            +1 (647) 510-9350,
+                        </a>
+                        <a href="tel:+16043607128" className="text-sm sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
                             +1 (604) 360-7128
                         </a>
+                    </div>
                 </div>
-               </div>
             </div>
             <div className="bg-[#006AAB] hidden lg:block py-4 px-4">
                 <div className="container mx-auto flex justify-between items-center text-white md:px-3.5 lg:px-0 lg:pl-5">
@@ -942,16 +942,16 @@ const Navbar = ({ services, subServices }) => {
                         </a>
                     </div>
                     <div className="flex items-center gap-3">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/share/1M6rNDDtyZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
                             <TiSocialFacebook size={28} className="hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
                         </a>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/canadian.dreams.immigration?igsh=Zm5zcXR0dTNvdTJu" target="_blank" rel="noopener noreferrer">
                             <AiFillInstagram size={28} className="hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
                         </a>
-                        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1" target="_blank" rel="noopener noreferrer">
                             <IoLogoTiktok size={28} className="hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
                         </a>
-                        <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://maps.app.goo.gl/6urHVPQhfNLVmSoV6" target="_blank" rel="noopener noreferrer">
                             <IoLocationSharp size={28} className="hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
                         </a>
                     </div>
@@ -965,20 +965,36 @@ const Navbar = ({ services, subServices }) => {
                             <img className="md:w-56 w-46 lg:ml-8 xl:ml-4 lg:w-40 xl:w-64 md:ml-10" src={Logo} alt="COMPANY LOGO" />
                         </Link>
                         <div className="flex items-center gap-3 lg:hidden">
-                            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                            <a
+                                href="https://www.facebook.com/share/1M6rNDDtyZ/?mibextid=wwXIfr"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <TiSocialFacebook className="text-[#006AAB] text-[24px] md:text-[28px]" />
                             </a>
-                            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                            <a
+                                href="https://www.instagram.com/canadian.dreams.immigration?igsh=Zm5zcXR0dTNvdTJu"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <AiFillInstagram className="text-[#006AAB] text-[24px] md:text-[28px]" />
                             </a>
-                            <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">
+                            <a
+                                href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <IoLogoTiktok className="text-[#006AAB] text-[24px] md:text-[28px]" />
                             </a>
-                            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
+                            <a
+                                href="https://maps.app.goo.gl/6urHVPQhfNLVmSoV6"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <IoLocationSharp className="text-[#006AAB] text-[24px] md:text-[28px]" />
                             </a>
-
                         </div>
+
                         {hide ? (
                             <RxHamburgerMenu onClick={toggleButton} size={32} className="text-[#006AAB] lg:hidden md:mr-6" />
                         ) : (
@@ -1055,7 +1071,7 @@ const Navbar = ({ services, subServices }) => {
 
                         <div>
                             <a
-                                href="https://wa.me/14164343155?text=Hello"
+                                href="https://wa.me/14164343155?text=Hello ! How can we help you today. Please leave us a detailed message and one of our team members will get back to you. Thanks"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -1068,7 +1084,7 @@ const Navbar = ({ services, subServices }) => {
                     </div>
                 </div>
             </nav>
-            
+
         </div>
     );
 };

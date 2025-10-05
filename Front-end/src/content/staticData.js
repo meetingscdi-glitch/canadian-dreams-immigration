@@ -63,7 +63,7 @@ export const staticText = {
 
   // Contact information
   contactDetails: {
-    address: "Dummy address canadian 313 Canada, 33322",
+    address: "200- 7404 king george blvd , Unit -246 Surrey, B.C",
     phone: [
       "+1 (416) 434-3155",
       "+1 (647) 510-9350",
