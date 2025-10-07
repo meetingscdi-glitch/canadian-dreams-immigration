@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
                         <h5 className="lg:text-5xl md:text-4xl text-3xl font-bold  lg:leading-tight lg:mt-1.5">
                             Dream Achievable.                        </h5>
 
-                        <p className=' mb-3 mt-3 md:text-lg xl:w-[34rem]'>GMoving to a new country is a big step—you need a partner you can trust to get things right. We provide fast, reliable immigration services that take the stress out of the process. With our expert support, you can move forward knowing every detail is handled carefully and correctly.
+                        <p className=' mb-3 mt-3 md:text-lg xl:w-[34rem]'>Moving to a new country is a big step—you need a partner you can trust to get things right. We provide fast, reliable immigration services that take the stress out of the process. With our expert support, you can move forward knowing every detail is handled carefully and correctly.
                         </p>
 
                         <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>

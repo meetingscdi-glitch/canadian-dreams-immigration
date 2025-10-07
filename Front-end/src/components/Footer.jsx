@@ -5,7 +5,7 @@ import { TiSocialFacebook } from "react-icons/ti";
 import { AiFillInstagram } from "react-icons/ai";
 import { TiSocialYoutube } from "react-icons/ti";
 import { IoLogoTiktok, IoLocationSharp, IoCall } from "react-icons/io5";
-import { MdEmail } from "react-icons/md";
+import { MdEmail, MdLocationOn } from "react-icons/md";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import staticText from '../content/staticData';
 
@@ -70,10 +70,46 @@ const Footer = ({ services, subServices }) => {
                         <div>
                             <h5 className="poppins-regular md:mb-0 text-xl">Follow Us</h5>
                             <div className="flex gap-4 mt-2">
-                                <TiSocialFacebook className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
-                                <AiFillInstagram className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
-                                <TiSocialYoutube className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
-                                <IoLogoTiktok className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]" size={32} />
+                                <a
+                                    href="https://www.facebook.com/share/1M6rNDDtyZ/?mibextid=wwXIfr"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <TiSocialFacebook
+                                        className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]"
+                                        size={32}
+                                    />
+                                </a>
+                                <a
+                                    href="https://www.instagram.com/canadian.dreams.immigration?igsh=Zm5zcXR0dTNvdTJu"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <AiFillInstagram
+                                        className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]"
+                                        size={32}
+                                    />
+                                </a>
+                                <a
+                                    href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <IoLogoTiktok
+                                        className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]"
+                                        size={32}
+                                    />
+                                </a>
+                                <a
+                                    href="https://maps.app.goo.gl/6urHVPQhfNLVmSoV6"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <MdLocationOn
+                                        className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]"
+                                        size={32}
+                                    />
+                                </a>
                             </div>
                         </div>
                     </div>

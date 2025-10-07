@@ -26,7 +26,8 @@ const Contact = () => {
             <div className='rounded-2xl p-5 py-8 border-1 min-h-[8rem] border-[#006AAB] flex items-center gap-2 justify-center flex-col hover:bg-[#006AAB] hover:text-white group transition duration-300 ease-in-out cursor-pointer'>
               <h1 className='md:text-5xl text-4xl text-[#006AAB]'><IoLocationSharp className='group-hover:text-white' /></h1>
               <h3 className='text-2xl'>Location</h3>
-              <h4 className='text-center text-lg break-words w-full'>Dummy addres canadian 313 canada, 33322</h4>
+              <h4 className='text-center text-lg break-words w-full'>200- 7404 king george blvd , Unit -246
+                Surrey , B.C</h4>
             </div>
             <div className='rounded-2xl p-5 py-8 border-1 min-h-[8rem] border-[#006AAB] flex items-center gap-2 justify-center flex-col hover:bg-[#006AAB] hover:text-white group transition duration-300 ease-in-out cursor-pointer'>
               <h1 className='md:text-5xl text-4xl text-[#006AAB]'><IoCall className='group-hover:text-white' /></h1>
@@ -73,16 +74,12 @@ const Contact = () => {
 
       <FadeInOnScroll>
         <div className='w-full h-[30rem] mb-40'>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3430.4898902582526!2d75.85322907551165!3d30.90646627449609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a837e6f92f7a5%3A0x2dcd1982a4bbd4a5!2s218%2F1A%2C%20Rani%20Jhansi%20Rd%2C%20Mall%20Enclave%2C%20Ghumar%20Mandi%2C%20Ludhiana%2C%20Punjab%20141001!5e0!3m2!1sen!2sin!4v1694012345678!5m2!1sen!2sin"
-            width="600"
+
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47228742.176319174!2d-157.85156249999997!3d43.739352079154706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b17e08e1ed5ed%3A0xb4849c3d66feca98!2sCanadian%20dreams%20immigration!5e0!3m2!1sen!2sin!4v1759680224004!5m2!1sen!2sin" width="600"
             height="700"
             style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
             className="w-full h-full"
-          />
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" />
         </div>
       </FadeInOnScroll>
 
