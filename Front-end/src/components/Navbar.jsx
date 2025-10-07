@@ -866,11 +866,30 @@ const Navbar = ({ services, subServices }) => {
     const [hide, setHide] = useState(true);
     const [showSubheadings, setShowSubheadings] = useState(false);
     const [activeServiceIndex, setActiveServiceIndex] = useState(null);
+    const [CanadianPathWaySubHeadings, setCanadianPathWaySubHeadings] = useState(false)
     const navItemsRef = useRef();
     const dropdownRef = useRef();
     const navigate = useNavigate();
 
     const toggleButton = () => setHide((prev) => !prev);
+    const toggleButtonForSubofCanadianPath = () => setCanadianPathWaySubHeadings((prev) => !prev);
+    const dropdownRefCanadinaPAth = useRef(null);
+    // For CanadianPathWays SUbheadings
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                dropdownRefCanadinaPAth.current &&
+                !dropdownRefCanadinaPAth.current.contains(event.target)
+            ) {
+                setCanadianPathWaySubHeadings(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     useEffect(() => {
         const handleOutsideClick = (event) => {
@@ -920,9 +939,9 @@ const Navbar = ({ services, subServices }) => {
                 </div>
             </div>
             <div className="bg-[#006AAB] hidden lg:block py-4 px-4">
-                <div className="container mx-auto flex justify-between items-center text-white md:px-3.5 lg:px-0 lg:pl-5">
+                <div className="container mx-auto flex justify-between items-center text-white">
                     <div className="flex items-center  xl:gap-20 lg:gap-10">
-                        <div className="flex items-center gap-3 lg:-ml-1">
+                        <div className="flex items-center gap-3">
                             <MdEmail size={28} />
                             <a href="mailto:Canadiandreamsimmigration@gmail.com" className="text-lg poppins-regular hover:text-blue-100 transition-colors">
                                 Canadiandreamsimmigration@gmail.com
@@ -962,7 +981,7 @@ const Navbar = ({ services, subServices }) => {
                 <div className="lg:flex justify-between xl:px-0 xl:gap-5 items-center py-4 container mx-auto relative navbar">
                     <div className="flex items-center justify-between">
                         <Link to="/">
-                            <img className="md:w-56 w-46 lg:ml-8 xl:ml-4 lg:w-40 xl:w-64 md:ml-10" src={Logo} alt="COMPANY LOGO" />
+                            <img className="md:w-56 w-46" src={Logo} alt="COMPANY LOGO" />
                         </Link>
                         <div className="flex items-center gap-3 lg:hidden">
                             <a
@@ -1021,12 +1040,12 @@ const Navbar = ({ services, subServices }) => {
 
                             >
                                 <NavLink to={'/our-services'} className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>Our Services</NavLink>
-                                <IoIosArrowDown className={`ml-2 transform transition-transform duration-200 ${showSubheadings ? 'rotate-180' : ''}`} onClick={() => setShowSubheadings(prev => !prev)} />
+                                <IoIosArrowDown className={`ml-2 mt-1 transform transition-transform duration-200 ${showSubheadings ? 'rotate-180' : ''}`} onClick={() => setShowSubheadings(prev => !prev)} />
                             </div>
 
                             {showSubheadings && (
                                 <div
-                                    className="flex flex-col lg:absolute lg:top-14 bg-white lg:shadow-lg lg:rounded p-2 z-20 w-full lg:w-auto"
+                                    className="flex flex-col lg:absolute lg:top-14 bg-white mt-5 lg:shadow-lg lg:rounded p-2 z-20 w-full lg:w-auto"
                                     style={{ border: "1px solid #ddd" }}
                                 >
                                     {services.map((service, index) => (
@@ -1058,7 +1077,44 @@ const Navbar = ({ services, subServices }) => {
                                 </div>
                             )}
                         </div>
+                        <div ref={dropdownRefCanadinaPAth}>
+                            <div className="flex items-center justify-center">
+                                <NavLink
+                                    to="/canadian-pathways"
+                                    className={({ isActive }) =>
+                                        `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'
+                                        }`
+                                    }
+                                    onClick={()=>{setCanadianPathWaySubHeadings(false)}}
+                                >
+                                    Canadian Pathways
+                                </NavLink>
+                                <IoIosArrowDown
+                                    onClick={toggleButtonForSubofCanadianPath}
+                                    className={`ml-2 mt-1 transform transition-transform duration-200 cursor-pointer ${CanadianPathWaySubHeadings ? 'rotate-180' : ''
+                                        }`}
+                                />
+                            </div>
 
+                            {CanadianPathWaySubHeadings && (
+                                <div className="flex flex-col absolute mt-4  bg-white z-[9999] border border-gray-300 px-4 py-2.5 rounded ">
+                                    <Link
+                                        to="/canadian-pathways-federal"
+                                        className="text-gray-700 hover:text-[#006AAB]"
+                                        onClick={()=>{setCanadianPathWaySubHeadings(false)}}
+                                    >
+                                        Federal
+                                    </Link>
+                                    <Link
+                                        to="/canadian-pathways-provincial"
+                                        className="text-gray-700 hover:text-[#006AAB]"
+                                        onClick={()=>{setCanadianPathWaySubHeadings(false)}}
+                                    >
+                                        Provincial
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
                         <NavLink to="/blog" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
                             Blog
                         </NavLink>

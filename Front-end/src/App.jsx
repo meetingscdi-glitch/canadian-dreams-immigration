@@ -15,6 +15,9 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import axios from 'axios'
 import Loader from './components/Loader'
+import CanadianPathWays from './pages/CanadianPathWays'
+import Federal from './pages/Federal'
+import ProvincialPathways from './pages/ProvincialPathways'
 const App = () => {
   const baseURL = import.meta.env.VITE_API_URL;
 
@@ -92,6 +95,9 @@ const App = () => {
         <Route path='/terms-and-condition' element={<TermsAndCondition />} />
         <Route path='*' element={<NotFound />} />
         <Route path="/services/:id" element={<ServiceDetail />} />
+        <Route path='/canadian-pathways' element={<CanadianPathWays/>}/>
+        <Route path='/canadian-pathways-federal' element={<Federal/>}/>
+        <Route path='/canadian-pathways-provincial' element={<ProvincialPathways/>}/>
       </Routes>
       <Footer services={services} subServices={subServices} />
 
