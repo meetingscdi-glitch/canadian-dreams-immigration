@@ -100,9 +100,9 @@ const ProvincialPathways = () => {
   };
 
   return (
-    <div className="container mx-auto pt-5 pb-12">
+    <div>
       <SectionWithImage />
-
+      <div className="container mx-auto pt-5 pb-12">
       <div className="mt-10 grid lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 xl:gap-x-10 gap-y-12 px-6 xl:px-0">
         {currentCards.map((items, index) => (
           <div key={index} className="max-w-sm bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
@@ -133,7 +133,7 @@ const ProvincialPathways = () => {
         <button
           onClick={handlePrevPage}
           disabled={currentPage === 1}
-          className={`px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 transition ${
+          className={`px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 transition  ${
             currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >
@@ -142,13 +142,14 @@ const ProvincialPathways = () => {
         <button
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 rounded bg-[#006AAB] text-white hover:bg-[#064268] transition ${
+          className={`px-4 py-2 rounded bg-[#006AAB] text-white hover:bg-[#064268] transition cursor-pointer ${
             currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >
           Next Page
         </button>
       </div>
+    </div>
     </div>
   );
 };
