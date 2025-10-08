@@ -10,12 +10,12 @@ const CanadianPathWays = () => {
   return (
     <div>
       <SectionWithImage />
-      <div className='container mx-auto '>
-        <div className='flex flex-col  gap-6 mt-16 mb-4'>
-          <h1 className='mx-auto w-fit text-4xl'>Explore the Pathway, Just for you.</h1>
-          <h4 className='w-fit mx-auto'>Welcome to our dedicated resource for aspiring immigrants. This section simplifies your journey by connecting you directly to official government websites for all available immigration programs. Organized into Federal and Provincial categories, it provides a clear and streamlined way to access reliable, up-to-date information.</h4>
+      <div className='container mx-auto px-4 md:px-6'>
+        <div className='flex flex-col gap-3  sm:gap-6 sm:mt-16 mb-4 mt-4'>
+          <h1 className='lg:mx-auto md:w-fit text-xl sm:text-3xl md:text-4xl'>Explore the Pathway, Just for you.</h1>
+          <h4 className='w-fit mx-auto text-base sm:text-lg  lg:px-14'>Welcome to our dedicated resource for aspiring immigrants. This section simplifies your journey by connecting you directly to official government websites for all available immigration programs. Organized into Federal and Provincial categories, it provides a clear and streamlined way to access reliable, up-to-date information.</h4>
         </div>
-        <div className='grid grid-cols-2 gap-12 px-12 py-4 mt-6'>
+        <div className='grid sm:grid-cols-2 gap-8 md:gap-10  lg:px-12 md:py-4 mt-6'>
           <div className='relative bg-white hover:border border-gray-200 z-[999] rounded-xl cursor-pointer group'>
             {/* Image */}
             <img
@@ -33,7 +33,7 @@ const CanadianPathWays = () => {
                 Canada’s federal immigration programs, like Express Entry, target skilled workers, students, and families for permanent residence, supporting growth and diversity.
               </h5>
               <Link
-                to={'/canadian-pathways-provincial'}
+                to={'/canadian-pathways-federal'}
                 className="bg-[#006AAB] inline-block text-white text-lg px-4 py-2 rounded-lg hover:bg-[#064268] transition-colors duration-200 mt-3 w-fit mx-auto"
               >
                 Learn More
@@ -66,9 +66,9 @@ const CanadianPathWays = () => {
             </div>
           </div>
         </div>
-        <div className='flex flex-col  gap-6 mt-12 mb-4 pb-12'>
-          <h1 className='mx-auto w-fit text-4xl'>Not sure which pathway suits you?</h1>
-          <h4 className='text-lg  text-center w-2/3 mx-auto'>Book a consultation with us to assess your eligibility and receive personalized guidance to help you navigate the immigration process with confidence.</h4>
+        <div className='flex flex-col gap-3 sm:gap-4  md:gap-6 mt-6 lg:mt-12 lg:mb-4 pb-10 lg:pb-12'>
+          <h1 className='lg:mx-auto md:w-fit text-xl sm:text-3xl md:text-4xl'>Not sure which pathway suits you?</h1>
+          <h4 className='lg:text-lg  lg:text-center text-base lg:w-2/3 mx-auto'>Book a consultation with us to assess your eligibility and receive personalized guidance to help you navigate the immigration process with confidence.</h4>
         </div>
       </div>
     </div>
