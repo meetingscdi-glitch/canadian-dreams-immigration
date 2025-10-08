@@ -917,13 +917,17 @@ const Navbar = ({ services, subServices }) => {
         setActiveServiceIndex(null);
         navigate(`/services/${fullSubService._id}`);
     };
+    const toggleButtonIfMobile = () => {
+        if (window.innerWidth < 1024) toggleButton();
+    };
+
 
     return (
         <div>
             {/* Top Bar */}
             {/* Moblile Bottom Blue Section */}
             <div className="flex items-center justify-between   bg-[#006AAB] py-3.5 text-white lg:hidden">
-                <div className='container mx-auto px-3 md:px-10'>
+                <div className='lg:container mx-auto px-4'>
                     <div className="flex items-center xl:gap-3 gap-1.5">
                         <IoCall className='text-[16px] sm:text-[28px]' />
                         <a href="tel:+14164343155" className="text-sm sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
@@ -978,10 +982,10 @@ const Navbar = ({ services, subServices }) => {
             </div>
             {/* Navbar */}
             <nav>
-                <div className="lg:flex justify-between xl:px-0 xl:gap-5 items-center py-4 container mx-auto relative navbar">
+                <div className="lg:flex justify-between xl:px-0 xl:gap-5 items-center py-4 lg:container mx-auto relative navbar">
                     <div className="flex items-center justify-between">
                         <Link to="/">
-                            <img className="md:w-56 w-46" src={Logo} alt="COMPANY LOGO" />
+                            <img className="md:w-56 w-46 md:ml-5 lg:ml-0" src={Logo} alt="COMPANY LOGO" />
                         </Link>
                         <div className="flex items-center gap-3 lg:hidden">
                             <a
@@ -1026,10 +1030,10 @@ const Navbar = ({ services, subServices }) => {
                         className={`overflow-hidden transition-all duration-500 ease-in-out ${hide ? 'max-h-0 lg:max-h-[500px]' : 'max-h-[1000px] py-6'
                             } flex flex-col lg:mr-4 xl:mr-0 lg:flex-row lg:items-center gap-4 xl:gap-5 poppins-regular text-lg md:static absolute right-0 bg-white lg:bg-transparent z-10 w-full md:w-auto px-5 md:px-0 navbaritems centerClas`}
                     >
-                        <NavLink to="/" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
+                        <NavLink onClick={toggleButtonIfMobile} to="/" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
                             Home
                         </NavLink>
-                        <NavLink to="/about-us" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
+                        <NavLink onClick={toggleButtonIfMobile} to="/about-us" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
                             About Us
                         </NavLink>
 
@@ -1039,7 +1043,7 @@ const Navbar = ({ services, subServices }) => {
                                 className="flex items-center justify-between cursor-pointer py-2 px-2 lg:px-0"
 
                             >
-                                <NavLink to={'/our-services'} className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>Our Services</NavLink>
+                                <NavLink onClick={toggleButtonIfMobile} to={'/our-services'} className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>Our Services</NavLink>
                                 <IoIosArrowDown className={`ml-2 mt-1 transform transition-transform duration-200 ${showSubheadings ? 'rotate-180' : ''}`} onClick={() => setShowSubheadings(prev => !prev)} />
                             </div>
 
@@ -1085,7 +1089,10 @@ const Navbar = ({ services, subServices }) => {
                                         `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'
                                         }`
                                     }
-                                    onClick={()=>{setCanadianPathWaySubHeadings(false)}}
+                                    onClick={() => {
+                                        setCanadianPathWaySubHeadings(false);
+                                        toggleButtonIfMobile();
+                                    }}
                                 >
                                     Canadian Pathways
                                 </NavLink>
@@ -1101,32 +1108,39 @@ const Navbar = ({ services, subServices }) => {
                                     <Link
                                         to="/canadian-pathways-federal"
                                         className="text-gray-700 hover:text-[#006AAB]"
-                                        onClick={()=>{setCanadianPathWaySubHeadings(false)}}
+                                        onClick={() => {
+                                            setCanadianPathWaySubHeadings(false);
+                                            toggleButtonIfMobile()
+                                        }}
                                     >
                                         Federal
                                     </Link>
                                     <Link
                                         to="/canadian-pathways-provincial"
                                         className="text-gray-700 hover:text-[#006AAB]"
-                                        onClick={()=>{setCanadianPathWaySubHeadings(false)}}
+                                        onClick={() => {
+                                            setCanadianPathWaySubHeadings(false);
+                                            toggleButtonIfMobile()
+                                        }}
                                     >
                                         Provincial
                                     </Link>
                                 </div>
                             )}
                         </div>
-                        <NavLink to="/blog" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
+                        <NavLink onClick={toggleButtonIfMobile} to="/blog" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
                             Blog
                         </NavLink>
-                        <NavLink to="/employer" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
+                        <NavLink onClick={toggleButtonIfMobile} to="/employer" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
                             Employer
                         </NavLink>
-                        <NavLink to="/contact-us" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
+                        <NavLink onClick={toggleButtonIfMobile} to="/contact-us" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
                             Contact Us
                         </NavLink>
 
                         <div>
                             <a
+                                onClick={toggleButtonIfMobile}
                                 href="https://wa.me/14164343155?text=Hello ! How can we help you today. Please leave us a detailed message and one of our team members will get back to you. Thanks"
                                 target="_blank"
                                 rel="noopener noreferrer"

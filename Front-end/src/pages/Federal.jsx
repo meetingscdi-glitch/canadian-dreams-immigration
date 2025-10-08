@@ -87,7 +87,7 @@ const Federal = () => {
        <div>
          <SectionWithImage />
          <div className='container mx-auto pt-5 pb-12'>
-            <div className="mt-10 grid lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 xl:gap-x-10 gap-y-12 px-6 xl:px-0">
+            <div className="mt-5 sm:mt-10 mx-auto w-fit grid sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 xl:gap-x-10 gap-y-12 md:px-6 px-3 xl:px-0">
                 {Cardsdata.map((items, index) => (
                     <div key={index} className="max-w-sm bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
                         <img
