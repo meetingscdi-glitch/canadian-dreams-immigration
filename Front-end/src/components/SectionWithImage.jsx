@@ -4,6 +4,7 @@ import EmployerImg from '../assets/images/Employer.webp'
 import ContactImg from '../assets/images/ContactImg.webp'
 import ServicesImg from '../assets/images/StudyApplication.png'
 import Micgirl from '../assets/smallimages/MicGirl.png'
+import CanadianPathWays from '../assets/images/CanadianPathWays.jpg'
 import { useLocation } from 'react-router-dom'
 const SectionWithImage = () => {
     const location = useLocation();
@@ -17,6 +18,18 @@ const SectionWithImage = () => {
         '/our-services': {
             image: ServicesImg,
             heading: 'Study Application'
+        },
+        '/canadian-pathways': {
+            image: AboutImg,
+            heading: 'Canadian-Pathways'
+        },
+        '/canadian-pathways-federal': {
+            image: ContactImg,
+            heading: 'Federal Pathways'
+        },
+        '/canadian-pathways-provincial': {
+            image: ContactImg,
+            heading: 'Provincial Pathways'
         },
         '/blog': {
             image: AboutImg,
