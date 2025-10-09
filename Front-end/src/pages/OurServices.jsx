@@ -19,7 +19,7 @@ const OurServices = () => {
   const [loading, setLoading] = useState(true);
 
   const baseURL = import.meta.env.VITE_API_URL;
-  console.log(services, 'c2323323s');
+  console.log(subServices, 'subServices');
 
   const hideShowHandler = (event) => {
     event.stopPropagation();
@@ -233,46 +233,73 @@ const OurServices = () => {
               >
                 <div className="overflow-y-auto h-full bgcontainerservice pr-4">
                   {selectedSubCategory ? (
-                    <div className="mt-4 lg:mt-0  flex flex-col gap-6">
+                    <div className="mt-4 lg:mt-0 flex flex-col gap-6 pb-16">
                       {selectedSubCategory.image && (
                         <img
                           src={selectedSubCategory.image}
                           alt={selectedSubCategory.name}
                           className="w-full bg-cover rounded-lg"
-
                         />
                       )}
+
                       <h1 className="md:text-3xl text-2xl border-b md:pb-6 pb-3 border-[#00000040] -mt-2">
                         {selectedSubCategory.name}
                       </h1>
 
-                      {[1, 2, 3, 4, 5, 6, 7].map((num) => {
-                        const word = numberToWord[num - 1];
-                        const headerKey = `header${word}`;
-                        const subHeaderKey = `SubHeader${word}`;
-                        const paragraphKey = `paragraph${word}`;
+                      {/* DEBUG: Check what data we have */}
+                      {console.log("Selected SubCategory Data:", selectedSubCategory)}
+                      {console.log("Available header fields:",
+                        Object.keys(selectedSubCategory || {}).filter(key => key.includes('header'))
+                      )}
 
-                        const header = selectedSubCategory?.[headerKey];
-                        const subHeader = selectedSubCategory?.[subHeaderKey];
-                        const paragraph = selectedSubCategory?.[paragraphKey];
+                      {/* Then your dynamic mapping */}
+                      {/* --- Custom paired section mapping --- */}
+                      {(() => {
+                        const pairs = [
+                          { headerNum: 1, subHeaderNum: 2, paragraphNum: 1 },
+                          { headerNum: 3, subHeaderNum: 3, paragraphNum: 2 },
+                          { headerNum: 4, subHeaderNum: 4, paragraphNum: 3 },
+                          { headerNum: 5, subHeaderNum: 5, paragraphNum: 4 },
+                          { headerNum: 6, subHeaderNum: 6, paragraphNum: 5 },
+                          { headerNum: 7, subHeaderNum: 7, paragraphNum: 6 }
+                        ];
 
-                        if (!header) return null;
+                        const numberToWord = ["One", "Two", "Three", "Four", "Five", "Six", "Seven"];
 
-                        return (
-                          <div key={num} className="mb-6">
-                            <h4 className="Roboto-500 md:text-2xl text-xl">{header}</h4>
-                            {subHeader && (
-                              <h5 className="md:text-lg text-base mt-2">{subHeader}</h5>
-                            )}
-                            {paragraph && (
-                              <div
-                                className="md:text-base text-sm mt-2"
-                                dangerouslySetInnerHTML={{ __html: paragraph }}
-                              />
-                            )}
-                          </div>
-                        );
-                      })}
+                        return pairs.map((pair, index) => {
+                          const headerKey = `header${numberToWord[pair.headerNum - 1]}`;
+                          const subHeaderKey = `SubHeader${numberToWord[pair.subHeaderNum - 1]}`;
+                          const paragraphKey = `paragraph${numberToWord[pair.paragraphNum - 1]}`;
+
+                          const header = selectedSubCategory?.[headerKey];
+                          const subHeader = selectedSubCategory?.[subHeaderKey];
+                          const paragraph = selectedSubCategory?.[paragraphKey];
+
+                          // Only render if we have at least header or subHeader
+                          if (!header && !subHeader) return null;
+
+                          return (
+                            <div key={index} className="mb-8 border-b border-[#00000020] pb-6 last:border-b-0">
+                              {header && (
+                                <h4 className="Roboto-500 md:text-2xl text-xl mb-3 text-[#006AAB]">
+                                  {header}
+                                </h4>
+                              )}
+                              {subHeader && (
+                                <h5 className="md:text-xl text-lg mb-3 font-medium text-gray-700">
+                                  {subHeader}
+                                </h5>
+                              )}
+                              {paragraph && (
+                                <div
+                                  className="md:text-base text-sm text-gray-600 leading-relaxed"
+                                  dangerouslySetInnerHTML={{ __html: paragraph }}
+                                />
+                              )}
+                            </div>
+                          );
+                        });
+                      })()}
                     </div>
                   ) : (
                     selectedService?.description && (
@@ -283,7 +310,7 @@ const OurServices = () => {
                   )}
 
                   {selectedService?.price && (
-                    <div className="mt-12 flex flex-col gap-3">
+                    <div className="mt-12 flex flex-col gap-3 pb-16">
                       <h4 className="Roboto-500 md:text-2xl text-xl">What It Costs</h4>
                       <h4 className="md:text-xl text-lg">Pricing That Fits</h4>
                       <div className="flex items-start gap-2">
@@ -300,6 +327,7 @@ const OurServices = () => {
                   )}
                 </div>
               </div>
+
             </div>
 
             {/* Mobile Burger */}

@@ -7,7 +7,7 @@ const {verifyToken}=require('../../middleware/authMiddleware')
 router.post('/add',verifyToken,upload.single('image'), createServiceSubCategory);
 router.get('/getAllSubServices', getAllServiceSubCategories);
 router.get('/getSubServicesById/:id', getServiceSubCategoryById);
-router.put('/edit',upload.single("image") ,updateServiceSubCategory);
-router.delete('/delete', deleteServiceSubCategory);
+router.put('/edit',verifyToken,upload.single("image") ,updateServiceSubCategory);
+router.delete('/delete',verifyToken, deleteServiceSubCategory);
 
 module.exports = router;

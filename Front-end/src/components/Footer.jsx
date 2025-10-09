@@ -198,18 +198,18 @@ const Footer = ({ services, subServices }) => {
                         </h5>
                         <h5 className="poppins-regular md:text-lg text-sm mt-5 flex flex-wrap items-start gap-2">
                             <MdEmail className="xl:text-3xl text-2xl shrink-0" />
-                            <a href={`mailto:${staticText.contactDetails.email}`} className="transition-colors hover:font-bold text-sm break-words max-w-[200px] w-full">
+                            <a href={`mailto:${staticText.contactDetails.email}`} className="transition-colors  text-sm break-words max-w-[200px] w-full">
                                 {staticText.contactDetails.email}
                             </a>
                         </h5>
                         <div className="poppins-regular md:text-md text-sm flex flex-col mt-5 items-start gap-1.5">
                             <div className="flex items-center gap-3">
                                 <IoCall className="xl:text-3xl text-2xl shrink-0" />
-                                <span>Contact Numbers:</span>
+                                <h5 className='font-bold'>Contact Numbers:</h5>
                             </div>
                             <div className="flex flex-col ml-10 gap-0">
                                 {staticText.contactDetails.phone.map((number, index) => (
-                                    <a key={index} href={`tel:${number}`} className="transition-colors hover:font-bold">
+                                    <a key={index} href={`tel:${number}`} className="transition-colors font-bold">
                                         {number}
                                     </a>
                                 ))}

@@ -52,28 +52,23 @@ const WhyChooseUs = () => {
                         <h4 className='lg:text-5xl md:text-4xl text-3xl'>We Make Your Canadian</h4>
                         <h5 className="lg:text-5xl md:text-4xl text-3xl font-bold  lg:leading-tight lg:mt-1.5">
                             Dream Achievable.                        </h5>
-
-                        <p className=' mb-3 mt-3 md:text-lg xl:w-[34rem]'>Moving to a new country is a big step—you need a partner you can trust to get things right. We provide fast, reliable immigration services that take the stress out of the process. With our expert support, you can move forward knowing every detail is handled carefully and correctly.
+                        <p className=' mb-3 mt-3 md:text-lg xl:w-[34rem]'>Moving to a new country is a big step. We provide reliable immigration services, handling every detail so you can proceed with confidence.
                         </p>
-
                         <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl  md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />
                             </span>
-                            Global Connection: We understand both your home country's context and Canada's requirements, creating a smooth bridge for your transition.
-                        </h5>
+                            Global Connection: We connect your background with Canada’s requirements, making your move effortless and smooth.                        </h5>
                         <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />
                             </span>
-                            Expert Visa Processing: Our team knows the system inside and out—we help you avoid common mistakes that cause delays.
-                        </h5>
+                            Expert Visa Processing: We handle the details so your application moves smoothly and efficiently.                        </h5>
                         <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />
                             </span>
-                            Fastest Working Process: We're efficient without cutting corners, helping you reach Canada sooner.
-                        </h5>
+                            Fastest Process: We work efficiently to help you reach Canada quickly, with no shortcuts.                        </h5>
                         {/* <h5 className='poppins-regular flex items-center mb-5 md:text-lg'>
                             <span className='text-xl md:text-3xl'>
                                 <IoMdCheckmarkCircleOutline color='#006AAB' className='mr-2' />

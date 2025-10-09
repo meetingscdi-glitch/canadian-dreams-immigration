@@ -10,6 +10,7 @@ router.use("/teamMember", require('./ourTeamRoute'));
 router.use("/contactUs", require('./contactUsRoute'));
 router.use("/service", require('./serviceCategoryRoute'));
 router.use("/subService", require('./serviceSubCategoryRoute'));
-router.use("/postJob", require('./postJobRoute'))
+router.use("/postJob", require('./postJobRoute'));
+router.use('/calendly',require('./calendlyRoute'))
 
 module.exports = router;
