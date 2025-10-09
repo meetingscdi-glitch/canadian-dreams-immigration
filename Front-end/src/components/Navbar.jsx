@@ -333,9 +333,11 @@ const Navbar = ({ services, subServices }) => {
                             <button
                                 onClick={handleBookConsultation}
                                 disabled={loading}
-                                className={`${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#F22941] hover:bg-[#da2f42]'
+                                className={`${loading
+                                    ? 'bg-gray-400 cursor-not-allowed'
+                                    : 'bg-[#F22941] hover:bg-[#da2f42] cursor-pointer'
                                     } md:px-2 md:py-2 text-white rounded xl:text-xl text-base xl:py-2 xl:px-4 whitespace-nowrap flex items-center justify-center gap-2`}
-                                style={{ minWidth: '200px' }} // fixed width (optional)
+                                style={{ minWidth: '200px' }} // fixed width
                             >
                                 {loading ? (
                                     <AiOutlineLoading3Quarters className="animate-spin text-white text-xl" />
@@ -343,6 +345,7 @@ const Navbar = ({ services, subServices }) => {
                                     'Book a consultation'
                                 )}
                             </button>
+
 
                             <a
                                 href="https://wa.me/14164343155?text=Hello ! How can we help you today. Please leave us a detailed message and one of our team members will get back to you. Thanks"
