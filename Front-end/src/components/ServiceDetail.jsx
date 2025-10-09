@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import FadeInOnScroll from "../pages/FadeInOnScroll";
 
 const ServiceDetail = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [detail, setDetail] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -27,17 +29,21 @@ const ServiceDetail = () => {
         fetchDetail();
     }, [id]);
 
+    // Back button handler
+    const handleBackClick = () => {
+        navigate('/our-services');
+    };
+
     if (loading)
         return (
             <div
                 className="flex items-center justify-center"
-                style={{ minHeight: "calc(100vh - 150px)" }} // adjust 150px if you have Navbar/Footer height
+                style={{ minHeight: "calc(100vh - 150px)" }}
             >
-                {/* Spinner or loader */}
                 <div
                     style={{
                         border: "4px solid #f3f3f3",
-                        borderTop: "4px solid #006AAB", // your theme color
+                        borderTop: "4px solid #006AAB",
                         borderRadius: "50%",
                         width: "40px",
                         height: "40px",
@@ -45,53 +51,99 @@ const ServiceDetail = () => {
                     }}
                 />
                 <style>
-                    {`
-                    @keyframes spin {
-                        0% { transform: rotate(0deg); }
-                        100% { transform: rotate(360deg); }
-                    }
-                `}
+                    {`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}
                 </style>
             </div>
-        ); if (!detail) return <p className="text-center py-10">No details found</p>;
+        );
 
-    const numberToWord = ["One", "Two", "Three", "Four", "Five", "Six", "Seven"];
+    if (!detail) return <p className="text-center py-10">No details found</p>;
 
     return (
         <>
-            <div className="py-1.5">
-                {detail.image && (
-                    <img
-                        src={detail.image}
-                        alt={detail.name}
-                        className="w-full max-h-[40rem] object-cover mb-6"
-                    />
-                )}
-                <div className="container mx-auto px-3 mb-4">
-                    <h1 className="text-3xl font-bold mb-4">{detail.name}</h1>
-                    {numberToWord.map((word, i) => {
-                    const header = detail[`header${word}`];
-                    const subHeader = detail[`SubHeader${word}`];
-                    const paragraph = detail[`paragraph${word}`];
-
-                    if (!header) return null;
-
-                    return (
-                        <div key={i} className="mb-6">
-                            <h2 className="text-2xl font-semibold">{header}</h2>
-                            {subHeader && <h3 className="text-lg mt-1">{subHeader}</h3>}
-                            {paragraph && (
-                                <div
-                                    className="mt-2 text-gray-700"
-                                    dangerouslySetInnerHTML={{ __html: paragraph }}
+            <FadeInOnScroll>
+                <div className="py-1.5">
+                    {detail.image && (
+                        <img
+                            src={detail.image}
+                            alt={detail.name}
+                            className="w-full max-h-[40rem] object-cover mb-6"
+                        />
+                    )}
+                    {/* Back Button */}
+                    <div className="container mx-auto px-3 mb-4">
+                        <button
+                            onClick={handleBackClick}
+                            className="flex items-center gap-2 text-[#006AAB] hover:text-[#005a94] font-medium mb-4 transition-colors duration-200 cursor-pointer"
+                        >
+                            <svg
+                                className="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
                                 />
-                            )}
-                        </div>
-                    );
-                })}
+                            </svg>
+                            Back to Services
+                        </button>
+                    </div>
+                    <div className="container mx-auto px-3 mb-4">
+                        <h1 className="text-3xl font-bold mb-4">{detail.name}</h1>
+
+                        {/* --- Custom paired section mapping --- */}
+                        {(() => {
+                            const pairs = [
+                                { headerNum: 1, subHeaderNum: 2, paragraphNum: 1 },
+                                { headerNum: 3, subHeaderNum: 3, paragraphNum: 2 },
+                                { headerNum: 4, subHeaderNum: 4, paragraphNum: 3 },
+                                { headerNum: 5, subHeaderNum: 5, paragraphNum: 4 },
+                                { headerNum: 6, subHeaderNum: 6, paragraphNum: 5 },
+                                { headerNum: 7, subHeaderNum: 7, paragraphNum: 6 }
+                            ];
+
+                            const numberToWord = ["One", "Two", "Three", "Four", "Five", "Six", "Seven"];
+
+                            return pairs.map((pair, index) => {
+                                const headerKey = `header${numberToWord[pair.headerNum - 1]}`;
+                                const subHeaderKey = `SubHeader${numberToWord[pair.subHeaderNum - 1]}`;
+                                const paragraphKey = `paragraph${numberToWord[pair.paragraphNum - 1]}`;
+
+                                const header = detail?.[headerKey];
+                                const subHeader = detail?.[subHeaderKey];
+                                const paragraph = detail?.[paragraphKey];
+
+                                // Only render if we have at least header or subHeader
+                                if (!header && !subHeader) return null;
+
+                                return (
+                                    <div key={index} className="mb-8 border-b border-[#00000020] pb-6 last:border-b-0">
+                                        {header && (
+                                            <h4 className="Roboto-500 md:text-2xl text-xl mb-3 text-[#006AAB]">
+                                                {header}
+                                            </h4>
+                                        )}
+                                        {subHeader && (
+                                            <h5 className="md:text-xl text-lg mb-3 font-medium text-gray-700">
+                                                {subHeader}
+                                            </h5>
+                                        )}
+                                        {paragraph && (
+                                            <div
+                                                className="md:text-base text-sm text-gray-600 leading-relaxed"
+                                                dangerouslySetInnerHTML={{ __html: paragraph }}
+                                            />
+                                        )}
+                                    </div>
+                                );
+                            });
+                        })()}
+                    </div>
                 </div>
-                
-            </div>
+            </FadeInOnScroll>
         </>
     );
 };
