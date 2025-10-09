@@ -861,6 +861,7 @@ import { IoCall, IoLocationSharp, IoLogoTiktok } from 'react-icons/io5';
 import { MdEmail } from 'react-icons/md';
 import { TiSocialFacebook } from 'react-icons/ti';
 import { AiFillInstagram } from 'react-icons/ai';
+import { BiLogoWhatsapp } from "react-icons/bi";
 
 const Navbar = ({ services, subServices }) => {
     const [hide, setHide] = useState(true);
@@ -1027,7 +1028,7 @@ const Navbar = ({ services, subServices }) => {
 
                     <div
                         ref={navItemsRef}
-                        className={`overflow-hidden transition-all duration-500 ease-in-out ${hide ? 'max-h-0 lg:max-h-[500px]' : 'max-h-[1000px] py-6'
+                        className={`overflow-hidden md:overflow-auto transition-all duration-500 ease-in-out ${hide ? 'max-h-0 lg:max-h-[500px]' : 'max-h-[1000px] py-6'
                             } flex flex-col lg:mr-4 xl:mr-0 lg:flex-row lg:items-center gap-4 xl:gap-5 poppins-regular text-lg md:static absolute right-0 bg-white lg:bg-transparent z-10 w-full md:w-auto px-5 md:px-0 navbaritems centerClas`}
                     >
                         <NavLink onClick={toggleButtonIfMobile} to="/" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
@@ -1138,20 +1139,22 @@ const Navbar = ({ services, subServices }) => {
                             Contact Us
                         </NavLink>
 
-                        <div>
+                        <div className='flex items-center gap-2 relative overflow-auto h-14'>
+                            <button className="bg-[#F22941] hover:bg-[#da2f42] md:px-2 md:py-2 text-white rounded xl:text-xl text-base xl:py-2 xl:px-4 whitespace-nowrap cursor-pointer">
+                                Book a consultation
+                            </button>
                             <a
                                 onClick={toggleButtonIfMobile}
                                 href="https://wa.me/14164343155?text=Hello ! How can we help you today. Please leave us a detailed message and one of our team members will get back to you. Thanks"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <button className="bg-[#F22941] hover:bg-[#da2f42] md:px-2 md:py-2 text-white rounded xl:text-xl text-base xl:py-2 xl:px-4 whitespace-nowrap cursor-pointer">
-                                    Book a consultation
-                                </button>
+                                <BiLogoWhatsapp className='text-4xl bg-[#42C152] rounded-full p-1 text-white animate-bounce  hover:text-rotate-360 transition duration-300' />
                             </a>
-
                         </div>
+
                     </div>
+
                 </div>
             </nav>
 

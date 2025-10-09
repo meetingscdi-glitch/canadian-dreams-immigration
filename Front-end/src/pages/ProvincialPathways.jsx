@@ -13,7 +13,13 @@ import Permanentimgpilotpgrmforworkers from '../assets/provincialpathwaysimages/
 import CanadianExperienceClass from '../assets/federalpathwaysimages/Canadian Experience Class.jpg';
 import FederalSkilled from '../assets/federalpathwaysimages/Federal Skilled Trades Program.jpg';
 import FederalSkilledWorker from '../assets/federalpathwaysimages/Federal Skilled Worker Program.jpg';
-
+import InternationalGraduate from '../assets/provincialpathwaysimages/International Graduate Entrepreneur category.jpg';
+import InternationalInter from '../assets/provincialpathwaysimages/International Entrepreneur category.jpg';
+import InternalGraduateCategory from '../assets/provincialpathwaysimages/International Graduate Category.jpg';
+import SkilledWorker from '../assets/provincialpathwaysimages/Skilled Worker Category.jpg';
+import ExpressSkilled from '../assets/provincialpathwaysimages/Express Entry Skilled Worker Category.jpg';
+import InterGraduate from '../assets/provincialpathwaysimages/International Graduates.jpg';
+import SkilledWorker2 from '../assets/provincialpathwaysimages/Skilled Workers Outside Canada.jpg';
 const ProvincialPathways = () => {
   const Cardsdata = [
     {
@@ -81,6 +87,42 @@ const ProvincialPathways = () => {
       Link: 'Skilled Worker Program',
       BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
     },
+    {
+      Img: InternationalGraduate,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: InternationalInter,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: InternalGraduateCategory,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+     {
+      Img: SkilledWorker,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: ExpressSkilled,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: InterGraduate,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: SkilledWorker2,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    
     
   ];
 
@@ -103,53 +145,51 @@ const ProvincialPathways = () => {
     <div>
       <SectionWithImage />
       <div className="container mx-auto pt-5 pb-12">
-      <div className="mt-5 sm:mt-10 mx-auto w-fit grid sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 xl:gap-x-10 gap-y-12 md:px-6 px-3 xl:px-0">
-        {currentCards.map((items, index) => (
-          <div key={index} className="max-w-sm bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
-            <img
-              src={items.Img}
-              alt="Program Image"
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-5 flex flex-col justify-between flex-grow">
-              <h2 className="text-lg font-semibold text-gray-800">
-                {items.Link}
-              </h2>
-              <a
-                href={items.BtnLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#006AAB] inline-block text-white text-sm px-4 py-2 rounded-lg hover:bg-[#064268] transition-colors duration-200 mt-3 w-fit font-bold"
-              >
-                Explore Program
-              </a>
+        <div className="mt-5 sm:mt-10 mx-auto w-fit grid sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 xl:gap-x-10 gap-y-12 md:px-6 px-3 xl:px-0">
+          {currentCards.map((items, index) => (
+            <div key={index} className="max-w-sm bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
+              <img
+                src={items.Img}
+                alt="Program Image"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-5 flex flex-col justify-between flex-grow">
+                <h2 className="text-lg font-semibold text-gray-800">
+                  {items.Link}
+                </h2>
+                <a
+                  href={items.BtnLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#006AAB] inline-block text-white text-sm px-4 py-2 rounded-lg hover:bg-[#064268] transition-colors duration-200 mt-3 w-fit font-bold"
+                >
+                  Explore Program
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Pagination Controls */}
-      <div className="flex justify-center mt-10 gap-4">
-        <button
-          onClick={handlePrevPage}
-          disabled={currentPage === 1}
-          className={`px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 transition  ${
-            currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
-        >
-          Previous Page
-        </button>
-        <button
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages}
-          className={`px-4 py-2 rounded bg-[#006AAB] text-white hover:bg-[#064268] transition cursor-pointer ${
-            currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
-        >
-          Next Page
-        </button>
+        {/* Pagination Controls */}
+        <div className="flex justify-center mt-10 gap-4">
+          <button
+            onClick={handlePrevPage}
+            disabled={currentPage === 1}
+            className={`px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 transition  ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+          >
+            Previous Page
+          </button>
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+            className={`px-4 py-2 rounded bg-[#006AAB] text-white hover:bg-[#064268] transition cursor-pointer ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+          >
+            Next Page
+          </button>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
