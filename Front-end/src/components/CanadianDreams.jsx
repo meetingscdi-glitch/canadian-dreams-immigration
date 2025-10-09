@@ -7,8 +7,9 @@ import staticText from '../content/staticData';
 import { IoIosArrowRoundForward } from "react-icons/io";
 
 const CanadianDreams = () => {
-    const Location = useLocation();
-    const currentpath = Location.pathname;
+    const location = useLocation();
+    const currentpath = location.pathname;
+
     const ImageRoutes = {
         '/': {
             image: CanadianDreamImg,
@@ -16,30 +17,40 @@ const CanadianDreams = () => {
         },
         '/about-us': {
             image: AboutCanadianImg,
+            heading: 'About Us'
         },
-
     };
-    const { image } = ImageRoutes[currentpath];
+
+    const { image, heading } = ImageRoutes[currentpath] || ImageRoutes['/'];
+
+    // Paragraph content
+    const content = currentpath === '/about-us'
+        ? `Realizing your Canadian dream is our purpose. Headquartered in Brampton, Ontario, with a branch in Surrey, BC, we are a fully accredited (federally incorporated and CICC-licensed) consultancy that makes immigration straightforward and successful.
+
+           We believe in a partnership built on trust and results. Our transparent process and expert guidance are tailored for students, skilled workers, entrepreneurs, and families. We handle the complexities so you can focus on your future.`
+        : `At Canadian Dreams Immigration, we’re a federally licensed consultancy based in Brampton, Ontario, with a branch in Surrey, BC. We guide students, skilled professionals, entrepreneurs, and families every step of the way to make their Canadian dreams a reality — reliably, transparently, and professionally.`;
 
     return (
-        <div className='grid lg:grid-cols-2 gap-2 md:gap-0 lg:py-20 py-8  px-5 md:px-10 lg:px-0 container mx-auto '>
+        <div className='grid lg:grid-cols-2 gap-2 md:gap-0 lg:py-20 py-8 px-5 md:px-10 lg:px-0 container mx-auto '>
             <div className='xl:pl-20 xl:pr-12 lg:ml-8 xl:ml-0 overflow-hidden' >
                 <img className='md:rounded-3xl rounded-xl w-full h-full object-cover' src={image} alt="BuildingImg" />
             </div>
             <div className='lg:ml-8 xl:ml-0 overflow-hidden'>
-                <h6 className='text-[#006AAB] md:text-lg mt-4 md:mt-6 lg:mt-0 flex items-center text-base'><TfiLayoutLineSolid size={28} />About Us</h6>
+                <h6 className='text-[#006AAB] md:text-lg mt-4 md:mt-6 lg:mt-0 flex items-center text-base'>
+                    <TfiLayoutLineSolid size={28} />{heading}
+                </h6>
                 <h1 className='lg:text-5xl text-3xl md:text-4xl lg:mt-1.5 sm:mt-2'>Canadian Dreams</h1>
                 <h1 className="lg:text-5xl text-3xl md:text-4xl font-bold lg:w-3/4 lg:leading-tight lg:mt-1.5">
                     Immigration <span>& Worldwide Services Ltd.</span>
                 </h1>
-                <p className='xl:w-5/6 lg:mb-6  mt-3 text-base sm:text-xl xl:mr-12 mr-8'>We are a federally incorporated, CICC-licensed immigration consultancy headquartered in Brampton, Ontario, with a branch office in Surrey, British Columbia. Our mission is simple—make your Canadian dream a reality. Guided by values of integrity, transparency, and professionalism, we provide clear, reliable, and result-driven immigration solutions. Whether you’re moving as a student, skilled professional, entrepreneur, or with your family, we take pride in being a trusted partner every step of the way.</p>
+                <p className='xl:w-5/6 lg:mb-6 mt-3 text-base sm:text-xl xl:mr-12 mr-8 whitespace-pre-line'>{content}</p>
                 <Link
                     to="/contact-us"
                     className="flex items-center justify-center relative w-fit group"
                 >
                     <button
                         id="buttonStyle"
-                        className="py-2  px-4 pr-8  rounded-l-full rounded-r-4xl text-white lg:mt-3 sm:text-xl mt-5 group-hover:bg-[#1085ce] transition-all duration-100"
+                        className="py-2 px-4 pr-8 rounded-l-full rounded-r-4xl text-white lg:mt-3 sm:text-xl mt-5 group-hover:bg-[#1085ce] transition-all duration-100"
                     >
                         {staticText.ctaTexts[2]}
                     </button>
@@ -47,7 +58,6 @@ const CanadianDreams = () => {
                         <IoIosArrowRoundForward size={42} className="text-white transition-all duration-100 group-hover:-rotate-32" />
                     </div>
                 </Link>
-
             </div>
         </div>
     )

@@ -33,22 +33,22 @@ const BannerCarousel = () => {
     const bannerData = [
         {
             heading: "CICC REGISTERED",
-            subheading: "All your immigration needs, expertly managed under one roof.",
-            paragraph: "Thinking of moving to Canada? Enjoy better careers, top education, and a great quality of life in a welcoming country!",
+            subheading: "Expertly managing all your immigration needs under one roof.",
+            paragraph: "Thinking about moving to Canada? Enjoy better career opportunities, world-class education, and a high quality of life in a welcoming country!",
             image: HeaderImg,
             animation: "slideInLeft"
         },
         {
             heading: "STUDY IN CANADA",
-            subheading: "Transform your future with world-class Canadian education.",
-            paragraph: "Access top universities, gain valuable work experience, and build your path to permanent residency through our expert student visa services.",
+            subheading: "Shape your future with world-class Canadian education.",
+            paragraph: "Access top universities, gain valuable work experience, and pave your path to permanent residency with our expert student visa services.",
             image: Vancouver2,
             animation: "fadeInUp"
         },
         {
             heading: "EXPERT IMMIGRATION",
             subheading: "Your trusted partner for Canadian immigration success.",
-            paragraph: "With proven expertise in Express Entry, PNP, and family sponsorship, we guide you through every step of your Canadian journey.",
+            paragraph: "From Express Entry to PNP and family sponsorship, we guide you through every step of your Canadian journey with confidence and clarity.",
             image: Vancouver,
             animation: "slideInRight"
         }
