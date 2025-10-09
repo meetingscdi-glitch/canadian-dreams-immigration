@@ -75,7 +75,7 @@ const WhyUs = () => {
     ) : (
         <>
             <p className='mb-3 mt-4 md:text-xl text-base'>
-                At Canadian Dreams Immigration, we know every journey to Canada is different. We take the time to understand your goals and provide solutions tailored to your needs—whether it’s studying, working, or joining your family.
+                At Canadian Dreams Immigration, we know every journey to Canada is different. We take the time to understand your goals and provide solutions tailored to your needs — whether it’s studying, working, or joining your family.
             </p>
 
             <p className='md:mb-6 md:text-xl text-lg md:mt-6'>

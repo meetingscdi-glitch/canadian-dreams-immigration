@@ -37,26 +37,6 @@ export const staticText = {
     "Full Support, Start to Finish – From your first consultation to final approval, we’re with you."
   ],
 
-  // FAQ questions and answers
-  faqContent: [
-    {
-      q: "How long will my immigration process take?",
-      a: "It depends on your chosen program. Express Entry usually takes 6-8 months, while family sponsorship may take 12-24 months. We'll provide realistic timelines for your situation."
-    },
-    {
-      q: "Do I need a job offer to move to Canada?",
-      a: "Not always! Some programs, like Express Entry, don’t require a job offer upfront, though it can improve your chances. We’ll help you identify the best pathway."
-    },
-    {
-      q: "Which language tests are required?",
-      a: "Most programs require proof of English or French proficiency, via IELTS, CELPIP, or TEF. We’ll guide you on the scores you need."
-    },
-    {
-      q: "Can I bring my family with me?",
-      a: "Absolutely! Most programs let you include your spouse and dependent children, granting them the same status as you."
-    }
-  ],
-
   // Contact information
   contactDetails: {
     address: "200-7404 King George Blvd, Unit 246, Surrey, B.C",

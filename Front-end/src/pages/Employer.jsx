@@ -37,7 +37,7 @@ const Employer = () => {
             Strategic Workforce Solutions for Canadian Employers
           </h2>
           <h2 className="md:text-2xl text-lg font-bold mb-4 text-[#006AAB]">
-            At Canada Immigration, we specialize in providing transparent and effective immigration solutions tailored to Canadian businesses in high-demand sectors like hospitality, retail, and healthcare. Your growth depends on reliable talent, and we make sure you find it.
+            At Canadian Dreams Immigration, we specialize in providing transparent and effective immigration solutions tailored to Canadian businesses in high-demand sectors like hospitality, retail, and healthcare. Your growth depends on reliable talent, and we make sure you find it.
           </h2>
 
           <h2 className="md:text-2xl text-lg font-bold mb-4">
