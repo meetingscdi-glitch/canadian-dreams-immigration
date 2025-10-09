@@ -20,6 +20,46 @@ import SkilledWorker from '../assets/provincialpathwaysimages/Skilled Worker Cat
 import ExpressSkilled from '../assets/provincialpathwaysimages/Express Entry Skilled Worker Category.jpg';
 import InterGraduate from '../assets/provincialpathwaysimages/International Graduates.jpg';
 import SkilledWorker2 from '../assets/provincialpathwaysimages/Skilled Workers Outside Canada.jpg';
+import SkilledWorkerInPei from '../assets/provincialpathwaysimages/Skilled Workers in PEI.jpg';
+import CriticalWorker from '../assets/provincialpathwaysimages/Critical Workers.jpg';
+import CriticalWorkerPilotProgram from '../assets/provincialpathwaysimages/Critical Worker Pilot Program.jpg';
+import AtlanticImmigration from '../assets/provincialpathwaysimages/Atlantic Immigration Program (AIP).jpg';
+import Immigration from '../assets/provincialpathwaysimages/Business Immigration Stream.jpg';
+import PrivatePilot from '../assets/provincialpathwaysimages/Private Career College Graduate Pilot Program.jpg';
+import Strategic from '../assets/provincialpathwaysimages/Strategic Initiative Stream.jpg';
+import HealthCare from '../assets/provincialpathwaysimages/Healthcare Professionals Immigration Pilot.jpg';
+import Express2 from '../assets/provincialpathwaysimages/Experience Express Entry.jpg';
+import Labour from '../assets/provincialpathwaysimages/Labour Market Priorities.jpg';
+import Physician from '../assets/provincialpathwaysimages/Labour Market Priorities for Physicians.jpg';
+import Physician2 from '../assets/provincialpathwaysimages/Physician.jpg';
+import Enterprenaur from '../assets/provincialpathwaysimages/Entrepreneur.jpg';
+import InternationGraduate from '../assets/provincialpathwaysimages/International Graduate Entrepreneur.jpg';
+import InternationGraduateInDemand from '../assets/provincialpathwaysimages/International Graduates in Demand.jpg';
+import workerPilot from '../assets/provincialpathwaysimages/Critical Construction Worker Pilot.jpg';
+import occuputation from '../assets/provincialpathwaysimages/Occupations in Demand.jpg';
+import SkilledWorker123 from '../assets/provincialpathwaysimages/SkilledWorker123.jpg';
+import FederalSkilled123 from '../assets/provincialpathwaysimages/Federal Immigration Programs.jpg';
+import FarmPathWays from '../assets/provincialpathwaysimages/Farm Investor Pathway.jpg';
+import PathWay from '../assets/provincialpathwaysimages/Pathway.jpg';
+import StudentPilot from '../assets/provincialpathwaysimages/International Student Entrepreneur Pilot.jpg';
+import GraduateIntern from '../assets/provincialpathwaysimages/Graduate Internship Pathway.jpg';
+import EmploymentPathway from '../assets/provincialpathwaysimages/Career Employment Pathway.jpg';
+import WorkerOverSeas from '../assets/provincialpathwaysimages/Skilled Worker Overseas.jpg'
+import SkilledWorkerMd from '../assets/provincialpathwaysimages/Skilled Worker in Manitoba.jpg'
+import FarmOwnerandOperator from '../assets/provincialpathwaysimages/Skilled Worker in Manitoba.jpg'
+import InternationalGraduateEntrepreneurCategory from '../assets/provincialpathwaysimages/International Graduate Entrepreneur Category123.jpg'
+import Enterprenaur123 from '../assets/provincialpathwaysimages/Entrepreneur123.jpg'
+import TechTalentPathway from '../assets/provincialpathwaysimages/Tech Talent Pathway.jpg'
+import HealthTalentPathway from '../assets/provincialpathwaysimages/Health Talent Pathway.jpg'
+import InternationalSkilledExpressEntry from '../assets/provincialpathwaysimages/Agriculture Talent Pathway123.jpg'
+import InternationSkilledwrk from '../assets/provincialpathwaysimages/International Skilled Worker Occupation In-Demand.jpg'
+import Hiring from '../assets/provincialpathwaysimages/International Skilled Worker – Employment Offer.jpg'
+import InternationalSkilledWorkerEmploymentOffer from '../assets/provincialpathwaysimages/International Skilled Worker – Employment Offer (2).jpg'
+import ForeignGraduateEntrepreneurStream from '../assets/provincialpathwaysimages/Foreign Graduate Entrepreneur Stream.jpg'
+import FarmStream from '../assets/provincialpathwaysimages/Farm Stream.jpg'
+import GraduateEntrepreneurStream from '../assets/provincialpathwaysimages/Graduate Entrepreneur Stream.jpg'
+import RuralEntrepreneurStream from '../assets/provincialpathwaysimages/Rural Entrepreneur Stream.jpg'
+
 const ProvincialPathways = () => {
   const Cardsdata = [
     {
@@ -102,7 +142,7 @@ const ProvincialPathways = () => {
       Link: 'International Graduate Entrepreneur category',
       BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
     },
-     {
+    {
       Img: SkilledWorker,
       Link: 'International Graduate Entrepreneur category',
       BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
@@ -122,8 +162,214 @@ const ProvincialPathways = () => {
       Link: 'International Graduate Entrepreneur category',
       BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
     },
-    
-    
+    {
+      Img: SkilledWorkerInPei,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: CriticalWorker,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: CriticalWorkerPilotProgram,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: AtlanticImmigration,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: Immigration,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: PrivatePilot,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: SkilledWorker2,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: Strategic,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: ExpressSkilled,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: HealthCare,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: Express2,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: Labour,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: Physician,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: Physician2,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: Enterprenaur,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: InternationGraduate,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: InternationGraduateInDemand,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: workerPilot,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: occuputation,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: SkilledWorker123,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: FederalSkilled123,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: FarmPathWays,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: PathWay,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: StudentPilot,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: GraduateIntern,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: EmploymentPathway,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: WorkerOverSeas,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: SkilledWorkerMd,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: FarmOwnerandOperator,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: InternationalGraduateEntrepreneurCategory,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: Enterprenaur123,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+      {
+      Img: TechTalentPathway,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: HealthTalentPathway,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: InternationalSkilledExpressEntry,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: InternationSkilledwrk,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: Hiring,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: InternationalSkilledWorkerEmploymentOffer,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: ForeignGraduateEntrepreneurStream,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: FarmStream,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: GraduateEntrepreneurStream,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+    {
+      Img: RuralEntrepreneurStream,
+      Link: 'International Graduate Entrepreneur category',
+      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+    },
+
+
+
   ];
 
   const itemsPerPage = 10;

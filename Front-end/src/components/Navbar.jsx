@@ -6,7 +6,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { IoCall, IoLocationSharp, IoLogoTiktok } from 'react-icons/io5';
 import { MdEmail } from 'react-icons/md';
 import { TiSocialFacebook } from 'react-icons/ti';
-import { AiFillInstagram } from 'react-icons/ai';
+import { AiFillInstagram, AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { BiLogoWhatsapp } from "react-icons/bi";
 
 const Navbar = ({ services, subServices }) => {
@@ -17,6 +17,7 @@ const Navbar = ({ services, subServices }) => {
     const navItemsRef = useRef();
     const dropdownRef = useRef();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
     const toggleButton = () => setHide((prev) => !prev);
     const toggleButtonForSubofCanadianPath = () => setCanadianPathWaySubHeadings((prev) => !prev);
@@ -67,6 +68,49 @@ const Navbar = ({ services, subServices }) => {
     const toggleButtonIfMobile = () => {
         if (window.innerWidth < 1024) toggleButton();
     };
+
+    const handleBookConsultation = async () => {
+        try {
+            setLoading(true); // start loader
+
+            const response = await fetch('http://34.227.221.169/api/calendly/create-link', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    eventTypeUri: 'https://api.calendly.com/event_types/ecbed2b2-bddf-4cd3-b6f6-962ef18a0281'
+                })
+            });
+
+            // Try parsing JSON safely
+            let data;
+            try {
+                data = await response.json();
+            } catch (jsonError) {
+                alert('Unexpected server response. Please try again later.');
+                return;
+            }
+
+            // Check HTTP status
+            if (!response.ok) {
+                alert(data?.message || 'Failed to create consultation link. Please try again.');
+                return;
+            }
+
+            // Check booking_url exists
+            if (data?.data?.booking_url) {
+                window.open(data.data.booking_url, '_blank');
+            } else {
+                alert('Could not retrieve the booking link. Please try again.');
+            }
+
+        } catch (networkError) {
+            alert('Network error. Please check your internet connection and try again.');
+        } finally {
+            setLoading(false); // stop loader
+        }
+    };
+
+
 
 
     return (
@@ -286,16 +330,29 @@ const Navbar = ({ services, subServices }) => {
                         </NavLink>
 
                         <div className='flex items-center gap-2 relative overflow-auto h-14'>
-                            <button className="bg-[#F22941] hover:bg-[#da2f42] md:px-2 md:py-2 text-white rounded xl:text-xl text-base xl:py-2 xl:px-4 whitespace-nowrap cursor-pointer">
-                                Book a consultation
+                            <button
+                                onClick={handleBookConsultation}
+                                disabled={loading}
+                                className={`${loading
+                                    ? 'bg-gray-400 cursor-not-allowed'
+                                    : 'bg-[#F22941] hover:bg-[#da2f42] cursor-pointer'
+                                    } md:px-2 md:py-2 text-white rounded xl:text-xl text-base xl:py-2 xl:px-4 whitespace-nowrap flex items-center justify-center gap-2`}
+                                style={{ minWidth: '200px' }} // fixed width
+                            >
+                                {loading ? (
+                                    <AiOutlineLoading3Quarters className="animate-spin text-white text-xl" />
+                                ) : (
+                                    'Book a consultation'
+                                )}
                             </button>
+
+
                             <a
-                                onClick={toggleButtonIfMobile}
                                 href="https://wa.me/14164343155?text=Hello ! How can we help you today. Please leave us a detailed message and one of our team members will get back to you. Thanks"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <BiLogoWhatsapp className='text-4xl bg-[#42C152] rounded-full p-1 text-white animate-bounce  hover:text-rotate-360 transition duration-300' />
+                                <BiLogoWhatsapp className='text-4xl bg-[#42C152] rounded-full p-1 text-white animate-bounce hover:text-rotate-360 transition duration-300' />
                             </a>
                         </div>
 
