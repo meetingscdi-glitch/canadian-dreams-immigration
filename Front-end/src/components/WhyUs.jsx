@@ -61,7 +61,7 @@ const WhyUs = () => {
                             <IoMdCheckmarkCircleOutline size={25} color='#006AAB' className='mr-0' />
                         </h5>
                         <div className='leading-relaxed'>
-                            <strong>{item.title}:</strong> {item.text}
+                            <strong>{item.title} - {item.text}</strong>
                         </div>
                     </div>
                 ))}
