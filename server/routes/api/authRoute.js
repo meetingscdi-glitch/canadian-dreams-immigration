@@ -11,4 +11,3 @@ router.get('/profile', verifyToken, getUserProfile);
 module.exports = router;
 
 
- 

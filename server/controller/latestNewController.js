@@ -7,9 +7,9 @@ async function createLatestNews(req, res) {
     if (!req.file) {
       return res.status(400).json({ status: 400, message: "Image is required" });
     }
-     const Result = await upload(req.file);
-let image = Result.Location;
-     const latestNewsData = { ...req.body, image };
+    const Result = await upload(req.file);
+    let image = Result.Location;
+    const latestNewsData = { ...req.body, image };
 
     const schema = Joi.object({
       heading: Joi.string().trim().min(3).max(100).required(),
@@ -39,7 +39,7 @@ let image = Result.Location;
   }
 }
 
- const getAllLatestNews = async (req, res) => {
+const getAllLatestNews = async (req, res) => {
   try {
     const latestNewss = await latestNews.find().sort({ createdAt: -1 });
     res.status(200).json({ status: 200, message: "Latest news fetched successfully", response: latestNewss });
@@ -49,7 +49,7 @@ let image = Result.Location;
   }
 };
 
- const getLatestNewsById = async (req, res) => {
+const getLatestNewsById = async (req, res) => {
   try {
     const singleLatestNews = await latestNews.findById(req.params.id);
     if (!singleLatestNews) {
@@ -61,13 +61,13 @@ let image = Result.Location;
   }
 };
 
- const updateLatestNews = async (req, res) => {
+const updateLatestNews = async (req, res) => {
   try {
     const { heading, paragraph, _id } = req.body;
     let imageUrl;
-    if(req.file){
-       const Result = await upload(req.file);
-       imageUrl = Result.Location;
+    if (req.file) {
+      const Result = await upload(req.file);
+      imageUrl = Result.Location;
     }
     const updatedLatestNews = await latestNews.findByIdAndUpdate(
       _id,
@@ -97,7 +97,7 @@ let image = Result.Location;
   }
 };
 
- const deleteLatestNews = async (req, res) => {
+const deleteLatestNews = async (req, res) => {
   try {
     const { _id } = req.body;
     const deletedLatestNews = await latestNews.findByIdAndDelete(_id);
