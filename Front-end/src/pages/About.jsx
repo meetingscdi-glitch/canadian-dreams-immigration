@@ -11,7 +11,7 @@ import FadeInOnScroll from './FadeInOnScroll'
 const About = () => {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <FadeInOnScroll>
                 <SectionWithImage />
             </FadeInOnScroll>
@@ -33,7 +33,7 @@ const About = () => {
                     <Testimonial />
                 </FadeInOnScroll>
                 <FadeInOnScroll>
-                    <Footer />
+                    {/* <Footer /> */}
                 </FadeInOnScroll>
             </div>
         </div>

@@ -10,34 +10,34 @@ import Pagination from '../../../helpers/Pagination';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
-    const store = useSelector((state) => state);
-    const dashboardData = store?.dashboardDataReducer?.dashboardData;
-    const getRecentRegistrationsForDashboard = store?.getRecentRegistrationsForDashboardReducer;
-    const dashboardLoading = store?.dashboardDataReducer?.loading;
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(5);
-    const [hoveredCard, setHoveredCard] = useState(null);
+  const store = useSelector((state) => state);
+  const dashboardData = store?.dashboardDataReducer?.dashboardData;
+  const getRecentRegistrationsForDashboard = store?.getRecentRegistrationsForDashboardReducer;
+  const dashboardLoading = store?.dashboardDataReducer?.loading;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(5);
+  const [hoveredCard, setHoveredCard] = useState(null);
 
-    useEffect(() => {
-        dispatch(getDashboardActions());
-        dispatch(getRecentRegistrationsForDashboardActions({ page, limit }));
-    }, [dispatch, page, limit]);
+  useEffect(() => {
+    dispatch(getDashboardActions());
+    dispatch(getRecentRegistrationsForDashboardActions({ page, limit }));
+  }, [dispatch, page, limit]);
 
-    const dashboardItems = [
-        { title: '🍁 Immigration Clients', value: dashboardData?.totalUser || 0, icon: <FaUsers />, color: 'primary-subtle', redirect: '/admin/enquiry' },
-        { title: '🇨🇦 Services Offered', value: dashboardData?.totalCategory || 8, icon: <FaLayerGroup />, color: 'success-subtle', redirect: '/admin/services' },
-        { title: '💼 Job Postings', value: dashboardData?.totalSubCategory || 12, icon: <FaTags />, color: 'info-subtle', redirect: '/admin/jobs' },
-        { title: '👥 Team Members', value: dashboardData?.totalAdmin || 5, icon: <FaUserShield />, color: 'warning-subtle', redirect: '/admin/teams' },
-        { title: '📰 News Articles', value: dashboardData?.totalLiveAuction || 15, icon: <FaGavel />, color: 'danger-subtle', redirect: '/admin/latest-news' },
-        { title: '📝 Blog Posts', value: dashboardData?.totalUpComingAuction || 25, icon: <AiOutlineLineChart />, color: 'secondary-subtle', redirect: '/admin/blogs' },
-    ];
+  const dashboardItems = [
+    { title: '🍁 Immigration Clients', value: dashboardData?.totalUser || 0, icon: <FaUsers />, color: 'primary-subtle', redirect: '/admin/enquiry' },
+    { title: '🇨🇦 Services Offered', value: dashboardData?.totalCategory || 8, icon: <FaLayerGroup />, color: 'success-subtle', redirect: '/admin/services' },
+    { title: '💼 Job Postings', value: dashboardData?.totalSubCategory || 12, icon: <FaTags />, color: 'info-subtle', redirect: '/admin/jobs' },
+    { title: '👥 Team Members', value: dashboardData?.totalAdmin || 5, icon: <FaUserShield />, color: 'warning-subtle', redirect: '/admin/teams' },
+    { title: '📰 News Articles', value: dashboardData?.totalLiveAuction || 15, icon: <FaGavel />, color: 'danger-subtle', redirect: '/admin/latest-news' },
+    { title: '📝 Blog Posts', value: dashboardData?.totalUpComingAuction || 25, icon: <AiOutlineLineChart />, color: 'secondary-subtle', redirect: '/admin/blogs' },
+  ];
 
-    return (
-        <>
-            <style>
-                {`
+  return (
+    <>
+      <style>
+        {`
           .dashboard-card {
             transition: all 0.3s ease;
             border-radius: 12px;
@@ -138,89 +138,89 @@ const Dashboard = () => {
             }
           }
         `}
-            </style>
+      </style>
 
-            <PageTitle
-                breadCrumbItems={[
-                    { label: '🍁 Canadian Immigration Admin', path: '/admin/dashboard' },
-                    { label: 'Dashboard', path: '/admin/dashboard', active: true },
-                ]}
-                title={'🇨🇦 Canadian Dream Immigration - Admin Dashboard'}
-            />
+      <PageTitle
+        breadCrumbItems={[
+          { label: '🍁 Canadian Immigration Admin', path: '/admin/dashboard' },
+          { label: 'Dashboard', path: '/admin/dashboard', active: true },
+        ]}
+        title={'🇨🇦 Canadian Dream Immigration - Admin Dashboard'}
+      />
 
-            {dashboardLoading ? (
-                <Loading />
-            ) : (
-                <>
-                    <Row className="g-4 mb-4">
-                        {dashboardItems?.map((item, index) => (
-                            <Col key={index} md={6} lg={4}>
-                                <Card className={`shadow border-0 bg-${item.color} text-dark dashboard-card hover-lift stagger-item`}>
-                                    <Card.Body className="d-flex align-items-center justify-content-between">
-                                        <div>
-                                            <h6 className="fw-semibold">{item.title}</h6>
-                                            <h2 className="fw-bold">{item.value}</h2>
-                                        </div>
-                                        <div className="fs-1">{item.icon}</div>
-                                    </Card.Body>
-                                </Card>
-                            </Col>
-                        ))}
-                    </Row>
+      {dashboardLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <Row className="g-4 mb-4">
+            {dashboardItems?.map((item, index) => (
+              <Col key={index} md={6} lg={4}>
+                <Card className={`shadow border-0 bg-${item.color} text-dark dashboard-card hover-lift stagger-item`}>
+                  <Card.Body className="d-flex align-items-center justify-content-between">
+                    <div>
+                      <h6 className="fw-semibold">{item.title}</h6>
+                      <h2 className="fw-bold">{item.value}</h2>
+                    </div>
+                    <div className="fs-1">{item.icon}</div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
 
-                    <div className="table-container animate-fade-in">
-                        <Table hover className="text-center align-middle mb-0">
-                            <thead className="table-header">
-                                <tr className="text-nowrap">
-                                    <th className="py-3">#</th>
-                                    <th className="text-start">Name</th>
-                                    <th className="text-start">Email</th>
-                                    <th className="text-start">Phone Number</th>
-                                    <th className="text-start">Role</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {getRecentRegistrationsForDashboard?.dashboardData?.allUsers?.map((data, index) => (
-                                    <tr
-                                        style={{ cursor: 'pointer' }}
-                                        key={data._id || index}
-                                    // onClick={() => navigate(`/bmg/user/${data._id}`)}
-                                    >
-                                        <td className="fw-medium">{(page - 1) * limit + index + 1}</td>
-                                        <td className="text-start">
-                                            {data?.name ? `${data?.name} ${data?.lastName || ''}` : <span className="text-muted">N/A</span>}
-                                        </td>
-                                        <td className="text-start">
-                                            {data?.email ? (
-                                                <a href={`mailto:${data.email}`} className="text-decoration-none">
-                                                    {data.email}
-                                                </a>
-                                            ) : (
-                                                <span className="text-muted">N/A</span>
-                                            )}
-                                        </td>
-                                        <td className="text-start">
-                                            {data?.phoneNumber ? (
-                                                <a href={`tel:${data.phoneNumber}`} className="text-decoration-none">
-                                                    {data.phoneNumber}
-                                                </a>
-                                            ) : (
-                                                <span className="text-muted">N/A</span>
-                                            )}
-                                        </td>
-                                        <td className="text-start">
-                                            <Badge
-                                                className="role-badge"
-                                                bg={data?.role === 'admin' ? 'primary' : data?.role === 'user' ? 'success' : 'secondary'}
-                                            >
-                                                {data?.role?.charAt(0).toUpperCase() + data?.role?.slice(1)}
-                                            </Badge>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </Table>
-                        {/* <div className="pagination-container">
+          <div className="table-container animate-fade-in">
+            <Table hover className="text-center align-middle mb-0">
+              <thead className="table-header">
+                <tr className="text-nowrap">
+                  <th className="py-3">#</th>
+                  <th className="text-start">Name</th>
+                  <th className="text-start">Email</th>
+                  <th className="text-start">Phone Number</th>
+                  <th className="text-start">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                {getRecentRegistrationsForDashboard?.dashboardData?.allUsers?.map((data, index) => (
+                  <tr
+                    style={{ cursor: 'pointer' }}
+                    key={data._id || index}
+                  // onClick={() => navigate(`/bmg/user/${data._id}`)}
+                  >
+                    <td className="fw-medium">{(page - 1) * limit + index + 1}</td>
+                    <td className="text-start">
+                      {data?.name ? `${data?.name} ${data?.lastName || ''}` : <span className="text-muted">N/A</span>}
+                    </td>
+                    <td className="text-start">
+                      {data?.email ? (
+                        <a href={`mailto:${data.email}`} className="text-decoration-none">
+                          {data.email}
+                        </a>
+                      ) : (
+                        <span className="text-muted">N/A</span>
+                      )}
+                    </td>
+                    <td className="text-start">
+                      {data?.phoneNumber ? (
+                        <a href={`tel:${data.phoneNumber}`} className="text-decoration-none">
+                          {data.phoneNumber}
+                        </a>
+                      ) : (
+                        <span className="text-muted">N/A</span>
+                      )}
+                    </td>
+                    <td className="text-start">
+                      <Badge
+                        className="role-badge"
+                        bg={data?.role === 'admin' ? 'primary' : data?.role === 'user' ? 'success' : 'secondary'}
+                      >
+                        {data?.role?.charAt(0).toUpperCase() + data?.role?.slice(1)}
+                      </Badge>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+            {/* <div className="pagination-container">
                             <Pagination
                                 pageIndex={page}
                                 pageSize={limit}
@@ -229,11 +229,11 @@ const Dashboard = () => {
                                 onChangePageSize={setLimit}
                             />
                         </div> */}
-                    </div>
-                </>
-            )}
+          </div>
         </>
-    );
+      )}
+    </>
+  );
 };
 
 export default Dashboard;

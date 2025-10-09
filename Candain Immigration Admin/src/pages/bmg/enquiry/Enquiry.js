@@ -13,7 +13,7 @@ const Enquiry = () => {
     const EnquiryLoading = store?.enquiryDataReducer?.loading;
     const [pageIndex, setPageIndex] = useState(1);
     const [pageSize, setPageSize] = useState(20);
-    
+
     // Client-side filtering
     const filteredData = allEnquiryData.filter(item => {
         if (!search) return true;
@@ -25,7 +25,7 @@ const Enquiry = () => {
             (item.message?.toLowerCase().includes(searchLower))
         );
     });
-    
+
     // Client-side pagination
     const TotalRecords = filteredData.length;
     const totalPages = Math.ceil(TotalRecords / pageSize);
@@ -35,7 +35,7 @@ const Enquiry = () => {
     useEffect(() => {
         dispatch(getEnquiryActions({}));
     }, [dispatch]);
-    
+
     useEffect(() => {
         setPageIndex(1); // Reset to first page when search changes
     }, [search]);

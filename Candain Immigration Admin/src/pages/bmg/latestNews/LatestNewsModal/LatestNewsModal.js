@@ -59,15 +59,15 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         if (formData.paragraph.replace(/<[^>]*>/g, '').length < 10) {
             return;
         }
-        
+
         const submitData = new FormData();
         submitData.append('heading', formData.heading);
         submitData.append('paragraph', formData.paragraph);
-        
+
         if (formData.image) {
             submitData.append('image', formData.image);
         }
@@ -78,7 +78,7 @@ const LatestNewsModal = ({ latestNewsModal, setLatestNewsModal }) => {
             submitData.append('_id', data._id);
             dispatch(editLatestNewsActions(submitData));
         }
-        
+
         handleClose();
     };
 

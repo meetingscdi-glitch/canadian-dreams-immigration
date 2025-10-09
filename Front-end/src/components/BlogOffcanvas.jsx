@@ -31,30 +31,31 @@ const BlogOffcanvas = ({ isOpen, onClose, blog, allBlogs, onBlogSelect }) => {
             )}
 
             {/* Offcanvas */}
-            <div className={`offcanvas-panel fixed top-0 right-0 h-full w-full max-w-4xl md:max-w-4xl bg-white shadow-xl z-[9999] transform transition-all duration-500 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+            <div className={` offcanvas-panel fixed top-0 right-0 h-full w-full  shadow-xl z-[9999] transform transition-all duration-500 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full' 
+        
                 }`}>
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-[#006AAB]">
+                <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-[#006AAB] container mx-auto">
                     <h2 className="text-xl font-semibold text-white">Blog Details</h2>
                     <button
                         onClick={onClose}
                         className="text-white hover:text-gray-200 transition-colors p-1"
                     >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
 
                 {/* Content */}
-                <div className="h-full overflow-y-auto pb-20">
+                <div className="h-full overflow-y-auto pb-20 container mx-auto bgcontainer bg-white">
                     {/* Blog Image */}
                     <FadeInOnScroll>
-                        <div className="w-full h-64 md:h-80">
+                        <div className="w-full  lg:h-[44rem]">
                             <img
                                 src={blog.image}
                                 alt={blog.heading}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full bg-cover"
                             />
                         </div>
                     </FadeInOnScroll>
@@ -117,17 +118,17 @@ const BlogOffcanvas = ({ isOpen, onClose, blog, allBlogs, onBlogSelect }) => {
                         <FadeInOnScroll>
                             <div className="mt-8 pt-6 border-t border-gray-200">
                                 <h3 className="text-lg font-semibold mb-4">Related Blogs</h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                     {allBlogs?.filter(b => b._id !== blog._id).slice(0, 4).map((relatedBlog) => (
                                         <div
                                             key={relatedBlog._id}
-                                            className="bg-gray-50 rounded-lg p-4 cursor-pointer hover:bg-gray-100 transition-colors"
+                                            className="bg-gray-100 rounded-lg p-6  cursor-pointer hover:bg-gray-100 transition-colors"
                                             onClick={() => onBlogSelect(relatedBlog)}
                                         >
                                             <img
                                                 src={relatedBlog.image}
                                                 alt={relatedBlog.heading}
-                                                className="w-full h-32 object-cover rounded mb-3"
+                                                className="w-full h-44 lg:h-76  object-cover rounded mb-3"
                                             />
                                             <h4 className="font-medium text-sm mb-2 line-clamp-2">{relatedBlog.heading}</h4>
                                             <p className="text-xs text-gray-600">

@@ -48,7 +48,7 @@ const AccountLayout = ({ bottomLinks, children }: AccountLayoutProps): React$Ele
                     </Row>
                 </Container>
             </div>
-            <footer className="footer footer-alt">{currentYear} © BMG - <a href="https://rowthtech.com/" className='text-muted'><u>rowthtech.com</u></a></footer>
+            <footer className="footer footer-alt">{currentYear} © CDI - <a href="http://34.227.221.169/" className='text-muted'><u>Canadian Dreams Immigration</u></a></footer>
         </>
     );
 };

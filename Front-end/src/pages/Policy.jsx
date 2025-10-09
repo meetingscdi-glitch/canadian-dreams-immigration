@@ -7,7 +7,6 @@ import FadeInOnScroll from './FadeInOnScroll'
 const Policy = () => {
   return (
     <div>
-      <Navbar />
       <SectionWithImage />
       <div className='lg:container lg:mx-auto lg:py-20 py-10 px-5 sm:px-20 lg:px-40'>
         <div className='flex flex-col gap-12'>
@@ -114,18 +113,16 @@ const Policy = () => {
             <div>
               <h1 className='md:text-3xl text-2xl'>Contact Us</h1>
               <h4 className='text-base md:text-lg mt-3 text-[#2D2B2B]'>If you have any questions or concerns about this Privacy Policy, please contact us at:</h4>
-              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Email: info@canadian.com</h4>
+              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Email: Canadiandreamsimmigration@gmail.com</h4>
               <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Phone: +1 (416) 434-3155</h4>
-              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Address: Dummy address Canadian 313 Canada, 33322</h4>
+              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Address: 200- 7404 king george blvd , Unit -246Surrey , B.C</h4>
             </div>
           </FadeInOnScroll>
 
         </div>
       </div>
 
-      <div className='mt-20'>
-        <Footer />
-      </div>
+
     </div>
   )
 }

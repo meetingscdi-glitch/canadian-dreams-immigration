@@ -1,7 +1,10 @@
 import React from 'react'
 import AboutImg from '../assets/images/AboutUs.png'
+import EmployerImg from '../assets/images/Employer.webp'
+import ContactImg from '../assets/images/ContactImg.webp'
 import ServicesImg from '../assets/images/StudyApplication.png'
 import Micgirl from '../assets/smallimages/MicGirl.png'
+import CanadianPathWays from '../assets/images/CanadianPathWays.jpg'
 import { useLocation } from 'react-router-dom'
 const SectionWithImage = () => {
     const location = useLocation();
@@ -16,12 +19,24 @@ const SectionWithImage = () => {
             image: ServicesImg,
             heading: 'Study Application'
         },
+        '/canadian-pathways': {
+            image: AboutImg,
+            heading: 'Canadian-Pathways'
+        },
+        '/canadian-pathways-federal': {
+            image: ContactImg,
+            heading: 'Federal Pathways'
+        },
+        '/canadian-pathways-provincial': {
+            image: ContactImg,
+            heading: 'Provincial Pathways'
+        },
         '/blog': {
             image: AboutImg,
             heading: 'Blog'
         },
         '/contact-us': {
-            image: Micgirl,
+            image: ContactImg,
             heading: 'Contact Us'
         },
         '/employer': {
@@ -36,10 +51,10 @@ const SectionWithImage = () => {
             image: Micgirl,
             heading: 'Terms and Condition'
         },
-       
+
 
     };
-    const {image,heading} = ImageRoutes[currentpath];
+    const { image, heading } = ImageRoutes[currentpath];
 
     return (
         <div className='relative w-full h-full'>
