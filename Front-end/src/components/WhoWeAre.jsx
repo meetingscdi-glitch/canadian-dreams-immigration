@@ -17,28 +17,33 @@ const WhoWeAre = () => {
                     </div>
                 </div>
                 <div className='lg:ml-8 xl:ml-0 overflow-hidden mr-4'>
-                    <h6 className='text-[#006AAB] text-lg lg:mt-0 mt-6 flex items-center mb-2'><TfiLayoutLineSolid size={28} />Who we are</h6>
-                    <span className='lg:text-5xl md:text-4xl text-3xl block md:mt-4 lg:mt-0'>Best Immigration</span>
+                    <h6 className='text-[#006AAB] text-lg lg:mt-0 mt-6 flex items-center mb-2'>
+                        <TfiLayoutLineSolid size={28} />Who we are
+                    </h6>
+
+                    <span className='lg:text-5xl md:text-4xl text-3xl block md:mt-4 lg:mt-0'>Expert Immigration</span>
                     <h1 className="lg:text-4xl md:text-4xl text-3xl font-bold lg:w-2/3 leading-tight lg:mt-1.5">
-                        and Visa Consultation.
+                        & Visa Consultation
                     </h1>
-                    <p className='lg:w-5/6 mb-6 mt-3 md:text-lg lg:mr-12'>Dreaming of a fresh start in Canada? The paperwork and processes can feel overwhelming, but you don't have to figure it out alone. We're here to be your trusted partner. Whether you're seeking a work permit, study permit, permanent residency, or a family visa, we provide clear, professional guidance tailored to your goals.</p>
+
+                    <p className='lg:w-5/6 mb-6 mt-3 md:text-lg lg:mr-12'>
+                        Planning a move to Canada can feel overwhelming, but you’re not alone. Whether it’s a work permit, study permit, permanent residency, or family visa, we guide you every step of the way with clear, professional support tailored to your needs.
+                    </p>
+
                     <h5 className='poppins-regular flex items-center md:text-lg lg:mb-6 mb-4'>
                         <IoMdCheckmarkCircleOutline size={25} color='#006AAB' className='mr-2' />
-                        Expert guidance on visas & PR: Cut through the confusion with a clear, step-by-step plan.
+                        Clear step-by-step guidance on visas & PR to simplify your journey.
                     </h5>
+
                     <h5 className='poppins-regular flex items-center md:text-lg lg:mb-6 mb-4'>
                         <IoMdCheckmarkCircleOutline size={25} color='#006AAB' className='mr-2' />
-                        Work & study permit assistance: Get tailored support for your career or educational ambitions.
+                        Tailored support for work and study permits to meet your career or educational goals.
                     </h5>
+
                     <h5 className='poppins-regular flex items-center md:text-lg lg:mb-6 mb-4'>
                         <IoMdCheckmarkCircleOutline size={25} color='#006AAB' className='mr-2' />
-                        Hassle-free application process: We handle the complex details, so you can focus on your future.
+                        Hassle-free application handling — we take care of the details so you can focus on your future.
                     </h5>
-                    {/* <h5 className='poppins-regular flex items-center md:text-lg lg:mb-6 mb-4'>
-                        <IoMdCheckmarkCircleOutline size={25} color='#006AAB' className='mr-2' />
-                        Personalized immigration solutions: Your journey is unique, and our approach is too.
-                    </h5> */}
 
                     <Link
                         to="/privacy-policy"
@@ -46,7 +51,7 @@ const WhoWeAre = () => {
                     >
                         <button
                             id="buttonStyle"
-                            className="py-2  px-4 pr-8  rounded-l-full rounded-r-4xl text-white lg:mt-3 sm:text-xl mt-5 group-hover:bg-[#1085ce] transition-all duration-100"
+                            className="py-2 px-4 pr-8 rounded-l-full rounded-r-4xl text-white lg:mt-3 sm:text-xl mt-5 group-hover:bg-[#1085ce] transition-all duration-100"
                         >
                             Read More
                         </button>
@@ -55,6 +60,7 @@ const WhoWeAre = () => {
                         </div>
                     </Link>
                 </div>
+
             </div>
         </div>
     )

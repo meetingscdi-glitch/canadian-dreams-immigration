@@ -14,7 +14,7 @@ export const pageContent = {
         { number: "50+", label: "Countries Served" }
       ]
     },
-    
+
     newsCards: [
       {
         id: "01",
@@ -23,7 +23,7 @@ export const pageContent = {
         link: "/blog"
       },
       {
-        id: "02", 
+        id: "02",
         title: "B.C. PNP NOTICE #April 14, 2025",
         description: "British Columbia will accept only 1,100 new PNP applications this year, with a strict focus on high-demand roles like doctors,",
         link: "/blog"
@@ -45,7 +45,7 @@ export const pageContent = {
       },
       {
         icon: "notebook",
-        title: "Express Entry", 
+        title: "Express Entry",
         description: "The application process for skilled immigrants seeking permanent residency in Canada...",
         link: "/our-services"
       },
@@ -66,7 +66,7 @@ export const pageContent = {
         link: "/employer"
       },
       aspirant: {
-        title: "I AM AN ASPIRANT", 
+        title: "I AM AN ASPIRANT",
         subtitle: "Canada on your Mind?",
         description: "Ask Kubeir offers sharp, custom-fit advice to zip through immigration routes and plant your roots here. With proven expertise, we'll pave your way to Canada—one breezy step at a time.",
         ctaText: "Start Your Journey",
@@ -82,12 +82,12 @@ export const pageContent = {
       subtitle: "Your Trusted Partner in Canadian Immigration",
       description: "With years of experience and thousands of successful cases, we are committed to making your Canadian dream a reality."
     },
-    
+
     story: {
       title: "Our Story",
       content: "Founded with a vision to bridge dreams and reality, Canadian Dreams Immigration & Worldwide Services Ltd. has been at the forefront of Canadian immigration services. Our journey began with a simple belief: everyone deserves a chance to build a better future in Canada. Today, we stand as one of Canada's most trusted immigration consultancies, having helped thousands of individuals and families from around the world make Canada their new home."
     },
-    
+
     team: {
       title: "Meet Our Expert Team",
       description: "Our team of licensed immigration consultants brings together decades of experience, deep knowledge of Canadian immigration law, and a genuine passion for helping people achieve their dreams.",
@@ -100,7 +100,7 @@ export const pageContent = {
           specialization: "Express Entry, PNP Programs"
         },
         {
-          name: "Kanishka Sharma", 
+          name: "Kanishka Sharma",
           position: "Immigration Consultant",
           credentials: "RCIC, CICC Licensed",
           experience: "8+ years experience",
@@ -109,13 +109,13 @@ export const pageContent = {
         {
           name: "Rashmeen Kaur",
           position: "Family Immigration Specialist",
-          credentials: "RCIC, CICC Licensed", 
+          credentials: "RCIC, CICC Licensed",
           experience: "7+ years experience",
           specialization: "Family Sponsorship, Visitor Visas"
         }
       ]
     },
-    
+
     achievements: [
       "Over 5,000 successful immigration cases",
       "95% application approval rate",
@@ -133,7 +133,7 @@ export const pageContent = {
       subtitle: "Your Pathway to Canada Starts Here",
       description: "We offer a full range of immigration services designed to meet your unique needs and circumstances."
     },
-    
+
     mainServices: [
       {
         category: "Permanent Residency",
@@ -156,7 +156,7 @@ export const pageContent = {
             title: "Quebec Immigration",
             description: "Specialized services for Quebec's unique immigration system and requirements.",
             features: ["Quebec Selection Certificate", "French Language Support", "Quebec Values Test", "Settlement Planning"],
-            processingTime: "12-20 months", 
+            processingTime: "12-20 months",
             eligibility: "French proficiency preferred"
           }
         ]
@@ -223,7 +223,7 @@ export const pageContent = {
       subtitle: "Ready to Start Your Canadian Journey?",
       description: "Contact our expert team for personalized immigration advice and solutions."
     },
-    
+
     contactMethods: [
       {
         type: "Office Visit",
@@ -241,13 +241,13 @@ export const pageContent = {
       },
       {
         type: "Email",
-        title: "Email Us", 
+        title: "Email Us",
         description: "Send us your questions and we'll respond within 24 hours.",
         details: "info@canadiandreamsimmigration.com",
         hours: "Response within 24 hours"
       }
     ],
-    
+
     consultationTypes: [
       {
         type: "Free Initial Consultation",
@@ -258,7 +258,7 @@ export const pageContent = {
       },
       {
         type: "Comprehensive Assessment",
-        duration: "60 minutes", 
+        duration: "60 minutes",
         description: "Detailed evaluation of your profile with personalized immigration strategy.",
         price: "$150 CAD",
         includes: ["Complete eligibility assessment", "Document checklist", "Timeline and cost breakdown", "Written summary report"]
@@ -267,7 +267,7 @@ export const pageContent = {
         type: "Document Review",
         duration: "45 minutes",
         description: "Professional review of your immigration documents before submission.",
-        price: "$100 CAD", 
+        price: "$100 CAD",
         includes: ["Document completeness check", "Quality review", "Improvement recommendations", "Submission readiness confirmation"]
       }
     ]
@@ -280,18 +280,18 @@ export const pageContent = {
       subtitle: "Stay Updated with Latest Immigration Information",
       description: "Get the latest news, updates, and expert insights on Canadian immigration."
     },
-    
+
     categories: [
       "All Posts",
       "Express Entry",
-      "Provincial Programs", 
+      "Provincial Programs",
       "Student Immigration",
       "Family Sponsorship",
       "Work Permits",
       "Immigration News",
       "Success Stories"
     ],
-    
+
     featuredPosts: [
       {
         title: "Complete Guide to Express Entry 2024",
@@ -306,7 +306,7 @@ export const pageContent = {
         title: "Provincial Nominee Program Updates: What's New in 2024",
         excerpt: "Latest updates from provincial nominee programs across Canada and how they affect your immigration strategy.",
         category: "Provincial Programs",
-        author: "Kanishka Sharma", 
+        author: "Kanishka Sharma",
         date: "March 18, 2024",
         readTime: "8 min read",
         featured: true

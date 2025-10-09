@@ -64,11 +64,11 @@ const WhyUs = () => {
                     <div className='overflow-hidden' ref={WhyUsText}>
                         <h1 className='lg:text-5xl md:text-4xl text-3xl lg:mt-1.5'>Why Us?</h1>
 
-                        <p className=' mb-3 mt-4 md:text-xl text-base'>At Canadian Dreams Immigration, we understand that no two journeys are the same. That’s why we take the time to learn about your goals and tailor our solutions—whether you’re seeking education, career opportunities, or family reunification in Canada.
+                        <p className=' mb-3 mt-4 md:text-xl text-base'>At Canadian Dreams Immigration, we know that every journey to Canada is unique. That’s why we take the time to understand your goals and provide personalized solutions—whether you’re aiming for education, career opportunities, or family reunification.
                         </p>
 
                         <p className='md:mb-6 md:text-xl text-lg md:mt-6'>
-                            What makes us different?
+                            What Sets Us Apart:
                         </p>
                         {staticText.whyChoosePoints.slice(0, 4).map((point, index) => (
                             <h5 key={index} className='poppins-regular flex items-center mb-4 md:text-lg text-base mt-4'>
@@ -76,7 +76,7 @@ const WhyUs = () => {
                                 {point}
                             </h5>
                         ))}
-                        <p className='md:text-lg text-base'>Proven Success – A track record of high approval rates and happy clients worldwide.</p>
+                        <p className='md:text-lg text-base'>Proven Success – A strong track record of approvals and satisfied clients worldwide.</p>
                     </div>
                 </div>
                 <div className='overflow-hidden  xl:mr-20 lg:ml-10 xl:ml-0 lg:pr-8 order-1 lg:order-2' >
