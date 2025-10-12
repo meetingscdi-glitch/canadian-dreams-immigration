@@ -59,6 +59,32 @@ import ForeignGraduateEntrepreneurStream from '../assets/provincialpathwaysimage
 import FarmStream from '../assets/provincialpathwaysimages/Farm Stream.jpg'
 import GraduateEntrepreneurStream from '../assets/provincialpathwaysimages/Graduate Entrepreneur Stream.jpg'
 import RuralEntrepreneurStream from '../assets/provincialpathwaysimages/Rural Entrepreneur Stream.jpg'
+import ruralrenewalstream from '../assets/provincialpathwaysimages/Rural Renewal Stream.jpg'
+import DedicatedHealthCarePathway from '../assets/provincialpathwaysimages/Dedicated Health Care Pathway – Alberta Express Entry Stream.jpg'
+import AlbertaExpressEntryStream from '../assets/provincialpathwaysimages/AlbertaExpressEntryStream.jpg'
+import AlbertaOpportunityStream from '../assets/provincialpathwaysimages/Alberta Opportunity Stream.jpg'
+import TourismandHospitalityStream from '../assets/provincialpathwaysimages/Tourism and Hospitality Stream.jpg'
+import Technology from '../assets/provincialpathwaysimages/Technology.jpg'
+import Construction from '../assets/provincialpathwaysimages/Construction.jpg'
+import Veterinarycare from '../assets/provincialpathwaysimages/Veterinary care.jpg'
+import Healthcare from '../assets/provincialpathwaysimages/Healthcare.jpg'
+import Childcare from '../assets/provincialpathwaysimages/Childcare.jpg'
+import StrategicProjectsEntrepreneurs from '../assets/provincialpathwaysimages/Strategic Initiative Stream.jpg'
+import RegionalStreamEntrepreneurs from '../assets/provincialpathwaysimages/Regional Stream – Entrepreneurs.jpg'
+import BaseStreamEntrepreneurs from '../assets/provincialpathwaysimages/Base Stream- Entrepreneurs.jpg'
+import InternationalPostGraduate from '../assets/provincialpathwaysimages/InternationalPostGraduate.jpg'
+import InternationalGraduate123 from '../assets/provincialpathwaysimages/International Graduate.jpg'
+import EntryLevelandSemiSkilled from '../assets/provincialpathwaysimages/Entry Level and Semi-Skilled (ELSS).jpg'
+import HealthAuthority from '../assets/provincialpathwaysimages/Health Authority.jpg'
+import SkilledWorker1234 from '../assets/provincialpathwaysimages/Skilled Worker1234.jpg'
+import OntariosExpressEntryFrenchSpeakingSkilledWorkerstream from '../assets/provincialpathwaysimages/Ontario’s Express Entry- French-Speaking Skilled Worker stream.jpg'
+import OntariosExpressEntrySkilledTradesstream from '../assets/provincialpathwaysimages/Ontario’s Express Entry-Skilled Trades stream.jpg'
+import OntariosExpressEntryHumanCapitalPrioritiesstream from '../assets/provincialpathwaysimages/Ontario’s Express Entry-Human Capital Priorities stream.jpg'
+import PhDGraduatestream from '../assets/provincialpathwaysimages/PhD Graduate stream.jpg'
+import MastersGraduatestream from '../assets/provincialpathwaysimages/Masters Graduate stream.jpg'
+import EmployerJobOfferInDemandSkillsstream from '../assets/provincialpathwaysimages/Employer Job Offer In-Demand Skills stream.jpg'
+import EmployerJobOfferInternationalStudentstream from '../assets/provincialpathwaysimages/Employer Job Offer International Student stream.jpg'
+import EmployerJobOfferForeignWorkerstream from '../assets/provincialpathwaysimages/Employer Job Offer Foreign Worker stream.jpg'
 
 const ProvincialPathways = () => {
   const Cardsdata = [
@@ -70,309 +96,443 @@ const ProvincialPathways = () => {
     {
       Img: Foreign,
       Link: 'Foreign entrepreneurs',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/campaigns/francophone-immigration-outside-quebec.html',
+      BtnLink: 'https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs',
     },
     {
       Img: Economic,
       Link: 'Economic Mobility Pathways Pilot',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/rural-franco-pilots.html',
+      BtnLink: 'https://www.immigratenwt.ca/economic-mobility-pathways-pilot',
     },
     {
       Img: FrancophoneStream,
       Link: 'Francophone Stream ',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/start-visa.html',
+      BtnLink: 'https://www.immigratenwt.ca/francophone-stream',
     },
     {
       Img: BusinessStream,
       Link: 'Business Stream',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/caregivers.html',
+      BtnLink: 'https://www.immigratenwt.ca/business-stream',
     },
     {
       Img: EmployerDrivenStream,
       Link: 'Employer – Driven Stream',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship/sponsor-parents-grandparents.html',
+      BtnLink: 'https://www.immigratenwt.ca/employer-driven-stream',
     },
     {
       Img: ThroughExpressEntry,
       Link: 'Through Express Entry Only',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship/other-relatives.html',
+      BtnLink: 'https://www.askkubeir.com/',
     },
     {
       Img: Permanentimmigrationpilot,
       Link: 'Permanent immigration pilot program for workers in the AI, I.T and visual effects sectors',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/canadians/adopt-child-abroad/processes/choose-process/immigration.html',
+      BtnLink: 'https://www.quebec.ca/en/immigration/permanent/skilled-workers/artificial-intelligence',
     },
     {
       Img: Permanentimmigrationpilotfor,
       Link: 'Permanent immigration pilot program for orderlies',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship/spouse-partner-children.html',
+      BtnLink: 'https://www.quebec.ca/en/immigration/permanent/skilled-workers/orderlies',
     },
     {
       Img: Permanentimgpilotpgrmforworkers,
       Link: 'Permanent immigration pilot program for workers in food processing',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations/category-based-selection.html',
+      BtnLink: 'https://www.quebec.ca/en/immigration/permanent/skilled-workers/food-processing',
     },
+    // 1 Page completed
     {
       Img: CanadianExperienceClass,
       Link: 'Quebec Experience Program',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html',
+      BtnLink: 'https://www.quebec.ca/en/immigration/permanent/skilled-workers/quebec-experience-program',
     },
     {
       Img: FederalSkilled,
       Link: 'Regular Skilled Worker Program',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html',
+      BtnLink: 'https://www.quebec.ca/en/immigration/permanent/skilled-workers/regular-skilled-worker-program',
     },
     {
       Img: FederalSkilledWorker,
       Link: 'Skilled Worker Program',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      BtnLink: 'https://www.quebec.ca/en/immigration/permanent/skilled-workers/skilled-worker-selection-program',
     },
     {
       Img: InternationalGraduate,
       Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      BtnLink: 'https://www.gov.nl.ca/immigration/immigrating-to-newfoundland-and-labrador/provincial-nominee-program/entrepreneurs/international-graduate-entrepreneur/eligibility-criteria/',
     },
     {
       Img: InternationalInter,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'International Entrepreneur category',
+      BtnLink: 'https://www.gov.nl.ca/immigration/immigrating-to-newfoundland-and-labrador/provincial-nominee-program/entrepreneurs/international-entrepreneur/eligibility-criteria/',
     },
     {
       Img: InternalGraduateCategory,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'International Graduate Category',
+      BtnLink: 'https://www.gov.nl.ca/immigration/immigrating-to-newfoundland-and-labrador/provincial-nominee-program/applicants/international-graduate/',
     },
     {
       Img: SkilledWorker,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Skilled Worker Category',
+      BtnLink: 'https://www.gov.nl.ca/immigration/immigrating-to-newfoundland-and-labrador/provincial-nominee-program/applicants/international-graduate/',
     },
     {
       Img: ExpressSkilled,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Express Entry Skilled Worker Category',
+      BtnLink: 'https://www.gov.nl.ca/immigration/immigrating-to-newfoundland-and-labrador/provincial-nominee-program/applicants/express-entry-skilled-worker/',
     },
     {
       Img: InterGraduate,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'International Graduates',
+      BtnLink: 'https://www.princeedwardisland.ca/en/information/office-of-immigration/international-graduates',
     },
     {
       Img: SkilledWorker2,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Skilled Workers Outside Canada',
+      BtnLink: 'https://www.princeedwardisland.ca/en/information/office-of-immigration/skilled-workers-outside-canada',
     },
+    // 2 Page Completed
     {
       Img: SkilledWorkerInPei,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Skilled Workers in PEI',
+      BtnLink: 'https://www.princeedwardisland.ca/en/information/office-of-immigration/skilled-workers-in-pei',
     },
     {
       Img: CriticalWorker,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Critical Workers',
+      BtnLink: 'https://www.princeedwardisland.ca/en/information/office-of-immigration/critical-workers',
     },
     {
       Img: CriticalWorkerPilotProgram,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Critical Worker Pilot Program',
+      BtnLink: 'https://www2.gnb.ca/content/gnb/en/corporate/promo/immigration/immigrating-to-nb/nb-critical-workers-pilot.html',
     },
     {
       Img: AtlanticImmigration,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Atlantic Immigration Program (AIP)',
+      BtnLink: 'https://www2.gnb.ca/content/gnb/en/corporate/promo/immigration/immigrating-to-nb/atlantic-immigration-program.html',
     },
     {
       Img: Immigration,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Business Immigration Stream',
+      BtnLink: 'https://www2.gnb.ca/content/gnb/en/corporate/promo/immigration/immigrating-to-nb/nb-business-immigration-stream.html',
     },
     {
       Img: PrivatePilot,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Private Career College Graduate Pilot Program',
+      BtnLink: 'https://www2.gnb.ca/content/gnb/en/corporate/promo/immigration/immigrating-to-nb/private-career-college-graduate-pilot-program.html',
     },
     {
       Img: SkilledWorker2,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Skilled Worker Stream',
+      BtnLink: 'https://www2.gnb.ca/content/gnb/en/corporate/promo/immigration/immigrating-to-nb/nb-skilled-worker-stream.html',
     },
     {
       Img: Strategic,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Strategic Initiative Stream',
+      BtnLink: 'https://www2.gnb.ca/content/gnb/en/corporate/promo/immigration/immigrating-to-nb/nb-strategic-initiative-stream.html',
     },
     {
       Img: ExpressSkilled,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Express Entry Stream',
+      BtnLink: 'https://www2.gnb.ca/content/gnb/en/corporate/promo/immigration/immigrating-to-nb/nb-express-entry-stream.html',
     },
     {
       Img: HealthCare,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Healthcare Professionals Immigration Pilot (Letter of Interest)',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program#tab-10',
     },
+    // Third Page Completed
     {
       Img: Express2,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Experience: Express Entry',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program#tab-9',
     },
     {
       Img: Labour,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Labour Market Priorities',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program#tab-8',
     },
     {
       Img: Physician,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Labour Market Priorities for Physicians',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program#tab-7',
     },
     {
       Img: Physician2,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Physician',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program#tab-6',
     },
     {
       Img: Enterprenaur,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Entrepreneur',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program#tab-5',
     },
     {
       Img: InternationGraduate,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'International Graduate Entrepreneur',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program#tab-4',
     },
     {
       Img: InternationGraduateInDemand,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'International Graduates in Demand',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program#tab-3',
     },
     {
       Img: workerPilot,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Critical Construction Worker Pilot',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program#tab-2',
     },
     {
       Img: occuputation,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Occupations in Demand',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program#tab-1',
     },
     {
       Img: SkilledWorker123,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Skilled Worker',
+      BtnLink: 'https://liveinnovascotia.com/nova-scotia-nominee-program',
     },
     {
       Img: FederalSkilled123,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Federal Immigration Programs',
+      BtnLink: 'https://immigratemanitoba.com/immigrate/federal/',
     },
     {
       Img: FarmPathWays,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Farm Investor Pathway',
+      BtnLink: 'https://immigratemanitoba.com/immigrate/bis/fip/',
     },
     {
       Img: PathWay,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Entrepreneur Pathway',
+      BtnLink: 'https://immigratemanitoba.com/immigrate/bis/entrepreneur/',
     },
     {
       Img: StudentPilot,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'International Student Entrepreneur Pilot',
+      BtnLink: 'https://immigratemanitoba.com/immigrate/ies/isep/',
     },
     {
       Img: GraduateIntern,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Graduate Internship Pathway',
+      BtnLink: 'https://immigratemanitoba.com/immigrate/ies/graduate-internship/',
     },
     {
       Img: EmploymentPathway,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Career Employment Pathway',
+      BtnLink: 'https://immigratemanitoba.com/immigrate/ies/cep/',
     },
     {
       Img: WorkerOverSeas,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Skilled Worker Overseas',
+      BtnLink: 'https://immigratemanitoba.com/immigrate/skilled-worker/swo/',
     },
     {
       Img: SkilledWorkerMd,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Skilled Worker in Manitoba',
+      BtnLink: 'https://immigratemanitoba.com/immigrate/skilled-worker/swm/',
     },
     {
       Img: FarmOwnerandOperator,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Farm Owner and Operator',
+      BtnLink: 'https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/farm-owner-and-operator/applicants-farm-owners-and-operators',
     },
     {
       Img: InternationalGraduateEntrepreneurCategory,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'International Graduate Entrepreneur Category',
+      BtnLink: 'https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/entrepreneur/international-graduate-entrepreneur-category',
     },
+    // 5 Page completed
     {
       Img: Enterprenaur123,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Entrepreneur',
+      BtnLink: 'https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/entrepreneur/applicants-entrepreneurs',
     },
-      {
+    {
       Img: TechTalentPathway,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Tech Talent Pathway',
+      BtnLink: 'https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/sinp-tech-talent-pathway',
     },
     {
       Img: HealthTalentPathway,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Health Talent Pathway',
+      BtnLink: 'https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/health-talent-pathway',
     },
     {
       Img: InternationalSkilledExpressEntry,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Agriculture Talent Pathway',
+      BtnLink: 'https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/agriculture-talent-pathway',
     },
     {
       Img: InternationSkilledwrk,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'International Skilled Worker: Saskatchewan Express Entry',
+      BtnLink: 'https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-saskatchewan-express-entry',
     },
     {
       Img: Hiring,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'International Skilled Worker: Occupation In-Demand',
+      BtnLink: 'https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-occupations-in-demand',
     },
     {
       Img: InternationalSkilledWorkerEmploymentOffer,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'International Skilled Worker – Employment Offer',
+      BtnLink: 'https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer',
     },
     {
       Img: ForeignGraduateEntrepreneurStream,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Foreign Graduate Entrepreneur Stream',
+      BtnLink: 'https://www.alberta.ca/aaip-foreign-graduate-entrepreneur-stream',
     },
     {
       Img: FarmStream,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Farm Stream',
+      BtnLink: 'https://www.alberta.ca/aaip-farm-stream',
     },
     {
       Img: GraduateEntrepreneurStream,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Graduate Entrepreneur Stream',
+      BtnLink: 'https://www.alberta.ca/aaip-graduate-entrepreneur-stream',
     },
+    // 6 Page Completed
     {
       Img: RuralEntrepreneurStream,
-      Link: 'International Graduate Entrepreneur category',
-      BtnLink: 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html',
+      Link: 'Rural Entrepreneur Stream',
+      BtnLink: 'https://www.alberta.ca/aaip-rural-entrepreneur-stream',
     },
-
-
-
+    {
+      Img: ruralrenewalstream,
+      Link: 'Rural Renewal Stream',
+      BtnLink: 'https://www.alberta.ca/aaip-rural-renewal-stream',
+    },
+    {
+      Img: DedicatedHealthCarePathway,
+      Link: 'Dedicated Health Care Pathway – Alberta Express Entry Stream',
+      BtnLink: 'https://www.alberta.ca/dedicated-health-care-pathway',
+    },
+    {
+      Img: AlbertaExpressEntryStream,
+      Link: 'Alberta Express Entry Stream',
+      BtnLink: 'https://www.alberta.ca/aaip-alberta-express-entry-stream',
+    },
+    {
+      Img: AlbertaOpportunityStream,
+      Link: 'Alberta Opportunity Stream',
+      BtnLink: 'https://www.alberta.ca/aaip-alberta-opportunity-stream',
+    },
+    {
+      Img: TourismandHospitalityStream,
+      Link: 'Tourism and Hospitality Stream',
+      BtnLink: 'https://www.alberta.ca/tourism-and-hospitality-stream',
+    },
+    {
+      Img: Technology,
+      Link: 'Technology',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-workers#Tech',
+    },
+    {
+      Img: Construction,
+      Link: 'Construction',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-workers#Priorities',
+    },
+    {
+      Img: Veterinarycare,
+      Link: 'Veterinary care',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-workers#Veterinary',
+    },
+    {
+      Img: Healthcare,
+      Link: 'Healthcare',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-workers#Healthcare',
+    },
+    // 7 Page Done Here
+    {
+      Img: Childcare,
+      Link: 'Childcare',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-workers#Childcare',
+    },
+    {
+      Img: StrategicProjectsEntrepreneurs,
+      Link: 'Strategic Projects – Entrepreneurs',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-entrepreneurs-and-businesses#StrategicProjects',
+    },
+    {
+      Img: RegionalStreamEntrepreneurs,
+      Link: 'Regional Stream – Entrepreneurs',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-entrepreneurs-and-businesses#RegionalPilot',
+    },
+    {
+      Img: BaseStreamEntrepreneurs,
+      Link: 'Base Stream- Entrepreneurs',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-entrepreneurs-and-businesses#base%20category',
+    },
+    {
+      Img: InternationalPostGraduate,
+      Link: 'International Post-Graduate',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-workers#IPG',
+    },
+    {
+      Img: InternationalGraduate123,
+      Link: 'International Graduate',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-workers#IG',
+    },
+    {
+      Img: EntryLevelandSemiSkilled,
+      Link: 'Entry Level and Semi-Skilled (ELSS)',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-workers#ELSS',
+    },
+    {
+      Img: HealthAuthority,
+      Link: 'Health Authority',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-workers#HealthAuthority',
+    },
+    {
+      Img: SkilledWorker1234,
+      Link: 'Skilled Worker',
+      BtnLink: 'https://www.welcomebc.ca/immigrate-to-b-c/for-workers#SkilledWorker',
+    },
+    {
+      Img: OntariosExpressEntryFrenchSpeakingSkilledWorkerstream,
+      Link: 'Ontario’s Express Entry- French-Speaking Skilled Worker stream',
+      BtnLink: 'https://www.ontario.ca/page/ontarios-express-entry-french-speaking-skilled-worker-stream',
+    },
+    // 8 Page done
+    {
+      Img: OntariosExpressEntrySkilledTradesstream,
+      Link: 'Ontario’s Express Entry-Skilled Trades stream',
+      BtnLink: 'https://www.ontario.ca/page/ontarios-express-entry-skilled-trades-stream',
+    },
+    {
+      Img: OntariosExpressEntryHumanCapitalPrioritiesstream,
+      Link: 'Ontario’s Express Entry-Human Capital Priorities stream',
+      BtnLink: 'https://www.ontario.ca/page/ontarios-express-entry-human-capital-priorities-stream',
+    },
+    {
+      Img: PhDGraduatestream,
+      Link: 'PhD Graduate stream',
+      BtnLink: 'https://www.ontario.ca/page/oinp-phd-graduate-stream',
+    },
+    {
+      Img: MastersGraduatestream,
+      Link: 'Masters Graduate stream',
+      BtnLink: 'https://www.ontario.ca/page/oinp-masters-graduate-stream',
+    },
+    {
+      Img: EmployerJobOfferInDemandSkillsstream,
+      Link: 'Employer Job Offer: In-Demand Skills stream',
+      BtnLink: 'https://www.ontario.ca/page/oinp-employer-job-offer-demand-skills-stream',
+    },
+    {
+      Img: EmployerJobOfferInternationalStudentstream,
+      Link: 'Employer Job Offer: International Student stream',
+      BtnLink: 'https://www.ontario.ca/page/oinp-employer-job-offer-international-student-stream',
+    },
+    {
+      Img: EmployerJobOfferForeignWorkerstream,
+      Link: 'Employer Job Offer: Foreign Worker stream',
+      BtnLink: 'https://www.ontario.ca/page/oinp-employer-job-offer-foreign-worker-stream',
+    },
   ];
 
-  const itemsPerPage = 10;
+  const itemsPerPage = 12;
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(Cardsdata.length / itemsPerPage);
 
@@ -393,7 +553,7 @@ const ProvincialPathways = () => {
       <div className="container mx-auto pt-5 pb-12">
         <div className="mt-5 sm:mt-10 mx-auto w-fit grid sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 xl:gap-x-10 gap-y-12 md:px-6 px-3 xl:px-0">
           {currentCards.map((items, index) => (
-            <div key={index} className="max-w-sm bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
+            <div key={index} className="max-w-sm bg-white rounded-lg shadow-md flex flex-col overflow-hidden cursor-pointer hover:scale-110 transition duration-500">
               <img
                 src={items.Img}
                 alt="Program Image"

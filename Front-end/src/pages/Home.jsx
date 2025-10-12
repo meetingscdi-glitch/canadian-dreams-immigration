@@ -116,7 +116,7 @@ const Home = () => {
             <FadeInOnScroll><ImmiGrationNeeds /></FadeInOnScroll>
 
             {/* News Cards */}
-            <div className='grid lg:grid-cols-3 xl:gap-20 lg:gap-8 md:gap-12 gap-6 lg:py-8 lg:px-8 md:px-32 xl:px-19 mb-10 py-12 container mx-auto px-5'>
+            <div className='grid lg:grid-cols-3 xl:gap-20 lg:gap-8 md:gap-12 gap-6 lg:py-8 lg:px-8 md:px-32 xl:px-19 py-12 container mx-auto px-5 mb-2'>
                 <div className='bg-[#F4FBFF] lg:py-12 xl:px-14 px-7 md:py-14 py-7 rounded-2xl relative slide-up stagger-1 hover-lift'>
                     <h1 className='absolute lg:-top-2 -top-4 bg-[#006AAB] md:px-5 px-4 py-2 md:py-4 lg:-right-2 -right-1 text-white rounded-xl md:text-xl'>01</h1>
                     <h1 className='md:text-2xl text-xl leading-6 mb-3'>Express Entry Draw #342 – Latest Results</h1>
