@@ -10,7 +10,7 @@ const WhoWeAre = () => {
     return (
 
         <div className='bg-[#F4FBFF]'>
-            <div className='grid lg:grid-cols-2 lg:py-18 lg:mb-12 mb-8 py-8 px-5 md:px-10 lg:px-0 container mx-auto'>
+            <div className='grid lg:grid-cols-2 lg:py-18  lg:mb-12 mb-8 py-8 px-5 md:px-10 lg:px-0 container mx-auto'>
                 <div className='xl:ml-20 lg:ml-8 xl:mr-12  rounded-xl overflow-hidden'>
                     <div className='w-full h-full bg-cover'>
                         <img className=' w-full bg-cover h-full lg:rounded-3xl ' src={WhoWeImg} alt="Smile" />
