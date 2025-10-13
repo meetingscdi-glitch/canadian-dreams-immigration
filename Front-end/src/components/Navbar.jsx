@@ -121,13 +121,13 @@ const Navbar = ({ services, subServices }) => {
                 <div className='lg:container mx-auto px-4'>
                     <div className="flex items-center xl:gap-3 gap-1.5">
                         <IoCall className='text-[16px] sm:text-[28px]' />
-                        <a href="tel:+14164343155" className="text-sm sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                        <a href="tel:+14164343155" className="text-[11px] sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
                             +1 (416) 434-3155,
                         </a>
-                        <a href="tel:+16475109350" className="text-sm sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                        <a href="tel:+16475109350" className="text-[11px] sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
                             +1 (647) 510-9350,
                         </a>
-                        <a href="tel:+16043607128" className="text-sm sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                        <a href="tel:+16043607128" className="text-[11px] sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
                             +1 (604) 360-7128
                         </a>
                     </div>
@@ -155,57 +155,70 @@ const Navbar = ({ services, subServices }) => {
                             +1 (604) 360-7128
                         </a>
                     </div>
-                    <div className="flex items-center gap-3">
-                        <a href="https://www.facebook.com/share/1M6rNDDtyZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-                            <TiSocialFacebook size={28} className="hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
+                    <div className="flex items-center gap-4 ">
+                        <a href="https://www.facebook.com/share/1M6rNDDtyZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className='hover:bg-[#108CEC] p-1 hover:text-white  text-white rounded-full'>
+                            <TiSocialFacebook size={28}  className='hover:rotate-360 duration-500 transition'/>
                         </a>
-                        <a href="https://www.instagram.com/canadian.dreams.immigration?igsh=Zm5zcXR0dTNvdTJu" target="_blank" rel="noopener noreferrer">
-                            <AiFillInstagram size={28} className="hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
+                        <a href="https://www.instagram.com/canadian.dreams.immigration?igsh=Zm5zcXR0dTNvdTJu" target="_blank" rel="noopener noreferrer" className='hover:bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#515bd4] p-1.5 rounded-full' >
+                            <AiFillInstagram size={28} className="hover:rotate-360 duration-500 transition" />
                         </a>
-                        <a href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1" target="_blank" rel="noopener noreferrer">
-                            <IoLogoTiktok size={28} className="hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
+                        <a href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1" target="_blank" rel="noopener noreferrer" className='hover:bg-gradient-to-tr from-[#25F4EE] via-[#000000] to-[#FE2C55] p-1 hover:text-white  text-white rounded-full'>
+                            <IoLogoTiktok size={28} className="hover:rotate-360 duration-500 transition" />
                         </a>
-                        <a href="https://maps.app.goo.gl/6urHVPQhfNLVmSoV6" target="_blank" rel="noopener noreferrer">
-                            <IoLocationSharp size={28} className="hover:drop-shadow-[1px_-8px_6px_#0F08F7]" />
+                        <a href="https://maps.app.goo.gl/6urHVPQhfNLVmSoV6" target="_blank" rel="noopener noreferrer" className='hover:bg-white hover:text-[#006AAB] p-1  text-white rounded-full'>
+                            <IoLocationSharp size={28} className="hover:rotate-360 duration-300 transition" />
                         </a>
                     </div>
                 </div>
             </div>
+            {/* WhatsAppIcon */}
+            <a
+                href="https://wa.me/14164343155?text=Hello ! How can we help you today. Please leave us a detailed message and one of our team members will get back to you. Thanks"
+                target="_blank"
+                rel="noopener noreferrer"
+                className='fixed right-3 md:right-4 lg:right-12 bottom-36 z-[1000]'
+            >
+                <BiLogoWhatsapp className='md:text-5xl text-4xl bg-[#42C152] rounded-full p-1 text-white animate-bounce hover:text-rotate-360 transition duration-300' />
+            </a>
             {/* Navbar */}
             <nav>
                 <div className="lg:flex justify-between xl:px-0 xl:gap-5 items-center py-4 lg:container mx-auto relative navbar">
                     <div className="flex items-center justify-between">
                         <Link to="/">
-                            <img className="md:w-56 w-46 md:ml-5 lg:ml-0" src={Logo} alt="COMPANY LOGO" />
+                            <img className="md:w-56 w-46 md:ml-5 xl:ml-0" src={Logo} alt="COMPANY LOGO" />
                         </Link>
-                        <div className="flex items-center gap-3 lg:hidden">
+                        <div className="flex items-center gap-1 md:gap-3 lg:hidden">
                             <a
                                 href="https://www.facebook.com/share/1M6rNDDtyZ/?mibextid=wwXIfr"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                className='bg-[#108CEC] md:p-1.5 p-1   text-white rounded-full'
                             >
-                                <TiSocialFacebook className="text-[#006AAB] text-[24px] md:text-[28px]" />
+                                <TiSocialFacebook className=" text-[20px] md:text-[28px]" />
                             </a>
                             <a
                                 href="https://www.instagram.com/canadian.dreams.immigration?igsh=Zm5zcXR0dTNvdTJu"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                className='bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#515bd4] text-white md:p-1.5 p-1 rounded-full'
                             >
-                                <AiFillInstagram className="text-[#006AAB] text-[24px] md:text-[28px]" />
+                                <AiFillInstagram className="text-[20px] md:text-[28px]" />
                             </a>
                             <a
                                 href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                className='bg-gradient-to-tr from-[#25F4EE] via-[#000000] to-[#FE2C55] md:p-1.5 p-1   text-white rounded-full'
                             >
-                                <IoLogoTiktok className="text-[#006AAB] text-[24px] md:text-[28px]" />
+                                <IoLogoTiktok className=" text-[20px] md:text-[28px]" />
                             </a>
                             <a
                                 href="https://maps.app.goo.gl/6urHVPQhfNLVmSoV6"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                className='bg-[#006AAB] text-white md:p-1.5 p-1  rounded-full'
                             >
-                                <IoLocationSharp className="text-[#006AAB] text-[24px] md:text-[28px]" />
+                                <IoLocationSharp className=" text-[20px] md:text-[28px]" />
                             </a>
                         </div>
 
@@ -219,7 +232,7 @@ const Navbar = ({ services, subServices }) => {
                     <div
                         ref={navItemsRef}
                         className={`overflow-hidden md:overflow-auto transition-all duration-500 ease-in-out ${hide ? 'max-h-0 lg:max-h-[500px]' : 'max-h-[1000px] py-6'
-                            } flex flex-col lg:mr-4 xl:mr-0 lg:flex-row lg:items-center gap-4 xl:gap-5 poppins-regular text-lg md:static absolute right-0 bg-white lg:bg-transparent z-10 w-full md:w-auto px-5 md:px-0 navbaritems centerClas`}
+                            } flex flex-col lg:mr-4 xl:mr-0 lg:flex-row lg:items-center gap-2 poppins-regular text-[15px] xl:text-lg xl:gap-5 md:static absolute right-0 bg-white lg:bg-transparent z-10 w-full md:w-auto px-5 md:px-0 navbaritems centerClas`}
                     >
                         <NavLink onClick={toggleButtonIfMobile} to="/" className={({ isActive }) => `hover:text-[#006AAB] ${isActive ? 'text-[#006AAB] font-semibold' : 'text-black'}`}>
                             Home
@@ -329,15 +342,15 @@ const Navbar = ({ services, subServices }) => {
                             Contact Us
                         </NavLink>
 
-                        <div className='flex items-center gap-2 relative overflow-auto h-14'>
+                        <div>
                             <button
                                 onClick={handleBookConsultation}
                                 disabled={loading}
                                 className={`${loading
                                     ? 'bg-gray-400 cursor-not-allowed'
                                     : 'bg-[#F22941] hover:bg-[#da2f42] cursor-pointer'
-                                    } md:px-2 md:py-2 text-white rounded xl:text-xl text-base xl:py-2 xl:px-4 whitespace-nowrap flex items-center justify-center gap-2`}
-                                style={{ minWidth: '200px' }} // fixed width
+                                    }   text-white px-2 py-1.5 rounded xl:text-xl  xl:py-2 xl:px-4 whitespace-nowrap flex items-center justify-center gap-2`}
+                                style={{ minWidth: '160px' }} // fixed width
                             >
                                 {loading ? (
                                     <AiOutlineLoading3Quarters className="animate-spin text-white text-xl" />
@@ -345,15 +358,6 @@ const Navbar = ({ services, subServices }) => {
                                     'Book a consultation'
                                 )}
                             </button>
-
-
-                            <a
-                                href="https://wa.me/14164343155?text=Hello ! How can we help you today. Please leave us a detailed message and one of our team members will get back to you. Thanks"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <BiLogoWhatsapp className='text-4xl bg-[#42C152] rounded-full p-1 text-white animate-bounce hover:text-rotate-360 transition duration-300' />
-                            </a>
                         </div>
 
                     </div>

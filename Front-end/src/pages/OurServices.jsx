@@ -233,7 +233,7 @@ const OurServices = () => {
               >
                 <div className="overflow-y-auto h-full bgcontainerservice pr-4">
                   {selectedSubCategory ? (
-                    <div className="mt-4 lg:mt-0 flex flex-col gap-6 pb-16">
+                    <div className="mt-4 lg:mt-0 flex flex-col  md:pb-16">
                       {selectedSubCategory.image && (
                         <img
                           src={selectedSubCategory.image}
@@ -242,7 +242,7 @@ const OurServices = () => {
                         />
                       )}
 
-                      <h1 className="md:text-3xl text-2xl border-b md:pb-6 pb-3 border-[#00000040] -mt-2">
+                      <h1 className="md:text-3xl text-2xl border-b md:pb-6 pb-3 border-[#00000040]  mt-5">
                         {selectedSubCategory.name}
                       </h1>
 
@@ -279,7 +279,7 @@ const OurServices = () => {
                           if (!header && !subHeader) return null;
 
                           return (
-                            <div key={index} className="mb-8 border-b border-[#00000020] pb-6 last:border-b-0">
+                            <div key={index} className="md:mb-8 mt-4  border-b border-[#00000020] pb-6 last:border-b-0">
                               {header && (
                                 <h4 className="Roboto-500 md:text-2xl text-xl mb-3 text-[#006AAB]">
                                   {header}
@@ -339,7 +339,7 @@ const OurServices = () => {
 
 
       </FadeInOnScroll>
-      <div className='mt-12'>
+      <div className='md:mt-12'>
         <FadeInOnScroll>
           <Testimonial />
         </FadeInOnScroll>

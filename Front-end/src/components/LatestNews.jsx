@@ -136,13 +136,13 @@ const LatestNews = () => {
         <div className="relative bg-[#F4FBFF] pb-2 mt-10 md:mt-0 md:pb-0">
           <button
             ref={prevRef}
-            className="absolute w-fit -bottom-7 h-10 lg:bottom-0  left-1/4 md:-left-16 md:-top-[15rem] lg:-top-[15rem] md:-translate-y-1/2 bg-[#006AAB] text-white p-3 rounded-full shadow hover:bg-[#2580b9] cursor-pointer transition mb-4 md:mb-0"
+            className="absolute w-fit -bottom-7 h-10 lg:bottom-0  left-1/3 md:-left-16 md:-top-[15rem] lg:-top-[15rem] md:-translate-y-1/2 bg-[#006AAB] text-white p-3 rounded-full shadow hover:bg-[#2580b9] cursor-pointer transition mb-4 md:mb-0"
           >
             <FaArrowLeft />
           </button>
           <button
             ref={nextRef}
-            className="absolute -bottom-7 h-10 lg:bottom-0  right-1/4  md:-right-16  md:-top-[15rem] lg:-top-[15rem] md:-translate-y-1/2 bg-[#006AAB] text-white p-3 rounded-full shadow hover:bg-[#2580b9] cursor-pointer transition mb-4 md:mb-0"
+            className="absolute -bottom-7 h-10 lg:bottom-0  right-1/3  md:-right-16  md:-top-[15rem] lg:-top-[15rem] md:-translate-y-1/2 bg-[#006AAB] text-white p-3 rounded-full shadow hover:bg-[#2580b9] cursor-pointer transition mb-4 md:mb-0"
           >
             <FaArrowRight />
           </button>

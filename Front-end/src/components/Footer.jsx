@@ -76,7 +76,7 @@ const Footer = ({ services, subServices }) => {
                                     rel="noopener noreferrer"
                                 >
                                     <TiSocialFacebook
-                                        className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]"
+                                        className="bg-white text-black p-1 rounded cursor-pointer hover:rounded-full hover:bg-[#108CEC] hover:text-white transition duration-300"
                                         size={32}
                                     />
                                 </a>
@@ -86,7 +86,7 @@ const Footer = ({ services, subServices }) => {
                                     rel="noopener noreferrer"
                                 >
                                     <AiFillInstagram
-                                        className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]"
+                                        className="bg-white text-black p-1 rounded cursor-pointer hover:bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#515bd4] hover:rounded-full hover:text-white transition duration-300"
                                         size={32}
                                     />
                                 </a>
@@ -96,7 +96,7 @@ const Footer = ({ services, subServices }) => {
                                     rel="noopener noreferrer"
                                 >
                                     <IoLogoTiktok
-                                        className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]"
+                                        className="bg-white text-black p-1 rounded cursor-pointer hover:bg-[#006AAB]  hover:rounded-full transition duration-300 hover:text-white"
                                         size={32}
                                     />
                                 </a>
@@ -106,7 +106,7 @@ const Footer = ({ services, subServices }) => {
                                     rel="noopener noreferrer"
                                 >
                                     <MdLocationOn
-                                        className="bg-white text-black p-1 rounded cursor-pointer hover:drop-shadow-[1px_-8px_6px_#006AAB]"
+                                        className="bg-white text-black p-1 rounded cursor-pointer hover:rounded-full transition duration-300 hover:bg-[#006AAB] hover:text-white"
                                         size={32}
                                     />
                                 </a>

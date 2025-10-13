@@ -22,9 +22,9 @@ const CanadianPathWays = () => {
         </div>
 
         {/* Programs Grid */}
-        <div className='grid sm:grid-cols-2 gap-8 md:gap-10 lg:px-12 md:py-4 mt-6'>
+        <div className='grid md:grid-cols-2 gap-8 md:gap-10 lg:px-12 md:py-4 mt-6'>
           {/* Federal Programs */}
-          <div className='relative bg-white hover:border border-gray-200 z-[999] rounded-xl cursor-pointer group'>
+          <div className='relative bg-white hover:border border-gray-200 z-[999] rounded-xl cursor-pointer group  hover:p-46 md:hover:py-52 lg:hover:p-0'>
             <img
               className='w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0 rounded-xl'
               src={FederalImg}
@@ -32,7 +32,7 @@ const CanadianPathWays = () => {
             />
             <div className='absolute top-0 left-0 w-full h-full p-6 flex flex-col justify-center gap-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100'>
               <h1 className='w-fit mx-auto text-2xl flex items-center gap-3'>
-                Federal Programs
+                <span className='flex-nowrap text-2xl font-extrabold'>Federal Programs</span>
                 <RiGovernmentLine className='group-hover:rotate-[360deg] group-hover:bg-[#006AAB] text-white p-2 text-[35px] rounded-full transition-transform duration-500' />
               </h1>
               <h5 className='text-center text-lg'>
@@ -48,15 +48,15 @@ const CanadianPathWays = () => {
           </div>
 
           {/* Provincial Programs */}
-          <div className='relative bg-white hover:border border-gray-200 z-[999] rounded-xl cursor-pointer group'>
+          <div className='relative bg-white hover:border border-gray-200 z-[999] rounded-xl cursor-pointer group hover:p-46 md:hover:py-32 lg:hover:p-0'>
             <img
               className='w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0 rounded-xl'
               src={ProvincialProgramsImg}
               alt="Provincial Programs"
             />
             <div className='absolute top-0 left-0 w-full h-full p-6 flex flex-col justify-center gap-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100'>
-              <h1 className='w-fit mx-auto text-2xl flex items-center gap-3'>
-                Provincial Programs
+              <h1 className='w-fit mx-auto  flex items-center  gap-3'>
+                <span className='flex-nowrap text-2xl font-extrabold'>Provincial Programs</span>
                 <TbCurrentLocation className='group-hover:rotate-[360deg] group-hover:bg-[#006AAB] text-white p-2 text-[35px] rounded-full transition-transform duration-500' />
               </h1>
               <h5 className='text-center text-lg'>
