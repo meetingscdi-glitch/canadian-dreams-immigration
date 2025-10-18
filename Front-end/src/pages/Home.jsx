@@ -1,6 +1,5 @@
 // src/pages/Home.jsx
 import React, { useEffect, useRef, useState } from 'react'
-import Navbar from '../components/Navbar'
 import BannerCarousel from '../components/BannerCarousel'
 import CanadianDreams from '../components/CanadianDreams'
 import WhyUs from '../components/WhyUs'
@@ -15,18 +14,19 @@ import Testimonial from '../components/Testimonial'
 import LatestNews from '../components/LatestNews'
 import Faq from '../components/Faq'
 import Form from '../components/Form'
-import ContactImg from '../assets/images/ContactImg.png'
-import Footer from '../components/Footer'
+import ContactImgModel from '../assets/images/ModelImg.jpg'
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { Link } from 'react-router-dom';
 import FadeInOnScroll from './FadeInOnScroll'
 import { IoIosArrowRoundForward } from "react-icons/io";
-import Email from '../assets/images/Email.jpg'
 import { RxCross2 } from "react-icons/rx";
-
-
-
+import { MdEmail } from 'react-icons/md';
+import { IoCall } from 'react-icons/io5';
+import { IoLocationSharp } from "react-icons/io5";
+import { TiSocialFacebook } from 'react-icons/ti';
+import { AiFillInstagram } from 'react-icons/ai';
+import { IoLogoTiktok } from 'react-icons/io5';
 const Home = () => {
     const headingRef = useRef();
     const subheadingRef = useRef();
@@ -85,22 +85,77 @@ const Home = () => {
                     onClick={hideController}
                 >
                     <div
-                        className="flex md:gap-6 justify-center p-6 w-full md:h-[40rem] max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl"
+                        className="flex md:gap-3 justify-center  w-full md:h-[40rem] max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="h-full w-1/2 rounded hidden md:block">
-                            <img className="w-full h-full object-cover rounded" src={ContactImg} alt="Email Banner" />
+                        <div className="h-full w-1/2 rounded hidden lg:block relative overflow-hidden">
+                            {/* Gradient overlay */}
+                            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#000000] to-transparentz-10 lg:p-9 flex flex-col items-center justify-center">
+                                <FadeInOnScroll>
+                                    <h5 className='text-white'>Have a question or need more information? We’re here to help! Reach out to us through any of the following ways:</h5>
+                                <div className='flex flex-col gap-5  mt-6'>
+                                    <div className="flex items-center gap-3">
+                                        <MdEmail className='text-white text-[10px] sm:text-[28px]' />
+                                        <a href="mailto:Canadiandreamsimmigration@gmail.com" className="text-lg poppins-regular text-white transition-colors">
+                                            Canadiandreamsimmigration@gmail.com
+                                        </a>
+                                    </div>
+                                    <div className="flex  text-white">
+                                        <IoCall className='text-[10px] sm:text-[28px] mr-2' />
+                                        <a href="tel:+14164343155" className="text-[11px] sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                                            +1 (416) 434-3155,
+                                        </a>
+                                        <a href="tel:+16475109350" className="text-[11px] sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
+                                            +1 (647) 510-9350,
+                                        </a>
+
+                                    </div>
+                                    <div>
+                                        <h4 className='text-white flex  gap-1 text-base'><IoLocationSharp className='text-2xl' />200-7404 King George Blvd, Unit 246, Surrey, B.C,</h4>
+                                    </div>
+                                    <div>
+                                        <h4 className='text-white flex  text-base gap-1'><IoLocationSharp className='text-2xl' />5-B Conestoga Dr, Brampton, ON L6Z 4N5, Canada,</h4>
+                                    </div>
+                                    <div>
+                                        <h5 className='text-white ml-1'>Connect Us On :</h5>
+                                        <div className='flex mt-3'>
+                                            <a href="https://www.facebook.com/share/1M6rNDDtyZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className='hover:bg-[#108CEC] p-1 hover:text-white  text-white rounded-full'>
+                                                <TiSocialFacebook size={28} className='hover:rotate-360 duration-500 transition' />
+                                            </a>
+                                            <a href="https://www.instagram.com/canadian.dreams.immigration?igsh=Zm5zcXR0dTNvdTJu" target="_blank" rel="noopener noreferrer" className='hover:bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#515bd4] p-1.5 rounded-full' >
+                                                <AiFillInstagram size={28} className="hover:rotate-360 duration-500 transition text-white" />
+                                            </a>
+                                            <a href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1" target="_blank" rel="noopener noreferrer" className='hover:bg-gradient-to-tr from-[#25F4EE] via-[#000000] to-[#FE2C55] p-1 hover:text-white  text-white rounded-full'>
+                                                <IoLogoTiktok size={28} className="hover:rotate-360 duration-500 transition" />
+                                            </a>
+                                            <a href="https://maps.app.goo.gl/6urHVPQhfNLVmSoV6" target="_blank" rel="noopener noreferrer" className='hover:bg-white hover:text-[#006AAB] p-1  text-white rounded-full'>
+                                                <IoLocationSharp size={28} className="hover:rotate-360 duration-300 transition" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                </FadeInOnScroll>
+                            </div>
+
+
+                            {/* Image */}
+                            <img
+                                className="w-full h-full object-cover rounded"
+                                src={ContactImgModel}
+                                alt="Email Banner"
+                            />
                         </div>
 
-                        <div className='px-2 w-full md:w-1/2 relative'>
-                            <div className='flex items-center justify-center md:mt-4 absolute right-1 md:-right-2 md:-top-7 -top-3'>
+
+                        <div className='px-7 py-4  lg:px-4 md:py-0 w-full lg:w-1/2 relative'>
+                            <div className='flex items-center justify-center mt-4 absolute right-6 lg:right-2 lg:-top-2 -top-1'>
                                 <RxCross2
                                     className='text-[#006AAB] cursor-pointer'
                                     size={32}
                                     onClick={hideController}
                                 />
                             </div>
-                            <div>
+                            <div className='mt-8'>
                                 <Form onSuccess={() => setHide(false)} />
                             </div>
                         </div>
