@@ -38,7 +38,7 @@ const Footer = ({ services, subServices }) => {
     };
 
     return (
-        <div className="md:mt-20 w-full h-full text-white relative mt-12 bg-black pb-2">
+        <div className="md:mt-20 w-full h-full text-white relative mt-12 bg-[#000000] pb-12 ">
             {/* Banner */}
             <div className="absolute md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 mx-5 md:mx-0 px-5 sm:ml-14 py-5 md:ml-0 bg-[#006AAB] sm:px-4 md:px-12 sm:py-6 sm:w-5/6 md:w-5/6 lg:w-3/4 xl:w-2/3 rounded-xl md:py-8 flex justify-between gap-4 z-10">
                 <div>
@@ -55,10 +55,10 @@ const Footer = ({ services, subServices }) => {
             </div>
 
             {/* Background Image */}
-            <img src={FooterImg} alt="Footer Background" className="w-full h-full object-cover hidden xl:block pb-20 xl:pb-0 footerimg" />
+            <img src={FooterImg} alt="Footer Background" className="w-full h-full object-cover hidden xl:block  footerimg" />
 
             {/* Footer Content */}
-            <div className="absolute xl:top-28 lg:top-2 left-0 right-0 md:px-8 xl:px-0 xl:container xl:mx-auto bg-[#000000] xl:bg-transparent pt-14 md:pt-28 lg:pt-28 xl:pt-0">
+            <div className="absolute xl:top-28 lg:top-2 left-0 right-0 md:px-8 xl:px-0 xl:container xl:mx-auto bg-[#000000] xl:bg-transparent pt-14 md:pt-28 lg:pt-28 xl:pt-0 ">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full xl:justify-between mx-auto xl:gap-4 lg:gap-y-12 md:px-0 py-5 md:py-0">
 
                     {/* Logo & Social */}
@@ -197,6 +197,12 @@ const Footer = ({ services, subServices }) => {
                             {staticText.contactDetails.address}
                         </h5>
                         <h5 className="poppins-regular md:text-lg text-sm mt-5 flex flex-wrap items-start gap-2">
+                            <h5 className="poppins-regular md:text-md text-sm flex items-start -ml-1.5 gap-2">
+                                <IoLocationSharp className="xl:text-3xl text-2xl shrink-0" />
+                                {staticText.contactDetails.address2}
+                            </h5>
+                        </h5>
+                        <h5 className="poppins-regular md:text-lg text-sm mt-5 flex flex-wrap items-start gap-2">
                             <MdEmail className="xl:text-3xl text-2xl shrink-0" />
                             <a href={`mailto:${staticText.contactDetails.email}`} className="transition-colors  text-sm break-words max-w-[200px] w-full">
                                 {staticText.contactDetails.email}
@@ -230,7 +236,7 @@ const Footer = ({ services, subServices }) => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default Footer;

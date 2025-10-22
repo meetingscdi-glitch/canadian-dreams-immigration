@@ -40,6 +40,7 @@ export const staticText = {
   // Contact information
   contactDetails: {
     address: "200-7404 King George Blvd, Unit 246, Surrey, B.C",
+    address2: "5-B Conestoga Dr, Brampton, ON L6Z 4N5, Canada",
     phone: [
       "+1 (416) 434-3155",
       "+1 (647) 510-9350",
