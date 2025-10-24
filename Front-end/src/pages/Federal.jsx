@@ -91,14 +91,14 @@ const Federal = () => {
             <div className="mt-5 sm:mt-10 mx-auto w-fit grid sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 xl:gap-x-10 gap-y-12 md:px-6 px-3 xl:px-0">
                 {Cardsdata.map((items, index) => (
                    <FadeInOnScroll>
-                     <div key={index} className="max-w-sm bg-white rounded-lg shadow-md flex flex-col overflow-hidden cursor-pointer hover:scale-110 transition duration-500">
+                     <div key={index} className="max-w-sm bg-white rounded-lg shadow-md flex flex-col overflow-hidden cursor-pointer hover:scale-110 transition duration-500 sm:min-h-[370px] md:min-h-[340px] lg:min-h-[380px] xl:min-h-[350px]">
                         <img
                             src={items.Img}
                             alt="Program Image"
-                            className="w-full h-48 object-cover"
+                            className="w-full h-48 object-cover lg:relative"
                         />
 
-                        <div className="p-5 flex flex-col justify-between flex-grow">
+                        <div className="p-5 flex flex-col justify-between xl:flex-grow">
                             <h2 className="text-lg font-semibold text-gray-800">
                                 {items.Link}
                             </h2>
@@ -106,7 +106,7 @@ const Federal = () => {
                                 href={items.BtnLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-[#006AAB] inline-block text-white text-sm px-4 py-2 rounded-lg hover:bg-[#064268] transition-colors duration-200 mt-3 w-fit"
+                                className="bg-[#006AAB] inline-block text-white text-sm px-4 py-2 rounded-lg hover:bg-[#064268] transition-colors duration-200 mt-3 w-fit lg:absolute lg:bottom-9 xl:static"
                             >
                                 Explore Program
                             </a>

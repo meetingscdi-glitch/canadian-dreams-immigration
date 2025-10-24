@@ -555,7 +555,7 @@ const ProvincialPathways = () => {
         <div className="mt-5 sm:mt-10 mx-auto w-fit grid sm:grid-cols-2 sm:gap-8 lg:grid-cols-3 lg:gap-10 xl:grid-cols-4 xl:gap-x-10 gap-y-12 md:px-6 px-3 xl:px-0">
           {currentCards.map((items, index) => (
             <FadeInOnScroll>
-              <div key={index} className="max-w-sm bg-white rounded-lg shadow-md flex flex-col overflow-hidden cursor-pointer hover:scale-110 transition duration-500">
+              <div key={index} className="max-w-sm bg-white rounded-lg shadow-md flex flex-col overflow-hidden cursor-pointer hover:scale-110 transition duration-500 md:min-h-[390px]">
               <img
                 src={items.Img}
                 alt="Program Image"
