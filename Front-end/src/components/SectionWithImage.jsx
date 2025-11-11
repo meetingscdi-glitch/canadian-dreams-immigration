@@ -1,10 +1,12 @@
 import React from 'react'
 import AboutImg from '../assets/images/AboutUs.png'
-import EmployerImg from '../assets/images/Employer.webp'
 import ContactImg from '../assets/images/ContactImg.webp'
-import ServicesImg from '../assets/images/StudyApplication.png'
+import ServicesImg from '../assets/images/Service.png'
 import Micgirl from '../assets/smallimages/MicGirl.png'
-import CanadianPathWays from '../assets/images/CanadianPathWays.jpg'
+import EmployerImg from '../assets/images/Employer.png'
+import CanadianPathWays from '../assets/images/image.png'
+import Federal from '../assets/images/Federal (2).png'
+import Blog from '../assets/images/Blog.png'
 import { useLocation } from 'react-router-dom'
 const SectionWithImage = () => {
     const location = useLocation();
@@ -20,19 +22,19 @@ const SectionWithImage = () => {
             heading: 'Study Application'
         },
         '/canadian-pathways': {
-            image: AboutImg,
+            image: CanadianPathWays,
             heading: 'Canadian-Pathways'
         },
         '/canadian-pathways-federal': {
-            image: ContactImg,
+            image: Federal,
             heading: 'Federal Pathways'
         },
         '/canadian-pathways-provincial': {
-            image: ContactImg,
+            image: Federal,
             heading: 'Provincial Pathways'
         },
         '/blog': {
-            image: AboutImg,
+            image: Blog,
             heading: 'Blog'
         },
         '/contact-us': {
@@ -40,7 +42,7 @@ const SectionWithImage = () => {
             heading: 'Contact Us'
         },
         '/employer': {
-            image: AboutImg,
+            image: EmployerImg,
             heading: 'Employer'
         },
         '/privacy-policy': {
