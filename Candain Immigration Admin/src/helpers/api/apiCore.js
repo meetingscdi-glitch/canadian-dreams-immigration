@@ -216,7 +216,7 @@ class APICore {
             alert('Your session has expired. Redirecting you to the login page.');
             sessionStorage.removeItem(AUTH_SESSION_KEY);
             localStorage.clear();
-            window.location.href = '/login';
+            window.location.href = '/account/login';
             return false;
         } else {
             return true;

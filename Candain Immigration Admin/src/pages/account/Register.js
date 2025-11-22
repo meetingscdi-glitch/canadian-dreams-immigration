@@ -24,7 +24,7 @@ const BottomLink = () => {
             <Col className="text-center">
                 <p className="text-muted">
                     {t('Already have account?')}{' '}
-                    <Link to={'/login'} className="text-muted ms-1">
+                    <Link to={'/account/login'} className="text-muted ms-1">
                         <b>{t('Log In')}</b>
                     </Link>
                 </p>
@@ -67,7 +67,7 @@ const Register = (): React$Element<React$FragmentType> => {
 
     return (
         <>
-            {userSignUp ? <Navigate to={'/confirm'} /> : null}
+            {userSignUp ? <Navigate to={'/account/confirm'} /> : null}
 
             <AccountLayout bottomLinks={<BottomLink />}>
                 <div className="text-center w-75 m-auto">
