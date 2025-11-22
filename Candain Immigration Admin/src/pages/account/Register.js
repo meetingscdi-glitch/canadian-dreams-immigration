@@ -67,7 +67,7 @@ const Register = (): React$Element<React$FragmentType> => {
 
     return (
         <>
-            {userSignUp ? <Navigate to={'/account/confirm'} /> : null}
+            {userSignUp ? <Navigate to={'/confirm'} /> : null}
 
             <AccountLayout bottomLinks={<BottomLink />}>
                 <div className="text-center w-75 m-auto">
