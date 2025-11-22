@@ -8,7 +8,7 @@ var cors = require('cors')
 
 app.use(express.json());
 app.use(cors({
-  origin: "http://34.227.221.169",
+  origin: "*",
 }));
 connectDb();
 app.use(routes);

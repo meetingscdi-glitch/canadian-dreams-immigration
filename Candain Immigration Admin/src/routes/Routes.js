@@ -35,7 +35,7 @@ const ActionButtonWrapper = () => {
   return <ActionButton />;
 };
     return (
-        <BrowserRouter >
+        <BrowserRouter basename="/account">
             <AllRoutes />
             <ActionButtonWrapper/>
         </BrowserRouter>
