@@ -73,7 +73,7 @@ const Navbar = ({ services, subServices }) => {
         try {
             setLoading(true); // start loader
 
-            const response = await fetch('http://34.227.221.169/api/calendly/create-link', {
+            const response = await fetch('https://canadiandreamsimmigration.com/api/calendly/create-link', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
