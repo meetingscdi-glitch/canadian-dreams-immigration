@@ -14,7 +14,7 @@ const ErrorPageNotFoundAlt = (): React$Element<React$FragmentType> => {
     const navigate = useNavigate()
     const handleBack = () => {
         sessionStorage.removeItem('mozimo_user');
-        navigate('/account/login')
+        navigate('/login')
         window.location.reload();
     }
     return (

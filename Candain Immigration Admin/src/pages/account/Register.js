@@ -24,7 +24,7 @@ const BottomLink = () => {
             <Col className="text-center">
                 <p className="text-muted">
                     {t('Already have account?')}{' '}
-                    <Link to={'/account/login'} className="text-muted ms-1">
+                    <Link to={'/login'} className="text-muted ms-1">
                         <b>{t('Log In')}</b>
                     </Link>
                 </p>
