@@ -24,7 +24,7 @@ const Confirm = (): React$Element<any> => {
                         )}
                     </p>
                     <p className="text-center">
-                        <Link className="btn btn-primary" to="/login">
+                        <Link className="btn btn-primary" to="/account/login">
                             {t('Back to Login')}
                         </Link>
                     </p>
