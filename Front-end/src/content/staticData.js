@@ -39,8 +39,8 @@ export const staticText = {
 
   // Contact information
   contactDetails: {
-    address: "200-7404 King George Blvd, Unit 246, Surrey, B.C",
-    address2: "5-B Conestoga Dr, Brampton, ON L6Z 4N5, Canada",
+    address: "5-B Conestoga Dr, Brampton, ON L6Z 4N5, Canada",
+    address2: "200-7404 King George Blvd, Unit 246, Surrey, B.C",
     phone: [
       "+1 (416) 434-3155",
       "+1 (647) 510-9350",
@@ -64,7 +64,7 @@ export const staticText = {
 
   // Legal disclaimers
   disclaimers: [
-    "ICWTT © 2024. All Rights Reserved.",
+    `CDI © ${new Date().getFullYear()}. All Rights Reserved.`,
     "Immigration rules change regularly. Always get current advice from licensed professionals.",
     "Government processing times and requirements can change without notice.",
     "Every case is unique - your results may vary based on your individual circumstances."
