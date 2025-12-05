@@ -227,7 +227,7 @@ const Footer = ({ services, subServices }) => {
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-600 sm:mt-8">
                     <div className="container mx-auto px-4 text-white py-4 flex items-center flex-col gap-4 md:flex-row justify-between">
-                        <p className="text-sm">ICWTT © 2024. All Rights Reserved.</p>
+                        <p className="text-sm">CDI © {new Date().getFullYear()}. All Rights Reserved.</p>
                         <div className="flex justify-center gap-4 text-sm">
                             <Link to="/privacy-policy">Privacy Policy</Link>
                             <Link to="/terms-and-condition">Terms & Conditions</Link>
