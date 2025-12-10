@@ -77,7 +77,7 @@ const Navbar = ({ services, subServices }) => {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    eventTypeUri: 'https://api.calendly.com/event_types/ecbed2b2-bddf-4cd3-b6f6-962ef18a0281'
+                    "eventTypeUri": "https://api.calendly.com/event_types/5bc1fec5-7871-4a8e-938b-a98d3418800f"
                 })
             });
 
@@ -157,7 +157,7 @@ const Navbar = ({ services, subServices }) => {
                     </div>
                     <div className="flex items-center gap-4 ">
                         <a href="https://www.facebook.com/share/1M6rNDDtyZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className='hover:bg-[#108CEC] p-1 hover:text-white  text-white rounded-full'>
-                            <TiSocialFacebook size={28}  className='hover:rotate-360 duration-500 transition'/>
+                            <TiSocialFacebook size={28} className='hover:rotate-360 duration-500 transition' />
                         </a>
                         <a href="https://www.instagram.com/canadian.dreams.immigration?igsh=Zm5zcXR0dTNvdTJu" target="_blank" rel="noopener noreferrer" className='hover:bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#515bd4] p-1.5 rounded-full' >
                             <AiFillInstagram size={28} className="hover:rotate-360 duration-500 transition" />
