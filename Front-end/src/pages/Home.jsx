@@ -85,7 +85,7 @@ const Home = () => {
                     onClick={hideController}
                 >
                     <div
-                        className="flex md:gap-3 justify-center  w-full md:h-[40rem] max-w-4xl rounded-3xl overflow-hidden bg-white shadow-xl"
+                        className="flex md:gap-3 justify-center w-full md:h-auto max-w-5xl rounded-3xl overflow-hidden bg-white shadow-xl max-h-[90vh] overflow-y-auto"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="h-full w-1/2 rounded hidden lg:block relative overflow-hidden">
