@@ -17,7 +17,8 @@ const Form = ({ onSuccess }) => {
         emailid: '',
         phone: '',
         role: 'Employer',
-        message: ''
+        message: '',
+        marketingConsent: false
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState('');
@@ -27,7 +28,8 @@ const Form = ({ onSuccess }) => {
         emailiderror: '',
         phonenoerror: '',
         roleerror: '',
-        messageerror: ''
+        messageerror: '',
+        consentError: ''
     });
 
     const errorhandler = () => {
@@ -58,6 +60,9 @@ const Form = ({ onSuccess }) => {
             error.messageerror = 'Message is required';
         } else if (Number(formdata.message)) {
             error.messageerror = "Enter a valid message";
+        }
+        if (!formdata.marketingConsent) {
+            error.consentError = 'You must consent to receive messages';
         }
 
         setErrors(error);
@@ -92,7 +97,8 @@ const Form = ({ onSuccess }) => {
                     email: formdata.emailid,
                     phoneNumber: formdata.phone,
                     role: formdata.role,
-                    message: formdata.message
+                    message: formdata.message,
+                    marketingConsent: formdata.marketingConsent
                 });
 
                 setSubmitMessage('Message sent successfully!');
@@ -103,7 +109,8 @@ const Form = ({ onSuccess }) => {
                     emailid: '',
                     phone: '',
                     role: 'Employer',
-                    message: ''
+                    message: '',
+                    marketingConsent: false
                 });
                 setErrors({
                     firstnameerror: '',
@@ -111,7 +118,8 @@ const Form = ({ onSuccess }) => {
                     emailiderror: '',
                     phonenoerror: '',
                     roleerror: '',
-                    messageerror: ''
+                    messageerror: '',
+                    consentError: ''
                 });
 
                 // ✅ Close modal after 1.5 seconds
@@ -221,6 +229,25 @@ const Form = ({ onSuccess }) => {
                     className='w-full focus:outline-none border-[#D4D4D4] border py-4 px-2 resize-none rounded h-24 text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                 />
                 {errors.messageerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.messageerror}</h4>}
+            </div>
+
+            <div className='mt-6' ref={el => fieldsRef.current[6] = el}>
+                <div className='flex items-start gap-3'>
+                    <input
+                        type="checkbox"
+                        id="marketingConsent"
+                        checked={formdata.marketingConsent}
+                        onChange={(e) => setFormData({ ...formdata, marketingConsent: e.target.checked })}
+                        className='mt-0.5 w-4 h-4 flex-shrink-0 accent-[#006AAB] cursor-pointer'
+                    />
+                    <label htmlFor="marketingConsent" className='text-xs leading-relaxed text-gray-700 cursor-pointer'>
+                        By checking this box, I consent to receive marketing and promotional messages, including special offers, discounts, product updates among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out. <span className='text-red-600'>*</span>
+                    </label>
+                </div>
+                {errors.consentError && <h4 className='text-xs text-red-600 ml-7 mt-1'>{errors.consentError}</h4>}
+                <div className='text-center text-xs text-gray-600 mt-4'>
+                    By submitting this form, you agree to our <a href='/privacy-policy' target='_blank' rel='noopener noreferrer' className='text-[#006AAB] hover:underline font-medium'>Privacy Policy</a>
+                </div>
             </div>
 
             {submitMessage && (
