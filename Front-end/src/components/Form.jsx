@@ -241,7 +241,7 @@ const Form = ({ onSuccess }) => {
                         className='mt-0.5 w-4 h-4 flex-shrink-0 accent-[#006AAB] cursor-pointer'
                     />
                     <label htmlFor="marketingConsent" className='text-xs leading-relaxed text-gray-700 cursor-pointer'>
-                        By checking this box, I consent to receive marketing and promotional messages, including special offers, discounts, product updates among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out. <span className='text-red-600'>*</span>
+                        By checking this box, I consent to receive marketing and appointment messages, including special offers, discounts, product updates among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out. <span className='text-red-600'>*</span>
                     </label>
                 </div>
                 {errors.consentError && <h4 className='text-xs text-red-600 ml-7 mt-1'>{errors.consentError}</h4>}
