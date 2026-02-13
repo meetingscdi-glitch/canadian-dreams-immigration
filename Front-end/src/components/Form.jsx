@@ -18,6 +18,7 @@ const Form = ({ onSuccess }) => {
         phone: '',
         role: 'Employer',
         message: '',
+        nonMarketingConsent: false,
         marketingConsent: false
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,7 +30,8 @@ const Form = ({ onSuccess }) => {
         phonenoerror: '',
         roleerror: '',
         messageerror: '',
-        consentError: ''
+        nonMarketingConsentError: '',
+        marketingConsentError: ''
     });
 
     const errorhandler = () => {
@@ -61,8 +63,11 @@ const Form = ({ onSuccess }) => {
         } else if (Number(formdata.message)) {
             error.messageerror = "Enter a valid message";
         }
+        if (!formdata.nonMarketingConsent) {
+            error.nonMarketingConsentError = 'You must consent to receive non-marketing messages';
+        }
         if (!formdata.marketingConsent) {
-            error.consentError = 'You must consent to receive messages';
+            error.marketingConsentError = 'You must consent to receive marketing messages';
         }
 
         setErrors(error);
@@ -98,6 +103,7 @@ const Form = ({ onSuccess }) => {
                     phoneNumber: formdata.phone,
                     role: formdata.role,
                     message: formdata.message,
+                    nonMarketingConsent: formdata.nonMarketingConsent,
                     marketingConsent: formdata.marketingConsent
                 });
 
@@ -110,6 +116,7 @@ const Form = ({ onSuccess }) => {
                     phone: '',
                     role: 'Employer',
                     message: '',
+                    nonMarketingConsent: false,
                     marketingConsent: false
                 });
                 setErrors({
@@ -119,7 +126,8 @@ const Form = ({ onSuccess }) => {
                     phonenoerror: '',
                     roleerror: '',
                     messageerror: '',
-                    consentError: ''
+                    nonMarketingConsentError: '',
+                    marketingConsentError: ''
                 });
 
                 // ✅ Close modal after 1.5 seconds
@@ -235,18 +243,31 @@ const Form = ({ onSuccess }) => {
                 <div className='flex items-start gap-3'>
                     <input
                         type="checkbox"
+                        id="nonMarketingConsent"
+                        checked={formdata.nonMarketingConsent}
+                        onChange={(e) => setFormData({ ...formdata, nonMarketingConsent: e.target.checked })}
+                        className='mt-0.5 w-4 h-4 flex-shrink-0 accent-[#006AAB] cursor-pointer'
+                    />
+                    <label htmlFor="nonMarketingConsent" className='text-xs leading-relaxed text-gray-700 cursor-pointer'>
+                        I consent to receive non-marketing text messages from <b>Canadian Dreams Immigration</b> regarding application status updates, document requests, appointment reminders, order updates, or service notifications. Message frequency varies, message & data rates may apply. Reply HELP for assistance, reply STOP to opt out.<span className='text-red-600'>*</span>
+                    </label>
+                </div>
+                {errors.nonMarketingConsentError && <h4 className='text-xs text-red-600 ml-7 mt-1'>{errors.nonMarketingConsentError}</h4>}
+                <div className='flex items-start gap-3 mt-3'>
+                    <input
+                        type="checkbox"
                         id="marketingConsent"
                         checked={formdata.marketingConsent}
                         onChange={(e) => setFormData({ ...formdata, marketingConsent: e.target.checked })}
                         className='mt-0.5 w-4 h-4 flex-shrink-0 accent-[#006AAB] cursor-pointer'
                     />
                     <label htmlFor="marketingConsent" className='text-xs leading-relaxed text-gray-700 cursor-pointer'>
-                        By checking this box, I consent to receive marketing and appointment messages, including special offers, discounts, product updates among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out. <span className='text-red-600'>*</span>
+                        I consent to receive marketing text messages from <b>Canadian Dreams Immigration</b> regarding promotional offers, immigration program updates, consultation discounts, service announcements, and special campaigns. Message frequency varies, message & data rates may apply. Reply HELP for assistance, reply STOP to opt out.<span className='text-red-600'>*</span>
                     </label>
                 </div>
-                {errors.consentError && <h4 className='text-xs text-red-600 ml-7 mt-1'>{errors.consentError}</h4>}
+                {errors.marketingConsentError && <h4 className='text-xs text-red-600 ml-7 mt-1'>{errors.marketingConsentError}</h4>}
                 <div className='text-center text-xs text-gray-600 mt-4'>
-                    By submitting this form, you agree to our <a href='/privacy-policy' target='_blank' rel='noopener noreferrer' className='text-[#006AAB] hover:underline font-medium'>Privacy Policy</a>
+                    By submitting this form, you agree to our <a href='/terms-and-condition' target='_blank' rel='noopener noreferrer' className='text-[#006AAB] hover:underline font-medium'>Terms and Conditions</a> | <a href='/privacy-policy' target='_blank' rel='noopener noreferrer' className='text-[#006AAB] hover:underline font-medium'>Privacy Policy</a>
                 </div>
             </div>
 

@@ -26,7 +26,8 @@ const Contact = () => {
             <div className='rounded-2xl p-5 py-8 border-1 min-h-[8rem] border-[#006AAB] flex items-center gap-2 justify-center flex-col hover:bg-[#006AAB] hover:text-white group transition duration-300 ease-in-out cursor-pointer'>
               <h1 className='md:text-5xl text-4xl text-[#006AAB]'><IoLocationSharp className='group-hover:text-white' /></h1>
               <h3 className='text-2xl'>Location</h3>
-              <h4 className='text-center text-lg break-words w-full'>5-B Conestoga Dr, Brampton, ON L6Z 4N5, Canada</h4>
+              <h4 className='text-center text-lg break-words w-full'>200-7404 King George Blvd, Unit 246, Surrey, B.C</h4>
+              <h4 className='text-center text-lg break-words w-full mt-2'>5-B Conestoga Dr, Brampton, ON L6Z 4N5, Canada</h4>
             </div>
             <div className='rounded-2xl p-5 py-8 border-1 min-h-[8rem] border-[#006AAB] flex items-center gap-2 justify-center flex-col hover:bg-[#006AAB] hover:text-white group transition duration-300 ease-in-out cursor-pointer'>
               <h1 className='md:text-5xl text-4xl text-[#006AAB]'><IoCall className='group-hover:text-white' /></h1>

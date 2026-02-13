@@ -14,11 +14,42 @@ const TermsAndCondition = () => {
                     <FadeInOnScroll>
                         <div>
                             <h1 className='md:text-3xl text-2xl'>Terms and Conditions</h1>
-                            <h4 className='text-lg md:text-xl mt-3 mb-3 text-[#2D2B2B] leading-6'>Effective Date: [Insert Date]</h4>
+                            <h4 className='text-lg md:text-xl mt-3 mb-3 text-[#2D2B2B] leading-6'>Effective Date: 15th April 2025</h4>
                             <h4 className='text-base md:text-lg text-[#2D2B2B]'>
                                 Please read these Terms and Conditions ("Terms") carefully before using the services offered by Canadian Immigration ("we", "our", or "us").
                                 By accessing our website or using our immigration services, you agree to be bound by these Terms.
                             </h4>
+                        </div>
+                    </FadeInOnScroll>
+
+                    <FadeInOnScroll>
+                        <div>
+                            <h1 className='md:text-3xl text-2xl'>Terms of Service</h1>
+                            <h4 className='text-lg md:text-xl mt-3 text-[#2D2B2B]'>Terms of Service must have the following:</h4>
+                            <h4 className='text-lg mt-3 text-[#2D2B2B]'>Canadian Dreams Immigration</h4>
+                            <ul style={{ listStyleType: 'disc', marginLeft: '2rem' }}>
+                                <li className='text-lg text-[#2D2B2B] mt-2'>Users can expect to receive application status updates, document requests, appointment reminders, order updates, service notifications, promotional offers, immigration program updates, consultation discounts, service announcements, and special campaigns.</li>
+                                <li className='text-lg text-[#2D2B2B] mt-2'>You can cancel the SMS service at any time. Just text "STOP" to the phone number from which you received the message. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
+                                <li className='text-lg text-[#2D2B2B] mt-2'>
+                                    If you are experiencing issues with the messaging program, reply with the keyword HELP for more assistance, or contact us directly at{" "}
+                                    <a
+                                        href="mailto:Canadiandreamsimmigration@gmail.com"
+                                        className="font-bold underline"
+                                    >
+                                        Canadiandreamsimmigration@gmail.com
+                                    </a>{" "}
+                                    or{" "}
+                                    <a
+                                        href="tel:+14164343155"
+                                        className="font-bold underline"
+                                    >
+                                        +1 (416) 434-3155
+                                    </a>.
+                                </li>
+                                <li className='text-lg text-[#2D2B2B] mt-2'>Carriers are not liable for delayed or undelivered messages</li>
+                                <li className='text-lg text-[#2D2B2B] mt-2'>Message and data rates may apply for any messages sent to you from us and to us from you. Message frequency varies. If you have any questions about your text plan or data plan, contact your wireless provider.</li>
+                                <li className='text-lg text-[#2D2B2B] mt-2'>If you have any questions regarding privacy, please read our privacy policy: <a href='/privacy-policy' className='text-[#006AAB] hover:underline font-medium'>Privacy Policy</a></li>
+                            </ul>
                         </div>
                     </FadeInOnScroll>
 
@@ -145,7 +176,8 @@ const TermsAndCondition = () => {
                             </h4>
                             <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Email: Canadiandreamsimmigration@gmail.com</h4>
                             <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Phone: +1 (416) 434-3155</h4>
-                            <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Address: 200- 7404 king george blvd , Unit -246Surrey , B.C</h4>
+                            <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Address: 200-7404 King George Blvd, Unit 246, Surrey, B.C</h4>
+                            <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>5-B Conestoga Dr, Brampton, ON L6Z 4N5, Canada</h4>
                         </div>
                     </FadeInOnScroll>
 

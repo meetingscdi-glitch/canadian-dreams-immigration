@@ -65,6 +65,15 @@ const Policy = () => {
 
           <FadeInOnScroll>
             <div>
+              <h1 className='md:text-3xl text-2xl'>Non-sharing Clause</h1>
+              <h4 className='text-base md:text-lg mt-3 text-[#2D2B2B] leading-6'>
+                No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. Information sharing to subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+              </h4>
+            </div>
+          </FadeInOnScroll>
+
+          <FadeInOnScroll>
+            <div>
               <h1 className='md:text-3xl text-2xl'>Data Security</h1>
               <h4 className='text-base md:text-lg mt-3 text-[#2D2B2B] leading-6'>
                 We take data protection seriously. Your information is stored securely with safeguards against unauthorized access, loss, or misuse.
@@ -113,9 +122,28 @@ const Policy = () => {
             <div>
               <h1 className='md:text-3xl text-2xl'>Contact Us</h1>
               <h4 className='text-base md:text-lg mt-3 text-[#2D2B2B]'>If you have any questions or concerns about this Privacy Policy, please contact us at:</h4>
-              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Email: Canadiandreamsimmigration@gmail.com</h4>
-              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Phone: +1 (416) 434-3155</h4>
-              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Address: 200- 7404 king george blvd , Unit -246Surrey , B.C</h4>
+              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>
+                Email:{" "}
+                <a
+                  href="mailto:Canadiandreamsimmigration@gmail.com"
+                  className="underline font-medium"
+                >
+                  Canadiandreamsimmigration@gmail.com
+                </a>
+              </h4>
+
+              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>
+                Phone:{" "}
+                <a
+                  href="tel:+14164343155"
+                  className="underline font-medium"
+                >
+                  +1 (416) 434-3155
+                </a>
+              </h4>
+
+              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>Address: 200-7404 King George Blvd, Unit 246, Surrey, B.C</h4>
+              <h4 className='text-base md:text-lg mt-2 text-[#2D2B2B]'>5-B Conestoga Dr, Brampton, ON L6Z 4N5, Canada</h4>
             </div>
           </FadeInOnScroll>
 
