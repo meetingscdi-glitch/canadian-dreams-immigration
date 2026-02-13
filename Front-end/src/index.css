@@ -225,7 +225,14 @@ span {
         min-height: 30rem;
     }
 }
-
+@media (max-width: 1116px) {
+    #PopUpIdPanel {
+        display: none;
+    }
+    #PopUpForm{
+        width:98%;
+    }
+}
 @media (max-width:508px) {
     .footerBaner {
         margin-left: 0px;
