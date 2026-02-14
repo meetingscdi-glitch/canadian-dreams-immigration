@@ -61,7 +61,7 @@ const Contact = () => {
                 <img className="w-full h-full bg-cover" src={ContactImg} alt="" />
               </div>
               <div className='p-6 bg-white xl:w-5/6 xl:ml-14 shadow-md rounded-lg py-8'>
-                <h5 className='lg:text-5xl  text-3xl'>Lets Get In Touch</h5>
+                <h5 className='lg:text-4xl  text-3xl'>Lets Get In Touch</h5>
                 <div>
                   {/* form */}
                   <Form />

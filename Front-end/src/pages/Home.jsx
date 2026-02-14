@@ -31,7 +31,7 @@ const Home = () => {
     const headingRef = useRef();
     const subheadingRef = useRef();
     const paragraphRef = useRef();
-    const [Hide, setHide] = useState(false)
+    const [Hide, setHide] = useState(true)
     const hideController = () => {
         setHide(false)
     }
@@ -81,62 +81,98 @@ const Home = () => {
 
             {Hide ? (
                 <div
-                    className='fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center md:px-12 px-6'
+                    className="fixed top-0 left-0 w-full h-screen backdrop-blur-md z-20 flex items-center justify-center md:px-12 px-6"
                     onClick={hideController}
                 >
+                    {/* md:h-[90vh] this is fixing the height of image */}
                     <div
-                        className="flex md:gap-3 justify-center w-full md:h-auto max-w-5xl rounded-3xl overflow-hidden bg-white shadow-xl max-h-[90vh] overflow-y-auto"
+                        className="flex justify-center lg:max-w-5xl rounded-3xl overflow-hidden bg-white shadow-xl"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <div className="h-full w-1/2 rounded hidden lg:block relative overflow-hidden">
+                        {/* Left side with image */}
+                        <div className="h-full w-1/2  rounded hidden lg:block relative overflow-hidden" id='PopUpIdPanel'>
                             {/* Gradient overlay */}
-                            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#000000] to-transparentz-10 lg:p-9 flex flex-col items-center justify-center">
+                            
+                            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#000000] to-transparent  z-10 lg:p-9 flex flex-col items-center justify-center" >
                                 <FadeInOnScroll>
-                                    <h5 className='text-white'>Have a question or need more information? We’re here to help! Reach out to us through any of the following ways:</h5>
-                                <div className='flex flex-col gap-5  mt-6'>
-                                    <div className="flex items-center gap-3">
-                                        <MdEmail className='text-white text-[10px] sm:text-[28px]' />
-                                        <a href="mailto:Canadiandreamsimmigration@gmail.com" className="text-lg poppins-regular text-white transition-colors">
-                                            Canadiandreamsimmigration@gmail.com
-                                        </a>
-                                    </div>
-                                    <div className="flex  text-white">
-                                        <IoCall className='text-[10px] sm:text-[28px] mr-2' />
-                                        <a href="tel:+14164343155" className="text-[11px] sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
-                                            +1 (416) 434-3155,
-                                        </a>
-                                        <a href="tel:+16475109350" className="text-[11px] sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors">
-                                            +1 (647) 510-9350,
-                                        </a>
-
-                                    </div>
-                                    <div>
-                                        <h4 className='text-white flex  gap-1 text-base'><IoLocationSharp className='text-2xl' />200-7404 King George Blvd, Unit 246, Surrey, B.C,</h4>
-                                    </div>
-                                    <div>
-                                        <h4 className='text-white flex  text-base gap-1'><IoLocationSharp className='text-2xl' />5-B Conestoga Dr, Brampton, ON L6Z 4N5, Canada,</h4>
-                                    </div>
-                                    <div>
-                                        <h5 className='text-white ml-1'>Connect Us On :</h5>
-                                        <div className='flex mt-3'>
-                                            <a href="https://www.facebook.com/share/1M6rNDDtyZ/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className='hover:bg-[#108CEC] p-1 hover:text-white  text-white rounded-full'>
-                                                <TiSocialFacebook size={28} className='hover:rotate-360 duration-500 transition' />
-                                            </a>
-                                            <a href="https://www.instagram.com/canadian.dreams.immigration?igsh=Zm5zcXR0dTNvdTJu" target="_blank" rel="noopener noreferrer" className='hover:bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#515bd4] p-1.5 rounded-full' >
-                                                <AiFillInstagram size={28} className="hover:rotate-360 duration-500 transition text-white" />
-                                            </a>
-                                            <a href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1" target="_blank" rel="noopener noreferrer" className='hover:bg-gradient-to-tr from-[#25F4EE] via-[#000000] to-[#FE2C55] p-1 hover:text-white  text-white rounded-full'>
-                                                <IoLogoTiktok size={28} className="hover:rotate-360 duration-500 transition" />
-                                            </a>
-                                            <a href="https://maps.app.goo.gl/6urHVPQhfNLVmSoV6" target="_blank" rel="noopener noreferrer" className='hover:bg-white hover:text-[#006AAB] p-1  text-white rounded-full'>
-                                                <IoLocationSharp size={28} className="hover:rotate-360 duration-300 transition" />
+                                    <h5 className="text-white">
+                                        Have a question or need more information? We’re here to help! Reach out to us through any of the following ways:
+                                    </h5>
+                                    <div className="flex flex-col gap-5 mt-6">
+                                        <div className="flex items-center gap-3">
+                                            <MdEmail className="text-white text-[10px] sm:text-[28px]" />
+                                            <a
+                                                href="mailto:Canadiandreamsimmigration@gmail.com"
+                                                className="text-lg poppins-regular text-white transition-colors"
+                                            >
+                                                Canadiandreamsimmigration@gmail.com
                                             </a>
                                         </div>
+                                        <div className="flex text-white">
+                                            <IoCall className="text-[10px] sm:text-[28px] mr-2" />
+                                            <a
+                                                href="tel:+14164343155"
+                                                className="text-[11px] sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors"
+                                            >
+                                                +1 (416) 434-3155,
+                                            </a>
+                                            <a
+                                                href="tel:+16475109350"
+                                                className="text-[11px] sm:text-base xl:text-lg lg:text-sm poppins-regular hover:text-blue-100 transition-colors"
+                                            >
+                                                +1 (647) 510-9350,
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white flex gap-1 text-base">
+                                                <IoLocationSharp className="text-2xl" />200-7404 King George Blvd, Unit 246, Surrey, B.C,
+                                            </h4>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-white flex text-base gap-1">
+                                                <IoLocationSharp className="text-2xl" />5-B Conestoga Dr, Brampton, ON L6Z 4N5, Canada,
+                                            </h4>
+                                        </div>
+                                        <div>
+                                            <h5 className="text-white ml-1">Connect Us On :</h5>
+                                            <div className="flex mt-3">
+                                                <a
+                                                    href="https://www.facebook.com/share/1M6rNDDtyZ/?mibextid=wwXIfr"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="hover:bg-[#108CEC] p-1 hover:text-white text-white rounded-full"
+                                                >
+                                                    <TiSocialFacebook size={28} className="hover:rotate-360 duration-500 transition" />
+                                                </a>
+                                                <a
+                                                    href="https://www.instagram.com/canadian.dreams.immigration?igsh=Zm5zcXR0dTNvdTJu"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="hover:bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#515bd4] p-1.5 rounded-full"
+                                                >
+                                                    <AiFillInstagram size={28} className="hover:rotate-360 duration-500 transition text-white" />
+                                                </a>
+                                                <a
+                                                    href="https://www.tiktok.com/@canadiandreams1?_t=ZS-9002oFxqNSq&_r=1"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="hover:bg-gradient-to-tr from-[#25F4EE] via-[#000000] to-[#FE2C55] p-1 hover:text-white text-white rounded-full"
+                                                >
+                                                    <IoLogoTiktok size={28} className="hover:rotate-360 duration-500 transition" />
+                                                </a>
+                                                <a
+                                                    href="https://maps.app.goo.gl/6urHVPQhfNLVmSoV6"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="hover:bg-white hover:text-[#006AAB] p-1 text-white rounded-full"
+                                                >
+                                                    <IoLocationSharp size={28} className="hover:rotate-360 duration-300 transition" />
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
                                 </FadeInOnScroll>
                             </div>
-
 
                             {/* Image */}
                             <img
@@ -146,22 +182,25 @@ const Home = () => {
                             />
                         </div>
 
-
-                        <div className='px-7 py-4  lg:px-4 md:py-0 w-full lg:w-1/2 relative'>
-                            <div className='flex items-center justify-center mt-4 absolute right-6 lg:right-2 lg:-top-2 -top-1'>
+                        {/* Right side with form */}
+                        <div className="h-full px-4 sm:px-7  lg:px-4 md:py-0 w-full lg:w-1/2 relative" id='PopUpForm'>
+                            <div className="flex items-center justify-center mt-4 absolute right-6 lg:right-4 lg:-top-1 -top-1">
                                 <RxCross2
-                                    className='text-[#006AAB] cursor-pointer'
-                                    size={32}
+                                    className="text-[#006AAB] cursor-pointer"
+                                    size={28}
                                     onClick={hideController}
                                 />
                             </div>
-                            <div className='mt-8'>
+                            <div className="mt-6 md:mt-8 h-full overflow-y-auto">
                                 <Form onSuccess={() => setHide(false)} />
                             </div>
                         </div>
                     </div>
                 </div>
             ) : null}
+
+
+
 
 
 
