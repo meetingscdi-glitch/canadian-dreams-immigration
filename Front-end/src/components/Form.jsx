@@ -18,6 +18,7 @@ const Form = ({ onSuccess }) => {
         phone: '',
         role: 'Employer',
         message: '',
+        nonMarketingConsent: false,
         marketingConsent: false
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,45 +30,59 @@ const Form = ({ onSuccess }) => {
         phonenoerror: '',
         roleerror: '',
         messageerror: '',
-        consentError: ''
+        nonMarketingConsentError: '',
+        marketingConsentError: ''
     });
 
     const errorhandler = () => {
         const error = {};
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
         if (!formdata.firstname.trim()) {
-            error.firstnameerror = 'First name is required';
+            error.firstnameerror = 'Required';
         } else if (Number(formdata.firstname)) {
-            error.firstnameerror = "Name can't be a number";
+            error.firstnameerror = 'Invalid';
+        } else if (!isNaN(formdata.firstname)) {
+            error.firstnameerror = 'Invalid';
         }
         if (!formdata.lastname.trim()) {
-            error.lastnameerror = 'Last name is required';
+            error.lastnameerror = 'Required';
         }
+
         if (!formdata.emailid.trim()) {
-            error.emailiderror = 'Email is required';
+            error.emailiderror = 'Required';
         } else if (!emailRegex.test(formdata.emailid)) {
-            error.emailiderror = "Enter a valid email";
+            error.emailiderror = 'Invalid';
         }
+
         if (!formdata.phone) {
-            error.phonenoerror = 'Phone number is required';
+            error.phonenoerror = 'Required';
         } else if (!isValidPhoneNumber(formdata.phone)) {
-            error.phonenoerror = 'Please enter a valid phone number for the selected country';
+            error.phonenoerror = 'Invalid';
         }
+
         if (!formdata.role.trim()) {
-            error.roleerror = 'Role is required';
+            error.roleerror = 'Required';
         }
+
         if (!formdata.message.trim()) {
-            error.messageerror = 'Message is required';
+            error.messageerror = 'Required';
         } else if (Number(formdata.message)) {
-            error.messageerror = "Enter a valid message";
+            error.messageerror = 'Invalid';
         }
+
+        if (!formdata.nonMarketingConsent) {
+            error.nonMarketingConsentError = 'Consent needed';
+        }
+
         if (!formdata.marketingConsent) {
-            error.consentError = 'You must consent to receive messages';
+            error.marketingConsentError = 'Consent needed';
         }
 
         setErrors(error);
         return error;
     };
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -98,6 +113,7 @@ const Form = ({ onSuccess }) => {
                     phoneNumber: formdata.phone,
                     role: formdata.role,
                     message: formdata.message,
+                    nonMarketingConsent: formdata.nonMarketingConsent,
                     marketingConsent: formdata.marketingConsent
                 });
 
@@ -110,6 +126,7 @@ const Form = ({ onSuccess }) => {
                     phone: '',
                     role: 'Employer',
                     message: '',
+                    nonMarketingConsent: false,
                     marketingConsent: false
                 });
                 setErrors({
@@ -119,7 +136,8 @@ const Form = ({ onSuccess }) => {
                     phonenoerror: '',
                     roleerror: '',
                     messageerror: '',
-                    consentError: ''
+                    nonMarketingConsentError: '',
+                    marketingConsentError: ''
                 });
 
                 // ✅ Close modal after 1.5 seconds
@@ -148,7 +166,7 @@ const Form = ({ onSuccess }) => {
 
     return (
         <form ref={formRef}>
-            <div className='grid sm:grid-cols-2 gap-5 mt-4'>
+            <div className='grid grid-cols-2 gap-3 mt-2 '>
                 <div className='flex flex-col' ref={el => fieldsRef.current[0] = el}>
                     <label htmlFor="">First Name <span className='text-red-600'>*</span></label>
                     <input
@@ -157,9 +175,9 @@ const Form = ({ onSuccess }) => {
                         type="text"
                         name="firstname"
                         placeholder="Enter First Name"
-                        className='px-3 border-1 py-3 rounded border-[#D4D4D4] focus:outline-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
+                        className='px-3 border-1 py-2 md:py-3 rounded border-[#D4D4D4] focus:outline-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                     />
-                    {errors.firstnameerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.firstnameerror}</h4>}
+                    {errors.firstnameerror && <h4 className='text-xs  flex  items-center text-red-600'><span className='text-red-600'>*</span>{errors.firstnameerror}</h4>}
                 </div>
                 <div className='flex flex-col' ref={el => fieldsRef.current[1] = el}>
                     <label htmlFor="">Last Name <span className='text-red-600'>*</span></label>
@@ -169,9 +187,9 @@ const Form = ({ onSuccess }) => {
                         type="text"
                         name="lastname"
                         placeholder="Enter Last Name"
-                        className='px-3 border-1 py-3 rounded border-[#D4D4D4] focus:outline-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
+                        className='px-3 border-1 py-2 md:py-3 rounded border-[#D4D4D4] focus:outline-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                     />
-                    {errors.lastnameerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.lastnameerror}</h4>}
+                    {errors.lastnameerror && <h4 className='text-xs flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.lastnameerror}</h4>}
                 </div>
                 <div className='flex flex-col' ref={el => fieldsRef.current[2] = el}>
                     <label htmlFor="">Email Id <span className='text-red-600'>*</span></label>
@@ -181,9 +199,9 @@ const Form = ({ onSuccess }) => {
                         type="email"
                         name="emailid"
                         placeholder="Enter Email Id"
-                        className='px-3 border-1 py-3 rounded border-[#D4D4D4] focus:outline-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
+                        className='px-3 border-1 py-2 md:py-3 rounded border-[#D4D4D4] focus:outline-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                     />
-                    {errors.emailiderror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.emailiderror}</h4>}
+                    {errors.emailiderror && <h4 className='text-xs flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.emailiderror}</h4>}
                 </div>
                 <div className='flex flex-col' ref={el => fieldsRef.current[3] = el}>
                     <label htmlFor="">Phone No. <span className='text-red-600'>*</span></label>
@@ -192,19 +210,19 @@ const Form = ({ onSuccess }) => {
                         value={formdata.phone}
                         onChange={(value) => setFormData({ ...formdata, phone: value })}
                         defaultCountry="CA"
-                        className='px-3 border-1 py-3 rounded border-[#D4D4D4] focus:outline-none transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
+                        className='px-3 border-1 py-2 md:py-3 rounded border-[#D4D4D4] focus:outline-none transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                     />
-                    {errors.phonenoerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.phonenoerror}</h4>}
+                    {errors.phonenoerror && <h4 className='text-xs flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.phonenoerror}</h4>}
                 </div>
             </div>
 
-            <div className='mt-4' ref={el => fieldsRef.current[4] = el}>
+            <div className='mt-2' ref={el => fieldsRef.current[4] = el}>
                 <label htmlFor="" className='-mb-3 block'>I am an <span className='text-red-600'>*</span></label>
                 <select
                     name="role"
                     onChange={handleChange}
                     value={formdata.role}
-                    className='focus:outline-none w-full mt-4 py-4 px-2 border-[#D4D4D4] border rounded appearance-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
+                    className='focus:outline-none w-full mt-4 py-2 md:py-4 px-2 border-[#D4D4D4] border rounded appearance-none text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                     style={{
                         backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>")`,
                         backgroundRepeat: "no-repeat",
@@ -216,37 +234,50 @@ const Form = ({ onSuccess }) => {
                     <option value="Job Seeker">Job Seeker</option>
                     <option value="Other">Other</option>
                 </select>
-                {errors.roleerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.roleerror}</h4>}
+                {errors.roleerror && <h4 className='text-xs flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.roleerror}</h4>}
             </div>
 
-            <div className='mt-4' ref={el => fieldsRef.current[5] = el}>
+            <div className='mt-2' ref={el => fieldsRef.current[5] = el}>
                 <label className='mb-1 block' htmlFor="">Message <span className='text-red-600'>*</span></label>
                 <textarea
                     onChange={handleChange}
                     value={formdata.message}
                     name="message"
                     placeholder="Type your message here"
-                    className='w-full focus:outline-none border-[#D4D4D4] border py-4 px-2 resize-none rounded h-24 text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
+                    className='w-full focus:outline-none border-[#D4D4D4] border pt-2 md:pt-0 md:py-4 px-2 resize-none rounded md:h-24 text-[#BDB6B6] transition-all duration-300 focus:border-[#006AAB] focus:shadow-lg'
                 />
-                {errors.messageerror && <h4 className='text-sm flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.messageerror}</h4>}
+                {errors.messageerror && <h4 className='text-xs flex items-center text-red-600'><span className='text-red-600'>*</span>{errors.messageerror}</h4>}
             </div>
 
-            <div className='mt-6' ref={el => fieldsRef.current[6] = el}>
-                <div className='flex items-start gap-3'>
+            <div className='md:mt-2 mt-3' ref={el => fieldsRef.current[6] = el}>
+                <div className='flex items-start md:gap-3 gap-2'>
+                    <input
+                        type="checkbox"
+                        id="nonMarketingConsent"
+                        checked={formdata.nonMarketingConsent}
+                        onChange={(e) => setFormData({ ...formdata, nonMarketingConsent: e.target.checked })}
+                        className='mt-0.5 md:w-4 md:h-4 flex-shrink-0 accent-[#006AAB] cursor-pointer'
+                    />
+                    <label htmlFor="nonMarketingConsent" className='text-xs leading-relaxed text-gray-700 cursor-pointer'>
+                        I consent to receive non‑marketing texts from <b>Canadian Dreams Immigration</b> about updates, reminders, and notifications. Msg & data rates may apply. Reply HELP for help, STOP to opt out.<span className='text-red-600'>*</span>
+                    </label>
+                </div>
+                {errors.nonMarketingConsentError && <h4 className='text-xs text-red-600 ml-7 mt-1'>{errors.nonMarketingConsentError}</h4>}
+                <div className='flex items-start md:gap-3 gap-2 mt-1.5'>
                     <input
                         type="checkbox"
                         id="marketingConsent"
                         checked={formdata.marketingConsent}
                         onChange={(e) => setFormData({ ...formdata, marketingConsent: e.target.checked })}
-                        className='mt-0.5 w-4 h-4 flex-shrink-0 accent-[#006AAB] cursor-pointer'
+                        className='mt-0.5 md:w-4 md:h-4 flex-shrink-0 accent-[#006AAB] cursor-pointer'
                     />
                     <label htmlFor="marketingConsent" className='text-xs leading-relaxed text-gray-700 cursor-pointer'>
-                        By checking this box, I consent to receive marketing and appointment messages, including special offers, discounts, product updates among others. Message frequency may vary. Message & Data rates may apply. Reply HELP for help or STOP to opt-out. <span className='text-red-600'>*</span>
+                        I consent to receive marketing texts from <b>Canadian Dreams Immigration</b> about offers, updates, discounts, and campaigns. Msg & data rates may apply. Reply HELP for help, STOP to opt out.<span className='text-red-600'>*</span>
                     </label>
                 </div>
-                {errors.consentError && <h4 className='text-xs text-red-600 ml-7 mt-1'>{errors.consentError}</h4>}
+                {errors.marketingConsentError && <h4 className='text-xs text-red-600 ml-7 mt-1'>{errors.marketingConsentError}</h4>}
                 <div className='text-center text-xs text-gray-600 mt-4'>
-                    By submitting this form, you agree to our <a href='/privacy-policy' target='_blank' rel='noopener noreferrer' className='text-[#006AAB] hover:underline font-medium'>Privacy Policy</a>
+                    By submitting this form, you agree to our <a href='/terms-and-condition' target='_blank' rel='noopener noreferrer' className='text-[#006AAB] hover:underline font-medium'>Terms and Conditions</a> | <a href='/privacy-policy' target='_blank' rel='noopener noreferrer' className='text-[#006AAB] hover:underline font-medium'>Privacy Policy</a>
                 </div>
             </div>
 
@@ -261,7 +292,7 @@ const Form = ({ onSuccess }) => {
                     ref={submitBtnRef}
                     onClick={submithandler}
                     disabled={isSubmitting}
-                    className={`sm:text-2xl text-lg px-4 py-2 mt-6 sm:mt-9 text-white rounded-xl transition-all duration-300 transform ${isSubmitting
+                    className={`sm:text-xl text-md px-4 py-2 mt-6 mb-3 ml-2.5 text-white rounded-xl transition-all duration-300 transform ${isSubmitting
                         ? 'bg-gray-400 cursor-not-allowed'
                         : 'bg-[#006AAB] hover:bg-[#1085ce] hover:shadow-lg active:scale-95'
                         } group-hover:bg-[#1085ce]`}
@@ -270,9 +301,9 @@ const Form = ({ onSuccess }) => {
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
 
-                <div className="bg-[#006AAB] absolute top-1/2 -translate-y-1/2 -right-4 border-2 border-white rounded-full group-hover:bg-[#1085ce] transition-all duration-300">
+                <div className="bg-[#006AAB] absolute top-1/2 md:-translate-y-1/2 -translate-y-[1.5rem] md:-right-4 -right-5 border-2 border-white rounded-full group-hover:bg-[#1085ce] transition-all duration-300">
                     <IoIosArrowRoundForward
-                        size={32}
+                        size={28}
                         className="text-white transition-all duration-300 group-hover:-rotate-45"
                     />
                 </div>
