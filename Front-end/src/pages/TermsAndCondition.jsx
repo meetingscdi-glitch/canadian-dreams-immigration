@@ -30,22 +30,26 @@ const TermsAndCondition = () => {
                             <ul style={{ listStyleType: 'disc', marginLeft: '2rem' }}>
                                 <li className='text-lg text-[#2D2B2B] mt-2'>Users can expect to receive application status updates, document requests, appointment reminders, order updates, service notifications, promotional offers, immigration program updates, consultation discounts, service announcements, and special campaigns.</li>
                                 <li className='text-lg text-[#2D2B2B] mt-2'>You can cancel the SMS service at any time. Just text "STOP" to the phone number from which you received the message. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
-                                <li className='text-lg text-[#2D2B2B] mt-2'>
+                                <li className="text-lg text-[#2D2B2B] mt-2">
                                     If you are experiencing issues with the messaging program, reply with the keyword HELP for more assistance, or contact us directly at{" "}
+
                                     <a
                                         href="mailto:Canadiandreamsimmigration@gmail.com"
-                                        className="font-bold underline"
+                                        className="underline font-semibold break-words sm:whitespace-nowrap"
                                     >
                                         Canadiandreamsimmigration@gmail.com
-                                    </a>{" "}
-                                    or{" "}
+                                    </a>
+
+                                    {" "}or{" "}
+
                                     <a
                                         href="tel:+14164343155"
-                                        className="font-bold underline"
+                                        className="underline font-semibold"
                                     >
                                         +1 (416) 434-3155
                                     </a>.
                                 </li>
+
                                 <li className='text-lg text-[#2D2B2B] mt-2'>Carriers are not liable for delayed or undelivered messages</li>
                                 <li className='text-lg text-[#2D2B2B] mt-2'>Message and data rates may apply for any messages sent to you from us and to us from you. Message frequency varies. If you have any questions about your text plan or data plan, contact your wireless provider.</li>
                                 <li className='text-lg text-[#2D2B2B] mt-2'>If you have any questions regarding privacy, please read our privacy policy: <a href='/privacy-policy' className='text-[#006AAB] hover:underline font-medium'>Privacy Policy</a></li>
